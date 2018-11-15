@@ -1,6 +1,6 @@
-﻿namespace QuanLyDiem.GUI
+﻿namespace QuanLyDiem.GUI.NVDT
 {
-    partial class FormViewGV
+    partial class ViewLopHP
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelButton = new System.Windows.Forms.Panel();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOut = new System.Windows.Forms.Button();
-            this.buttonInput = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonView = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelTree = new System.Windows.Forms.Panel();
@@ -50,57 +47,27 @@
             this.panel1.Controls.Add(this.panelButton);
             this.panel1.Controls.Add(this.panelData);
             this.panel1.Controls.Add(this.panelTree);
-            this.panel1.Location = new System.Drawing.Point(24, 29);
+            this.panel1.Location = new System.Drawing.Point(21, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1118, 707);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 2;
             // 
             // panelButton
             // 
-            this.panelButton.Controls.Add(this.buttonCancel);
-            this.panelButton.Controls.Add(this.buttonOut);
-            this.panelButton.Controls.Add(this.buttonInput);
-            this.panelButton.Controls.Add(this.buttonSave);
+            this.panelButton.Controls.Add(this.buttonView);
             this.panelButton.Location = new System.Drawing.Point(255, 617);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(857, 73);
             this.panelButton.TabIndex = 2;
             // 
-            // buttonCancel
+            // buttonView
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(699, 25);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(155, 23);
-            this.buttonCancel.TabIndex = 0;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // buttonOut
-            // 
-            this.buttonOut.Location = new System.Drawing.Point(173, 25);
-            this.buttonOut.Name = "buttonOut";
-            this.buttonOut.Size = new System.Drawing.Size(155, 23);
-            this.buttonOut.TabIndex = 0;
-            this.buttonOut.Text = "Xuất ra Excel";
-            this.buttonOut.UseVisualStyleBackColor = true;
-            // 
-            // buttonInput
-            // 
-            this.buttonInput.Location = new System.Drawing.Point(12, 25);
-            this.buttonInput.Name = "buttonInput";
-            this.buttonInput.Size = new System.Drawing.Size(155, 23);
-            this.buttonInput.TabIndex = 0;
-            this.buttonInput.Text = "Nhập từ Excel";
-            this.buttonInput.UseVisualStyleBackColor = true;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(538, 25);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(155, 23);
-            this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Lưu thay đổi";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonView.Location = new System.Drawing.Point(719, 27);
+            this.buttonView.Name = "buttonView";
+            this.buttonView.Size = new System.Drawing.Size(75, 23);
+            this.buttonView.TabIndex = 0;
+            this.buttonView.Text = "Xem";
+            this.buttonView.UseVisualStyleBackColor = true;
             // 
             // panelData
             // 
@@ -134,14 +101,14 @@
             this.treeView1.Size = new System.Drawing.Size(240, 645);
             this.treeView1.TabIndex = 0;
             // 
-            // FormViewGV
+            // ViewLopHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 789);
+            this.ClientSize = new System.Drawing.Size(1186, 745);
             this.Controls.Add(this.panel1);
-            this.Name = "FormViewGV";
-            this.Text = "FormViewGV";
+            this.Name = "ViewLopHP";
+            this.Text = "ViewLopHP";
             this.panel1.ResumeLayout(false);
             this.panelButton.ResumeLayout(false);
             this.panelData.ResumeLayout(false);
@@ -155,13 +122,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelButton;
+        private System.Windows.Forms.Button buttonView;
         private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.Panel panelTree;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonOut;
-        private System.Windows.Forms.Button buttonInput;
-        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panelTree;
         private System.Windows.Forms.TreeView treeView1;
     }
 }
