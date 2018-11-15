@@ -28,93 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelButton = new System.Windows.Forms.Panel();
-            this.buttonView = new System.Windows.Forms.Button();
-            this.panelData = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelTree = new System.Windows.Forms.Panel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panel1.SuspendLayout();
-            this.panelButton.SuspendLayout();
-            this.panelData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelTree.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panelButton);
-            this.panel1.Controls.Add(this.panelData);
-            this.panel1.Controls.Add(this.panelTree);
-            this.panel1.Location = new System.Drawing.Point(21, 22);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 707);
-            this.panel1.TabIndex = 2;
-            // 
-            // panelButton
-            // 
-            this.panelButton.Controls.Add(this.buttonView);
-            this.panelButton.Location = new System.Drawing.Point(255, 617);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(857, 73);
-            this.panelButton.TabIndex = 2;
-            // 
-            // buttonView
-            // 
-            this.buttonView.Location = new System.Drawing.Point(719, 27);
-            this.buttonView.Name = "buttonView";
-            this.buttonView.Size = new System.Drawing.Size(75, 23);
-            this.buttonView.TabIndex = 0;
-            this.buttonView.Text = "Xem";
-            this.buttonView.UseVisualStyleBackColor = true;
-            // 
-            // panelData
-            // 
-            this.panelData.Controls.Add(this.dataGridView1);
-            this.panelData.Location = new System.Drawing.Point(255, 88);
-            this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(860, 508);
-            this.panelData.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(857, 502);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // panelTree
-            // 
-            this.panelTree.Controls.Add(this.treeView1);
-            this.panelTree.Location = new System.Drawing.Point(3, 3);
-            this.panelTree.Name = "panelTree";
-            this.panelTree.Size = new System.Drawing.Size(246, 701);
-            this.panelTree.TabIndex = 0;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(3, 53);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(240, 645);
-            this.treeView1.TabIndex = 0;
-            // 
-            // ViewLopHP
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 745);
-            this.Controls.Add(this.panel1);
-            this.Name = "ViewLopHP";
-            this.Text = "ViewLopHP";
-            this.panel1.ResumeLayout(false);
-            this.panelButton.ResumeLayout(false);
-            this.panelData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panelTree.ResumeLayout(false);
-            this.ResumeLayout(false);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panelButton = new System.Windows.Forms.Panel();
+			this.buttonView = new System.Windows.Forms.Button();
+			this.panelData = new System.Windows.Forms.Panel();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.panelTree = new System.Windows.Forms.Panel();
+			this.treeView1 = new System.Windows.Forms.TreeView();
+			this.panel1.SuspendLayout();
+			this.panelButton.SuspendLayout();
+			this.panelData.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.panelTree.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.panelButton);
+			this.panel1.Controls.Add(this.panelData);
+			this.panel1.Controls.Add(this.panelTree);
+			this.panel1.Location = new System.Drawing.Point(16, 18);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(838, 574);
+			this.panel1.TabIndex = 2;
+			// 
+			// panelButton
+			// 
+			this.panelButton.Controls.Add(this.buttonView);
+			this.panelButton.Location = new System.Drawing.Point(191, 501);
+			this.panelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panelButton.Name = "panelButton";
+			this.panelButton.Size = new System.Drawing.Size(643, 59);
+			this.panelButton.TabIndex = 2;
+			// 
+			// buttonView
+			// 
+			this.buttonView.Location = new System.Drawing.Point(539, 22);
+			this.buttonView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.buttonView.Name = "buttonView";
+			this.buttonView.Size = new System.Drawing.Size(56, 19);
+			this.buttonView.TabIndex = 0;
+			this.buttonView.Text = "Xem";
+			this.buttonView.UseVisualStyleBackColor = true;
+			// 
+			// panelData
+			// 
+			this.panelData.Controls.Add(this.dataGridView1);
+			this.panelData.Location = new System.Drawing.Point(191, 72);
+			this.panelData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panelData.Name = "panelData";
+			this.panelData.Size = new System.Drawing.Size(645, 413);
+			this.panelData.TabIndex = 1;
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(0, 2);
+			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.RowTemplate.Height = 24;
+			this.dataGridView1.Size = new System.Drawing.Size(643, 408);
+			this.dataGridView1.TabIndex = 0;
+			// 
+			// panelTree
+			// 
+			this.panelTree.Controls.Add(this.treeView1);
+			this.panelTree.Location = new System.Drawing.Point(2, 2);
+			this.panelTree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panelTree.Name = "panelTree";
+			this.panelTree.Size = new System.Drawing.Size(184, 570);
+			this.panelTree.TabIndex = 0;
+			// 
+			// treeView1
+			// 
+			this.treeView1.Location = new System.Drawing.Point(2, 43);
+			this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.treeView1.Name = "treeView1";
+			this.treeView1.Size = new System.Drawing.Size(181, 525);
+			this.treeView1.TabIndex = 0;
+			// 
+			// ViewLopHP
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(890, 596);
+			this.Controls.Add(this.panel1);
+			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Name = "ViewLopHP";
+			this.Text = "ViewLopHP";
+			this.panel1.ResumeLayout(false);
+			this.panelButton.ResumeLayout(false);
+			this.panelData.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.panelTree.ResumeLayout(false);
+			this.ResumeLayout(false);
 
         }
 
