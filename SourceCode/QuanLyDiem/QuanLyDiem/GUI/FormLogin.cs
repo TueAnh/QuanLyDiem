@@ -16,5 +16,18 @@ namespace QuanLyDiem
         {
             InitializeComponent();
         }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GUI.FormHome formHome = new GUI.FormHome(); 
+            /*
+            formHome.TopLevel = false;
+            panel2.Controls.Add(formHome);
+            formHome.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            formHome.Dock = DockStyle.Fill;
+            */
+            formHome.Show();
+        }
     }
 }

@@ -30,14 +30,18 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonTools = new System.Windows.Forms.Button();
+            this.buttonAbout = new System.Windows.Forms.Button();
+            this.buttonChangePass = new System.Windows.Forms.Button();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.panelAvatar = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonHelp = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.buttonFeedBack = new System.Windows.Forms.Button();
+            this.buttonUserInfo = new System.Windows.Forms.Button();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -46,100 +50,139 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(28, 42);
+            this.panel1.Controls.Add(this.labelUserName);
+            this.panel1.Controls.Add(this.panelAvatar);
+            this.panel1.Location = new System.Drawing.Point(12, 87);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 574);
             this.panel1.TabIndex = 3;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.buttonLogin);
             this.panel4.Controls.Add(this.buttonLogout);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Location = new System.Drawing.Point(19, 197);
+            this.panel4.Controls.Add(this.buttonUserInfo);
+            this.panel4.Controls.Add(this.buttonTools);
+            this.panel4.Controls.Add(this.buttonFeedBack);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.buttonHelp);
+            this.panel4.Controls.Add(this.buttonAbout);
+            this.panel4.Controls.Add(this.buttonChangePass);
+            this.panel4.Location = new System.Drawing.Point(3, 197);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(162, 362);
+            this.panel4.Size = new System.Drawing.Size(192, 362);
             this.panel4.TabIndex = 2;
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(22, 16);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(120, 42);
-            this.buttonLogin.TabIndex = 0;
-            this.buttonLogin.Text = "Đăng Nhập";
-            this.buttonLogin.UseVisualStyleBackColor = true;
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Location = new System.Drawing.Point(22, 305);
+            this.buttonLogout.Location = new System.Drawing.Point(3, 304);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(120, 42);
+            this.buttonLogout.Size = new System.Drawing.Size(186, 42);
             this.buttonLogout.TabIndex = 0;
             this.buttonLogout.Text = "Đăng Xuất";
             this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // button2
+            // buttonTools
             // 
-            this.button2.Location = new System.Drawing.Point(22, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 42);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonTools.Location = new System.Drawing.Point(3, 64);
+            this.buttonTools.Name = "buttonTools";
+            this.buttonTools.Size = new System.Drawing.Size(186, 42);
+            this.buttonTools.TabIndex = 0;
+            this.buttonTools.Text = "Chức năng";
+            this.buttonTools.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonAbout
             // 
-            this.button4.Location = new System.Drawing.Point(22, 230);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 42);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAbout.Location = new System.Drawing.Point(3, 160);
+            this.buttonAbout.Name = "buttonAbout";
+            this.buttonAbout.Size = new System.Drawing.Size(186, 42);
+            this.buttonAbout.TabIndex = 0;
+            this.buttonAbout.Text = "Về tác giả";
+            this.buttonAbout.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonChangePass
             // 
-            this.button3.Location = new System.Drawing.Point(22, 156);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 42);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonChangePass.Location = new System.Drawing.Point(3, 112);
+            this.buttonChangePass.Name = "buttonChangePass";
+            this.buttonChangePass.Size = new System.Drawing.Size(186, 42);
+            this.buttonChangePass.TabIndex = 0;
+            this.buttonChangePass.Text = "Đổi mật khẩu";
+            this.buttonChangePass.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // labelUserName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 177);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "label3";
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Location = new System.Drawing.Point(62, 177);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(73, 17);
+            this.labelUserName.TabIndex = 1;
+            this.labelUserName.Text = "Username";
             // 
-            // panel3
+            // panelAvatar
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Location = new System.Drawing.Point(19, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(162, 144);
-            this.panel3.TabIndex = 0;
+            this.panelAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAvatar.Location = new System.Drawing.Point(19, 12);
+            this.panelAvatar.Name = "panelAvatar";
+            this.panelAvatar.Size = new System.Drawing.Size(162, 144);
+            this.panelAvatar.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Location = new System.Drawing.Point(257, 42);
+            this.panel2.Location = new System.Drawing.Point(218, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(864, 503);
+            this.panel2.Size = new System.Drawing.Size(950, 574);
             this.panel2.TabIndex = 4;
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(3, 208);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(186, 42);
+            this.buttonHelp.TabIndex = 0;
+            this.buttonHelp.Text = "Trợ giúp";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(3, 256);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(186, 42);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "button1";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // buttonFeedBack
+            // 
+            this.buttonFeedBack.Location = new System.Drawing.Point(3, 256);
+            this.buttonFeedBack.Name = "buttonFeedBack";
+            this.buttonFeedBack.Size = new System.Drawing.Size(186, 42);
+            this.buttonFeedBack.TabIndex = 0;
+            this.buttonFeedBack.Text = "Báo lỗi";
+            this.buttonFeedBack.UseVisualStyleBackColor = true;
+            // 
+            // buttonUserInfo
+            // 
+            this.buttonUserInfo.Location = new System.Drawing.Point(3, 16);
+            this.buttonUserInfo.Name = "buttonUserInfo";
+            this.buttonUserInfo.Size = new System.Drawing.Size(186, 42);
+            this.buttonUserInfo.TabIndex = 0;
+            this.buttonUserInfo.Text = "Thông tin người dùng";
+            this.buttonUserInfo.UseVisualStyleBackColor = true;
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.Location = new System.Drawing.Point(12, 22);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1156, 50);
+            this.panelHeader.TabIndex = 5;
             // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 641);
+            this.ClientSize = new System.Drawing.Size(1199, 716);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "FormHome";
@@ -155,13 +198,17 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonLogout;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button buttonTools;
+        private System.Windows.Forms.Button buttonAbout;
+        private System.Windows.Forms.Button buttonChangePass;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.Panel panelAvatar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonUserInfo;
+        private System.Windows.Forms.Button buttonFeedBack;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.Panel panelHeader;
     }
 }

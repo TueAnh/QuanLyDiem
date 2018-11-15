@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDiem.GUI
+namespace QuanLyDiem.GUI.NVDT
 {
-    public partial class FormHome : Form
+    public partial class HocVienDT : Form
     {
-        public FormHome()
+        public HocVienDT()
         {
             InitializeComponent();
-        }
-
-        private void buttonLogout_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

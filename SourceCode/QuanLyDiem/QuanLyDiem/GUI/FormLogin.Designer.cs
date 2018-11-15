@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelLogin = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.labelLogin);
@@ -52,6 +54,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(883, 589);
             this.panel2.TabIndex = 4;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelTitle.Location = new System.Drawing.Point(249, 18);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(388, 25);
+            this.labelTitle.TabIndex = 6;
+            this.labelTitle.Text = "Phần mềm quản lí điểm Đại học Bách Khoa";
             // 
             // textBox2
             // 
@@ -96,6 +108,7 @@
             this.buttonOK.TabIndex = 2;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // labelPass
             // 
@@ -141,6 +154,7 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Label labelTitle;
     }
 }
 
