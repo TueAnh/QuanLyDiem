@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aa44139b86b24c7787e693eae7a94955" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyDiemModel.GiangVien" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.HocKy" Width="1.5" PointX="9.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.HocPhan" Width="1.5" PointX="6.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.HocVien" Width="1.5" PointX="3.375" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.Khoa" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.LopDaoTao" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDiemModel.KetQuaHocPhan" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_76" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_89" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_109" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_86" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_60" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_66" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDiemModel.FK_185" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
