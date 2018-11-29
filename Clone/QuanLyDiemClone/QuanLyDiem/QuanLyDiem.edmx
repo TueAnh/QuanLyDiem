@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GiangVien">
           <Key>
             <PropertyRef Name="ID" />
@@ -54,18 +54,16 @@
           <Property Name="NgaySinh" Type="date" />
           <Property Name="MaLop" Type="char" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="KetQuaHocPhan">
           <Key>
-            <PropertyRef Name="MaHP" />
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="MaKQHP" />
           </Key>
           <Property Name="DiemBT" Type="float" />
           <Property Name="DiemGK" Type="float" />
           <Property Name="DiemThi" Type="float" />
           <Property Name="MaHP" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaKQHP" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -171,17 +169,9 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <EntitySet Name="HocKy" EntityType="Self.HocKy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HocVien" EntityType="Self.HocVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KetQuaHocPhan" EntityType="Self.KetQuaHocPhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LopDaoTao" EntityType="Self.LopDaoTao" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KetQuaHocPhan" EntityType="Self.KetQuaHocPhan" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [KetQuaHocPhan].[DiemBT] AS [DiemBT], 
-    [KetQuaHocPhan].[DiemGK] AS [DiemGK], 
-    [KetQuaHocPhan].[DiemThi] AS [DiemThi], 
-    [KetQuaHocPhan].[MaHP] AS [MaHP], 
-    [KetQuaHocPhan].[ID] AS [ID]
-    FROM [dbo].[KetQuaHocPhan] AS [KetQuaHocPhan]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_109" Association="Self.FK_109">
             <End Role="HocKy" EntitySet="HocKy" />
             <End Role="HocPhan" EntitySet="HocPhan" />
@@ -211,8 +201,7 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
             <End Role="HocPhan" EntitySet="HocPhan" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyDiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,7 +245,7 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="GiangVien" Relationship="Self.FK_89" FromRole="HocPhan" ToRole="GiangVien" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_109" FromRole="HocPhan" ToRole="HocKy" />
-          <NavigationProperty Name="KetQuaHocPhan" Relationship="Self.FK_86" FromRole="HocPhan" ToRole="KetQuaHocPhan" />
+          <NavigationProperty Name="KetQuaHocPhan" Relationship="QuanLyDiemModel.FK_86" FromRole="HocPhan" ToRole="KetQuaHocPhan" />
         </EntityType>
         <EntityType Name="HocVien">
           <Key>
@@ -271,7 +260,7 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="MaLop" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LopDaoTao" Relationship="Self.FK_60" FromRole="HocVien" ToRole="LopDaoTao" />
-          <NavigationProperty Name="KetQuaHocPhan" Relationship="Self.FK_66" FromRole="HocVien" ToRole="KetQuaHocPhan" />
+          <NavigationProperty Name="KetQuaHocPhan" Relationship="QuanLyDiemModel.FK_66" FromRole="HocVien" ToRole="KetQuaHocPhan" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -291,19 +280,6 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="HocVien" Relationship="Self.FK_60" FromRole="LopDaoTao" ToRole="HocVien" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_185" FromRole="LopDaoTao" ToRole="Khoa" />
-        </EntityType>
-        <EntityType Name="KetQuaHocPhan">
-          <Key>
-            <PropertyRef Name="MaHP" />
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="DiemBT" Type="Double" />
-          <Property Name="DiemGK" Type="Double" />
-          <Property Name="DiemThi" Type="Double" />
-          <Property Name="MaHP" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="HocPhan" Relationship="Self.FK_86" FromRole="KetQuaHocPhan" ToRole="HocPhan" />
-          <NavigationProperty Name="HocVien" Relationship="Self.FK_66" FromRole="KetQuaHocPhan" ToRole="HocVien" />
         </EntityType>
         <Association Name="FK_76">
           <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
@@ -341,18 +317,6 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_86">
-          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="1" />
-          <End Role="KetQuaHocPhan" Type="Self.KetQuaHocPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HocPhan">
-              <PropertyRef Name="MaHP" />
-            </Principal>
-            <Dependent Role="KetQuaHocPhan">
-              <PropertyRef Name="MaHP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_60">
           <End Role="LopDaoTao" Type="Self.LopDaoTao" Multiplicity="1" />
           <End Role="HocVien" Type="Self.HocVien" Multiplicity="*" />
@@ -362,18 +326,6 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
             </Principal>
             <Dependent Role="HocVien">
               <PropertyRef Name="MaLop" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_66">
-          <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
-          <End Role="KetQuaHocPhan" Type="Self.KetQuaHocPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HocVien">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="KetQuaHocPhan">
-              <PropertyRef Name="ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -396,7 +348,6 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <EntitySet Name="HocVien" EntityType="Self.HocVien" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" />
           <EntitySet Name="LopDaoTao" EntityType="Self.LopDaoTao" />
-          <EntitySet Name="KetQuaHocPhan" EntityType="Self.KetQuaHocPhan" />
           <AssociationSet Name="FK_76" Association="Self.FK_76">
             <End Role="Khoa" EntitySet="Khoa" />
             <End Role="GiangVien" EntitySet="GiangVien" />
@@ -409,23 +360,61 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
             <End Role="HocKy" EntitySet="HocKy" />
             <End Role="HocPhan" EntitySet="HocPhan" />
           </AssociationSet>
-          <AssociationSet Name="FK_86" Association="Self.FK_86">
-            <End Role="HocPhan" EntitySet="HocPhan" />
-            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhan" />
-          </AssociationSet>
           <AssociationSet Name="FK_60" Association="Self.FK_60">
             <End Role="LopDaoTao" EntitySet="LopDaoTao" />
             <End Role="HocVien" EntitySet="HocVien" />
-          </AssociationSet>
-          <AssociationSet Name="FK_66" Association="Self.FK_66">
-            <End Role="HocVien" EntitySet="HocVien" />
-            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhan" />
           </AssociationSet>
           <AssociationSet Name="FK_185" Association="Self.FK_185">
             <End Role="Khoa" EntitySet="Khoa" />
             <End Role="LopDaoTao" EntitySet="LopDaoTao" />
           </AssociationSet>
+          <EntitySet Name="KetQuaHocPhan" EntityType="QuanLyDiemModel.KetQuaHocPhan" />
+          <AssociationSet Name="FK_86" Association="QuanLyDiemModel.FK_86">
+            <End Role="HocPhan" EntitySet="HocPhan" />
+            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_66" Association="QuanLyDiemModel.FK_66">
+            <End Role="HocVien" EntitySet="HocVien" />
+            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhan" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="KetQuaHocPhan">
+          <Key>
+            <PropertyRef Name="MaKQHP" />
+          </Key>
+          <Property Name="DiemBT" Type="Double" />
+          <Property Name="DiemGK" Type="Double" />
+          <Property Name="DiemThi" Type="Double" />
+          <Property Name="MaHP" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MaKQHP" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="HocPhan" Relationship="QuanLyDiemModel.FK_86" FromRole="KetQuaHocPhan" ToRole="HocPhan" />
+          <NavigationProperty Name="HocVien" Relationship="QuanLyDiemModel.FK_66" FromRole="KetQuaHocPhan" ToRole="HocVien" />
+        </EntityType>
+        <Association Name="FK_86">
+          <End Type="QuanLyDiemModel.HocPhan" Role="HocPhan" Multiplicity="1" />
+          <End Type="QuanLyDiemModel.KetQuaHocPhan" Role="KetQuaHocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocPhan">
+              <PropertyRef Name="MaHP" />
+            </Principal>
+            <Dependent Role="KetQuaHocPhan">
+              <PropertyRef Name="MaHP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_66">
+          <End Type="QuanLyDiemModel.HocVien" Role="HocVien" Multiplicity="1" />
+          <End Type="QuanLyDiemModel.KetQuaHocPhan" Role="KetQuaHocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocVien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="KetQuaHocPhan">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -505,11 +494,12 @@ warning 6002: The table/view 'QuanLyDiem.dbo.KetQuaHocPhan' does not have a prim
           <EntitySetMapping Name="KetQuaHocPhan">
             <EntityTypeMapping TypeName="QuanLyDiemModel.KetQuaHocPhan">
               <MappingFragment StoreEntitySet="KetQuaHocPhan">
-                <ScalarProperty Name="DiemBT" ColumnName="DiemBT" />
-                <ScalarProperty Name="DiemGK" ColumnName="DiemGK" />
-                <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
-                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+                <ScalarProperty Name="MaKQHP" ColumnName="MaKQHP" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+                <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
+                <ScalarProperty Name="DiemGK" ColumnName="DiemGK" />
+                <ScalarProperty Name="DiemBT" ColumnName="DiemBT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

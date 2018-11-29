@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyDiem.GUI;
+using QuanLyDiem.GUI.NVDT;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace QuanLyDiem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());
+            //Application.Run(new FormViewHV());
         }
     }
 }

@@ -8,30 +8,6 @@ go
 -- ******************************************************************
 
 
-
--- ************************************** [dbo].[Users]
-
-CREATE TABLE [dbo].[Users]
-(
- [ID]        nchar(50) NOT NULL ,
- [HoTen]     nvarchar(255) NOT NULL ,
- [Email]     nvarchar(50) NULL ,
- [DiaChi]    nvarchar(255) NULL ,
- [DienThoai] char(12) NULL ,
- [Password]  nchar(10) NOT NULL ,
- [NgaySinh]  date NULL ,
-
- CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([ID] ASC)
-);
-GO
-
-
-
-
-
-
-
-
 -- ************************************** [dbo].[Khoa]
 
 CREATE TABLE [dbo].[Khoa]
@@ -71,19 +47,21 @@ GO
 
 
 
--- ************************************** [dbo].[NhanVienDaoTao]
+-- ************************************** [dbo].[LopDaoTao]
 
-CREATE TABLE [dbo].[NhanVienDaoTao]
+CREATE TABLE [dbo].[LopDaoTao]
 (
- [ID] nchar(50) NOT NULL ,
+ [MaLop]  char(50) NOT NULL ,
+ [TenLop] nvarchar(255) NOT NULL ,
+ [MaKhoa] nchar(50) NOT NULL ,
 
- CONSTRAINT [PK_NhanVienDaoTao] PRIMARY KEY CLUSTERED ([ID] ASC),
- CONSTRAINT [FK_143] FOREIGN KEY ([ID])  REFERENCES [dbo].[Users]([ID])
+ CONSTRAINT [PK_Lop] PRIMARY KEY CLUSTERED ([MaLop] ASC),
+ CONSTRAINT [FK_185] FOREIGN KEY ([MaKhoa])  REFERENCES [dbo].[Khoa]([MaKhoa])
 );
 GO
 
 
---SKIP Index: [fkIdx_143]
+--SKIP Index: [fkIdx_185]
 
 
 
@@ -95,17 +73,20 @@ GO
 
 CREATE TABLE [dbo].[GiangVien]
 (
- [ID]     nchar(50) NOT NULL ,
- [MaKhoa] nchar(50) NOT NULL ,
+ [ID]        nchar(50) NOT NULL ,
+ [HoTen]     nvarchar(255) NOT NULL ,
+ [Email]     nvarchar(50) NULL ,
+ [DiaChi]    nvarchar(255) NULL ,
+ [DienThoai] char(12) NULL ,
+ [Password]  nchar(10) NOT NULL ,
+ [NgaySinh]  date NULL ,
+ [MaKhoa]    nchar(50) NOT NULL ,
 
  CONSTRAINT [PK_GiangVien] PRIMARY KEY CLUSTERED ([ID] ASC),
- CONSTRAINT [FK_146] FOREIGN KEY ([ID])  REFERENCES [dbo].[Users]([ID]),
  CONSTRAINT [FK_76] FOREIGN KEY ([MaKhoa])  REFERENCES [dbo].[Khoa]([MaKhoa])
 );
 GO
 
-
---SKIP Index: [fkIdx_146]
 
 --SKIP Index: [fkIdx_76]
 
@@ -115,43 +96,26 @@ GO
 
 
 
--- ************************************** [dbo].[ChuyenNganh]
+-- ************************************** [dbo].[HocVien]
 
-CREATE TABLE [dbo].[ChuyenNganh]
+CREATE TABLE [dbo].[HocVien]
 (
- [MaCN]   nchar(50) NOT NULL ,
- [TenCN]  nvarchar(255) NOT NULL ,
- [MaKhoa] nchar(50) NOT NULL ,
+ [ID]        nchar(50) NOT NULL ,
+ [HoTen]     nvarchar(255) NOT NULL ,
+ [Email]     nvarchar(50) NULL ,
+ [DiaChi]    nvarchar(255) NULL ,
+ [DienThoai] char(12) NULL ,
+ [Password]  nchar(10) NOT NULL ,
+ [NgaySinh]  date NULL ,
+ [MaLop]     char(50) NOT NULL ,
 
- CONSTRAINT [PK_Nganh] PRIMARY KEY CLUSTERED ([MaCN] ASC),
- CONSTRAINT [FK_73] FOREIGN KEY ([MaKhoa])  REFERENCES [dbo].[Khoa]([MaKhoa])
+ CONSTRAINT [PK_SinhVien] PRIMARY KEY CLUSTERED ([ID] ASC),
+ CONSTRAINT [FK_60] FOREIGN KEY ([MaLop])  REFERENCES [dbo].[LopDaoTao]([MaLop])
 );
 GO
 
 
---SKIP Index: [fkIdx_73]
-
-
-
-
-
-
-
--- ************************************** [dbo].[LopDaoTao]
-
-CREATE TABLE [dbo].[LopDaoTao]
-(
- [MaLop]  char(50) NOT NULL ,
- [TenLop] nvarchar(255) NOT NULL ,
- [MaCN]   nchar(50) NOT NULL ,
-
- CONSTRAINT [PK_Lop] PRIMARY KEY CLUSTERED ([MaLop] ASC),
- CONSTRAINT [FK_63] FOREIGN KEY ([MaCN])  REFERENCES [dbo].[ChuyenNganh]([MaCN])
-);
-GO
-
-
---SKIP Index: [fkIdx_63]
+--SKIP Index: [fkIdx_60]
 
 
 
@@ -190,30 +154,6 @@ GO
 
 
 
--- ************************************** [dbo].[HocVien]
-
-CREATE TABLE [dbo].[HocVien]
-(
- [ID]    nchar(50) NOT NULL ,
- [MaLop] char(50) NOT NULL ,
-
- CONSTRAINT [PK_SinhVien] PRIMARY KEY CLUSTERED ([ID] ASC),
- CONSTRAINT [FK_149] FOREIGN KEY ([ID])  REFERENCES [dbo].[Users]([ID]),
- CONSTRAINT [FK_60] FOREIGN KEY ([MaLop])  REFERENCES [dbo].[LopDaoTao]([MaLop])
-);
-GO
-
-
---SKIP Index: [fkIdx_149]
-
---SKIP Index: [fkIdx_60]
-
-
-
-
-
-
-
 -- ************************************** [dbo].[KetQuaHocPhan]
 
 CREATE TABLE [dbo].[KetQuaHocPhan]
@@ -233,16 +173,6 @@ GO
 --SKIP Index: [fkIdx_66]
 
 --SKIP Index: [fkIdx_86]
-
-
-
-
-
-
-
-
-
-
 
 
 

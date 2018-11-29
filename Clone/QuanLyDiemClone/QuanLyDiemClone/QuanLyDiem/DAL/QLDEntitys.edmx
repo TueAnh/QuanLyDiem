@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLyDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="DienThoai" Type="char" MaxLength="12" />
+          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="MaKhoa" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HocKy">
+          <Key>
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MaHK" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenHK" Type="nvarchar" MaxLength="255" />
+          <Property Name="TGBatDau" Type="datetime" />
+          <Property Name="TGKetThuc" Type="datetime" />
+          <Property Name="NamHoc" Type="int" />
+        </EntityType>
+        <EntityType Name="HocPhan">
+          <Key>
+            <PropertyRef Name="MaHP" />
+          </Key>
+          <Property Name="MaHP" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenHP" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="SoTC" Type="int" />
+          <Property Name="SoTietTH" Type="int" />
+          <Property Name="SoTietLT" Type="int" />
+          <Property Name="PhanTramDKT" Type="float" />
+          <Property Name="PhanTramDT" Type="float" />
+          <Property Name="MaHK" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HocVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="DienThoai" Type="char" MaxLength="12" />
+          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="MaLop" Type="char" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KetQuaHocPhan">
+          <Key>
+            <PropertyRef Name="MaKQHP" />
+          </Key>
+          <Property Name="MaKQHP" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaHP" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiemBT" Type="float" />
+          <Property Name="DiemGK" Type="float" />
+          <Property Name="DiemThi" Type="float" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LopDaoTao">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="MaKhoa" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_109">
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
+          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="HocPhan">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_185">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="LopDaoTao" Type="Self.LopDaoTao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="LopDaoTao">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_60">
+          <End Role="LopDaoTao" Type="Self.LopDaoTao" Multiplicity="1" />
+          <End Role="HocVien" Type="Self.HocVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopDaoTao">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="HocVien">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_76">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="GiangVien">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_89">
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiangVien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HocPhan">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyDiemModelStoreContainer">
+          <EntitySet Name="GiangVien" EntityType="Self.GiangVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocKy" EntityType="Self.HocKy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocVien" EntityType="Self.HocVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KetQuaHocPhan" EntityType="Self.KetQuaHocPhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LopDaoTao" EntityType="Self.LopDaoTao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_109" Association="Self.FK_109">
+            <End Role="HocKy" EntitySet="HocKy" />
+            <End Role="HocPhan" EntitySet="HocPhan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_185" Association="Self.FK_185">
+            <End Role="Khoa" EntitySet="Khoa" />
+            <End Role="LopDaoTao" EntitySet="LopDaoTao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_60" Association="Self.FK_60">
+            <End Role="LopDaoTao" EntitySet="LopDaoTao" />
+            <End Role="HocVien" EntitySet="HocVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_76" Association="Self.FK_76">
+            <End Role="Khoa" EntitySet="Khoa" />
+            <End Role="GiangVien" EntitySet="GiangVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_89" Association="Self.FK_89">
+            <End Role="GiangVien" EntitySet="GiangVien" />
+            <End Role="HocPhan" EntitySet="HocPhan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyDiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Khoa" Relationship="Self.FK_76" FromRole="GiangVien" ToRole="Khoa" />
+          <NavigationProperty Name="HocPhans" Relationship="Self.FK_89" FromRole="GiangVien" ToRole="HocPhan" />
+        </EntityType>
+        <EntityType Name="HocKy">
+          <Key>
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MaHK" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenHK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TGBatDau" Type="DateTime" Precision="3" />
+          <Property Name="TGKetThuc" Type="DateTime" Precision="3" />
+          <Property Name="NamHoc" Type="Int32" />
+          <NavigationProperty Name="HocPhans" Relationship="Self.FK_109" FromRole="HocKy" ToRole="HocPhan" />
+        </EntityType>
+        <EntityType Name="HocPhan">
+          <Key>
+            <PropertyRef Name="MaHP" />
+          </Key>
+          <Property Name="MaHP" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenHP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoTC" Type="Int32" />
+          <Property Name="SoTietTH" Type="Int32" />
+          <Property Name="SoTietLT" Type="Int32" />
+          <Property Name="PhanTramDKT" Type="Double" />
+          <Property Name="PhanTramDT" Type="Double" />
+          <Property Name="MaHK" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GiangVien" Relationship="Self.FK_89" FromRole="HocPhan" ToRole="GiangVien" />
+          <NavigationProperty Name="HocKy" Relationship="Self.FK_109" FromRole="HocPhan" ToRole="HocKy" />
+          <NavigationProperty Name="KetQuaHocPhans" Relationship="Self.FK_86" FromRole="HocPhan" ToRole="KetQuaHocPhan" />
+        </EntityType>
+        <EntityType Name="HocVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="MaLop" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LopDaoTao" Relationship="Self.FK_60" FromRole="HocVien" ToRole="LopDaoTao" />
+          <NavigationProperty Name="KetQuaHocPhans" Relationship="Self.FK_66" FromRole="HocVien" ToRole="KetQuaHocPhan" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenKhoa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GiangViens" Relationship="Self.FK_76" FromRole="Khoa" ToRole="GiangVien" />
+          <NavigationProperty Name="LopDaoTaos" Relationship="Self.FK_185" FromRole="Khoa" ToRole="LopDaoTao" />
+        </EntityType>
+        <EntityType Name="LopDaoTao">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenLop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HocViens" Relationship="Self.FK_60" FromRole="LopDaoTao" ToRole="HocVien" />
+          <NavigationProperty Name="Khoa" Relationship="Self.FK_185" FromRole="LopDaoTao" ToRole="Khoa" />
+        </EntityType>
+        <EntityType Name="KetQuaHocPhan">
+          <Key>
+            <PropertyRef Name="MaKQHP" />
+          </Key>
+          <Property Name="DiemBT" Type="Double" />
+          <Property Name="DiemGK" Type="Double" />
+          <Property Name="DiemThi" Type="Double" />
+          <Property Name="MaHP" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HocPhan" Relationship="Self.FK_86" FromRole="KetQuaHocPhan" ToRole="HocPhan" />
+          <NavigationProperty Name="HocVien" Relationship="Self.FK_66" FromRole="KetQuaHocPhan" ToRole="HocVien" />
+          <Property Name="MaKQHP" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_76">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="GiangVien">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_89">
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiangVien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HocPhan">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_109">
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
+          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="HocPhan">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_86">
+          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="1" />
+          <End Role="KetQuaHocPhan" Type="Self.KetQuaHocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocPhan">
+              <PropertyRef Name="MaHP" />
+            </Principal>
+            <Dependent Role="KetQuaHocPhan">
+              <PropertyRef Name="MaHP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_60">
+          <End Role="LopDaoTao" Type="Self.LopDaoTao" Multiplicity="1" />
+          <End Role="HocVien" Type="Self.HocVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopDaoTao">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="HocVien">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_66">
+          <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
+          <End Role="KetQuaHocPhan" Type="Self.KetQuaHocPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocVien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="KetQuaHocPhan">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_185">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="LopDaoTao" Type="Self.LopDaoTao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="LopDaoTao">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyDiemEntitiess" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
+          <EntitySet Name="HocKies" EntityType="Self.HocKy" />
+          <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
+          <EntitySet Name="HocViens" EntityType="Self.HocVien" />
+          <EntitySet Name="Khoas" EntityType="Self.Khoa" />
+          <EntitySet Name="LopDaoTaos" EntityType="Self.LopDaoTao" />
+          <EntitySet Name="KetQuaHocPhans" EntityType="Self.KetQuaHocPhan" />
+          <AssociationSet Name="FK_76" Association="Self.FK_76">
+            <End Role="Khoa" EntitySet="Khoas" />
+            <End Role="GiangVien" EntitySet="GiangViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_89" Association="Self.FK_89">
+            <End Role="GiangVien" EntitySet="GiangViens" />
+            <End Role="HocPhan" EntitySet="HocPhans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_109" Association="Self.FK_109">
+            <End Role="HocKy" EntitySet="HocKies" />
+            <End Role="HocPhan" EntitySet="HocPhans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_86" Association="Self.FK_86">
+            <End Role="HocPhan" EntitySet="HocPhans" />
+            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_60" Association="Self.FK_60">
+            <End Role="LopDaoTao" EntitySet="LopDaoTaos" />
+            <End Role="HocVien" EntitySet="HocViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_66" Association="Self.FK_66">
+            <End Role="HocVien" EntitySet="HocViens" />
+            <End Role="KetQuaHocPhan" EntitySet="KetQuaHocPhans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_185" Association="Self.FK_185">
+            <End Role="Khoa" EntitySet="Khoas" />
+            <End Role="LopDaoTao" EntitySet="LopDaoTaos" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="QuanLyDiemModel.sysdiagram" />
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyDiemModelStoreContainer" CdmEntityContainer="QuanLyDiemEntitiess">
+          <EntitySetMapping Name="GiangViens">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.GiangVien">
+              <MappingFragment StoreEntitySet="GiangVien">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocKies">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.HocKy">
+              <MappingFragment StoreEntitySet="HocKy">
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="TenHK" ColumnName="TenHK" />
+                <ScalarProperty Name="TGBatDau" ColumnName="TGBatDau" />
+                <ScalarProperty Name="TGKetThuc" ColumnName="TGKetThuc" />
+                <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocPhans">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.HocPhan">
+              <MappingFragment StoreEntitySet="HocPhan">
+                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+                <ScalarProperty Name="TenHP" ColumnName="TenHP" />
+                <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+                <ScalarProperty Name="SoTietTH" ColumnName="SoTietTH" />
+                <ScalarProperty Name="SoTietLT" ColumnName="SoTietLT" />
+                <ScalarProperty Name="PhanTramDKT" ColumnName="PhanTramDKT" />
+                <ScalarProperty Name="PhanTramDT" ColumnName="PhanTramDT" />
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocViens">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.HocVien">
+              <MappingFragment StoreEntitySet="HocVien">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khoas">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.Khoa">
+              <MappingFragment StoreEntitySet="Khoa">
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LopDaoTaos">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.LopDaoTao">
+              <MappingFragment StoreEntitySet="LopDaoTao">
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KetQuaHocPhans">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.KetQuaHocPhan">
+              <MappingFragment StoreEntitySet="KetQuaHocPhan">
+                <ScalarProperty Name="MaKQHP" ColumnName="MaKQHP" />
+                <ScalarProperty Name="DiemBT" ColumnName="DiemBT" />
+                <ScalarProperty Name="DiemGK" ColumnName="DiemGK" />
+                <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
+                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QuanLyDiemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

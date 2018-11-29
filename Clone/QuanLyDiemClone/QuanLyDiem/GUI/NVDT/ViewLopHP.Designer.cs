@@ -29,91 +29,69 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelButton = new System.Windows.Forms.Panel();
             this.buttonView = new System.Windows.Forms.Button();
-            this.panelData = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelTree = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1.SuspendLayout();
-            this.panelButton.SuspendLayout();
-            this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panelButton);
-            this.panel1.Controls.Add(this.panelData);
-            this.panel1.Controls.Add(this.panelTree);
-            this.panel1.Location = new System.Drawing.Point(21, 22);
+            this.panel1.Controls.Add(this.buttonView);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.treeView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 707);
+            this.panel1.Size = new System.Drawing.Size(1075, 600);
             this.panel1.TabIndex = 2;
-            // 
-            // panelButton
-            // 
-            this.panelButton.Controls.Add(this.buttonView);
-            this.panelButton.Location = new System.Drawing.Point(255, 617);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(857, 73);
-            this.panelButton.TabIndex = 2;
             // 
             // buttonView
             // 
-            this.buttonView.Location = new System.Drawing.Point(719, 27);
+            this.buttonView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonView.Location = new System.Drawing.Point(928, 553);
             this.buttonView.Name = "buttonView";
-            this.buttonView.Size = new System.Drawing.Size(75, 23);
+            this.buttonView.Size = new System.Drawing.Size(89, 35);
             this.buttonView.TabIndex = 0;
             this.buttonView.Text = "Xem";
             this.buttonView.UseVisualStyleBackColor = true;
             // 
-            // panelData
-            // 
-            this.panelData.Controls.Add(this.dataGridView1);
-            this.panelData.Location = new System.Drawing.Point(255, 88);
-            this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(860, 508);
-            this.panelData.TabIndex = 1;
-            // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(204, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(857, 502);
+            this.dataGridView1.Size = new System.Drawing.Size(859, 525);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // panelTree
-            // 
-            this.panelTree.Controls.Add(this.treeView1);
-            this.panelTree.Location = new System.Drawing.Point(3, 3);
-            this.panelTree.Name = "panelTree";
-            this.panelTree.Size = new System.Drawing.Size(246, 701);
-            this.panelTree.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(3, 53);
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.Location = new System.Drawing.Point(12, 22);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(240, 645);
+            this.treeView1.Size = new System.Drawing.Size(186, 525);
             this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // ViewLopHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 745);
+            this.ClientSize = new System.Drawing.Size(1075, 600);
             this.Controls.Add(this.panel1);
             this.Name = "ViewLopHP";
             this.Text = "ViewLopHP";
             this.panel1.ResumeLayout(false);
-            this.panelButton.ResumeLayout(false);
-            this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panelTree.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -121,11 +99,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelButton;
         private System.Windows.Forms.Button buttonView;
-        private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panelTree;
         private System.Windows.Forms.TreeView treeView1;
     }
 }

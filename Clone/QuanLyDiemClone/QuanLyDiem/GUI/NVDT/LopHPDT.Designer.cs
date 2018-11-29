@@ -29,32 +29,82 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelButton = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOut = new System.Windows.Forms.Button();
+            this.buttonInput = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBoxGVPT = new System.Windows.Forms.TextBox();
-            this.buttonAddEXCEL = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panelButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panelButton);
             this.panel1.Controls.Add(this.textBoxGVPT);
-            this.panel1.Controls.Add(this.buttonAddEXCEL);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxSearch);
-            this.panel1.Controls.Add(this.buttonSave);
-            this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonSearch);
             this.panel1.Controls.Add(this.dataGridViewDSHV);
-            this.panel1.Location = new System.Drawing.Point(57, 34);
+            this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1095, 613);
+            this.panel1.Size = new System.Drawing.Size(1095, 590);
             this.panel1.TabIndex = 0;
+            // 
+            // panelButton
+            // 
+            this.panelButton.Controls.Add(this.button1);
+            this.panelButton.Controls.Add(this.buttonOut);
+            this.panelButton.Controls.Add(this.buttonInput);
+            this.panelButton.Controls.Add(this.button2);
+            this.panelButton.Location = new System.Drawing.Point(76, 489);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(913, 57);
+            this.panelButton.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(745, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Hủy";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonOut
+            // 
+            this.buttonOut.Location = new System.Drawing.Point(173, 25);
+            this.buttonOut.Name = "buttonOut";
+            this.buttonOut.Size = new System.Drawing.Size(155, 23);
+            this.buttonOut.TabIndex = 0;
+            this.buttonOut.Text = "Xuất ra Excel";
+            this.buttonOut.UseVisualStyleBackColor = true;
+            // 
+            // buttonInput
+            // 
+            this.buttonInput.Location = new System.Drawing.Point(12, 25);
+            this.buttonInput.Name = "buttonInput";
+            this.buttonInput.Size = new System.Drawing.Size(155, 23);
+            this.buttonInput.TabIndex = 0;
+            this.buttonInput.Text = "Nhập từ Excel";
+            this.buttonInput.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(584, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(155, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Lưu thay đổi";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBoxGVPT
             // 
@@ -63,16 +113,6 @@
             this.textBoxGVPT.Name = "textBoxGVPT";
             this.textBoxGVPT.Size = new System.Drawing.Size(316, 22);
             this.textBoxGVPT.TabIndex = 26;
-            // 
-            // buttonAddEXCEL
-            // 
-            this.buttonAddEXCEL.Location = new System.Drawing.Point(161, 515);
-            this.buttonAddEXCEL.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAddEXCEL.Name = "buttonAddEXCEL";
-            this.buttonAddEXCEL.Size = new System.Drawing.Size(100, 28);
-            this.buttonAddEXCEL.TabIndex = 25;
-            this.buttonAddEXCEL.Text = "Add ECXEL";
-            this.buttonAddEXCEL.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -92,26 +132,6 @@
             this.textBoxSearch.Size = new System.Drawing.Size(223, 22);
             this.textBoxSearch.TabIndex = 23;
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(691, 515);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(100, 28);
-            this.buttonSave.TabIndex = 20;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(799, 515);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
-            this.buttonCancel.TabIndex = 21;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
             // buttonSearch
             // 
             this.buttonSearch.Location = new System.Drawing.Point(889, 55);
@@ -125,22 +145,25 @@
             // dataGridViewDSHV
             // 
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSHV.Location = new System.Drawing.Point(161, 115);
+            this.dataGridViewDSHV.Location = new System.Drawing.Point(76, 115);
             this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
-            this.dataGridViewDSHV.Size = new System.Drawing.Size(772, 342);
+            this.dataGridViewDSHV.Size = new System.Drawing.Size(913, 342);
             this.dataGridViewDSHV.TabIndex = 19;
+            this.dataGridViewDSHV.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDSHV_RowHeaderMouseDoubleClick);
             // 
             // LopHPDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 772);
+            this.ClientSize = new System.Drawing.Size(1098, 594);
             this.Controls.Add(this.panel1);
             this.Name = "LopHPDT";
             this.Text = "LopHPDT";
+            this.Load += new System.EventHandler(this.LopHPDT_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).EndInit();
             this.ResumeLayout(false);
 
@@ -150,12 +173,14 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxGVPT;
-        private System.Windows.Forms.Button buttonAddEXCEL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.DataGridView dataGridViewDSHV;
+        private System.Windows.Forms.Panel panelButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonOut;
+        private System.Windows.Forms.Button buttonInput;
+        private System.Windows.Forms.Button button2;
     }
 }

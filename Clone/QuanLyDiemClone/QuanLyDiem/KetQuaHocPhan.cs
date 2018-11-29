@@ -19,6 +19,7 @@ namespace QuanLyDiem
         public Nullable<double> DiemThi { get; set; }
         public string MaHP { get; set; }
         public string ID { get; set; }
+        public string MaKQHP { get; set; }
     
         public virtual HocPhan HocPhan { get; set; }
         public virtual HocVien HocVien { get; set; }
