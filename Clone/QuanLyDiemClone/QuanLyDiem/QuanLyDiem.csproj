@@ -65,6 +65,8 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\LopDT_BLL.cs" />
     <Compile Include="BLL\LopHP_BLL.cs" />
+    <Compile Include="BLL\MoreInfoHocVien_BLL.cs" />
+    <Compile Include="BLL\SearchHocVien_BLL.cs" />
     <Compile Include="BLL\SuaDiemHocVienDT_BLL.cs" />
     <Compile Include="BLL\ViewLopHP_BLL.cs" />
     <Compile Include="BLL\ViewLopDT_BLL.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="DAL\Login_DAL.cs" />
     <Compile Include="DAL\LopDT_DAL.cs" />
     <Compile Include="DAL\LopHP_DAL.cs" />
+    <Compile Include="DAL\MoreInfoHocVien_DAL.cs" />
+    <Compile Include="DAL\SearchHocVien_DAL.cs" />
     <Compile Include="DAL\SuaDiemHocVienDT_DAL.cs" />
     <Compile Include="DAL\ViewLopDT_DAL.cs" />
     <Compile Include="DAL\ViewLopHP_DAL.cs" />
@@ -109,6 +113,12 @@
     <Compile Include="GUI\FormViewHV.Designer.cs">
       <DependentUpon>FormViewHV.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MoreInfoHocVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MoreInfoHocVien.Designer.cs">
+      <DependentUpon>MoreInfoHocVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NVDT\HocVienDT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +136,12 @@
     </Compile>
     <Compile Include="GUI\NVDT\LopSHDT.Designer.cs">
       <DependentUpon>LopSHDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NVDT\SearchHocVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\SearchHocVien.Designer.cs">
+      <DependentUpon>SearchHocVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NVDT\SuaDiemHocVienDT.cs">
       <SubType>Form</SubType>
@@ -196,6 +212,9 @@
     <EmbeddedResource Include="GUI\FormViewHV.resx">
       <DependentUpon>FormViewHV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MoreInfoHocVien.resx">
+      <DependentUpon>MoreInfoHocVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\HocVienDT.resx">
       <DependentUpon>HocVienDT.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\LopSHDT.resx">
       <DependentUpon>LopSHDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\SearchHocVien.resx">
+      <DependentUpon>SearchHocVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\SuaDiemHocVienDT.resx">
       <DependentUpon>SuaDiemHocVienDT.cs</DependentUpon>

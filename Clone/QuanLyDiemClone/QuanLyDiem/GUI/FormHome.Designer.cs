@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -68,7 +69,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackgroundImage = global::QuanLyDiem.Properties.Resources.maxresdefault;
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Location = new System.Drawing.Point(6, 3);
@@ -111,7 +112,7 @@
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Location = new System.Drawing.Point(3, 327);
+            this.buttonLogout.Location = new System.Drawing.Point(3, 309);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(186, 42);
             this.buttonLogout.TabIndex = 6;
@@ -121,7 +122,7 @@
             // 
             // buttonUserInfo
             // 
-            this.buttonUserInfo.Location = new System.Drawing.Point(3, 39);
+            this.buttonUserInfo.Location = new System.Drawing.Point(3, 21);
             this.buttonUserInfo.Name = "buttonUserInfo";
             this.buttonUserInfo.Size = new System.Drawing.Size(186, 42);
             this.buttonUserInfo.TabIndex = 0;
@@ -130,7 +131,7 @@
             // 
             // buttonTools
             // 
-            this.buttonTools.Location = new System.Drawing.Point(3, 87);
+            this.buttonTools.Location = new System.Drawing.Point(3, 69);
             this.buttonTools.Name = "buttonTools";
             this.buttonTools.Size = new System.Drawing.Size(186, 42);
             this.buttonTools.TabIndex = 1;
@@ -140,7 +141,7 @@
             // 
             // buttonFeedBack
             // 
-            this.buttonFeedBack.Location = new System.Drawing.Point(3, 279);
+            this.buttonFeedBack.Location = new System.Drawing.Point(3, 261);
             this.buttonFeedBack.Name = "buttonFeedBack";
             this.buttonFeedBack.Size = new System.Drawing.Size(186, 42);
             this.buttonFeedBack.TabIndex = 5;
@@ -149,7 +150,7 @@
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(3, 183);
+            this.buttonHelp.Location = new System.Drawing.Point(3, 165);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(186, 42);
             this.buttonHelp.TabIndex = 3;
@@ -158,7 +159,7 @@
             // 
             // buttonAbout
             // 
-            this.buttonAbout.Location = new System.Drawing.Point(3, 231);
+            this.buttonAbout.Location = new System.Drawing.Point(3, 213);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(186, 42);
             this.buttonAbout.TabIndex = 4;
@@ -167,7 +168,7 @@
             // 
             // buttonChangePass
             // 
-            this.buttonChangePass.Location = new System.Drawing.Point(3, 135);
+            this.buttonChangePass.Location = new System.Drawing.Point(3, 117);
             this.buttonChangePass.Name = "buttonChangePass";
             this.buttonChangePass.Size = new System.Drawing.Size(186, 42);
             this.buttonChangePass.TabIndex = 2;

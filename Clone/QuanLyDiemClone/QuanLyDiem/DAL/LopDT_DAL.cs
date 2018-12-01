@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,32 +13,36 @@ namespace QuanLyDiem.DAL
 
         public dynamic getDSHVDAL(string str)
         {
-            //DataTable tb = new DataTable();
-            //tb.Columns.Add("Mã số");
-            //tb.Columns.Add("Họ tên");
-            //tb.Columns.Add("Điểm BT");
-            //tb.Columns.Add("Điểm GK");
-            //tb.Columns.Add("Điểm Thi");
-
-            //var v = from s in db.KetQuaHocPhans
-            //		where s.ID == str
-            //		select new { s.HocPhan.HocKy.NamHoc };
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Mã số");
+            tb.Columns.Add("Họ tên");
+            tb.Columns.Add("Email");
+            tb.Columns.Add("Địa chỉ");
+            tb.Columns.Add("Điện thoại");
+            tb.Columns.Add("Ngày sinh");
 
             var v = from s in db.HocVien
                     where s.LopDaoTao.MaLop == str
                     select new { s.ID, s.HoTen, s.Email, s.DiaChi, s.DienThoai,s.NgaySinh};
-            //foreach(var x in v)
-            //{
-            //	DataRow r = tb.NewRow();
-            //	r["Mã số"] = x.ID;
-            //	r["Họ tên"] = x.HoTen;
-            //	//SingleOrDefault??
-            //	r["Điểm BT"] = x.DiemBT;
-            //	r["Điểm GK"] = x.DiemGK;
-            //	r["Điểm Thi"] = x.DiemThi;
-            //	tb.Rows.Add(r);
-            //}
-            return v.ToList();
+                    
+            foreach(var x in v)
+            {
+                DataRow r = tb.NewRow();
+                try
+                {
+                    
+                    r["Mã số"] = x.ID.Trim();
+                    r["Họ tên"] = x.HoTen.Trim();
+                    //SingleOrDefault??
+                    r["Email"] = x.Email;
+                    r["Địa chỉ"] = x.DiaChi;
+                    r["Điện thoại"] = x.DienThoai;
+                    r["Ngày sinh"] = string.Format("{0: yyyy-MM-dd}", x.NgaySinh.Value);
+                }
+                catch { }
+                tb.Rows.Add(r);
+            }
+            return tb;
         }
 
         public string getGVDAL(string str)

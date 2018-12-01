@@ -1,6 +1,7 @@
 ﻿using QuanLyDiem.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QuanLyDiem.BLL
             dAL = new LopHP_DAL();
         }
 
-        public dynamic getDSHVBLL(string str)
+        public DataTable getDSHVBLL(string str)
         {
             return dAL.getDSHVDAL(str);
         }
@@ -26,7 +27,7 @@ namespace QuanLyDiem.BLL
             return dAL.getGVDAL(str);
         }
 
-        public dynamic getDSSearchBLL(string str, string MaHP)
+        public DataTable getDSSearchBLL(string str, string MaHP)
         {
             return dAL.getDSSearchDAL(str, MaHP);
         }

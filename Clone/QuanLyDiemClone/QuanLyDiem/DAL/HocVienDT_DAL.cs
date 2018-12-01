@@ -45,8 +45,8 @@ namespace QuanLyDiem.DAL
                         tb.Rows.Add(r);
                     }
                     nh = x.HocPhan.HocKy.NamHoc + "-" + (Convert.ToInt32(x.HocPhan.HocKy.NamHoc) + 1).ToString();
-                    mhk = x.HocPhan.MaHK.Trim();
-                    hk = x.HocPhan.HocKy.TenHK.Trim();
+                    mhk = x.HocPhan.MaHK;
+                    hk = x.HocPhan.HocKy.TenHK;
                     tc = Convert.ToInt32(x.HocPhan.SoTC);
                     dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
                         + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)

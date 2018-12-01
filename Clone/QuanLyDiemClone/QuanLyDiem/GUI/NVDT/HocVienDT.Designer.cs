@@ -124,6 +124,7 @@
             this.textBoxNAME.Location = new System.Drawing.Point(108, 50);
             this.textBoxNAME.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNAME.Name = "textBoxNAME";
+            this.textBoxNAME.ReadOnly = true;
             this.textBoxNAME.Size = new System.Drawing.Size(379, 22);
             this.textBoxNAME.TabIndex = 95;
             // 
@@ -132,6 +133,7 @@
             this.textBoxMSHV.Location = new System.Drawing.Point(108, 14);
             this.textBoxMSHV.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMSHV.Name = "textBoxMSHV";
+            this.textBoxMSHV.ReadOnly = true;
             this.textBoxMSHV.Size = new System.Drawing.Size(379, 22);
             this.textBoxMSHV.TabIndex = 96;
             // 
@@ -175,7 +177,7 @@
             this.buttonBack.TabIndex = 94;
             this.buttonBack.Text = "Trở lại";
             this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // comboBoxDoanXem
             // 
@@ -194,8 +196,10 @@
             this.dataGridViewDTBvXL.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDTBvXL.Name = "dataGridViewDTBvXL";
             this.dataGridViewDTBvXL.ReadOnly = true;
+            this.dataGridViewDTBvXL.RowHeadersVisible = false;
             this.dataGridViewDTBvXL.Size = new System.Drawing.Size(808, 152);
             this.dataGridViewDTBvXL.TabIndex = 85;
+            this.dataGridViewDTBvXL.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDTBvXL_RowPostPaint);
             // 
             // dataGridViewXemDiem
             // 
@@ -205,9 +209,12 @@
             this.dataGridViewXemDiem.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewXemDiem.Name = "dataGridViewXemDiem";
             this.dataGridViewXemDiem.ReadOnly = true;
+            this.dataGridViewXemDiem.RowHeadersVisible = false;
+            this.dataGridViewXemDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewXemDiem.Size = new System.Drawing.Size(808, 240);
             this.dataGridViewXemDiem.TabIndex = 86;
-            this.dataGridViewXemDiem.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewXemDiem_RowHeaderMouseClick);
+            this.dataGridViewXemDiem.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewXemDiem_CellDoubleClick);
+            this.dataGridViewXemDiem.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewXemDiem_RowPostPaint);
             // 
             // label2
             // 
@@ -239,6 +246,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "HocVienDT";
             this.Text = "HocVienDT";
+            this.Load += new System.EventHandler(this.HocVienDT_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

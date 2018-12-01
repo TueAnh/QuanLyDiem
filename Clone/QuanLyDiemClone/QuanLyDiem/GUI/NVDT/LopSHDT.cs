@@ -40,7 +40,7 @@ namespace QuanLyDiem.GUI.NVDT
             dataGridViewDSHV.Columns[3].HeaderText = "Địa chỉ";
             dataGridViewDSHV.Columns[4].HeaderText = "Điện thoại";
             dataGridViewDSHV.Columns[5].HeaderText = "Ngày sinh";
-            dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         
         void loadCBBsearch()

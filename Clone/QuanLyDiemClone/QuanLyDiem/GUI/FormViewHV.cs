@@ -15,6 +15,10 @@ namespace QuanLyDiem.GUI
 {
     public partial class FormViewHV : Form
     {
+
+        public delegate void AddRemoveControl(Form form);
+        public AddRemoveControl addControl;
+        public AddRemoveControl removeControl;
         BLL.HocVien_BLL bLL = new HocVien_BLL();
         string MaHV;
         List<int> strNH = new List<int>();
@@ -138,6 +142,19 @@ namespace QuanLyDiem.GUI
         private void buttonInBangDiem_Click(object sender, EventArgs e)
         {
             exportToExcel(dataGridViewXemDiem, @"F:\", "InBangDiem");
+        }
+        private void buttonMore_Click(object sender, EventArgs e)
+        {
+            MoreInfoHocVien moreInfo = new MoreInfoHocVien(textBoxMSHV.Text);
+            moreInfo.Show();
+        }
+        public void AddControlPanel(Form form)
+        {
+            addControl(form);
+        }
+        public void RemoveControlPanel(Form form)
+        {
+            removeControl(form);
         }
     }
 }

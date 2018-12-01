@@ -13,6 +13,7 @@ namespace QuanLyDiem.GUI.NVDT
 {
     public partial class HocVienDT : Form
     {
+        #region InitandLoad
         public delegate void AddRemoveControl(Form form);
         public AddRemoveControl addControl;
         public AddRemoveControl removeControl;
@@ -25,20 +26,33 @@ namespace QuanLyDiem.GUI.NVDT
         {
             InitializeComponent();
         }
-        public HocVienDT(string str)
+        public void LoadData()
         {
-            InitializeComponent();
-            MaHV = str;
             textBoxMSHV.Text = MaHV;
             textBoxNAME.Text = bLL.getHVBLL(MaHV);
+            dataGridViewDTBvXL.Columns.Clear();
+            dataGridViewDTBvXL.Columns.Add("STT", "STT");
+            dataGridViewXemDiem.Columns.Clear();
+            dataGridViewXemDiem.Columns.Add("STT", "STT");
             dataGridViewDTBvXL.DataSource = bLL.getDTBvXLBLL(MaHV);
             dataGridViewDTBvXL.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             radioButtonQuaTrinh.Checked = true;
             dataGridViewXemDiem.DataSource = bLL.getDiemQTBLL(MaHV);
-            dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewDTBvXL.Columns["STT"].Width = 50;
+            dataGridViewXemDiem.Columns["STT"].Width = 50;
             loadCBB();
         }
-
+        public HocVienDT(string str)
+        {
+            MaHV = str;
+            InitializeComponent();
+            LoadData();
+        }
+        private void HocVienDT_Load(object sender, EventArgs e)
+        {
+            //LoadData();
+        }
         private void loadCBB()
         {
             strHKNH = bLL.loadCBBNHBLL(MaHV);
@@ -56,7 +70,8 @@ namespace QuanLyDiem.GUI.NVDT
             }
             strHK = bLL.loadCBBHKBLL(MaHV);
         }
-
+        #endregion
+        #region RadioButton
         private void radioButtonNamHoc_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxDoanXem.Items.Clear();
@@ -90,7 +105,8 @@ namespace QuanLyDiem.GUI.NVDT
             comboBoxDoanXem.Items.Clear();
             comboBoxDoanXem.ResetText();
         }
-
+        #endregion
+        #region ButtonClick
         private void buttonXem_Click(object sender, EventArgs e)
         {
             if (radioButtonQuaTrinh.Checked == true)
@@ -111,16 +127,15 @@ namespace QuanLyDiem.GUI.NVDT
                 dataGridViewXemDiem.DataSource = bLL.getDiemHKBLL(MaHV, strHKNH[comboBoxDoanXem.SelectedIndex],
                                                                 strHK[comboBoxDoanXem.SelectedIndex]);
             }
-            dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
-        private void dataGridViewXemDiem_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
-            GUI.NVDT.SuaDiemHocVienDT suaDiemHocVienDT_form = new SuaDiemHocVienDT(textBoxMSHV.Text, dataGridViewXemDiem.SelectedRows[0].Cells["Mã học phần"].Value.ToString());
-            suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
-            AddControlPanel(suaDiemHocVienDT_form);           
-            // suaDiemHocVienDT_form.Show();
+            removeControl(this);
+            this.Dispose();
         }
+        #endregion
+        #region DelegateFunction
         public void AddControlPanel(Form form)
         {
             addControl(form);
@@ -129,10 +144,30 @@ namespace QuanLyDiem.GUI.NVDT
         {
             removeControl(form);
         }
-        private void buttonCancel_Click(object sender, EventArgs e)
+        #endregion
+        #region DataGridViewEvent
+        private void dataGridViewXemDiem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            removeControl(this);
-            this.Dispose();
+            if (e.RowIndex != -1)
+            {
+                GUI.NVDT.SuaDiemHocVienDT suaDiemHocVienDT_form = new SuaDiemHocVienDT(textBoxMSHV.Text, dataGridViewXemDiem.SelectedRows[0].Cells["Mã học phần"].Value.ToString());
+                suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
+                suaDiemHocVienDT_form.saveSuccess += new SuaDiemHocVienDT.SaveSuccess(LoadData);
+                AddControlPanel(suaDiemHocVienDT_form);
+            }
         }
+
+        private void dataGridViewDTBvXL_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewDTBvXL.Rows.Count)
+                this.dataGridViewDTBvXL.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridViewXemDiem_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewXemDiem.Rows.Count)
+                this.dataGridViewXemDiem.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+        #endregion
     }
 }

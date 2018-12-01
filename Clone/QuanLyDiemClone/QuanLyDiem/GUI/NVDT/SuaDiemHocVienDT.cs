@@ -16,6 +16,8 @@ namespace QuanLyDiem.GUI.NVDT
         public delegate void AddRemoveControl(Form form);
         public AddRemoveControl removeControl;
         SuaDiemHocVienDT_BLL sua = new SuaDiemHocVienDT_BLL();
+        public delegate void SaveSuccess();
+        public SaveSuccess saveSuccess;
         public void LoadData()
         {
             KetQuaHocPhan kq = sua.GetDiem_BLL(labelMaHV.Text, labelMaHP.Text);
@@ -34,9 +36,10 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
             sua.suaDiemHocVien_BLL(labelMaHV.Text, labelMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
-            //Dispose();
+            saveSuccess();
+            removeControl(this);
+            Dispose();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

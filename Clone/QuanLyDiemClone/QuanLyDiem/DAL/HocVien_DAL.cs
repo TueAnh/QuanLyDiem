@@ -9,10 +9,9 @@ namespace QuanLyDiem.DAL
 {
     public class HocVien_DAL
     {
-        QuanLyDiemEntities db;
+        QuanLyDiemEntities db = new QuanLyDiemEntities();
         public string getHVDAL(string str)
         {
-            db = new QuanLyDiemEntities();
             var v = from s in db.HocVien
                     where s.ID == str
                     select s.HoTen;
@@ -21,7 +20,6 @@ namespace QuanLyDiem.DAL
 
         public dynamic getDTBvXLDAL(string str)
         {
-            db = new QuanLyDiemEntities();
             DataTable tb = new DataTable();
             tb.Columns.Add("Học kì / Năm học");
             tb.Columns.Add("Tổng số tín chỉ");
@@ -92,7 +90,6 @@ namespace QuanLyDiem.DAL
 
         public List<string> loadCBBHKDAL(string str)
         {
-            db = new QuanLyDiemEntities();
             List<string> list = new List<string>();
             var v = from s in db.KetQuaHocPhan
                     where s.ID == str
@@ -103,131 +100,137 @@ namespace QuanLyDiem.DAL
 
         public dynamic getDiemQTDAL(string str)
         {
-            db.Dispose();
-            db = new QuanLyDiemEntities();
-            DataTable tb = new DataTable();
-            tb.Columns.Add("Học kì / Năm học");
-            tb.Columns.Add("Mã học phần");
-            tb.Columns.Add("Tên học phần");
-            tb.Columns.Add("Số TC");
-            tb.Columns.Add("Điểm BT");
-            tb.Columns.Add("Điểm GK");
-            tb.Columns.Add("Điểm Thi");
-            tb.Columns.Add("Điểm TB");
-            var v = from s in db.KetQuaHocPhan
-                    where s.ID == str
-                    orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
-                    select s;
-
-
-            string hknh = "", check = "";
-            foreach (var x in v)
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
             {
-                double dtbm;
-                DataRow r = tb.NewRow();
-                hknh = x.HocPhan.HocKy.TenHK + " Năm học " + x.HocPhan.HocKy.NamHoc + " - " + (x.HocPhan.HocKy.NamHoc + 1);
-                if (check != hknh)
-                {
-                    r["Học kì / Năm học"] = check = hknh;
-                }
-                else
-                {
-                    r["Học kì / Năm học"] = "";
-                }
-                r["Mã học phần"] = x.MaHP.Trim();
-                r["Tên học phần"] = x.HocPhan.TenHP;
-                r["Số TC"] = x.HocPhan.SoTC;
-                r["Điểm BT"] = x.DiemBT;
-                r["Điểm GK"] = x.DiemGK;
-                r["Điểm Thi"] = x.DiemThi;
-                dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
-                r["Điểm TB"] = Math.Round(dtbm, 2);
-                tb.Rows.Add(r);
-            }
+                DataTable tb = new DataTable();
+                tb.Columns.Add("Học kì / Năm học");
+                tb.Columns.Add("Mã học phần");
+                tb.Columns.Add("Tên học phần");
+                tb.Columns.Add("Số TC");
+                tb.Columns.Add("Điểm BT");
+                tb.Columns.Add("Điểm GK");
+                tb.Columns.Add("Điểm Thi");
+                tb.Columns.Add("Điểm TB");
+                var v = from s in db.KetQuaHocPhan
+                        where s.ID == str
+                        orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
+                        select s;
 
-            return tb;
+
+                string hknh = "", check = "";
+                foreach (var x in v)
+                {
+                    double dtbm;
+                    DataRow r = tb.NewRow();
+                    hknh = x.HocPhan.HocKy.TenHK + " Năm học " + x.HocPhan.HocKy.NamHoc + " - " + (x.HocPhan.HocKy.NamHoc + 1);
+                    if (check != hknh)
+                    {
+                        r["Học kì / Năm học"] = check = hknh;
+                    }
+                    else
+                    {
+                        r["Học kì / Năm học"] = "";
+                    }
+                    r["Mã học phần"] = x.MaHP.Trim();
+                    r["Tên học phần"] = x.HocPhan.TenHP;
+                    r["Số TC"] = x.HocPhan.SoTC;
+                    r["Điểm BT"] = x.DiemBT;
+                    r["Điểm GK"] = x.DiemGK;
+                    r["Điểm Thi"] = x.DiemThi;
+                    dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
+                    r["Điểm TB"] = Math.Round(dtbm, 2);
+                    tb.Rows.Add(r);
+                }
+
+                return tb;
+            }
         }
 
         public dynamic getDiemNHDAL(string str, int nh)
         {
-
-            DataTable tb = new DataTable();
-
-            tb.Columns.Add("Học kì");
-            tb.Columns.Add("Mã học phần");
-            tb.Columns.Add("Tên học phần");
-            tb.Columns.Add("Số TC");
-            tb.Columns.Add("Điểm BT");
-            tb.Columns.Add("Điểm GK");
-            tb.Columns.Add("Điểm Thi");
-            tb.Columns.Add("Điểm TB");
-            var v = from s in db.KetQuaHocPhan
-                    where (s.ID == str && s.HocPhan.HocKy.NamHoc == nh)
-                    orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
-                    select s;
-            string hknh = "", check = "";
-            foreach (var x in v)
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
             {
-                double dtbm;
-                DataRow r = tb.NewRow();
-                hknh = x.HocPhan.HocKy.TenHK;
-                if (check != hknh)
+                DataTable tb = new DataTable();
+
+                tb.Columns.Add("Học kì");
+                tb.Columns.Add("Mã học phần");
+                tb.Columns.Add("Tên học phần");
+                tb.Columns.Add("Số TC");
+                tb.Columns.Add("Điểm BT");
+                tb.Columns.Add("Điểm GK");
+                tb.Columns.Add("Điểm Thi");
+                tb.Columns.Add("Điểm TB");
+                var v = from s in db.KetQuaHocPhan
+                        where (s.ID == str && s.HocPhan.HocKy.NamHoc == nh)
+                        orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
+                        select s;
+                string hknh = "", check = "";
+                foreach (var x in v)
                 {
-                    r["Học kì"] = check = hknh;
+                    double dtbm;
+                    DataRow r = tb.NewRow();
+                    hknh = x.HocPhan.HocKy.TenHK;
+                    if (check != hknh)
+                    {
+                        r["Học kì"] = check = hknh;
+                    }
+                    else
+                    {
+                        r["Học kì"] = "";
+                    }
+                    r["Mã học phần"] = x.MaHP.Trim();
+                    r["Tên học phần"] = x.HocPhan.TenHP;
+                    r["Số TC"] = x.HocPhan.SoTC;
+                    r["Điểm BT"] = x.DiemBT;
+                    r["Điểm GK"] = x.DiemGK;
+                    r["Điểm Thi"] = x.DiemThi;
+                    dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
+                    r["Điểm TB"] = Math.Round(dtbm, 2);
+                    tb.Rows.Add(r);
                 }
-                else
-                {
-                    r["Học kì"] = "";
-                }
-                r["Mã học phần"] = x.MaHP.Trim();
-                r["Tên học phần"] = x.HocPhan.TenHP;
-                r["Số TC"] = x.HocPhan.SoTC;
-                r["Điểm BT"] = x.DiemBT;
-                r["Điểm GK"] = x.DiemGK;
-                r["Điểm Thi"] = x.DiemThi;
-                dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
-                r["Điểm TB"] = Math.Round(dtbm, 2);
-                tb.Rows.Add(r);
+                return tb;
             }
-            return tb;
         }
 
         public dynamic getDiemHKDAL(string str, int nh, string hk)
-        {
-            DataTable tb = new DataTable();
-            tb.Columns.Add("Mã học phần");
-            tb.Columns.Add("Tên học phần");
-            tb.Columns.Add("Số TC");
-            tb.Columns.Add("Điểm BT");
-            tb.Columns.Add("Điểm GK");
-            tb.Columns.Add("Điểm Thi");
-            tb.Columns.Add("Điểm TB");
-            var v = from s in db.KetQuaHocPhan
-                    where (s.ID == str && s.HocPhan.HocKy.NamHoc == nh && s.HocPhan.HocKy.TenHK == hk)
-                    orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
-                    select s;
-            string hknh = "", check = "";
-            foreach (var x in v)
             {
-                double dtbm;
-                DataRow r = tb.NewRow();
-                r["Mã học phần"] = x.MaHP.Trim();
-                r["Tên học phần"] = x.HocPhan.TenHP;
-                r["Số TC"] = x.HocPhan.SoTC;
-                r["Điểm BT"] = x.DiemBT;
-                r["Điểm GK"] = x.DiemGK;
-                r["Điểm Thi"] = x.DiemThi;
-                dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
-                r["Điểm TB"] = Math.Round(dtbm, 2);
-                tb.Rows.Add(r);
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+            {
+                DataTable tb = new DataTable();
+                tb.Columns.Add("Mã học phần");
+                tb.Columns.Add("Tên học phần");
+                tb.Columns.Add("Số TC");
+                tb.Columns.Add("Điểm BT");
+                tb.Columns.Add("Điểm GK");
+                tb.Columns.Add("Điểm Thi");
+                tb.Columns.Add("Điểm TB");
+                var v = from s in db.KetQuaHocPhan
+                        where (s.ID == str && s.HocPhan.HocKy.NamHoc == nh && s.HocPhan.HocKy.TenHK == hk)
+                        orderby s.HocPhan.HocKy.NamHoc, s.HocPhan.MaHK
+                        select s;
+                string hknh = "", check = "";
+                foreach (var x in v)
+                {
+                    double dtbm;
+                    DataRow r = tb.NewRow();
+                    r["Mã học phần"] = x.MaHP.Trim();
+                    r["Tên học phần"] = x.HocPhan.TenHP;
+                    r["Số TC"] = x.HocPhan.SoTC;
+                    r["Điểm BT"] = x.DiemBT;
+                    r["Điểm GK"] = x.DiemGK;
+                    r["Điểm Thi"] = x.DiemThi;
+                    dtbm = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                            + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
+                    r["Điểm TB"] = Math.Round(dtbm, 2);
+                    tb.Rows.Add(r);
+                }
+                return tb;
             }
-            return tb;
         }
 
     }

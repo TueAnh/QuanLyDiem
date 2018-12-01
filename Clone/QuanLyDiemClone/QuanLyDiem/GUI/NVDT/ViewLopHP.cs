@@ -13,6 +13,7 @@ namespace QuanLyDiem.GUI.NVDT
 {
     public partial class ViewLopHP : Form
     {
+        #region InitandLoad
         public delegate void AddRemoveControl(Form form);
         public AddRemoveControl addControl, removeControl;
         public ViewLopHP_BLL bLL { get; set; }
@@ -24,7 +25,6 @@ namespace QuanLyDiem.GUI.NVDT
             this.bLL = new ViewLopHP_BLL();
             loadNode();
         }
-
 
         void loadNode()
         {
@@ -39,53 +39,66 @@ namespace QuanLyDiem.GUI.NVDT
                 m.Nodes.Add("Học kì 2");
             }
         }
-
-        private void buttonView_Click(object sender, EventArgs e)
-        {
-            //string hk = treeView1.SelectedNode.Text;// hoc ky cho nay khong dung string duoc ???
-            //int nh = Convert.ToInt32(treeView1.SelectedNode.Parent.Text);//nam hoc
-            //dataGridView1.DataSource = bLL.getTbHPBLL(hk, nh);
-        }
-
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            string str = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
-            LopHPDT f = new LopHPDT(str);// mở form HPDT
-            f.addControl += new LopHPDT.AddRemoveControl(AddControlPanel);
-            f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
-            AddControlPanel(f);
-            //addControl(f);
-            //this.Hide();
-            //f.Show();
-        }
-
+        #endregion
+        #region EventTree+Grid
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {
                 string hk = treeView1.SelectedNode.Text;// hoc ky cho nay khong dung string duoc ???
                 int nh = NH[treeView1.SelectedNode.Parent.Index];//nam hoc
+                dataGridView1.Columns.Clear();
+                dataGridView1.Columns.Add("STT", "STT"); 
                 dataGridView1.DataSource = bLL.getTbHPBLL(hk, nh);// ra bảng học phần trong học kì vừa click
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.Columns["STT"].Width = 50;
+                dataGridView1.RowHeadersVisible = false;
+                this.panel2.Controls.Add(dataGridView1);
+                if (panel2.Controls.Count > 1)
+                    this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+                this.panel2.Controls[panel2.Controls.Count - 1].Show();
             }
             catch
             { }
-            //dataGridView1.Columns[0].HeaderText = "Mã HP";
-            //dataGridView1.Columns[1].HeaderText = "tên hp";
-            //dataGridView1.Columns[2].HeaderText = "số tc";
-            //dataGridView1.Columns[3].HeaderText = "số tiết lt";
-            //dataGridView1.Columns[4].HeaderText = "số tiết th";
-            //dataGridView1.Columns[5].HeaderText = "phần trăm dkt";
-            //dataGridView1.Columns[6].HeaderText = "phần trăm dt";
         }
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridView1.Rows.Count)
+                this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                string MaHP = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
+                LopHPDT f = new LopHPDT(MaHP);// mở form HPDT
+                f.addControl += new LopHPDT.AddRemoveControl(AddControlPanel);
+                f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
+                AddControlPanel(f);
+            }
+            
+        }
+        #endregion
+        #region DelegateFunction
         public void AddControlPanel(Form form)
         {
-            addControl(form);
+            //addControl(form);
+            form.TopLevel = false;
+            this.panel2.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.None;
+            this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
         public void RemoveControlPanel(Form form)
         {
-            removeControl(form);
+            //removeControl(form);
+            this.panel2.Controls.Remove(form);
+            //this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
+        #endregion
     }
 }
 

@@ -20,6 +20,7 @@ namespace QuanLyDiem.GUI
         { 
             this.UserAcc = user;
             InitializeComponent();
+            PhanQuyenUsers();
             LoadInfo();
             LoadPanel();
         }
@@ -62,12 +63,10 @@ namespace QuanLyDiem.GUI
             {
                 ClearView();
                 this.panelTools2.Hide();
-                NVDT.HocVienDT formView = new NVDT.HocVienDT();
-                formView.TopLevel = false;
-                panel2.Controls.Add(formView);
-                formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                formView.Dock = DockStyle.None;
-                formView.Show();
+                NVDT.SearchHocVien formView = new NVDT.SearchHocVien();
+                formView.addControl += new SearchHocVien.AddRemoveControl(AddControlPanel);
+                formView.removeControl += new SearchHocVien.AddRemoveControl(RemoveControlPanel);
+                AddControlPanel(formView);
             }
             else
             {
@@ -147,7 +146,15 @@ namespace QuanLyDiem.GUI
             formView.Show();
             */
         }
-
+        public void PhanQuyenUsers()
+        {
+            if (userAcc.typeAcc == 1)
+            {
+                buttonViewGV.Enabled = false;
+                buttonViewLHP.Enabled = false;
+                buttonViewLSH.Enabled = false;
+            }
+        }
         private void labelUserName_Click(object sender, EventArgs e)
         {
 

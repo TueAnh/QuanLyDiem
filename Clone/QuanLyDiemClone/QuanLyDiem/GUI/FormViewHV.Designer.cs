@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNAME = new System.Windows.Forms.TextBox();
             this.textBoxMSHV = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonMore = new System.Windows.Forms.Button();
             this.buttonXem = new System.Windows.Forms.Button();
             this.comboBoxDoanXem = new System.Windows.Forms.ComboBox();
             this.radioButtonHocKi = new System.Windows.Forms.RadioButton();
@@ -59,7 +59,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBoxNAME);
             this.panel1.Controls.Add(this.textBoxMSHV);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.buttonMore);
             this.panel1.Controls.Add(this.buttonXem);
             this.panel1.Controls.Add(this.comboBoxDoanXem);
             this.panel1.Controls.Add(this.radioButtonHocKi);
@@ -119,6 +119,7 @@
             this.textBoxNAME.Location = new System.Drawing.Point(156, 49);
             this.textBoxNAME.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNAME.Name = "textBoxNAME";
+            this.textBoxNAME.ReadOnly = true;
             this.textBoxNAME.Size = new System.Drawing.Size(379, 22);
             this.textBoxNAME.TabIndex = 80;
             // 
@@ -127,18 +128,20 @@
             this.textBoxMSHV.Location = new System.Drawing.Point(156, 23);
             this.textBoxMSHV.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMSHV.Name = "textBoxMSHV";
+            this.textBoxMSHV.ReadOnly = true;
             this.textBoxMSHV.Size = new System.Drawing.Size(379, 22);
             this.textBoxMSHV.TabIndex = 81;
             // 
-            // button4
+            // buttonMore
             // 
-            this.button4.Location = new System.Drawing.Point(596, 26);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(68, 28);
-            this.button4.TabIndex = 78;
-            this.button4.Text = "MORE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonMore.Location = new System.Drawing.Point(596, 26);
+            this.buttonMore.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMore.Name = "buttonMore";
+            this.buttonMore.Size = new System.Drawing.Size(179, 28);
+            this.buttonMore.TabIndex = 78;
+            this.buttonMore.Text = "Thông tin thêm >>>>";
+            this.buttonMore.UseVisualStyleBackColor = true;
+            this.buttonMore.Click += new System.EventHandler(this.buttonMore_Click);
             // 
             // buttonXem
             // 
@@ -269,7 +272,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNAME;
         private System.Windows.Forms.TextBox textBoxMSHV;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonMore;
         private System.Windows.Forms.Button buttonXem;
         private System.Windows.Forms.ComboBox comboBoxDoanXem;
         private System.Windows.Forms.RadioButton radioButtonHocKi;
