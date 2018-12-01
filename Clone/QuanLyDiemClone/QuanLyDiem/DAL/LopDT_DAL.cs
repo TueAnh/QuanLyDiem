@@ -52,7 +52,7 @@ namespace QuanLyDiem.DAL
                     select s.GiangVien.HoTen;
             return v.SingleOrDefault();
         }
-        public dynamic getDSSearchDAL(string str1, string str2, string MaLop)
+        public dynamic getDSSearchDAL(string str2, string MaLop)
         {
 
             var v = from s in db.HocVien

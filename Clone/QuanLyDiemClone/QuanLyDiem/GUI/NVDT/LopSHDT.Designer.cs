@@ -37,14 +37,12 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
-            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBoxSearch);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelML);
             this.panel1.Controls.Add(this.labelMaLop);
@@ -131,22 +129,18 @@
             // 
             // dataGridViewDSHV
             // 
+            this.dataGridViewDSHV.AllowUserToAddRows = false;
+            this.dataGridViewDSHV.AllowUserToDeleteRows = false;
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDSHV.Location = new System.Drawing.Point(20, 109);
             this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
+            this.dataGridViewDSHV.ReadOnly = true;
+            this.dataGridViewDSHV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDSHV.Size = new System.Drawing.Size(772, 342);
             this.dataGridViewDSHV.TabIndex = 8;
-            this.dataGridViewDSHV.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDSHV_RowHeaderMouseDoubleClick);
-            // 
-            // comboBoxSearch
-            // 
-            this.comboBoxSearch.FormattingEnabled = true;
-            this.comboBoxSearch.Location = new System.Drawing.Point(225, 67);
-            this.comboBoxSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxSearch.Name = "comboBoxSearch";
-            this.comboBoxSearch.Size = new System.Drawing.Size(124, 24);
-            this.comboBoxSearch.TabIndex = 16;
+            this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
+            this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
             // 
             // LopSHDT
             // 
@@ -174,6 +168,5 @@
         private System.Windows.Forms.Label labelTenLop;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelML;
-        private System.Windows.Forms.ComboBox comboBoxSearch;
     }
 }

@@ -12,6 +12,7 @@ namespace QuanLyDiem.GUI.NVDT
 {
     public partial class ViewLopDT : Form
     {
+        #region DelegateFunction
         public delegate void AddRemoveControl(Form form);
         public AddRemoveControl addControl, removeControl;
         public void AddControlPanel(Form form)
@@ -31,7 +32,9 @@ namespace QuanLyDiem.GUI.NVDT
             //this.panel2.Controls[panel2.Controls.Count - 2].Hide();
             this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
+        #endregion
 
+        #region InitandLoad
         public ViewLopDT()
         {
             InitializeComponent();
@@ -48,32 +51,45 @@ namespace QuanLyDiem.GUI.NVDT
                 n.Nodes.Add(x);
             }
         }
-
-        private void buttonView_Click(object sender, EventArgs e)
+        void LoadDataGrid(string str)
         {
-            //string str = treeView1.SelectedNode.Text;
-            //dataGridView1.DataSource = BLL.ViewLopDT_BLL.BLL.getTbLopDTBLL(str);
+            dataGridView1.Columns.Clear();
+            dataGridView1.Columns.Add("STT", "STT");
+            dataGridView1.DataSource = BLL.ViewLopDT_BLL.BLL.getTbLopDTBLL(str);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.Columns["Malop"].HeaderText = "Mã lớp";
+            dataGridView1.Columns["Tenlop"].HeaderText = "Tên Lớp";
+            dataGridView1.Columns["STT"].Width = 50;
+            dataGridView1.RowHeadersVisible = false;
+        }
+        #endregion
+
+        #region EventTree+Grid
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridView1.Rows.Count)
+                this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
-            string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
-            NVDT.LopSHDT f = new LopSHDT(MaLop,TenLop);
-            f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
-            f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
-            AddControlPanel(f);
+            if (e.RowIndex != -1)
+            {
+                string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
+                string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
+                NVDT.LopSHDT f = new LopSHDT(MaLop, TenLop);
+                f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
+                f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
+                AddControlPanel(f);
+            }
+            
         }
-
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {
                 string str = treeView1.SelectedNode.Text;
-                dataGridView1.DataSource = BLL.ViewLopDT_BLL.BLL.getTbLopDTBLL(str);
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.Columns["Malop"].HeaderText = "Mã lớp";
-                dataGridView1.Columns["Tenlop"].HeaderText = "Tên Lớp";
+                LoadDataGrid(str);
                 this.panel2.Controls.Add(dataGridView1);
                 if (panel2.Controls.Count > 1)
                     this.panel2.Controls[panel2.Controls.Count - 2].Hide();
@@ -82,5 +98,6 @@ namespace QuanLyDiem.GUI.NVDT
             catch
             { }
         }
+        #endregion
     }
 }

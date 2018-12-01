@@ -29,8 +29,8 @@ namespace QuanLyDiem.GUI.NVDT
         {
 
             InitializeComponent();
-            labelMaHV.Text = MaHV;
-            labelMaHP.Text = MaHP;
+            labelMaHV.Text = MaHV.Trim();
+            labelMaHP.Text = MaHP.Trim();
             LoadData();
         }
 
