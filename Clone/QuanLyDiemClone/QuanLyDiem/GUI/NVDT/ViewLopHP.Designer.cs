@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -39,12 +40,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonBack);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 600);
+            this.panel1.Size = new System.Drawing.Size(1075, 620);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -77,20 +79,29 @@
             // 
             // treeView1
             // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(12, 22);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(186, 525);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonBack.Location = new System.Drawing.Point(899, 563);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(164, 45);
+            this.buttonBack.TabIndex = 3;
+            this.buttonBack.Text = "Trở lại";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // ViewLopHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 600);
+            this.BackColor = System.Drawing.Color.LightYellow;
+            this.ClientSize = new System.Drawing.Size(1075, 620);
             this.Controls.Add(this.panel1);
             this.Name = "ViewLopHP";
             this.Text = "ViewLopHP";
@@ -107,5 +118,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

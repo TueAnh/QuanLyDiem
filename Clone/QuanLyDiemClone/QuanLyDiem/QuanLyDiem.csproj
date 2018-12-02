@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\GiangVien_BLL.cs" />
     <Compile Include="BLL\HocVienDT_BLL.cs" />
     <Compile Include="BLL\HocVien_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
@@ -68,8 +69,10 @@
     <Compile Include="BLL\MoreInfoHocVien_BLL.cs" />
     <Compile Include="BLL\SearchHocVien_BLL.cs" />
     <Compile Include="BLL\SuaDiemHocVienDT_BLL.cs" />
+    <Compile Include="BLL\UserInfo_BLL.cs" />
     <Compile Include="BLL\ViewLopHP_BLL.cs" />
     <Compile Include="BLL\ViewLopDT_BLL.cs" />
+    <Compile Include="DAL\GiangVien_DAL.cs" />
     <Compile Include="DAL\HocVienDT_DAL.cs" />
     <Compile Include="DAL\HocVien_DAL.cs" />
     <Compile Include="DAL\Login_DAL.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="DAL\MoreInfoHocVien_DAL.cs" />
     <Compile Include="DAL\SearchHocVien_DAL.cs" />
     <Compile Include="DAL\SuaDiemHocVienDT_DAL.cs" />
+    <Compile Include="DAL\UserInfo_DAL.cs" />
     <Compile Include="DAL\ViewLopDT_DAL.cs" />
     <Compile Include="DAL\ViewLopHP_DAL.cs" />
     <Compile Include="GiangVien.cs">
@@ -161,6 +165,12 @@
     <Compile Include="GUI\NVDT\ViewLopHP.Designer.cs">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="HocKy.cs">
       <DependentUpon>QuanLyDiem.tt</DependentUpon>
     </Compile>
@@ -236,6 +246,9 @@
     <EmbeddedResource Include="GUI\NVDT\ViewLopHP.resx">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -278,6 +291,7 @@
       <DependentUpon>QuanLyDiem.edmx</DependentUpon>
       <LastGenOutput>QuanLyDiem.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\47187885_581438345610674_3296136835582918656_n.png" />
     <None Include="Resources\maxresdefault.jpg" />
     <None Include="Resources\15-1479876403_660x0.jpg" />
     <None Include="Resources\Wiki-background.jpg" />

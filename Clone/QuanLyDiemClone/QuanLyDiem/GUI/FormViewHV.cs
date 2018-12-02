@@ -19,6 +19,14 @@ namespace QuanLyDiem.GUI
         public delegate void AddRemoveControl(Form form);
         public AddRemoveControl addControl;
         public AddRemoveControl removeControl;
+        public void AddControlPanel(Form form)
+        {
+            addControl(form);
+        }
+        public void RemoveControlPanel(Form form)
+        {
+            removeControl(form);
+        }
         BLL.HocVien_BLL bLL = new HocVien_BLL();
         string MaHV;
         List<int> strNH = new List<int>();
@@ -26,18 +34,28 @@ namespace QuanLyDiem.GUI
         List<int> strHKNH = new List<int>();
         public FormViewHV(string str)
         {
+            MaHV = FormHome.UserAcc.ID;
             InitializeComponent();
-            MaHV = str;
+            LoadData();
+        }
+        public void LoadData()
+        {
             textBoxMSHV.Text = MaHV;
             textBoxNAME.Text = bLL.getHVBLL(MaHV);
+            dataGridViewDTBvXL.Columns.Clear();
+            dataGridViewDTBvXL.Columns.Add("STT", "STT");
+            dataGridViewXemDiem.Columns.Clear();
+            dataGridViewXemDiem.Columns.Add("STT", "STT");
             dataGridViewDTBvXL.DataSource = bLL.getDTBvXLBLL(MaHV);
             dataGridViewDTBvXL.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             radioButtonQuaTrinh.Checked = true;
             dataGridViewXemDiem.DataSource = bLL.getDiemQTBLL(MaHV);
             dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewXemDiem.Columns[dataGridViewXemDiem.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewDTBvXL.Columns["STT"].Width = 50;
+            dataGridViewXemDiem.Columns["STT"].Width = 50;
             loadCBB();
         }
-
         private void loadCBB()
         {
             strHKNH = bLL.loadCBBNHBLL(MaHV);
@@ -55,7 +73,7 @@ namespace QuanLyDiem.GUI
             }
             strHK = bLL.loadCBBHKBLL(MaHV);
         }
-
+        #region radioBTT
         private void radioButtonQuaTrinh_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxDoanXem.Items.Clear();
@@ -89,6 +107,7 @@ namespace QuanLyDiem.GUI
                 }
             }
         }
+        #endregion
 
         private void buttonXem_Click(object sender, EventArgs e)
         {
@@ -98,19 +117,28 @@ namespace QuanLyDiem.GUI
                 comboBoxDoanXem.SelectedText = "";
                 dataGridViewXemDiem.DataSource = null;
                 dataGridViewXemDiem.DataSource = bLL.getDiemQTBLL(MaHV);
+                dataGridViewXemDiem.Columns[dataGridViewXemDiem.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             if (radioButtonNamHoc.Checked == true)
             {
                 dataGridViewXemDiem.DataSource = null;
-                if (comboBoxDoanXem.SelectedIndex >= 0) dataGridViewXemDiem.DataSource = bLL.getDiemNHBLL(MaHV, strNH[comboBoxDoanXem.SelectedIndex]);
+                if (comboBoxDoanXem.SelectedIndex >= 0)
+                {
+                    dataGridViewXemDiem.DataSource = bLL.getDiemNHBLL(MaHV, strNH[comboBoxDoanXem.SelectedIndex]);
+                    dataGridViewXemDiem.Columns[dataGridViewXemDiem.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
                 else MessageBox.Show("Chọn Năm Học");
             }
             if (radioButtonHocKi.Checked == true)
             {
                 dataGridViewXemDiem.DataSource = null;
                 if (comboBoxDoanXem.SelectedIndex >= 0)
+                {
                     dataGridViewXemDiem.DataSource = bLL.getDiemHKBLL(MaHV, strHKNH[comboBoxDoanXem.SelectedIndex],
-                                                                strHK[comboBoxDoanXem.SelectedIndex]);
+                                                                  strHK[comboBoxDoanXem.SelectedIndex]);
+                    dataGridViewXemDiem.Columns[dataGridViewXemDiem.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
                 else MessageBox.Show("Chọn Học Kì / Năm Học");
             }
             dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -148,13 +176,22 @@ namespace QuanLyDiem.GUI
             MoreInfoHocVien moreInfo = new MoreInfoHocVien(textBoxMSHV.Text);
             moreInfo.Show();
         }
-        public void AddControlPanel(Form form)
+
+        private void buttonBack_Click(object sender, EventArgs e)
         {
-            addControl(form);
+            this.Dispose();
         }
-        public void RemoveControlPanel(Form form)
+
+        private void dataGridViewDTBvXL_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            removeControl(form);
+            if (e.RowIndex < dataGridViewDTBvXL.Rows.Count)
+                this.dataGridViewDTBvXL.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridViewXemDiem_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewXemDiem.Rows.Count)
+                this.dataGridViewXemDiem.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
     }
 }

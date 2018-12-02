@@ -91,6 +91,12 @@ namespace QuanLyDiem.GUI.NVDT
             this.panel2.Controls[panel2.Controls.Count - 2].Hide();
             this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         public void RemoveControlPanel(Form form)
         {
             //removeControl(form);

@@ -20,7 +20,7 @@ namespace QuanLyDiem.GUI.NVDT
         public SaveSuccess saveSuccess;
         public void LoadData()
         {
-            KetQuaHocPhan kq = sua.GetDiem_BLL(labelMaHV.Text, labelMaHP.Text);
+            KetQuaHocPhan kq = sua.GetDiem_BLL(textBoxMaHV.Text, textBoxMaHP.Text);
             textboxSuaDiemBT.Text = kq.DiemBT.ToString();
             textboxSuaDiemGK.Text = kq.DiemGK.ToString();
             textboxSuaDiemThi.Text = kq.DiemThi.ToString();
@@ -29,14 +29,14 @@ namespace QuanLyDiem.GUI.NVDT
         {
 
             InitializeComponent();
-            labelMaHV.Text = MaHV.Trim();
-            labelMaHP.Text = MaHP.Trim();
+            textBoxMaHV.Text = MaHV.Trim();
+            textBoxMaHP.Text = MaHP.Trim();
             LoadData();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            sua.suaDiemHocVien_BLL(labelMaHV.Text, labelMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
+            sua.suaDiemHocVien_BLL(textBoxMaHV.Text, textBoxMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
             saveSuccess();
             removeControl(this);
             Dispose();

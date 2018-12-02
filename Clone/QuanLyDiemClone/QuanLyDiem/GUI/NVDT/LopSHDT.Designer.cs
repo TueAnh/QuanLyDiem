@@ -31,22 +31,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.labelML = new System.Windows.Forms.Label();
-            this.labelMaLop = new System.Windows.Forms.Label();
-            this.labelTenLop = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
+            this.textBoxMaLop = new System.Windows.Forms.TextBox();
+            this.textBoxTenLop = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBoxTenLop);
+            this.panel1.Controls.Add(this.textBoxMaLop);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelML);
-            this.panel1.Controls.Add(this.labelMaLop);
-            this.panel1.Controls.Add(this.labelTenLop);
             this.panel1.Controls.Add(this.textBoxSearch);
             this.panel1.Controls.Add(this.buttonBack);
             this.panel1.Controls.Add(this.buttonSearch);
@@ -60,11 +60,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(291, 21);
+            this.label2.Location = new System.Drawing.Point(25, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.Size = new System.Drawing.Size(85, 25);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Tên Lớp:";
+            this.label2.Text = "Tên Lớp";
             // 
             // labelML
             // 
@@ -72,33 +72,13 @@
             this.labelML.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelML.Location = new System.Drawing.Point(32, 21);
             this.labelML.Name = "labelML";
-            this.labelML.Size = new System.Drawing.Size(84, 25);
+            this.labelML.Size = new System.Drawing.Size(78, 25);
             this.labelML.TabIndex = 15;
-            this.labelML.Text = "Mã Lớp:";
-            // 
-            // labelMaLop
-            // 
-            this.labelMaLop.AutoSize = true;
-            this.labelMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelMaLop.Location = new System.Drawing.Point(122, 21);
-            this.labelMaLop.Name = "labelMaLop";
-            this.labelMaLop.Size = new System.Drawing.Size(73, 25);
-            this.labelMaLop.TabIndex = 14;
-            this.labelMaLop.Text = "MaLop";
-            // 
-            // labelTenLop
-            // 
-            this.labelTenLop.AutoSize = true;
-            this.labelTenLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelTenLop.Location = new System.Drawing.Point(400, 21);
-            this.labelTenLop.Name = "labelTenLop";
-            this.labelTenLop.Size = new System.Drawing.Size(85, 25);
-            this.labelTenLop.TabIndex = 13;
-            this.labelTenLop.Text = "Ten Lop";
+            this.labelML.Text = "Mã Lớp";
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(405, 67);
+            this.textBoxSearch.Location = new System.Drawing.Point(442, 60);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearch.Multiline = true;
             this.textBoxSearch.Name = "textBoxSearch";
@@ -118,7 +98,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(676, 63);
+            this.buttonSearch.Location = new System.Drawing.Point(676, 58);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(100, 28);
@@ -142,10 +122,29 @@
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
             // 
+            // textBoxMaLop
+            // 
+            this.textBoxMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxMaLop.Location = new System.Drawing.Point(116, 22);
+            this.textBoxMaLop.Name = "textBoxMaLop";
+            this.textBoxMaLop.ReadOnly = true;
+            this.textBoxMaLop.Size = new System.Drawing.Size(225, 26);
+            this.textBoxMaLop.TabIndex = 16;
+            // 
+            // textBoxTenLop
+            // 
+            this.textBoxTenLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxTenLop.Location = new System.Drawing.Point(116, 60);
+            this.textBoxTenLop.Name = "textBoxTenLop";
+            this.textBoxTenLop.ReadOnly = true;
+            this.textBoxTenLop.Size = new System.Drawing.Size(225, 26);
+            this.textBoxTenLop.TabIndex = 16;
+            // 
             // LopSHDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(819, 556);
             this.Controls.Add(this.panel1);
             this.Name = "LopSHDT";
@@ -164,9 +163,9 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.DataGridView dataGridViewDSHV;
-        private System.Windows.Forms.Label labelMaLop;
-        private System.Windows.Forms.Label labelTenLop;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelML;
+        private System.Windows.Forms.TextBox textBoxTenLop;
+        private System.Windows.Forms.TextBox textBoxMaLop;
     }
 }

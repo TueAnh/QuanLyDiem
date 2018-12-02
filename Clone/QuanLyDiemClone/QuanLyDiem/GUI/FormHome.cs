@@ -14,11 +14,11 @@ namespace QuanLyDiem.GUI
 {
     public partial class FormHome : Form
     {
-        private User userAcc;
-        public User UserAcc { get => userAcc; set => userAcc = value; }
+        private static User userAcc;
+        public  static User UserAcc { get => userAcc; set => userAcc = value; }
         public FormHome(User user)
         { 
-            this.UserAcc = user;
+            UserAcc = user;
             InitializeComponent();
             PhanQuyenUsers();
             LoadInfo();
@@ -32,14 +32,22 @@ namespace QuanLyDiem.GUI
         }
         public void LoadInfo()
         {
-            labelUserName.Text = this.UserAcc.displayName;
+            labelUserName.Text = UserAcc.displayName;
             labelHello.Visible = true;
-            labelHello.Text = "Xin chào " + this.UserAcc.displayName;
+            labelHello.Text = "Xin chào " + UserAcc.displayName;
         }
         public void ClearView()
         {
             if (this.panel2.Controls.Count > 1)
                 this.panel2.Controls.RemoveAt(this.panel2.Controls.Count - 1);
+        }
+        private void buttonUserInfo_Click(object sender, EventArgs e)
+        {
+            ClearView();
+            this.panelTools2.Hide();
+            UserInfo formView = new UserInfo(userAcc);
+            AddControlPanel(formView);
+            formView.Dock = DockStyle.Fill;
         }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -53,20 +61,21 @@ namespace QuanLyDiem.GUI
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            //ClearView();
             this.panelTools2.Hide();
         }
-
+        #region ViewBTT
         private void buttonViewHV_Click(object sender, EventArgs e)
         {
-            if (this.UserAcc.typeAcc != 1)
+            if (UserAcc.typeAcc != 1)
             {
                 ClearView();
                 this.panelTools2.Hide();
                 NVDT.SearchHocVien formView = new NVDT.SearchHocVien();
-                formView.addControl += new SearchHocVien.AddRemoveControl(AddControlPanel);
-                formView.removeControl += new SearchHocVien.AddRemoveControl(RemoveControlPanel);
-                AddControlPanel(formView);
+                formView.TopLevel = false;
+                panel2.Controls.Add(formView);
+                formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                formView.Dock = DockStyle.Fill;
+                formView.Show();
             }
             else
             {
@@ -76,30 +85,10 @@ namespace QuanLyDiem.GUI
                 formView.TopLevel = false;
                 panel2.Controls.Add(formView);
                 formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                formView.Dock = DockStyle.None;
+                formView.Dock = DockStyle.Fill;
                 formView.Show();
             }
             
-        }
-
-        private void panel2_ControlAdded(object sender, ControlEventArgs e)
-        {
-            panel2.ScrollControlIntoView(e.Control);
-        }
-        public void AddControlPanel (Form form)
-        {
-            form.TopLevel = false;
-            this.panel2.Controls.Add(form);
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.None;
-            this.panel2.Controls[panel2.Controls.Count - 2].Hide();
-            this.panel2.Controls[panel2.Controls.Count - 1].Show();
-        }
-        public void RemoveControlPanel(Form form)
-        {
-            this.panel2.Controls.Remove(form);
-            //this.panel2.Controls[panel2.Controls.Count - 2].Hide();
-            this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
         private void buttonViewLHP_Click(object sender, EventArgs e)
         {
@@ -109,24 +98,18 @@ namespace QuanLyDiem.GUI
             formView.addControl += new ViewLopHP.AddRemoveControl(AddControlPanel);
             formView.removeControl += new ViewLopHP.AddRemoveControl(RemoveControlPanel);
             AddControlPanel(formView);
-            /*
-            formView.TopLevel = false;
-            panel2.Controls.Add(formView);
-            formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formView.Dock = DockStyle.None;
-            formView.Show();
-            */
+            formView.Dock = DockStyle.Fill;
         }
 
         private void buttonViewGV_Click(object sender, EventArgs e)
         {
             ClearView();
             this.panelTools2.Hide();
-            FormViewGV formView = new FormViewGV();
+            FormViewGV formView = new FormViewGV(userAcc.ID);
             formView.TopLevel = false;
             panel2.Controls.Add(formView);
             formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formView.Dock = DockStyle.None;
+            formView.Dock = DockStyle.Fill;
             formView.Show();
         }
 
@@ -138,14 +121,34 @@ namespace QuanLyDiem.GUI
             formView.addControl += new ViewLopDT.AddRemoveControl(AddControlPanel);
             formView.removeControl += new ViewLopDT.AddRemoveControl(RemoveControlPanel);
             AddControlPanel(formView);
-            /*
-            formView.TopLevel = false;
-            panel2.Controls.Add(formView);
-            formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formView.Dock = DockStyle.None;
-            formView.Show();
-            */
+            formView.Dock = DockStyle.Fill;
+         
         }
+
+        #endregion
+
+        private void panel2_ControlAdded(object sender, ControlEventArgs e)
+        {
+            panel2.ScrollControlIntoView(e.Control);
+        }
+        public void AddControlPanel (Form form)
+        {
+            form.TopLevel = false;
+            this.panel2.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.None;
+            if (this.panel2.Controls.Count >= 2)
+                this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
+        }
+        public void RemoveControlPanel(Form form)
+        {
+            this.panel2.Controls.Remove(form);
+            if (this.panel2.Controls.Count >= 2)
+                this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
+        }
+        
         public void PhanQuyenUsers()
         {
             if (userAcc.typeAcc == 1)
@@ -153,11 +156,42 @@ namespace QuanLyDiem.GUI
                 buttonViewGV.Enabled = false;
                 buttonViewLHP.Enabled = false;
                 buttonViewLSH.Enabled = false;
+                return;
+            }
+            if (userAcc.typeAcc == 2)
+            {
+                buttonViewLHP.Enabled = false;
+                buttonViewLSH.Enabled = false;
+                return;              
+            }
+            if (UserAcc.typeAcc == 3)
+            {
+                buttonViewGV.Enabled = false;
+                return;
             }
         }
-        private void labelUserName_Click(object sender, EventArgs e)
-        {
 
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel2.ClientRectangle, Color.Blue, ButtonBorderStyle.Solid);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.Blue, ButtonBorderStyle.Solid);
+        }
+
+        
+
+        private void panelTools1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panelTools1.ClientRectangle, Color.Yellow, ButtonBorderStyle.Solid);
+        }
+
+        private void panelTools2_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panelTools2.ClientRectangle, Color.Yellow, ButtonBorderStyle.Solid);
         }
     }
 }

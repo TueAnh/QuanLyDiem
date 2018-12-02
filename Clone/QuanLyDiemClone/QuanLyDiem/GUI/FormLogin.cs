@@ -39,15 +39,9 @@ namespace QuanLyDiem
                 this.labelNoti.Visible = true;
 
             }
-            
+           
             this.UseWaitCursor = false;
-            /*
-            formHome.TopLevel = false;
-            panel2.Controls.Add(formHome);
-            formHome.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formHome.Dock = DockStyle.Fill;
-            */
-            
+          
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

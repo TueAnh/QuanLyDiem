@@ -84,6 +84,12 @@ namespace QuanLyDiem.GUI.NVDT
             }
             
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try

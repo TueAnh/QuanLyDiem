@@ -20,6 +20,7 @@ namespace QuanLyDiem.BLL
         {
             return dAL.getDSHVDAL(str);
         }
+
         public dynamic getDSSearchBLL(string str2, string Malop)
         {
             return dAL.getDSSearchDAL(str2, Malop);

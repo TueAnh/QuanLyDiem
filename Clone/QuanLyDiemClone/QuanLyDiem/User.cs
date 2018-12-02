@@ -12,5 +12,9 @@ namespace QuanLyDiem
         public string PassWord { get; set; }
         public string displayName { get; set; }
         public int typeAcc { get; set; }
+        public string Email { get; set; }
+        public string DiaChi { get; set; }
+        public string DienThoai { get; set; }
+        public DateTime NgaySinh { get; set; }
     }
 }

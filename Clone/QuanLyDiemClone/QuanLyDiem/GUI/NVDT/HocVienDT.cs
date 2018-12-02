@@ -154,6 +154,7 @@ namespace QuanLyDiem.GUI.NVDT
                 suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
                 suaDiemHocVienDT_form.saveSuccess += new SuaDiemHocVienDT.SaveSuccess(LoadData);
                 AddControlPanel(suaDiemHocVienDT_form);
+                suaDiemHocVienDT_form.Dock = DockStyle.Fill;
             }
         }
 

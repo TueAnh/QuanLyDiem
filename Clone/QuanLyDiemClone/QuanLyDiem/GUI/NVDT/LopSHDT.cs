@@ -34,8 +34,8 @@ namespace QuanLyDiem.GUI.NVDT
         {
             InitializeComponent();
             bLL = new LopDT_BLL();
-            labelMaLop.Text = MaLop;
-            labelTenLop.Text = TenLop;
+            textBoxMaLop.Text = MaLop;
+            textBoxTenLop.Text = TenLop;
             LoadDataGrid();
         }
         void LoadDataGrid(string str = "")
@@ -44,11 +44,12 @@ namespace QuanLyDiem.GUI.NVDT
             dataGridViewDSHV.Columns.Add("STT", "STT");
             if (str != "")
             {
-                dataGridViewDSHV.DataSource = bLL.getDSSearchBLL(textBoxSearch.Text, labelMaLop.Text);
+                dataGridViewDSHV.DataSource = bLL.getDSSearchBLL(textBoxSearch.Text, textBoxMaLop.Text);
             }
                 
             else
-                dataGridViewDSHV.DataSource = bLL.getDSHVBLL(labelMaLop.Text);
+                dataGridViewDSHV.DataSource = bLL.getDSHVBLL(textBoxMaLop.Text);
+            
             dataGridViewDSHV.RowHeadersVisible = false;
             dataGridViewDSHV.Columns[1].HeaderText = "Mã số";
             dataGridViewDSHV.Columns[2].HeaderText = "Họ tên";
@@ -58,7 +59,12 @@ namespace QuanLyDiem.GUI.NVDT
             dataGridViewDSHV.Columns[6].HeaderText = "Ngày sinh";
             dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDSHV.Columns["STT"].Width = 50;
-            dataGridViewDSHV.Columns["Họ tên"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            try
+            {
+                dataGridViewDSHV.Columns["Họ tên"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            catch { }
+            //dataGridViewDSHV.Columns["Tên"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         #endregion
 

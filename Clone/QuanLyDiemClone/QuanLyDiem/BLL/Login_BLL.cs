@@ -23,23 +23,5 @@ namespace QuanLyDiem.BLL
         {
             return Login_DAL.DAL.GetUser(flag, ID);
         }
-        
-        public IEnumerable<HocVien> GetList()
-        {
-            return Login_DAL.DAL.GetList();
-        }
-        
-        public List<TreeNode> GetNode()
-        {
-            return Login_DAL.DAL.GetNode();
-        }
-        public dynamic GetListHP(string ID, string HocKy, string NamHoc)
-        {
-            return Login_DAL.DAL.GetListHP(ID, HocKy, Convert.ToInt32(NamHoc));
-        }
-        public dynamic GetListHV(string MaHP)
-        {
-            return Login_DAL.DAL.GetListHV(MaHP);
-        }
     }
 }

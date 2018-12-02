@@ -30,7 +30,7 @@ namespace QuanLyDiem.GUI.NVDT
             InitializeComponent();
             bLL = new LopHP_BLL();
             this.MaHP = MaHP;
-            LoadData(MaHP);
+            LoadData();
         }
 
         ////public LopHPDT(string MaHP, string GiangVien)
@@ -39,17 +39,18 @@ namespace QuanLyDiem.GUI.NVDT
         ////    this.MaHP = MaHP;
         ////    textBoxGVPT.Text = GiangVien;
         ////}
-        public void LoadData(string MaHP)
+        public void LoadData()
         {
             dataGridViewDSHV.Columns.Clear();
             dataGridViewDSHV.Columns.Add("STT", "STT");
             dataGridViewDSHV.DataSource = bLL.getDSHVBLL(MaHP);
-            dataGridViewDSHV.Columns[1].HeaderText = "Mã số";
-            dataGridViewDSHV.Columns[2].HeaderText = "Họ tên";
-            dataGridViewDSHV.Columns[3].HeaderText = "Điểm BT";
-            dataGridViewDSHV.Columns[4].HeaderText = "Điểm GK";
-            dataGridViewDSHV.Columns[5].HeaderText = "Điểm Thi";
+            //dataGridViewDSHV.Columns[1].HeaderText = "Mã số";
+            //dataGridViewDSHV.Columns[2].HeaderText = "Họ tên";
+            //dataGridViewDSHV.Columns[3].HeaderText = "Điểm BT";
+            //dataGridViewDSHV.Columns[4].HeaderText = "Điểm GK";
+            //dataGridViewDSHV.Columns[5].HeaderText = "Điểm Thi";
             textBoxGVPT.Text = bLL.getGVBLL(MaHP);
+            textBoxLDT.Text = MaHP;
             dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDSHV.Columns["STT"].Width = 50;
             this.dataGridViewDSHV.Refresh();
@@ -109,15 +110,32 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if (e.RowIndex != -1)
+            //{
+            //    string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
+            //    NVDT.HocVienDT f = new HocVienDT(MaHV);
+            //    f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+            //    f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+            //    AddControlPanel(f);
+            //} 
             if (e.RowIndex != -1)
             {
+                string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
+                GUI.NVDT.SuaDiemHocVienDT suaDiemHocVienDT_form = new SuaDiemHocVienDT(MaHV, MaHP);
+                suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
+                suaDiemHocVienDT_form.saveSuccess += new SuaDiemHocVienDT.SaveSuccess(LoadData);
+                AddControlPanel(suaDiemHocVienDT_form);
+            }
+        }
+        #endregion
+
+        private void buttonXem_Click(object sender, EventArgs e)
+        {
                 string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
                 NVDT.HocVienDT f = new HocVienDT(MaHV);
                 f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
                 f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(f);
-            } 
         }
-        #endregion
     }
 }

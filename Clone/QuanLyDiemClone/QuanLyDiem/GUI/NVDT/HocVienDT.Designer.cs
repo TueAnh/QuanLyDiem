@@ -35,9 +35,8 @@
             this.radioButtonNamHoc = new System.Windows.Forms.RadioButton();
             this.textBoxNAME = new System.Windows.Forms.TextBox();
             this.textBoxMSHV = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.buttonXem = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonOut = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.comboBoxDoanXem = new System.Windows.Forms.ComboBox();
             this.dataGridViewDTBvXL = new System.Windows.Forms.DataGridView();
@@ -56,9 +55,8 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.textBoxNAME);
             this.panel1.Controls.Add(this.textBoxMSHV);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.buttonXem);
-            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.buttonOut);
             this.panel1.Controls.Add(this.buttonBack);
             this.panel1.Controls.Add(this.comboBoxDoanXem);
             this.panel1.Controls.Add(this.dataGridViewDTBvXL);
@@ -137,16 +135,6 @@
             this.textBoxMSHV.Size = new System.Drawing.Size(379, 22);
             this.textBoxMSHV.TabIndex = 96;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(655, 14);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(135, 28);
-            this.button4.TabIndex = 91;
-            this.button4.Text = "MORE";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // buttonXem
             // 
             this.buttonXem.Location = new System.Drawing.Point(690, 249);
@@ -158,19 +146,19 @@
             this.buttonXem.UseVisualStyleBackColor = true;
             this.buttonXem.Click += new System.EventHandler(this.buttonXem_Click);
             // 
-            // buttonSave
+            // buttonOut
             // 
-            this.buttonSave.Location = new System.Drawing.Point(467, 532);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(100, 28);
-            this.buttonSave.TabIndex = 93;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonOut.Location = new System.Drawing.Point(524, 534);
+            this.buttonOut.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonOut.Name = "buttonOut";
+            this.buttonOut.Size = new System.Drawing.Size(116, 28);
+            this.buttonOut.TabIndex = 93;
+            this.buttonOut.Text = "Xuât ra Excel";
+            this.buttonOut.UseVisualStyleBackColor = true;
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(641, 532);
+            this.buttonBack.Location = new System.Drawing.Point(690, 532);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(100, 28);
@@ -242,6 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(820, 577);
             this.Controls.Add(this.panel1);
             this.Name = "HocVienDT";
@@ -262,9 +251,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxNAME;
         private System.Windows.Forms.TextBox textBoxMSHV;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonXem;
-        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonOut;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.ComboBox comboBoxDoanXem;
         private System.Windows.Forms.RadioButton radioButtonHocKi;

@@ -44,7 +44,10 @@ namespace QuanLyDiem.GUI.NVDT
         }
         void LoadAllHocVien()
         {
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add("STT", "STT");
             dataGridView.DataSource = Search_bll.LoadAllHocVien();
+            dataGridView.Columns["STT"].Width = 50;
         }
 
         private void buttonReLoad_Click(object sender, EventArgs e)
@@ -54,7 +57,10 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSearchMaHV_HoTen_Click(object sender, EventArgs e)
         {
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add("STT", "STT");
             dataGridView.DataSource = Search_bll.LoadSearchedHocVien(textBoxSearchMaHV_HoTen.Text);
+            dataGridView.Columns["STT"].Width = 50;
         }
 
         private void buttonSort_Click(object sender, EventArgs e)
@@ -63,6 +69,26 @@ namespace QuanLyDiem.GUI.NVDT
         }
 
         private void dataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã Học Viên"].Value.ToString());
+            hocVienDT.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+            hocVienDT.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+            AddControlPanel(hocVienDT);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            //removeControl(this);
+            this.Dispose();
+        }
+
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridView.Rows.Count)
+                this.dataGridView.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã Học Viên"].Value.ToString());
             hocVienDT.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);

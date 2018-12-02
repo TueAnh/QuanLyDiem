@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelMaHP = new System.Windows.Forms.Label();
+            this.textBoxLDT = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
+            this.buttonXem = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonOut = new System.Windows.Forms.Button();
             this.buttonInput = new System.Windows.Forms.Button();
@@ -45,6 +48,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelMaHP);
+            this.panel1.Controls.Add(this.textBoxLDT);
             this.panel1.Controls.Add(this.panelButton);
             this.panel1.Controls.Add(this.textBoxGVPT);
             this.panel1.Controls.Add(this.label1);
@@ -56,15 +61,43 @@
             this.panel1.Size = new System.Drawing.Size(839, 513);
             this.panel1.TabIndex = 0;
             // 
+            // labelMaHP
+            // 
+            this.labelMaHP.AutoSize = true;
+            this.labelMaHP.Location = new System.Drawing.Point(22, 56);
+            this.labelMaHP.Name = "labelMaHP";
+            this.labelMaHP.Size = new System.Drawing.Size(94, 17);
+            this.labelMaHP.TabIndex = 29;
+            this.labelMaHP.Text = "Mã học phần:";
+            // 
+            // textBoxLDT
+            // 
+            this.textBoxLDT.Location = new System.Drawing.Point(146, 56);
+            this.textBoxLDT.Name = "textBoxLDT";
+            this.textBoxLDT.ReadOnly = true;
+            this.textBoxLDT.Size = new System.Drawing.Size(255, 22);
+            this.textBoxLDT.TabIndex = 28;
+            // 
             // panelButton
             // 
+            this.panelButton.Controls.Add(this.buttonXem);
             this.panelButton.Controls.Add(this.buttonBack);
             this.panelButton.Controls.Add(this.buttonOut);
             this.panelButton.Controls.Add(this.buttonInput);
-            this.panelButton.Location = new System.Drawing.Point(10, 439);
+            this.panelButton.Location = new System.Drawing.Point(10, 453);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(818, 57);
             this.panelButton.TabIndex = 27;
+            // 
+            // buttonXem
+            // 
+            this.buttonXem.Location = new System.Drawing.Point(465, 15);
+            this.buttonXem.Name = "buttonXem";
+            this.buttonXem.Size = new System.Drawing.Size(155, 23);
+            this.buttonXem.TabIndex = 0;
+            this.buttonXem.Text = "Xem học viên";
+            this.buttonXem.UseVisualStyleBackColor = true;
+            this.buttonXem.Click += new System.EventHandler(this.buttonXem_Click);
             // 
             // buttonBack
             // 
@@ -96,16 +129,17 @@
             // 
             // textBoxGVPT
             // 
-            this.textBoxGVPT.Location = new System.Drawing.Point(143, 32);
+            this.textBoxGVPT.Location = new System.Drawing.Point(146, 27);
             this.textBoxGVPT.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxGVPT.Name = "textBoxGVPT";
+            this.textBoxGVPT.ReadOnly = true;
             this.textBoxGVPT.Size = new System.Drawing.Size(255, 22);
             this.textBoxGVPT.TabIndex = 26;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 32);
+            this.label1.Location = new System.Drawing.Point(22, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 17);
@@ -114,7 +148,7 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(483, 32);
+            this.textBoxSearch.Location = new System.Drawing.Point(483, 27);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(223, 22);
@@ -122,7 +156,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(714, 29);
+            this.buttonSearch.Location = new System.Drawing.Point(714, 24);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(100, 28);
@@ -138,7 +172,7 @@
             this.dataGridViewDSHV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSHV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSHV.Location = new System.Drawing.Point(10, 90);
+            this.dataGridViewDSHV.Location = new System.Drawing.Point(9, 104);
             this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
             this.dataGridViewDSHV.ReadOnly = true;
@@ -154,6 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(842, 517);
             this.Controls.Add(this.panel1);
             this.Name = "LopHPDT";
@@ -179,5 +214,8 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonOut;
         private System.Windows.Forms.Button buttonInput;
+        private System.Windows.Forms.Label labelMaHP;
+        private System.Windows.Forms.TextBox textBoxLDT;
+        private System.Windows.Forms.Button buttonXem;
     }
 }

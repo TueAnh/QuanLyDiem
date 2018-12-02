@@ -1,4 +1,5 @@
 ﻿using QuanLyDiem.BLL;
+using QuanLyDiem.GUI.NVDT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,46 @@ namespace QuanLyDiem.GUI
 {
     public partial class FormViewGV : Form
     {
-        public FormViewGV()
+        #region DelegateFunction
+        public delegate void AddRemoveControl(Form form);
+        public AddRemoveControl addControl;
+        public AddRemoveControl removeControl;
+        public void AddControlPanel(Form form)
+        {
+            //addControl(form);
+            form.TopLevel = false;
+            this.panel2.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.None;
+            this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
+        }
+        public void RemoveControlPanel(Form form)
+        {
+            //removeControl(form);
+            this.panel2.Controls.Remove(form);
+            if (this.panel2.Controls.Count >= 2)
+                this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+            this.panel2.Controls[panel2.Controls.Count - 1].Show();
+        }
+        #endregion
+
+
+        string MaGV;
+        public FormViewGV(string ID)
         {
             InitializeComponent();
-            
+            MaGV = ID;
         }
 
         private void FormViewGV_Load(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = Login_BLL.BLL.GetList().ToList();
-            treeView1.Nodes.Add(Login_BLL.BLL.GetNode()[0]);
+            treeView1.Nodes.Add(GiangVien_BLL.BLL.GetNode()[0]);
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             int length1 = e.Node.Text.IndexOf(" năm học ");
             string s1= "";
             if (length1 > 0)
@@ -38,38 +65,40 @@ namespace QuanLyDiem.GUI
                 s2 = e.Node.Text.Substring(length1 + 9, length2 - length1 - 9);
             if (s2 != "" && s1 != "")
             {
-                var source = Login_BLL.BLL.GetListHP("GV010", s1, s2);
+                var source = GiangVien_BLL.BLL.GetListHP(MaGV, s1, s2);
                 dataGridView1.Columns.Clear();
+                dataGridView1.Columns.Add("STT", "STT");
                 dataGridView1.DataSource = source;
                 dataGridView1.Columns[dataGridView1.ColumnCount - 2].HeaderText = "Mã học phần";
                 dataGridView1.Columns[dataGridView1.ColumnCount - 1].HeaderText = "Tên học phần";
                 dataGridView1.Columns[dataGridView1.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["STT"].Width = 50;
+                dataGridView1.RowHeadersVisible = false;
                 dataGridView1.Refresh();
             }
         }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            //MessageBox.Show("dataGridView1.SelectedRows[0].Cells[0].ToString()");
-            //NVDT.LopHPDT lopHPDT = new NVDT.LopHPDT(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            //lopHPDT.ShowDialog();
-            
-            dataGridView1.DataSource = Login_BLL.BLL.GetListHV(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            /*
-            dataGridView1.Columns.Add("DTB","DTB");
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            if (e.RowIndex != -1 )
             {
-                row.Cells["DTB"].Value = (Convert.ToDouble(row.Cells["DiemBT"].Value) * 0.2 +
-                                          Convert.ToDouble(row.Cells["DiemGK"].Value) * 0.2 +
-                                          Convert.ToDouble(row.Cells["DiemThi"].Value) * 0.6).ToString();
+                string MaHP = dataGridView1.SelectedRows[0].Cells["MaHP"].Value.ToString();
+                LopHPDT f = new LopHPDT(MaHP);// mở form HPDT
+                f.addControl += new LopHPDT.AddRemoveControl(AddControlPanel);
+                f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
+                AddControlPanel(f);
             }
-            */
         }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridView1.Rows.Count)
+                this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+        }
+
     }
 }
