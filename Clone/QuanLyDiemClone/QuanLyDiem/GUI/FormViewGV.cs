@@ -75,6 +75,10 @@ namespace QuanLyDiem.GUI
                 dataGridView1.Columns["STT"].Width = 50;
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.Refresh();
+                this.panel2.Controls.Add(dataGridView1);
+                if (panel2.Controls.Count > 1)
+                    this.panel2.Controls[panel2.Controls.Count - 2].Hide();
+                this.panel2.Controls[panel2.Controls.Count - 1].Show();
             }
         }
 

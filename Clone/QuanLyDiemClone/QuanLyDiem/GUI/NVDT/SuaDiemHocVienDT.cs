@@ -32,8 +32,34 @@ namespace QuanLyDiem.GUI.NVDT
             textBoxMaHV.Text = MaHV.Trim();
             textBoxMaHP.Text = MaHP.Trim();
             LoadData();
+            Edit();
         }
+        public void Edit()
+        {
+            if (FormLogin.User.typeAcc == 2 && !sua.Check_TMP(textBoxMaHP.Text))
+                return;
+            if (FormLogin.User.typeAcc >= 2)
+                {
+                    if (sua.HanNhapDiemGiuaKi_BLL(textBoxMaHP.Text))
+                    {
+                        textboxSuaDiemBT.ReadOnly = false;
+                        textboxSuaDiemGK.ReadOnly = false;
+                        buttonSave.Enabled = true;
+                    }
+                    if (sua.HanNhapDiemThi_BLL(textBoxMaHP.Text))
+                    {
+                        textboxSuaDiemThi.ReadOnly = false;
+                    }
+            }
+        }
+        public SuaDiemHocVienDT(KetQuaHocPhan kq)
+        {
 
+            InitializeComponent();
+            textBoxMaHV.Text = kq.ID.Trim();
+            textBoxMaHP.Text = kq.MaHP.Trim();
+            LoadData();
+        }
         private void buttonSave_Click(object sender, EventArgs e)
         {
             sua.suaDiemHocVien_BLL(textBoxMaHV.Text, textBoxMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));

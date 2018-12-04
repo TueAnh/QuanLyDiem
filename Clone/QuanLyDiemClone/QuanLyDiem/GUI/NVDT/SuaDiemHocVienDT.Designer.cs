@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxMaHP = new System.Windows.Forms.TextBox();
+            this.textBoxMaHV = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.textboxSuaDiemBT = new System.Windows.Forms.TextBox();
@@ -40,8 +42,6 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.MaHP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxMaHV = new System.Windows.Forms.TextBox();
-            this.textBoxMaHP = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -63,6 +63,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(849, 249);
             this.panel1.TabIndex = 0;
+            // 
+            // textBoxMaHP
+            // 
+            this.textBoxMaHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxMaHP.Location = new System.Drawing.Point(199, 55);
+            this.textBoxMaHP.Name = "textBoxMaHP";
+            this.textBoxMaHP.ReadOnly = true;
+            this.textBoxMaHP.Size = new System.Drawing.Size(337, 26);
+            this.textBoxMaHP.TabIndex = 26;
+            // 
+            // textBoxMaHV
+            // 
+            this.textBoxMaHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxMaHV.Location = new System.Drawing.Point(199, 18);
+            this.textBoxMaHV.Name = "textBoxMaHV";
+            this.textBoxMaHV.ReadOnly = true;
+            this.textBoxMaHV.Size = new System.Drawing.Size(337, 26);
+            this.textBoxMaHV.TabIndex = 26;
             // 
             // panel2
             // 
@@ -93,6 +111,7 @@
             this.textboxSuaDiemBT.Location = new System.Drawing.Point(91, 23);
             this.textboxSuaDiemBT.Margin = new System.Windows.Forms.Padding(4);
             this.textboxSuaDiemBT.Name = "textboxSuaDiemBT";
+            this.textboxSuaDiemBT.ReadOnly = true;
             this.textboxSuaDiemBT.Size = new System.Drawing.Size(79, 22);
             this.textboxSuaDiemBT.TabIndex = 13;
             // 
@@ -101,6 +120,7 @@
             this.textboxSuaDiemGK.Location = new System.Drawing.Point(381, 23);
             this.textboxSuaDiemGK.Margin = new System.Windows.Forms.Padding(4);
             this.textboxSuaDiemGK.Name = "textboxSuaDiemGK";
+            this.textboxSuaDiemGK.ReadOnly = true;
             this.textboxSuaDiemGK.Size = new System.Drawing.Size(99, 22);
             this.textboxSuaDiemGK.TabIndex = 15;
             // 
@@ -109,6 +129,7 @@
             this.textboxSuaDiemThi.Location = new System.Drawing.Point(711, 23);
             this.textboxSuaDiemThi.Margin = new System.Windows.Forms.Padding(4);
             this.textboxSuaDiemThi.Name = "textboxSuaDiemThi";
+            this.textboxSuaDiemThi.ReadOnly = true;
             this.textboxSuaDiemThi.Size = new System.Drawing.Size(93, 22);
             this.textboxSuaDiemThi.TabIndex = 14;
             // 
@@ -177,24 +198,6 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Mã Học Viên";
             // 
-            // textBoxMaHV
-            // 
-            this.textBoxMaHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMaHV.Location = new System.Drawing.Point(199, 18);
-            this.textBoxMaHV.Name = "textBoxMaHV";
-            this.textBoxMaHV.ReadOnly = true;
-            this.textBoxMaHV.Size = new System.Drawing.Size(337, 26);
-            this.textBoxMaHV.TabIndex = 26;
-            // 
-            // textBoxMaHP
-            // 
-            this.textBoxMaHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMaHP.Location = new System.Drawing.Point(199, 55);
-            this.textBoxMaHP.Name = "textBoxMaHP";
-            this.textBoxMaHP.ReadOnly = true;
-            this.textBoxMaHP.Size = new System.Drawing.Size(337, 26);
-            this.textBoxMaHP.TabIndex = 26;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
@@ -220,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 390);
+            this.ClientSize = new System.Drawing.Size(853, 387);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "SuaDiemHocVienDT";

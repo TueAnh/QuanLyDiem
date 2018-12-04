@@ -40,7 +40,7 @@
             this.buttonFeedBack = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonAbout = new System.Windows.Forms.Button();
-            this.buttonChangePass = new System.Windows.Forms.Button();
+            this.buttonDonate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTools2 = new System.Windows.Forms.Panel();
             this.buttonViewGV = new System.Windows.Forms.Button();
@@ -110,7 +110,7 @@
             this.panelTools1.Controls.Add(this.buttonFeedBack);
             this.panelTools1.Controls.Add(this.buttonHelp);
             this.panelTools1.Controls.Add(this.buttonAbout);
-            this.panelTools1.Controls.Add(this.buttonChangePass);
+            this.panelTools1.Controls.Add(this.buttonDonate);
             this.panelTools1.Location = new System.Drawing.Point(3, 237);
             this.panelTools1.Name = "panelTools1";
             this.panelTools1.Size = new System.Drawing.Size(192, 376);
@@ -187,16 +187,16 @@
             this.buttonAbout.Text = "Về tác giả";
             this.buttonAbout.UseVisualStyleBackColor = false;
             // 
-            // buttonChangePass
+            // buttonDonate
             // 
-            this.buttonChangePass.BackColor = System.Drawing.Color.RoyalBlue;
-            this.buttonChangePass.ForeColor = System.Drawing.Color.White;
-            this.buttonChangePass.Location = new System.Drawing.Point(3, 117);
-            this.buttonChangePass.Name = "buttonChangePass";
-            this.buttonChangePass.Size = new System.Drawing.Size(186, 42);
-            this.buttonChangePass.TabIndex = 2;
-            this.buttonChangePass.Text = "Đổi mật khẩu";
-            this.buttonChangePass.UseVisualStyleBackColor = false;
+            this.buttonDonate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonDonate.ForeColor = System.Drawing.Color.White;
+            this.buttonDonate.Location = new System.Drawing.Point(3, 117);
+            this.buttonDonate.Name = "buttonDonate";
+            this.buttonDonate.Size = new System.Drawing.Size(186, 42);
+            this.buttonDonate.TabIndex = 2;
+            this.buttonDonate.Text = "Donate us!";
+            this.buttonDonate.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -363,7 +363,7 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonTools;
         private System.Windows.Forms.Button buttonAbout;
-        private System.Windows.Forms.Button buttonChangePass;
+        private System.Windows.Forms.Button buttonDonate;
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonUserInfo;

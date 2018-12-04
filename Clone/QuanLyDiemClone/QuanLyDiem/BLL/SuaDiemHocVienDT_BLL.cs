@@ -18,5 +18,21 @@ namespace QuanLyDiem.BLL
         {
             return dAL.GetDiem_DAL(MaHV, MaHP);
         }
+        public DateTime getHanNhapDiem_DAL(string MaHP)
+        {
+            return dAL.getHanNhapDiem_DAL(MaHP);
+        }
+        public bool HanNhapDiemGiuaKi_BLL(string MaHP)
+        {
+            return dAL.HanNhapDiemGiuaKi_DAL(MaHP);
+        }
+        public bool HanNhapDiemThi_BLL(string MaHP)
+        {
+            return dAL.HetHanNhapDiemThi_DAL(MaHP);
+        }
+        public bool Check_TMP(string MaHP)
+        {
+            return dAL.Check_TMP(MaHP);
+        }
     }
 }

@@ -41,7 +41,9 @@ namespace QuanLyDiem.DAL
                         r["Học kì / Năm học"] = hk + " Năm học " + nh;
                         r["Tổng số tín chỉ"] = ttc;
                         dtbT10 = Math.Round(dtbT10 / ttc, 2);
-                        r["Điểm TBCT10"] = dtbT10;
+                        if (x.DiemThi != null)
+                            r["Điểm TBCT10"] = dtbT10;
+                        else r["Điểm TBCT10"] = null;
                         tb.Rows.Add(r);
                     }
                     nh = x.HocPhan.HocKy.NamHoc + "-" + (Convert.ToInt32(x.HocPhan.HocKy.NamHoc) + 1).ToString();
@@ -67,7 +69,7 @@ namespace QuanLyDiem.DAL
             DataRow rr = tb.NewRow();
             rr["Học kì / Năm học"] = hk + " Năm học " + nh;
             rr["Tổng số tín chỉ"] = tc;
-            dtbT10 = Math.Round(dtbT10 / ttc, 2);
+            dtbT10 = Math.Round(dtbT10 / ttc, 2);    
             rr["Điểm TBCT10"] = dtbT10;
             tb.Rows.Add(rr);
             return tb;

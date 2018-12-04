@@ -160,8 +160,8 @@ namespace QuanLyDiem.GUI
             }
             if (userAcc.typeAcc == 2)
             {
-                buttonViewLHP.Enabled = false;
-                buttonViewLSH.Enabled = false;
+                //buttonViewLHP.Enabled = false;
+                //buttonViewLSH.Enabled = false;
                 return;              
             }
             if (UserAcc.typeAcc == 3)

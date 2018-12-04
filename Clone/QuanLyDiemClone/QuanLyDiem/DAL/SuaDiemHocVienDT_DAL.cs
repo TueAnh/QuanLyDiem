@@ -29,5 +29,50 @@ namespace QuanLyDiem.DAL
                 return ketQuaHocPhan;
             }
         }
+        public DateTime getHanNhapDiem_DAL(string MaHK)
+        {
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            {
+                var hanNhapDiem = (from c in DB.HocKy
+                                   where c.MaHK == MaHK
+                                   select c).SingleOrDefault();
+                return Convert.ToDateTime(hanNhapDiem);
+            }
+        }
+        public bool HanNhapDiemGiuaKi_DAL(string MaHP)
+        {
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            {
+                var hanNhapDiem = (from c in DB.HocPhan
+                                   where c.MaHP.ToString().Trim() == MaHP
+                                   select c.HocKy).SingleOrDefault();
+                TimeSpan diff1 = DateTime.Now - Convert.ToDateTime(hanNhapDiem.TGBatDau);
+                TimeSpan diff2 = DateTime.Now - Convert.ToDateTime(hanNhapDiem.TGKetThuc);
+                return (diff1.Days - 56 > 0 && diff2.Days - 30 < 0); // N>0 CON HAN
+            }
+        }
+        public bool HetHanNhapDiemThi_DAL(string MaHP)
+        {
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            {
+                var hanNhapDiem = (from c in DB.HocPhan
+                                   where c.MaHP.ToString().Trim() == MaHP
+                                   select c.HocKy).SingleOrDefault();
+                TimeSpan diff = DateTime.Now - Convert.ToDateTime(hanNhapDiem.TGKetThuc);
+                return (diff.Days > 0 && diff.Days - 30 < 0); // N>0 CON HAN
+            }
+        }
+        public bool Check_TMP(string MaHP)
+        {
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+            {
+                var MaGV = (from c in db.HocPhan
+                           where c.MaHP.ToString().Trim() == MaHP
+                           select c.ID).SingleOrDefault();
+                if (MaGV.ToString().Trim() == FormLogin.User.ID.Trim())
+                    return true;
+                return false;
+            }
+        }
     }
 }

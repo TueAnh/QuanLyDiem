@@ -153,6 +153,12 @@
     <Compile Include="GUI\NVDT\SuaDiemHocVienDT.Designer.cs">
       <DependentUpon>SuaDiemHocVienDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NVDT\ThemLopCH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemLopCH.Designer.cs">
+      <DependentUpon>ThemLopCH.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NVDT\ViewLopDT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\SuaDiemHocVienDT.resx">
       <DependentUpon>SuaDiemHocVienDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\ThemLopCH.resx">
+      <DependentUpon>ThemLopCH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ViewLopDT.resx">
       <DependentUpon>ViewLopDT.cs</DependentUpon>

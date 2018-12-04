@@ -38,6 +38,10 @@ namespace QuanLyDiem.GUI.NVDT
             textBoxTenLop.Text = TenLop;
             LoadDataGrid();
         }
+        public LopSHDT()
+        {
+            InitializeComponent();
+        }
         void LoadDataGrid(string str = "")
         {
             dataGridViewDSHV.Columns.Clear();
