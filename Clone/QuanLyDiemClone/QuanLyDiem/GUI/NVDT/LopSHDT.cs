@@ -163,7 +163,13 @@ namespace QuanLyDiem.GUI.NVDT
             
         }
 
-        private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		private void buttonAdđ_Click(object sender, EventArgs e)
+		{
+			ThemHocVien f = new ThemHocVien(textBoxMaLop.Text, textBoxTenLop.Text);
+			f.Show();
+		}
+
+		private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string str = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
             f = new HocVienDT(str);

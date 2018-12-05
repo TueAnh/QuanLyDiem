@@ -95,14 +95,16 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonAddClass_Click(object sender, EventArgs e)
         {
-                this.buttonAddClass.Visible = false;
-                //string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
-                //string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
-                NVDT.LopSHDT f = new LopSHDT();
-                f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
-                f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
-                AddControlPanel(f);
-        }
+            this.buttonAddClass.Visible = false;
+			//string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
+			//string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
+			string Khoa = treeView1.SelectedNode.Text;
+			NVDT.ThemLopCH f = new ThemLopCH(Khoa);
+			f.Show();
+			//f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
+			//f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
+			//AddControlPanel(f);
+		}
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {

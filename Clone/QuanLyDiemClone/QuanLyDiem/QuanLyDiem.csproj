@@ -71,6 +71,8 @@
     <Compile Include="BLL\SearchHocVien_BLL.cs" />
     <Compile Include="BLL\SuaDiemHocVienDT_BLL.cs" />
     <Compile Include="BLL\ThemHocKy_BLL.cs" />
+    <Compile Include="BLL\ThemHocVien_BLL.cs" />
+    <Compile Include="BLL\ThemLopCH_BLL.cs" />
     <Compile Include="BLL\ThemLopHP_BLL.cs" />
     <Compile Include="BLL\UserInfo_BLL.cs" />
     <Compile Include="BLL\ViewLopHP_BLL.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="DAL\SearchHocVien_DAL.cs" />
     <Compile Include="DAL\SuaDiemHocVienDT_DAL.cs" />
     <Compile Include="DAL\ThemHocKy_DAL.cs" />
+    <Compile Include="DAL\ThemHocVien_DAL.cs" />
+    <Compile Include="DAL\ThemLopCH_DAL.cs" />
     <Compile Include="DAL\ThemLopHP_DAL.cs" />
     <Compile Include="DAL\UserInfo_DAL.cs" />
     <Compile Include="DAL\ViewLopDT_DAL.cs" />
@@ -164,6 +168,12 @@
     </Compile>
     <Compile Include="GUI\NVDT\ThemHocKy.Designer.cs">
       <DependentUpon>ThemHocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemHocVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemHocVien.Designer.cs">
+      <DependentUpon>ThemHocVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NVDT\ThemLopCH.cs">
       <SubType>Form</SubType>
@@ -266,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ThemHocKy.resx">
       <DependentUpon>ThemHocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\ThemHocVien.resx">
+      <DependentUpon>ThemHocVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ThemLopCH.resx">
       <DependentUpon>ThemLopCH.cs</DependentUpon>

@@ -95,5 +95,11 @@ namespace QuanLyDiem.GUI.NVDT
             hocVienDT.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
             AddControlPanel(hocVienDT);
         }
-    }
+
+		private void buttonAddHV_Click(object sender, EventArgs e)
+		{
+			NVDT.ThemHocVien f = new ThemHocVien();
+			f.Show();
+		}
+	}
 }
