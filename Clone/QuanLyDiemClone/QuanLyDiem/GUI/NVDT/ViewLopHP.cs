@@ -61,6 +61,7 @@ namespace QuanLyDiem.GUI.NVDT
             catch
             { }
         }
+        //
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             if (e.RowIndex < dataGridView1.Rows.Count)
@@ -95,6 +96,12 @@ namespace QuanLyDiem.GUI.NVDT
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void buttonThemLopHP_Click(object sender, EventArgs e)
+        {
+            ThemLopHP themLopHP = new ThemLopHP();
+            themLopHP.Show();
         }
 
         public void RemoveControlPanel(Form form)

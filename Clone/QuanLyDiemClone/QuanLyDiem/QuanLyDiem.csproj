@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AddHocVienSH_BLL.cs" />
     <Compile Include="BLL\GiangVien_BLL.cs" />
     <Compile Include="BLL\HocVienDT_BLL.cs" />
     <Compile Include="BLL\HocVien_BLL.cs" />
@@ -69,9 +70,12 @@
     <Compile Include="BLL\MoreInfoHocVien_BLL.cs" />
     <Compile Include="BLL\SearchHocVien_BLL.cs" />
     <Compile Include="BLL\SuaDiemHocVienDT_BLL.cs" />
+    <Compile Include="BLL\ThemHocKy_BLL.cs" />
+    <Compile Include="BLL\ThemLopHP_BLL.cs" />
     <Compile Include="BLL\UserInfo_BLL.cs" />
     <Compile Include="BLL\ViewLopHP_BLL.cs" />
     <Compile Include="BLL\ViewLopDT_BLL.cs" />
+    <Compile Include="DAL\AddHocVienSH_DAL.cs" />
     <Compile Include="DAL\GiangVien_DAL.cs" />
     <Compile Include="DAL\HocVienDT_DAL.cs" />
     <Compile Include="DAL\HocVien_DAL.cs" />
@@ -81,6 +85,8 @@
     <Compile Include="DAL\MoreInfoHocVien_DAL.cs" />
     <Compile Include="DAL\SearchHocVien_DAL.cs" />
     <Compile Include="DAL\SuaDiemHocVienDT_DAL.cs" />
+    <Compile Include="DAL\ThemHocKy_DAL.cs" />
+    <Compile Include="DAL\ThemLopHP_DAL.cs" />
     <Compile Include="DAL\UserInfo_DAL.cs" />
     <Compile Include="DAL\ViewLopDT_DAL.cs" />
     <Compile Include="DAL\ViewLopHP_DAL.cs" />
@@ -153,11 +159,23 @@
     <Compile Include="GUI\NVDT\SuaDiemHocVienDT.Designer.cs">
       <DependentUpon>SuaDiemHocVienDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NVDT\ThemHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemHocKy.Designer.cs">
+      <DependentUpon>ThemHocKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NVDT\ThemLopCH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\NVDT\ThemLopCH.Designer.cs">
       <DependentUpon>ThemLopCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemLopHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\ThemLopHP.Designer.cs">
+      <DependentUpon>ThemLopHP.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NVDT\ViewLopDT.cs">
       <SubType>Form</SubType>
@@ -246,8 +264,14 @@
     <EmbeddedResource Include="GUI\NVDT\SuaDiemHocVienDT.resx">
       <DependentUpon>SuaDiemHocVienDT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\ThemHocKy.resx">
+      <DependentUpon>ThemHocKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ThemLopCH.resx">
       <DependentUpon>ThemLopCH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\ThemLopHP.resx">
+      <DependentUpon>ThemLopHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ViewLopDT.resx">
       <DependentUpon>ViewLopDT.cs</DependentUpon>
