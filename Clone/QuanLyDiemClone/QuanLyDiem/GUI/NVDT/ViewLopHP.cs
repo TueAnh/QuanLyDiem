@@ -28,6 +28,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         void loadNode()
         {
+            treeView1.Nodes.Clear();
             TreeNode n = new TreeNode("Năm học");
             treeView1.Nodes.Add(n);
             NH = bLL.getNodeBLL();
@@ -38,6 +39,7 @@ namespace QuanLyDiem.GUI.NVDT
                 m.Nodes.Add("Học Kì 1");
                 m.Nodes.Add("Học kì 2");
             }
+            n.Nodes.Add(new TreeNode("Thêm Học Kì"));
         }
         #endregion
         #region EventTree+Grid
@@ -57,9 +59,16 @@ namespace QuanLyDiem.GUI.NVDT
                 if (panel2.Controls.Count > 1)
                     this.panel2.Controls[panel2.Controls.Count - 2].Hide();
                 this.panel2.Controls[panel2.Controls.Count - 1].Show();
+                if (treeView1.SelectedNode.Text == "Thêm Học Kì")
+                {
+                    ThemHocKy themHKForm = new ThemHocKy();
+                    themHKForm.Show();
+                    themHKForm.themHKSuccess += new ThemHocKy.ThemHKSuccess(loadNode);
+                }
             }
             catch
             { }
+            
         }
         //
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

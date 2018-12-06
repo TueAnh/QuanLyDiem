@@ -18,7 +18,7 @@ namespace QuanLyDiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ThemLopHP());
+            Application.Run(new FormLogin());
             //Application.Run(new ThemLopCH("CNTT"));
         }
     }

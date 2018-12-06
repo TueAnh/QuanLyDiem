@@ -15,6 +15,8 @@ namespace QuanLyDiem.GUI.NVDT
     {
         ThemHocKy_BLL themHocKy_BLL;
         string nam = "";
+        public delegate void ThemHKSuccess();
+        public ThemHKSuccess themHKSuccess;
         public ThemHocKy()
         {
             InitializeComponent();
@@ -66,6 +68,7 @@ namespace QuanLyDiem.GUI.NVDT
                                        Convert.ToInt16(nam));
 
                 MessageBox.Show("Đã thêm mới học Kì");
+                themHKSuccess();
                 this.Dispose();
                 }
                 catch
