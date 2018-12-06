@@ -29,14 +29,16 @@ namespace QuanLyDiem.GUI.NVDT
         #region Init+Load
         NVDT.HocVienDT f;
         public LopDT_BLL bLL;
-        //public string MaLop;
-        public LopSHDT(string MaLop,string TenLop)
+		public string ttenLop;
+		//public string MaLop;
+		public LopSHDT(string MaLop,string TenLop)
         {
             InitializeComponent();
             bLL = new LopDT_BLL();
             textBoxMaLop.Text = MaLop;
             textBoxTenLop.Text = TenLop;
-            LoadDataGrid();
+			ttenLop = TenLop;
+			LoadDataGrid();
         }
         public LopSHDT()
         {
@@ -146,7 +148,20 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow r in dataGridViewDSHV.Rows)
+			if (textBoxTenLop.Text != ttenLop)
+			{
+				if (textBoxTenLop.Text != "" && bLL.checkLopBLL(textBoxTenLop.Text))
+				{
+					bLL.upDateLopCHBLL(textBoxMaLop.Text, textBoxTenLop.Text);
+					ttenLop = textBoxTenLop.Text;
+					MessageBox.Show("Lưu thành công");
+				}
+				else
+				{
+					MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
+				}
+			}
+			foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
             {
                 bll.AddHVSH_BLL(new HocVien
                 {
@@ -160,6 +175,7 @@ namespace QuanLyDiem.GUI.NVDT
                     MaLop = textBoxMaLop.Text.Trim()
                 });
             }
+
             
         }
 

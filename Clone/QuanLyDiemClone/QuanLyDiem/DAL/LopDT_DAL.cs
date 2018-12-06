@@ -157,6 +157,25 @@ namespace QuanLyDiem.DAL
                     select new { s.ID, s.HoTen, s.Email, s.DiaChi, s.DienThoai, s.NgaySinh };
             return v.ToList();
         }
-    }
+
+		public dynamic checkLopDAL(string TenLop)
+		{
+			var v = from s in db.LopDaoTao
+					where s.TenLop == TenLop
+					select s.TenLop;
+			if (v.Count() == 0)
+				return true;
+			return false;
+		}
+
+		public void upDateLopCHDAL(string maLop, string tenLop)
+		{
+			var ldt = from s in db.LopDaoTao
+					  where s.MaLop == maLop
+					  select s;
+			ldt.SingleOrDefault().TenLop = tenLop;
+			db.SaveChanges();
+		}
+	}
 }
 

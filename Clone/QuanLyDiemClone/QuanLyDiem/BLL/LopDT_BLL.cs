@@ -25,5 +25,14 @@ namespace QuanLyDiem.BLL
         {
             return dAL.getDSSearchDAL(str2, Malop);
         }
-    }
+
+		public dynamic checkLopBLL(string TenLop)
+		{
+			return dAL.checkLopDAL(TenLop);
+		}
+		public void upDateLopCHBLL(string maLop, string tenLop)
+		{
+			dAL.upDateLopCHDAL(maLop, tenLop);
+		}
+	}
 }
