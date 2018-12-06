@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLuuThayDoi = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonLuuMoi = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxHP = new System.Windows.Forms.TextBox();
             this.comboBoxTenHK = new System.Windows.Forms.ComboBox();
             this.comboBoxTenGV = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,20 +52,20 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonLuuThayDoi
+            // buttonCancel
             // 
-            this.buttonLuuThayDoi.Location = new System.Drawing.Point(218, 348);
-            this.buttonLuuThayDoi.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonLuuThayDoi.Name = "buttonLuuThayDoi";
-            this.buttonLuuThayDoi.Size = new System.Drawing.Size(98, 35);
-            this.buttonLuuThayDoi.TabIndex = 6;
-            this.buttonLuuThayDoi.Text = "Lưu thay đổi";
-            this.buttonLuuThayDoi.UseVisualStyleBackColor = true;
-            this.buttonLuuThayDoi.Click += new System.EventHandler(this.buttonLuuThayDoi_Click);
+            this.buttonCancel.Location = new System.Drawing.Point(342, 348);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(98, 35);
+            this.buttonCancel.TabIndex = 6;
+            this.buttonCancel.Text = "Thoát";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonLuuMoi
             // 
-            this.buttonLuuMoi.Location = new System.Drawing.Point(342, 348);
+            this.buttonLuuMoi.Location = new System.Drawing.Point(217, 348);
             this.buttonLuuMoi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLuuMoi.Name = "buttonLuuMoi";
             this.buttonLuuMoi.Size = new System.Drawing.Size(98, 35);
@@ -74,6 +76,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.textBoxHP);
             this.panel2.Controls.Add(this.comboBoxTenHK);
             this.panel2.Controls.Add(this.comboBoxTenGV);
             this.panel2.Controls.Add(this.label1);
@@ -95,6 +99,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(420, 333);
             this.panel2.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(165, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(11, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "-";
+            // 
+            // textBoxHP
+            // 
+            this.textBoxHP.Enabled = false;
+            this.textBoxHP.Location = new System.Drawing.Point(125, 17);
+            this.textBoxHP.Name = "textBoxHP";
+            this.textBoxHP.Size = new System.Drawing.Size(34, 20);
+            this.textBoxHP.TabIndex = 3;
+            this.textBoxHP.Text = "HP";
             // 
             // comboBoxTenHK
             // 
@@ -146,9 +169,9 @@
             this.label7.Location = new System.Drawing.Point(24, 219);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "PT Điểm Thi";
+            this.label7.Text = "% Điểm Thi";
             // 
             // textBoxSoTiet
             // 
@@ -164,9 +187,9 @@
             this.label6.Location = new System.Drawing.Point(24, 180);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "PT Điểm Giữa Kì";
+            this.label6.Text = "% Điểm Giữa Kì";
             // 
             // textBoxSoTinChi
             // 
@@ -226,10 +249,10 @@
             // 
             // textBoxMaHP
             // 
-            this.textBoxMaHP.Location = new System.Drawing.Point(125, 17);
+            this.textBoxMaHP.Location = new System.Drawing.Point(181, 17);
             this.textBoxMaHP.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaHP.Name = "textBoxMaHP";
-            this.textBoxMaHP.Size = new System.Drawing.Size(232, 20);
+            this.textBoxMaHP.Size = new System.Drawing.Size(176, 20);
             this.textBoxMaHP.TabIndex = 1;
             // 
             // labelMaHP
@@ -247,7 +270,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 394);
-            this.Controls.Add(this.buttonLuuThayDoi);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLuuMoi);
             this.Controls.Add(this.panel2);
             this.Name = "ThemLopHP";
@@ -260,7 +283,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLuuThayDoi;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonLuuMoi;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxTenGV;
@@ -279,5 +302,7 @@
         private System.Windows.Forms.TextBox textBoxSoTinChi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxHP;
     }
 }

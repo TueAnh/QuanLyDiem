@@ -18,5 +18,13 @@ namespace QuanLyDiem.BLL
         {
             return dal.ChecKExistHK_DAL(maHK);
         }
+        public int getSoHK_DAL()
+        {
+            return dal.getSoHK_DAL();
+        }
+        public bool CheckExistMore2HocKi_BLL(string hocki,int namHoc)
+        {
+            return dal.CheckExistMore2HocKi_DAL(hocki,namHoc);
+        }
     }
 }

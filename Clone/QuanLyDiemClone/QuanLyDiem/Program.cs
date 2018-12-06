@@ -18,8 +18,8 @@ namespace QuanLyDiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
-            //Application.Run(new ViewLopDT());
+            Application.Run(new ThemLopHP());
+            //Application.Run(new ThemLopCH("CNTT"));
         }
     }
 }

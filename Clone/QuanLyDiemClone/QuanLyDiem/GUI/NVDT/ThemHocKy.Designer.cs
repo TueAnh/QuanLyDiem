@@ -28,37 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLuuThayDoi = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonLuuMoi = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxNamHoc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxHocKi = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMaHK = new System.Windows.Forms.TextBox();
             this.labelMaHP = new System.Windows.Forms.Label();
-            this.comboBoxHocKi = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxNamHoc = new System.Windows.Forms.TextBox();
-            this.textBoxHK = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonLuuThayDoi
+            // buttonCancel
             // 
-            this.buttonLuuThayDoi.Location = new System.Drawing.Point(154, 260);
-            this.buttonLuuThayDoi.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonLuuThayDoi.Name = "buttonLuuThayDoi";
-            this.buttonLuuThayDoi.Size = new System.Drawing.Size(98, 35);
-            this.buttonLuuThayDoi.TabIndex = 9;
-            this.buttonLuuThayDoi.Text = "Lưu thay đổi";
-            this.buttonLuuThayDoi.UseVisualStyleBackColor = true;
+            this.buttonCancel.Location = new System.Drawing.Point(268, 260);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(98, 35);
+            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.Text = "Thoát";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonLuuMoi
             // 
-            this.buttonLuuMoi.Location = new System.Drawing.Point(268, 260);
+            this.buttonLuuMoi.Location = new System.Drawing.Point(154, 260);
             this.buttonLuuMoi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLuuMoi.Name = "buttonLuuMoi";
             this.buttonLuuMoi.Size = new System.Drawing.Size(98, 35);
@@ -69,8 +68,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBoxHK);
             this.panel2.Controls.Add(this.textBoxNamHoc);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dateTimePicker2);
@@ -86,6 +83,46 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(346, 213);
             this.panel2.TabIndex = 7;
+            // 
+            // textBoxNamHoc
+            // 
+            this.textBoxNamHoc.Location = new System.Drawing.Point(134, 179);
+            this.textBoxNamHoc.Name = "textBoxNamHoc";
+            this.textBoxNamHoc.Size = new System.Drawing.Size(123, 20);
+            this.textBoxNamHoc.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 182);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Năm Học";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(134, 139);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 3;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(134, 97);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboBoxHocKi
+            // 
+            this.comboBoxHocKi.FormattingEnabled = true;
+            this.comboBoxHocKi.Location = new System.Drawing.Point(134, 56);
+            this.comboBoxHocKi.Name = "comboBoxHocKi";
+            this.comboBoxHocKi.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxHocKi.TabIndex = 2;
             // 
             // label5
             // 
@@ -119,10 +156,10 @@
             // 
             // textBoxMaHK
             // 
-            this.textBoxMaHK.Location = new System.Drawing.Point(203, 17);
+            this.textBoxMaHK.Location = new System.Drawing.Point(134, 17);
             this.textBoxMaHK.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaHK.Name = "textBoxMaHK";
-            this.textBoxMaHK.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMaHK.Size = new System.Drawing.Size(200, 20);
             this.textBoxMaHK.TabIndex = 1;
             // 
             // labelMaHP
@@ -135,68 +172,12 @@
             this.labelMaHP.TabIndex = 0;
             this.labelMaHP.Text = "Mã Học Kì";
             // 
-            // comboBoxHocKi
-            // 
-            this.comboBoxHocKi.FormattingEnabled = true;
-            this.comboBoxHocKi.Location = new System.Drawing.Point(134, 56);
-            this.comboBoxHocKi.Name = "comboBoxHocKi";
-            this.comboBoxHocKi.Size = new System.Drawing.Size(123, 21);
-            this.comboBoxHocKi.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(134, 97);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(134, 139);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 182);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Năm Học";
-            // 
-            // textBoxNamHoc
-            // 
-            this.textBoxNamHoc.Location = new System.Drawing.Point(134, 179);
-            this.textBoxNamHoc.Name = "textBoxNamHoc";
-            this.textBoxNamHoc.Size = new System.Drawing.Size(123, 20);
-            this.textBoxNamHoc.TabIndex = 5;
-            // 
-            // textBoxHK
-            // 
-            this.textBoxHK.Location = new System.Drawing.Point(134, 17);
-            this.textBoxHK.Name = "textBoxHK";
-            this.textBoxHK.Size = new System.Drawing.Size(36, 20);
-            this.textBoxHK.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = " - ";
-            // 
             // ThemHocKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 320);
-            this.Controls.Add(this.buttonLuuThayDoi);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLuuMoi);
             this.Controls.Add(this.panel2);
             this.Name = "ThemHocKy";
@@ -209,7 +190,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLuuThayDoi;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonLuuMoi;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
@@ -222,7 +203,5 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBoxHocKi;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxHK;
     }
 }
