@@ -29,16 +29,17 @@ namespace QuanLyDiem.GUI.NVDT
         #region Init+Load
         NVDT.HocVienDT f;
         public LopDT_BLL bLL;
-		public string ttenLop;
-		//public string MaLop;
-		public LopSHDT(string MaLop,string TenLop)
+        public string ttenLop;
+        //public string MaLop;
+        public LopSHDT(string MaLop, string TenLop, string TenKhoa)
         {
             InitializeComponent();
             bLL = new LopDT_BLL();
             textBoxMaLop.Text = MaLop;
             textBoxTenLop.Text = TenLop;
-			ttenLop = TenLop;
-			LoadDataGrid();
+            ttenLop = TenLop;
+            textBoxKhoa.Text = TenKhoa;
+            LoadDataGrid();
         }
         public LopSHDT()
         {
@@ -52,17 +53,17 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 dataGridViewDSHV.DataSource = bLL.getDSSearchBLL(textBoxSearch.Text, textBoxMaLop.Text);
             }
-                
+
             else
                 dataGridViewDSHV.DataSource = bLL.getDSHVBLL(textBoxMaLop.Text);
-            
+
             dataGridViewDSHV.RowHeadersVisible = false;
-            dataGridViewDSHV.Columns[1].HeaderText = "Mã số";
-            dataGridViewDSHV.Columns[2].HeaderText = "Họ tên";
-            dataGridViewDSHV.Columns[3].HeaderText = "Email";
-            dataGridViewDSHV.Columns[4].HeaderText = "Địa chỉ";
-            dataGridViewDSHV.Columns[5].HeaderText = "Điện thoại";
-            dataGridViewDSHV.Columns[6].HeaderText = "Ngày sinh";
+            //dataGridViewDSHV.Columns[1].Name = "Mã số";
+            //dataGridViewDSHV.Columns[2].Name = "Họ tên";
+            //dataGridViewDSHV.Columns[3].Name = "Email";
+            //dataGridViewDSHV.Columns[4].Name = "Địa chỉ";
+            //dataGridViewDSHV.Columns[5].Name = "Điện thoại";
+            //dataGridViewDSHV.Columns[6].Name = "Ngày sinh";
             dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDSHV.Columns["STT"].Width = 50;
             try
@@ -104,6 +105,7 @@ namespace QuanLyDiem.GUI.NVDT
             if (fopen.FileName != "")
             {
                 labelPath.Text = fopen.FileName;
+                labelPath.Visible = true;
                 //tao doi tuong Excel
                 Excel.Application app = new Excel.Application();
                 //Mở tập excel
@@ -148,21 +150,22 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-			if (textBoxTenLop.Text != ttenLop)
-			{
-				if (textBoxTenLop.Text != "" && bLL.checkLopBLL(textBoxTenLop.Text))
-				{
-					bLL.upDateLopCHBLL(textBoxMaLop.Text, textBoxTenLop.Text);
-					ttenLop = textBoxTenLop.Text;
-					MessageBox.Show("Lưu thành công");
-				}
-				else
-				{
-					MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
-				}
-			}
-			foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
+            if (textBoxTenLop.Text != ttenLop)
             {
+                if (textBoxTenLop.Text != "" && bLL.checkLopBLL(textBoxTenLop.Text))
+                {
+                    bLL.upDateLopCHBLL(textBoxMaLop.Text, textBoxTenLop.Text);
+                    ttenLop = textBoxTenLop.Text;
+                    MessageBox.Show("Lưu thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
+                }
+            }
+            foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
+            {
+                if (
                 bll.AddHVSH_BLL(new HocVien
                 {
                     ID = r.Cells["Mã số"].Value.ToString().Trim(),
@@ -173,19 +176,41 @@ namespace QuanLyDiem.GUI.NVDT
                     Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
                     NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
                     MaLop = textBoxMaLop.Text.Trim()
-                });
+                }))
+                    r.DefaultCellStyle.BackColor = Color.Lime;
+                else
+                    r.DefaultCellStyle.BackColor = Color.Red;
             }
 
-            
+
         }
 
-		private void buttonAdđ_Click(object sender, EventArgs e)
-		{
-			ThemHocVien f = new ThemHocVien(textBoxMaLop.Text, textBoxTenLop.Text);
-			f.Show();
-		}
+        private void buttonAdđ_Click(object sender, EventArgs e)
+        {
+            ThemHocVien f = new ThemHocVien(textBoxMaLop.Text, textBoxTenLop.Text);
+            f.Show();
+        }
 
-		private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonXoaHV_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewDSHV.SelectedRows.Count; i++)
+                if (bLL.XoaHV_BLL(dataGridViewDSHV.SelectedRows[i].Cells["Mã số"].Value.ToString().Trim()))
+                {
+                    //MessageBox.Show("Xóa thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Xuất hiện lỗi. Hãy thử lại!");
+                }
+            LoadDataGrid();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadDataGrid();
+        }
+
+        private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string str = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
             f = new HocVienDT(str);

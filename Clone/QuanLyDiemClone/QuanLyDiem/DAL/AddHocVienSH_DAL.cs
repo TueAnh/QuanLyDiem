@@ -8,13 +8,21 @@ namespace QuanLyDiem.DAL
 {
     class AddHocVienSH_DAL
     {
-        public void AddHVSH_DAL(HocVien hv)
+        public bool AddHVSH_DAL(HocVien hv)
         {
-            using(QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            try
             {
-                DB.HocVien.Add(hv);
-                DB.SaveChanges();
+                using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+                {
+                    DB.HocVien.Add(hv);
+                    DB.SaveChanges();
+                }
             }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -18,6 +18,8 @@ namespace QuanLyDiem.GUI.NVDT
         public void AddControlPanel(Form form)
         {
             //addControl(form);
+            this.buttonAddClass.Visible = false;
+            this.buttonXoaLop.Visible = false;
             form.TopLevel = false;
             this.panel2.Controls.Add(form);
             form.FormBorderStyle = FormBorderStyle.None;
@@ -29,9 +31,13 @@ namespace QuanLyDiem.GUI.NVDT
         {
             //removeControl(form);
             this.panel2.Controls.Remove(form);
-            //this.panel2.Controls[panel2.Controls.Count - 2].Hide();
             if (panel2.Controls.Count == 1)
-                buttonAddClass.Visible = true;
+            {
+                this.buttonAddClass.Visible = true;
+                this.buttonXoaLop.Visible = true;
+            }
+                
+            //this.panel2.Controls[panel2.Controls.Count - 2].Hide();
             this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }
         #endregion
@@ -77,10 +83,10 @@ namespace QuanLyDiem.GUI.NVDT
         {
             if (e.RowIndex != -1)
             {
-                this.buttonAddClass.Visible = false;
+
                 string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
                 string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
-                NVDT.LopSHDT f = new LopSHDT(MaLop, TenLop);
+                NVDT.LopSHDT f = new LopSHDT(MaLop, TenLop, treeView1.SelectedNode.Text);
                 f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
                 f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(f);
@@ -96,15 +102,26 @@ namespace QuanLyDiem.GUI.NVDT
         private void buttonAddClass_Click(object sender, EventArgs e)
         {
             this.buttonAddClass.Visible = false;
-			//string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
-			//string TenLop = dataGridView1.SelectedRows[0].Cells["Tenlop"].Value.ToString().Trim();
 			string Khoa = treeView1.SelectedNode.Text;
 			NVDT.ThemLopCH f = new ThemLopCH(Khoa);
-			f.Show();
-			//f.addControl += new LopSHDT.AddRemoveControl(AddControlPanel);
-			//f.removeControl += new LopSHDT.AddRemoveControl(RemoveControlPanel);
-			//AddControlPanel(f);
-		}
+			f.ShowDialog();
+            LoadDataGrid(treeView1.SelectedNode.Text);
+            this.buttonAddClass.Visible = true;
+        }
+
+        private void buttonXoaLop_Click(object sender, EventArgs e)
+        {
+            string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
+            if (BLL.ViewLopDT_BLL.BLL.DelObject_BLL(MaLop))
+            {
+                MessageBox.Show("Xóa thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Không thành công! Chú ý rằng bạn không có quyền xóa lớp có học viên.");
+            }
+            LoadDataGrid(treeView1.SelectedNode.Text);
+        }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -112,7 +129,12 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 string str = treeView1.SelectedNode.Text;
                 LoadDataGrid(str);
-                this.buttonAddClass.Visible = true;
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    this.buttonAddClass.Visible = true;
+                    this.buttonXoaLop.Visible = true;
+                }
+                    
                 this.panel2.Controls.Add(dataGridView1);
                 if (panel2.Controls.Count > 1)
                     this.panel2.Controls[panel2.Controls.Count - 2].Hide();

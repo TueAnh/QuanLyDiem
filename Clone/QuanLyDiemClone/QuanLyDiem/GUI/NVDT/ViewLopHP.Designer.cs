@@ -47,18 +47,18 @@
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(806, 504);
+            this.panel1.Size = new System.Drawing.Size(1075, 620);
             this.panel1.TabIndex = 2;
             // 
             // buttonThemLopHP
             // 
             this.buttonThemLopHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonThemLopHP.Location = new System.Drawing.Point(445, 457);
-            this.buttonThemLopHP.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonThemLopHP.Location = new System.Drawing.Point(642, 563);
+            this.buttonThemLopHP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemLopHP.Name = "buttonThemLopHP";
-            this.buttonThemLopHP.Size = new System.Drawing.Size(188, 37);
+            this.buttonThemLopHP.Size = new System.Drawing.Size(251, 46);
             this.buttonThemLopHP.TabIndex = 3;
             this.buttonThemLopHP.Text = "Thêm Học Phần";
             this.buttonThemLopHP.UseVisualStyleBackColor = true;
@@ -67,10 +67,10 @@
             // buttonBack
             // 
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonBack.Location = new System.Drawing.Point(674, 457);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonBack.Location = new System.Drawing.Point(899, 562);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(123, 37);
+            this.buttonBack.Size = new System.Drawing.Size(164, 46);
             this.buttonBack.TabIndex = 3;
             this.buttonBack.Text = "Trở lại";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@
             this.panel2.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(153, 18);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(204, 22);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 427);
+            this.panel2.Size = new System.Drawing.Size(859, 525);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -96,33 +96,33 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 425);
+            this.dataGridView1.Size = new System.Drawing.Size(857, 523);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(9, 18);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.treeView1.Location = new System.Drawing.Point(12, 22);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(140, 427);
+            this.treeView1.Size = new System.Drawing.Size(185, 525);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // ViewLopHP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(806, 504);
+            this.ClientSize = new System.Drawing.Size(1075, 620);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ViewLopHP";
             this.Text = "ViewLopHP";
             this.panel1.ResumeLayout(false);

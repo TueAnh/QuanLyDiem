@@ -19,13 +19,13 @@ namespace QuanLyDiem.GUI.NVDT
 			InitializeComponent();
 			textBoxLopCH.Text = LopCH;
 			textBoxLopCH.ReadOnly = true;
-			LoadMaLop();
+			//LoadMaLop();
 		}
 
 		public ThemHocVien()
 		{
 			InitializeComponent();
-			LoadMaLop();
+			//LoadMaLop();
 		}
 		void LoadMaLop()
 		{
@@ -43,9 +43,7 @@ namespace QuanLyDiem.GUI.NVDT
 		{
 			if (bLL.getLopBLL(textBoxLopCH.Text) != null)
 			{
-				//try
-				//{
-				bLL.addHVBLL(new HocVien
+                bLL.addHVBLL(new HocVien
 				{
 					ID = textBoxMaHV.Text,
 					HoTen = textBoxHoTen.Text,
@@ -58,12 +56,7 @@ namespace QuanLyDiem.GUI.NVDT
 				});
 				MessageBox.Show("Thêm học viên thành công");
 				this.Dispose();
-				//}
-				//catch
-				//{
-				//	MessageBox.Show("Nhập sai !! ");
-				//}
-			}
+                }
 			else
 			{
 				MessageBox.Show("Lớp sai !!");

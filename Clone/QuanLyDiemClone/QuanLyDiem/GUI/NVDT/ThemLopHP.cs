@@ -41,7 +41,7 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonLuuMoi_Click(object sender, EventArgs e)
         {
-            if (themHP_BLL.ChecKExistHP_BLL(textBoxHP.Text.Trim()+textBoxMaHP.Text.Trim()))
+            if (themHP_BLL.ChecKExistHP_BLL(textBoxMaHP.Text.Trim()))
             {
                 textBoxMaHP.Text= "";
                 MessageBox.Show("Học phần đã tồn tại");
@@ -49,9 +49,9 @@ namespace QuanLyDiem.GUI.NVDT
             }
             else
             {
-                try
-                {
-                    themHP_BLL.ThemHP_BLL(textBoxHP.Text.Trim()+textBoxMaHP.Text.Trim(),
+                //try
+                //{
+                themHP_BLL.ThemHP_BLL(textBoxMaHP.Text.Trim(),
                                        textBoxTenHP.Text.Trim(),
                                        Convert.ToInt16(textBoxSoTinChi.Text.Trim()),
                                        Convert.ToInt16(textBoxSoTiet.Text.Trim()),
@@ -61,18 +61,19 @@ namespace QuanLyDiem.GUI.NVDT
                                        lID[comboBoxTenGV.SelectedIndex].Trim());
 
                 MessageBox.Show("Đã thêm mới học phần");
-                this.Dispose();
-                }
-                catch
-                {
-                    MessageBox.Show("Thêm mới không thành công");
-                }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("Thêm mới không thành công");
+                //}
             }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonLuuThayDoi_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+
         }
+
+      
     }
 }

@@ -55,7 +55,7 @@ namespace QuanLyDiem.GUI.NVDT
             else if (themHocKy_BLL.CheckExistMore2HocKi_BLL(comboBoxHocKi.Text, Convert.ToInt16(nam)))
             {
                 textBoxNamHoc.Text = "";
-                MessageBox.Show("Đã tồn tại "+ comboBoxHocKi.Text+ " trong năm " + nam.ToString());
+                MessageBox.Show("Đã tồn tại " + comboBoxHocKi.Text + " trong năm " + nam.ToString());
             }
             else
             {
@@ -67,9 +67,9 @@ namespace QuanLyDiem.GUI.NVDT
                                        Convert.ToDateTime(dateTimePicker2.Value),
                                        Convert.ToInt16(nam));
 
-                MessageBox.Show("Đã thêm mới học Kì");
-                themHKSuccess();
-                this.Dispose();
+                    MessageBox.Show("Đã thêm mới học Kì");
+                    themHKSuccess();
+                    this.Dispose();
                 }
                 catch
                 {
@@ -81,12 +81,12 @@ namespace QuanLyDiem.GUI.NVDT
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             nam = dateTimePicker1.Value.Year.ToString();
-            textBoxNamHoc.Text = nam + " - " + (dateTimePicker1.Value.Year+1).ToString();
+            textBoxNamHoc.Text = nam + " - " + (dateTimePicker1.Value.Year + 1).ToString();
             dateTimePicker2.Value = dateTimePicker1.Value.AddMonths(9);
             TimeSpan diff = dateTimePicker1.Value - DateTime.Now;
             if (diff.Days < 0)
             {
-                MessageBox.Show("Thời gian bắt đầu không phù hợp","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Thời gian bắt đầu không phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dateTimePicker1.Value = DateTime.Now;
             }
         }

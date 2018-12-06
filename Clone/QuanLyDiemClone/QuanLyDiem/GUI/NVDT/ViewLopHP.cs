@@ -50,7 +50,7 @@ namespace QuanLyDiem.GUI.NVDT
                 string hk = treeView1.SelectedNode.Text;// hoc ky cho nay khong dung string duoc ???
                 int nh = NH[treeView1.SelectedNode.Parent.Index];//nam hoc
                 dataGridView1.Columns.Clear();
-                dataGridView1.Columns.Add("STT", "STT"); 
+                dataGridView1.Columns.Add("STT", "STT");
                 dataGridView1.DataSource = bLL.getTbHPBLL(hk, nh);// ra bảng học phần trong học kì vừa click
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.Columns["STT"].Width = 50;
@@ -68,7 +68,7 @@ namespace QuanLyDiem.GUI.NVDT
             }
             catch
             { }
-            
+
         }
         //
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -87,7 +87,7 @@ namespace QuanLyDiem.GUI.NVDT
                 f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(f);
             }
-            
+
         }
         #endregion
         #region DelegateFunction

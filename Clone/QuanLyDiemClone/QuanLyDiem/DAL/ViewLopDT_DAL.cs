@@ -47,5 +47,22 @@ namespace QuanLyDiem.DAL
             //}
             return v.ToList();
         }
+        public bool DelObject_DAL(string ID)
+        {
+            try
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    db.LopDaoTao.Remove(db.LopDaoTao.Find(ID));
+                    db.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+            
+        }
     }
 }

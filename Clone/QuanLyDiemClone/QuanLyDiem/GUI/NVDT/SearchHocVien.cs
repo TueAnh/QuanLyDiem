@@ -63,18 +63,6 @@ namespace QuanLyDiem.GUI.NVDT
             dataGridView.Columns["STT"].Width = 50;
         }
 
-        private void buttonSort_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã Học Viên"].Value.ToString());
-            hocVienDT.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
-            hocVienDT.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
-            AddControlPanel(hocVienDT);
-        }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
@@ -98,8 +86,40 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonAddHV_Click(object sender, EventArgs e)
 		{
-			NVDT.ThemHocVien f = new ThemHocVien();
-			f.Show();
+            //NVDT.ThemHocVien f = new ThemHocVien();
+            NVDT.FormAddHV f = new FormAddHV();
+			f.ShowDialog();
+            LoadAllHocVien();
 		}
-	}
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.SelectedRows.Count; i++)
+                if (Search_bll.XoaHV_BLL(dataGridView.SelectedRows[i].Cells["Mã HV"].Value.ToString().Trim()))
+                {
+                    //MessageBox.Show("Xóa thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Xuất hiện lỗi. Hãy thử lại!");
+                }
+            LoadAllHocVien();
+        }
+
+        private void buttonSort_Click_1(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+            {
+                dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+            }
+            if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+            {
+                dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
+            }
+            if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
+            {
+                dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
+            }
+        }
+    }
 }

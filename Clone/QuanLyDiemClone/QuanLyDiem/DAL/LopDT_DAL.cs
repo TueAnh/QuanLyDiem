@@ -151,31 +151,72 @@ namespace QuanLyDiem.DAL
         }
         public dynamic getDSSearchDAL(string str2, string MaLop)
         {
-
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Mã số");
+            tb.Columns.Add("Họ tên");
+            tb.Columns.Add("Email");
+            tb.Columns.Add("Địa chỉ");
+            tb.Columns.Add("Điện thoại");
+            tb.Columns.Add("Ngày sinh");
             var v = from s in db.HocVien
                     where (s.ID.Contains(str2) || s.HoTen.Contains(str2)) && (s.MaLop == MaLop)
                     select new { s.ID, s.HoTen, s.Email, s.DiaChi, s.DienThoai, s.NgaySinh };
-            return v.ToList();
+            foreach (var x in v)
+            {
+                DataRow r = tb.NewRow();
+                try
+                {
+
+                    r["Mã số"] = x.ID.Trim();
+                    r["Họ tên"] = x.HoTen.Trim();
+                    //SingleOrDefault??
+                    r["Email"] = x.Email;
+                    r["Địa chỉ"] = x.DiaChi;
+                    r["Điện thoại"] = x.DienThoai;
+                    r["Ngày sinh"] = string.Format("{0: yyyy-MM-dd}", x.NgaySinh.Value);
+                }
+                catch { }
+                tb.Rows.Add(r);
+            }
+            return tb;
         }
 
-		public dynamic checkLopDAL(string TenLop)
-		{
-			var v = from s in db.LopDaoTao
-					where s.TenLop == TenLop
-					select s.TenLop;
-			if (v.Count() == 0)
-				return true;
-			return false;
-		}
+        public dynamic checkLopDAL(string TenLop)
+        {
+            var v = from s in db.LopDaoTao
+                    where s.TenLop == TenLop
+                    select s.TenLop;
+            if (v.Count() == 0)
+                return true;
+            return false;
+        }
 
-		public void upDateLopCHDAL(string maLop, string tenLop)
-		{
-			var ldt = from s in db.LopDaoTao
-					  where s.MaLop == maLop
-					  select s;
-			ldt.SingleOrDefault().TenLop = tenLop;
-			db.SaveChanges();
-		}
-	}
+        public void upDateLopCHDAL(string maLop, string tenLop)
+        {
+            var ldt = from s in db.LopDaoTao
+                      where s.MaLop == maLop
+                      select s;
+            ldt.SingleOrDefault().TenLop = tenLop;
+            db.SaveChanges();
+        }
+        public bool XoaHV_DAL(string ID)
+        {
+            try
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    HocVien hv = db.HocVien.Find(ID);
+                    db.HocVien.Remove(hv);
+                    db.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+
+        }
+    }
 }
 

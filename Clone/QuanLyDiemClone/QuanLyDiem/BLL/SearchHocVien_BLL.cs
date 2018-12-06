@@ -18,5 +18,9 @@ namespace QuanLyDiem.BLL
         {
             return Search_dal.LoadSearchedHocVien(str);
         }
+        public bool XoaHV_BLL(string ID)
+        {
+            return Search_dal.XoaHV_DAL(ID);
+        }
     }
 }

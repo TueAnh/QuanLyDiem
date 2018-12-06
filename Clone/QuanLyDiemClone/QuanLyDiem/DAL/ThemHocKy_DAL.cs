@@ -16,9 +16,9 @@ namespace QuanLyDiem.DAL
                 int v = DB.HocKy.Select(s => s).Count();
                 return v;
             }
-            
+
         }
-        public void ThemHK_DAL(string maHK, string tenHK, DateTime TgBatDau, DateTime TgKetThuc ,int namHoc)
+        public void ThemHK_DAL(string maHK, string tenHK, DateTime TgBatDau, DateTime TgKetThuc, int namHoc)
         {
             using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
             {
@@ -41,11 +41,11 @@ namespace QuanLyDiem.DAL
                 return Convert.ToInt16(v) > 0;
             }
         }
-        public bool CheckExistMore2HocKi_DAL(string hocki,int namHoc)
+        public bool CheckExistMore2HocKi_DAL(string hocki, int namHoc)
         {
             using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
             {
-                var v = DB.HocKy.Select(s => s).Where(s => s.NamHoc == namHoc&& s.TenHK == hocki ).Count();
+                var v = DB.HocKy.Select(s => s).Where(s => s.NamHoc == namHoc && s.TenHK == hocki).Count();
                 return Convert.ToInt16(v) > 0;
             }
         }

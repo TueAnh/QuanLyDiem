@@ -22,9 +22,9 @@ namespace QuanLyDiem.BLL
         {
             return dal.getSoHK_DAL();
         }
-        public bool CheckExistMore2HocKi_BLL(string hocki,int namHoc)
+        public bool CheckExistMore2HocKi_BLL(string hocki, int namHoc)
         {
-            return dal.CheckExistMore2HocKi_DAL(hocki,namHoc);
+            return dal.CheckExistMore2HocKi_DAL(hocki, namHoc);
         }
     }
 }

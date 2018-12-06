@@ -25,7 +25,10 @@ namespace QuanLyDiem.BLL
         {
             return DAL.ViewLopDT_DAL.DAL.getTbLopDTDAL(str);
         }
-
+        public bool DelObject_BLL(string ID)
+        {
+            return DAL.ViewLopDT_DAL.DAL.DelObject_DAL(ID);
+        }
     }
 }
 

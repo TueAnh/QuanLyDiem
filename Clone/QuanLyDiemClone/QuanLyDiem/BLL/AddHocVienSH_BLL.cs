@@ -10,9 +10,9 @@ namespace QuanLyDiem.BLL
     class AddHocVienSH_BLL
     {
         AddHocVienSH_DAL dal = new AddHocVienSH_DAL();
-        public void AddHVSH_BLL(HocVien hv)
+        public bool AddHVSH_BLL(HocVien hv)
         {
-            dal.AddHVSH_DAL(hv);
+            return dal.AddHVSH_DAL(hv);
         }
     }
 }
