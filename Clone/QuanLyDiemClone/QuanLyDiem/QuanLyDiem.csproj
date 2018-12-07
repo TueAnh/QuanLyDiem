@@ -68,8 +68,10 @@
     <Compile Include="BLL\LopDT_BLL.cs" />
     <Compile Include="BLL\LopHP_BLL.cs" />
     <Compile Include="BLL\MoreInfoHocVien_BLL.cs" />
+    <Compile Include="BLL\SearchGiangVien_BLL.cs" />
     <Compile Include="BLL\SearchHocVien_BLL.cs" />
     <Compile Include="BLL\SuaDiemHocVienDT_BLL.cs" />
+    <Compile Include="BLL\ThemGiangVien_BLL.cs" />
     <Compile Include="BLL\ThemHocKy_BLL.cs" />
     <Compile Include="BLL\ThemHocVien_BLL.cs" />
     <Compile Include="BLL\ThemLopCH_BLL.cs" />
@@ -85,8 +87,10 @@
     <Compile Include="DAL\LopDT_DAL.cs" />
     <Compile Include="DAL\LopHP_DAL.cs" />
     <Compile Include="DAL\MoreInfoHocVien_DAL.cs" />
+    <Compile Include="DAL\SearchGiangVien_DAL.cs" />
     <Compile Include="DAL\SearchHocVien_DAL.cs" />
     <Compile Include="DAL\SuaDiemHocVienDT_DAL.cs" />
+    <Compile Include="DAL\ThemGiangVien_DAL.cs" />
     <Compile Include="DAL\ThemHocKy_DAL.cs" />
     <Compile Include="DAL\ThemHocVien_DAL.cs" />
     <Compile Include="DAL\ThemLopCH_DAL.cs" />
@@ -157,6 +161,12 @@
     <Compile Include="GUI\NVDT\LopSHDT.Designer.cs">
       <DependentUpon>LopSHDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NVDT\SearchGiangVienDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\SearchGiangVienDT.Designer.cs">
+      <DependentUpon>SearchGiangVienDT.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NVDT\SearchHocVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +214,12 @@
     </Compile>
     <Compile Include="GUI\NVDT\ViewLopHP.Designer.cs">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemGiangVien.Designer.cs">
+      <DependentUpon>ThemGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserInfo.cs">
       <SubType>Form</SubType>
@@ -277,6 +293,9 @@
     <EmbeddedResource Include="GUI\NVDT\LopSHDT.resx">
       <DependentUpon>LopSHDT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\SearchGiangVienDT.resx">
+      <DependentUpon>SearchGiangVienDT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\SearchHocVien.resx">
       <DependentUpon>SearchHocVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ViewLopHP.resx">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemGiangVien.resx">
+      <DependentUpon>ThemGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
