@@ -78,7 +78,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void dataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã Học Viên"].Value.ToString());
+            HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã HV"].Value.ToString());
             hocVienDT.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
             hocVienDT.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
             AddControlPanel(hocVienDT);
@@ -108,18 +108,26 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSort_Click_1(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+            try
             {
-                dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
+                }
             }
-            if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+            catch
             {
-                dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
+                MessageBox.Show("Chọn loại sắp xếp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
-            {
-                dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
-            }
+            
         }
     }
 }

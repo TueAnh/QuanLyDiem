@@ -51,6 +51,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         void loadNode()
         {
+            treeView1.Nodes.Clear();
             TreeNode n = new TreeNode("Khoa");
             treeView1.Nodes.Add(n);
             List<string> st = BLL.ViewLopDT_BLL.BLL.getNodeBLL();
@@ -58,6 +59,7 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 n.Nodes.Add(x);
             }
+            n.Nodes.Add(new TreeNode("Thêm Khoa"));
         }
         void LoadDataGrid(string str)
         {
@@ -139,6 +141,12 @@ namespace QuanLyDiem.GUI.NVDT
                 if (panel2.Controls.Count > 1)
                     this.panel2.Controls[panel2.Controls.Count - 2].Hide();
                 this.panel2.Controls[panel2.Controls.Count - 1].Show();
+                if (treeView1.SelectedNode.Text == "Thêm Khoa")
+                {
+                    ThemKhoa themKhoaForm = new ThemKhoa();
+                    themKhoaForm.Show();
+                    themKhoaForm.themKhoaSuccess += new ThemKhoa.ThemKhoaSuccess(loadNode);
+                }
             }
             catch
             { }
