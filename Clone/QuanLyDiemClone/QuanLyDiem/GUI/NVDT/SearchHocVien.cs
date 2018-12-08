@@ -40,10 +40,21 @@ namespace QuanLyDiem.GUI.NVDT
         public SearchHocVien()
         {
             InitializeComponent();
+            comboBox1.SelectedItem = comboBox1.Items[0];
+            LoadButton();
             LoadAllHocVien();
+        }
+        void LoadButton()
+        {
+            if (FormLogin.User.typeAcc != 3)
+            {
+                buttonAddHV.Enabled = false;
+                buttonDel.Enabled = false;
+            }
         }
         void LoadAllHocVien()
         {
+            
             dataGridView.Columns.Clear();
             dataGridView.Columns.Add("STT", "STT");
             dataGridView.DataSource = Search_bll.LoadAllHocVien();
@@ -111,23 +122,23 @@ namespace QuanLyDiem.GUI.NVDT
             try
             {
                 if (comboBox1.SelectedItem.ToString() == "Theo Tên")
-                {
-                    dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
-                }
-                if (comboBox1.SelectedItem.ToString() == "Theo Mã")
-                {
-                    dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
-                }
-                if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
-                {
-                    dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
-                }
+            {
+                dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+            }
+            if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+            {
+                dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
+            }
+            if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
+            {
+                dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
+            }
             }
             catch
             {
                 MessageBox.Show("Chọn loại sắp xếp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
     }
 }
