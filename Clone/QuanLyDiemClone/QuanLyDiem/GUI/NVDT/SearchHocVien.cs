@@ -131,6 +131,10 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
             }
+            if (comboBox1.SelectedItem.ToString() == "Theo Khoa")
+            {
+                dataGridView.Sort(dataGridView.Columns["Khoa"], ListSortDirection.Ascending);
+            }
         }
     }
 }

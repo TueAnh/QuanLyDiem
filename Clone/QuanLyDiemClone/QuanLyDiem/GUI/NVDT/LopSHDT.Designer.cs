@@ -37,7 +37,6 @@
             this.textBoxTenLop = new System.Windows.Forms.TextBox();
             this.textBoxMaLop = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelML = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonXoaHV = new System.Windows.Forms.Button();
@@ -60,7 +59,6 @@
             this.panel1.Controls.Add(this.textBoxTenLop);
             this.panel1.Controls.Add(this.textBoxMaLop);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.labelML);
             this.panel1.Controls.Add(this.textBoxSearch);
             this.panel1.Controls.Add(this.buttonXoaHV);
@@ -142,11 +140,11 @@
             // textBoxMaLop
             // 
             this.textBoxMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMaLop.Location = new System.Drawing.Point(193, 21);
+            this.textBoxMaLop.Location = new System.Drawing.Point(116, 21);
             this.textBoxMaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMaLop.Name = "textBoxMaLop";
             this.textBoxMaLop.ReadOnly = true;
-            this.textBoxMaLop.Size = new System.Drawing.Size(133, 26);
+            this.textBoxMaLop.Size = new System.Drawing.Size(210, 26);
             this.textBoxMaLop.TabIndex = 16;
             // 
             // label2
@@ -158,16 +156,6 @@
             this.label2.Size = new System.Drawing.Size(85, 25);
             this.label2.TabIndex = 15;
             this.label2.Text = "Tên Lớp";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(120, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 25);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "LCH  -";
             // 
             // labelML
             // 
@@ -292,7 +280,6 @@
         private System.Windows.Forms.Label labelPath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxKhoa;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonXoaHV;
         private System.Windows.Forms.Button button1;
     }

@@ -169,6 +169,7 @@
             this.buttonOut.TabIndex = 93;
             this.buttonOut.Text = "Xuât ra Excel";
             this.buttonOut.UseVisualStyleBackColor = true;
+            this.buttonOut.Click += new System.EventHandler(this.buttonOut_Click);
             // 
             // buttonBack
             // 

@@ -184,5 +184,97 @@ namespace QuanLyDiem.GUI.NVDT
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        private void copyAlltoClipboard()
+        {
+            dataGridViewDTBvXL.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            if (dataGridViewDTBvXL.SelectedRows.Count == 1)
+                dataGridViewDTBvXL.SelectAll();
+            DataObject dataObj = dataGridViewDTBvXL.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+        private void buttonOut_Click(object sender, EventArgs e)
+        {
+            //copyAlltoClipboard();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Bảng điểm.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+
+                object misValue = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Excel.Application xlexcel = new Microsoft.Office.Interop.Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.ActiveSheet;
+
+                Microsoft.Office.Interop.Excel.Range head = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Range[xlWorkSheet.Cells[1,1],xlWorkSheet.Cells[1,dataGridViewDTBvXL.ColumnCount]];
+                head.MergeCells = true;
+                head.Value2 = "TỔNG HỢP KẾT QUẢ HỌC TẬP";
+                head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                dataGridViewDTBvXL.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                dataGridViewDTBvXL.SelectAll();
+                DataObject dataObj = dataGridViewDTBvXL.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                string X = (dataGridViewDTBvXL.RowCount + 5).ToString();
+
+                Microsoft.Office.Interop.Excel.Range head2 = xlWorkSheet.get_Range("A"+X, "D"+X);
+                head2.MergeCells = true;
+                head2.Value2 = "CHI TIẾT";
+                head2.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                dataGridViewXemDiem.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                dataGridViewXemDiem.SelectAll();
+                dataObj = dataGridViewXemDiem.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[dataGridViewDTBvXL.RowCount + 7, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewDTBvXL.ClearSelection();
+
+                // Open the newly saved excel file
+                //if (File.Exists(sfd.FileName))
+                //    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+
+        }
     }
 }

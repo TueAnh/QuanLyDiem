@@ -20,6 +20,23 @@ namespace QuanLyDiem.GUI.NVDT
             InitializeComponent();
         }
         #region tab1
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
         private void buttonPath_Click(object sender, EventArgs e)
         {
             OpenFileDialog fopen = new OpenFileDialog();
@@ -54,12 +71,15 @@ namespace QuanLyDiem.GUI.NVDT
                         DataRow row = tb.NewRow();
                         for (int c = 1; c <= cols; c++)
                         {
-                            var x = range.Cells[r, c].Value.ToString();
+                            var x = range.Cells[r, c].Value;
                             row[c - 1] = x;
                         }
                         tb.Rows.Add(row);
                     }
                     dataGridView1.DataSource = tb;
+                    releaseObject(app);
+                    releaseObject(wb);
+                    releaseObject(sheet);
                 }
                 catch (Exception ex)
                 {

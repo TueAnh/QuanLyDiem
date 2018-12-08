@@ -52,7 +52,7 @@
             // 
             // buttonLuuThayDoi
             // 
-            this.buttonLuuThayDoi.Location = new System.Drawing.Point(291, 428);
+            this.buttonLuuThayDoi.Location = new System.Drawing.Point(319, 428);
             this.buttonLuuThayDoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuuThayDoi.Name = "buttonLuuThayDoi";
             this.buttonLuuThayDoi.Size = new System.Drawing.Size(131, 43);
@@ -240,11 +240,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 485);
+            this.ClientSize = new System.Drawing.Size(600, 485);
             this.Controls.Add(this.buttonLuuThayDoi);
             this.Controls.Add(this.buttonLuuMoi);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ThemLopHP";
             this.Text = "ThemLopHP";
             this.panel2.ResumeLayout(false);

@@ -142,7 +142,7 @@ namespace QuanLyDiem.GUI.NVDT
                         DataRow row = tb.NewRow();
                         for (int c = 1; c <= cols; c++)
                         {
-                            var x = range.Cells[r, c].Value.ToString();
+                            var x = range.Cells[r, c].Value;
                             row[c - 1] = x;
                         }
                         tb.Rows.Add(row);

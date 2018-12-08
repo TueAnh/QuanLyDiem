@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonAddHV = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.textBoxSearchMaHV_HoTen = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +89,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(849, 582);
             this.panel3.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Theo Mã",
+            "Theo Tên",
+            "Theo Lớp",
+            "Theo Khoa"});
+            this.comboBox1.Location = new System.Drawing.Point(175, 141);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(187, 24);
+            this.comboBox1.TabIndex = 24;
             // 
             // buttonDel
             // 
@@ -203,18 +216,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(191, 582);
             this.treeView1.TabIndex = 10;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Theo Mã",
-            "Theo Tên",
-            "Theo Lớp"});
-            this.comboBox1.Location = new System.Drawing.Point(175, 141);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 24);
-            this.comboBox1.TabIndex = 24;
             // 
             // SearchHocVien
             // 

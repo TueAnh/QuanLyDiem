@@ -31,5 +31,13 @@ namespace QuanLyDiem.BLL
         {
             return dAL.getDSSearchDAL(str, MaHP);
         }
+        public int UpdateKQHP(KetQuaHocPhan kq, string MaHV, string MaHP)
+        {
+            return dAL.UpdateKQHP(kq, MaHV, MaHP);
+        }
+        public bool XoaHV(string ID, string MaHP)
+        {
+            return dAL.XoaHV(ID, MaHP);
+        }
     }
 }
