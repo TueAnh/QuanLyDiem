@@ -47,8 +47,16 @@ namespace QuanLyDiem.GUI.NVDT
         {
             InitializeComponent();
             loadNode();
+            PhanQuyen();
         }
-
+        void PhanQuyen()
+        {
+            if (FormLogin.User.typeAcc != 3)
+            {
+                buttonAddClass.Enabled = false;
+                buttonXoaLop.Enabled = false;
+            }
+        }
         void loadNode()
         {
             treeView1.Nodes.Clear();
@@ -59,7 +67,8 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 n.Nodes.Add(x);
             }
-            n.Nodes.Add(new TreeNode("Thêm Khoa"));
+            if (FormLogin.User.typeAcc == 3)
+                n.Nodes.Add(new TreeNode("Thêm Khoa"));
         }
         void LoadDataGrid(string str)
         {
@@ -136,7 +145,7 @@ namespace QuanLyDiem.GUI.NVDT
                     this.buttonAddClass.Visible = true;
                     this.buttonXoaLop.Visible = true;
                 }
-                    
+
                 this.panel2.Controls.Add(dataGridView1);
                 if (panel2.Controls.Count > 1)
                     this.panel2.Controls[panel2.Controls.Count - 2].Hide();

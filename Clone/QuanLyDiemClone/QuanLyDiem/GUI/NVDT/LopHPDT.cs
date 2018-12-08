@@ -137,5 +137,13 @@ namespace QuanLyDiem.GUI.NVDT
                 f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(f);
         }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            ThemLopHP themLopHP = new ThemLopHP(textBoxLDT.Text);
+            themLopHP.ShowDialog();
+            this.removeControl(this);
+
+        }
     }
 }

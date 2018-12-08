@@ -170,6 +170,7 @@
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(793, 374);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

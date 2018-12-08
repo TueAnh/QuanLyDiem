@@ -24,7 +24,7 @@ namespace QuanLyDiem.DAL
             {
                 //var res = DB.Khoa.Select(p => p.TenKhoa);
                 var res = DB.HocKy.Select(q => new { TenHK = q.TenHK, NamHoc = q.NamHoc }).ToList().Select
-                    (p => new HocKy { TenHK = p.TenHK, NamHoc = p.NamHoc }).ToList();
+                    (p => new HocKy { TenHK = p.TenHK, NamHoc = p.NamHoc }).OrderBy(p => p.NamHoc).ToList();
                 List<TreeNode> tmp = new List<TreeNode>();
                 foreach (HocKy s in res)
                 {

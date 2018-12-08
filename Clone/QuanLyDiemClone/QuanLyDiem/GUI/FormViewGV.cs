@@ -95,6 +95,7 @@ namespace QuanLyDiem.GUI
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            removeControl(this);
             this.Dispose();
         }
 

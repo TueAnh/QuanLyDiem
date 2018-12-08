@@ -26,5 +26,13 @@ namespace QuanLyDiem.BLL
         {
             return dal.ChecKExistHP_DAL(maHP);
         }
+        public HocPhan GetHocPhan(string ID, ref string x, ref string y)
+        {
+            return dal.GetHocPhan(ID,ref x,ref y);
+        }
+        public bool UpdateHP(HocPhan hp, string MaGV, string MaHK)
+        {
+            return dal.UpdateHP(hp, MaGV, MaHK);
+        }
     }
 }

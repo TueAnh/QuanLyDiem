@@ -39,11 +39,23 @@ namespace QuanLyDiem.GUI.NVDT
             textBoxTenLop.Text = TenLop;
             ttenLop = TenLop;
             textBoxKhoa.Text = TenKhoa;
+            LoadButton();
             LoadDataGrid();
         }
         public LopSHDT()
         {
             InitializeComponent();
+            LoadButton();
+        }
+        void LoadButton()
+        {
+            if (FormLogin.User.typeAcc != 3)
+            {
+                buttonAdd.Enabled = false;
+                buttonSave.Enabled = false;
+                buttonThemHVExcel.Enabled = false;
+                buttonXoaHV.Enabled = false;
+            }
         }
         void LoadDataGrid(string str = "")
         {

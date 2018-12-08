@@ -14,6 +14,14 @@ namespace QuanLyDiem.GUI
     public partial class UserInfo : Form
     {
         User user;
+        public UserInfo(string ID)
+        {
+            user = Login_BLL.BLL.GetUser(1, ID);
+            InitializeComponent();
+            if (FormLogin.User.typeAcc != 3)
+                buttonUpdate.Enabled = false;
+            LoadData(user);
+        }
         public UserInfo(User user)
         {
             this.user = user;
@@ -22,9 +30,9 @@ namespace QuanLyDiem.GUI
         }
         public void LoadData(User user)
         {
-            if (FormLogin.User.typeAcc == 1)
+            if (user.typeAcc == 1)
                 textBoxType.Text = "Học viên";
-            else if (FormLogin.User.typeAcc == 2)
+            else if (user.typeAcc == 2)
                 textBoxType.Text = "Giảng viên";
             else
                 textBoxType.Text = "Nhân viên";

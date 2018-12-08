@@ -24,6 +24,9 @@ namespace QuanLyDiem.BLL
         {
             return dAL.getTbHPDAL(hk, nh);
         }
-
+        public bool XoaHP(string ID)
+        {
+            return dAL.XoaHP(ID);
+        }
     }
 }

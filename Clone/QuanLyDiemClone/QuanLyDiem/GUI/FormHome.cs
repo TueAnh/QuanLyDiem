@@ -103,15 +103,30 @@ namespace QuanLyDiem.GUI
 
         private void buttonViewGV_Click(object sender, EventArgs e)
         {
-            ClearView();
-            this.panelTools2.Hide();
-            FormViewGV formView = new FormViewGV(userAcc.ID);
-            formView.TopLevel = false;
-            panel2.Controls.Add(formView);
-            formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formView.Dock = DockStyle.Fill;
-            formView.Show();
+            if (userAcc.typeAcc == 2)
+            {
+                ClearView();
+                this.panelTools2.Hide();
+                FormViewGV formView = new FormViewGV(userAcc.ID);
+                formView.TopLevel = false;
+                panel2.Controls.Add(formView);
+                formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                formView.Dock = DockStyle.Fill;
+                formView.Show();
+            }
+            else 
+            {
+                ClearView();
+                this.panelTools2.Hide();
+                SearchGiangVienDT formView = new SearchGiangVienDT();
+                formView.TopLevel = false;
+                panel2.Controls.Add(formView);
+                formView.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                formView.Dock = DockStyle.Fill;
+                formView.Show();
+            }
         }
+
 
         private void buttonViewLSH_Click(object sender, EventArgs e)
         {
@@ -166,7 +181,7 @@ namespace QuanLyDiem.GUI
             }
             if (UserAcc.typeAcc == 3)
             {
-                buttonViewGV.Enabled = false;
+                //buttonViewGV.Enabled = false;
                 return;
             }
         }

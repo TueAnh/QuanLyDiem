@@ -45,6 +45,22 @@ namespace QuanLyDiem.DAL
             }
             return tb;
         }
+        public bool XoaHP(string ID)
+        {
+            try
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    db.HocPhan.Remove(db.HocPhan.Find(ID.Trim()));
+                    db.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
 

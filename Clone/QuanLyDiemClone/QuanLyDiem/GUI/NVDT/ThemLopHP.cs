@@ -13,19 +13,46 @@ namespace QuanLyDiem.GUI.NVDT
 {
     public partial class ThemLopHP : Form
     {
-        ThemLopHP_BLL themHP_BLL;
-        public ThemLopHP()
-        {
-            InitializeComponent();
-            themHP_BLL = new ThemLopHP_BLL();
-            loadCbb();
-        }
         List<string> lID = new List<string>();
         List<string> lHoTen = new List<string>();
         List<string> lMaHK = new List<string>();
         List<string> lTenHK = new List<string>();
         List<string> lNamHoc = new List<string>();
         List<int> strGV = new List<int>();
+        ThemLopHP_BLL themHP_BLL;
+        public ThemLopHP()
+        {
+            InitializeComponent();
+            themHP_BLL = new ThemLopHP_BLL();
+            loadCbb();
+            buttonLuuMoi.Visible = true;
+        }
+        public ThemLopHP(string ID)
+        {
+            InitializeComponent();
+            themHP_BLL = new ThemLopHP_BLL();
+            loadCbb();
+            LoadData(ID);
+            buttonLuuThayDoi.Visible = true;
+        }
+        public void LoadData(string ID)
+        {
+            string x = "", y = "";
+            HocPhan hp = themHP_BLL.GetHocPhan(ID, ref x, ref y);
+            if (hp != null)
+            {
+                textBoxMaHP.Text = hp.MaHP.Trim();
+                textBoxPTDiemGiuaKi.Text = hp.PhanTramDGK.ToString();
+                textBoxPTDiemThi.Text = hp.PhanTramDT.ToString();
+                textBoxSoTiet.Text = hp.SoTiet.ToString();
+                textBoxSoTinChi.Text = hp.SoTC.ToString();
+                textBoxTenHP.Text = hp.TenHP.Trim();
+                comboBoxTenHK.SelectedItem = comboBoxTenHK.Items[lMaHK.IndexOf(x)];
+                comboBoxTenGV.SelectedItem = comboBoxTenGV.Items[lID.IndexOf(y)];
+
+            }
+        }
+        
         public void loadCbb()
         {
             themHP_BLL.loadGV_BLL(lID, lHoTen);
@@ -49,9 +76,9 @@ namespace QuanLyDiem.GUI.NVDT
             }
             else
             {
-                //try
-                //{
-                themHP_BLL.ThemHP_BLL(textBoxMaHP.Text.Trim(),
+                try
+                {
+                    themHP_BLL.ThemHP_BLL(textBoxMaHP.Text.Trim(),
                                        textBoxTenHP.Text.Trim(),
                                        Convert.ToInt16(textBoxSoTinChi.Text.Trim()),
                                        Convert.ToInt16(textBoxSoTiet.Text.Trim()),
@@ -61,17 +88,40 @@ namespace QuanLyDiem.GUI.NVDT
                                        lID[comboBoxTenGV.SelectedIndex].Trim());
 
                 MessageBox.Show("Đã thêm mới học phần");
-                //}
-                //catch
-                //{
-                //    MessageBox.Show("Thêm mới không thành công");
-                //}
+                this.Dispose();
+                }
+                catch
+                {
+                    MessageBox.Show("Thêm mới không thành công");
+                }
             }
         }
 
         private void buttonLuuThayDoi_Click(object sender, EventArgs e)
         {
+            try
+            {
+                HocPhan hp = new HocPhan
+                {
+                    MaHP = textBoxMaHP.Text.Trim(),
+                    TenHP = textBoxTenHP.Text.Trim(),
+                    SoTC = Convert.ToInt32(textBoxSoTinChi.Text),
+                    SoTiet = Convert.ToInt32(textBoxSoTiet.Text),
+                    PhanTramDGK = Convert.ToDouble(textBoxPTDiemGiuaKi.Text),
+                    PhanTramDT = Convert.ToDouble(textBoxPTDiemThi.Text)
+                };
+                string MaGV = lID[comboBoxTenGV.SelectedIndex].Trim();
+                string MaHK = lMaHK[comboBoxTenHK.SelectedIndex].Trim();
 
+                if (themHP_BLL.UpdateHP(hp, MaGV, MaHK))
+                    MessageBox.Show("Thay đổi thành công");
+                this.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("Không thành công!");
+            }
+            
         }
 
       

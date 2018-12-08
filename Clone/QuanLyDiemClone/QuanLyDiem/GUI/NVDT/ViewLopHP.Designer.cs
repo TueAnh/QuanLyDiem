@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.buttonXoa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -41,6 +42,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Controls.Add(this.buttonThemLopHP);
             this.panel1.Controls.Add(this.buttonBack);
             this.panel1.Controls.Add(this.panel2);
@@ -55,13 +57,14 @@
             // buttonThemLopHP
             // 
             this.buttonThemLopHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonThemLopHP.Location = new System.Drawing.Point(642, 563);
+            this.buttonThemLopHP.Location = new System.Drawing.Point(507, 563);
             this.buttonThemLopHP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemLopHP.Name = "buttonThemLopHP";
-            this.buttonThemLopHP.Size = new System.Drawing.Size(251, 46);
+            this.buttonThemLopHP.Size = new System.Drawing.Size(190, 46);
             this.buttonThemLopHP.TabIndex = 3;
             this.buttonThemLopHP.Text = "Thêm Học Phần";
             this.buttonThemLopHP.UseVisualStyleBackColor = true;
+            this.buttonThemLopHP.Visible = false;
             this.buttonThemLopHP.Click += new System.EventHandler(this.buttonThemLopHP_Click);
             // 
             // buttonBack
@@ -115,6 +118,19 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonXoa.Location = new System.Drawing.Point(703, 562);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.Size = new System.Drawing.Size(190, 46);
+            this.buttonXoa.TabIndex = 3;
+            this.buttonXoa.Text = "Xóa Học Phần";
+            this.buttonXoa.UseVisualStyleBackColor = true;
+            this.buttonXoa.Visible = false;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
             // ViewLopHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -140,5 +156,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonThemLopHP;
+        private System.Windows.Forms.Button buttonXoa;
     }
 }

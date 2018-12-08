@@ -33,7 +33,8 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 try
                 {
-                    themKhoa_Bll.themKhoa_BLL(new Khoa {
+                    themKhoa_Bll.themKhoa_BLL(new Khoa
+                    {
                         MaKhoa = textBoxMaKhoa.Text.Trim(),
                         TenKhoa = textBoxTenKhoa.Text.Trim()
                     });

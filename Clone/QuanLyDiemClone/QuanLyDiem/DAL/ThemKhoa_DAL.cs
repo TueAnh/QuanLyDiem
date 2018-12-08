@@ -10,7 +10,7 @@ namespace QuanLyDiem.DAL
     {
         public void themKhoa_DAL(Khoa k)
         {
-            using(QuanLyDiemEntities DB= new QuanLyDiemEntities())
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
             {
                 DB.Khoa.Add(k);
                 DB.SaveChanges();

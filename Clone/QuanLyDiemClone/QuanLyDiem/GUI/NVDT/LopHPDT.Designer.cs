@@ -41,6 +41,7 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
+            this.buttonChange = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
@@ -48,6 +49,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonChange);
             this.panel1.Controls.Add(this.labelMaHP);
             this.panel1.Controls.Add(this.textBoxLDT);
             this.panel1.Controls.Add(this.panelButton);
@@ -56,29 +58,28 @@
             this.panel1.Controls.Add(this.textBoxSearch);
             this.panel1.Controls.Add(this.buttonSearch);
             this.panel1.Controls.Add(this.dataGridViewDSHV);
-            this.panel1.Location = new System.Drawing.Point(2, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(3, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(629, 417);
+            this.panel1.Size = new System.Drawing.Size(839, 513);
             this.panel1.TabIndex = 0;
             // 
             // labelMaHP
             // 
             this.labelMaHP.AutoSize = true;
-            this.labelMaHP.Location = new System.Drawing.Point(16, 46);
-            this.labelMaHP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMaHP.Location = new System.Drawing.Point(21, 57);
             this.labelMaHP.Name = "labelMaHP";
-            this.labelMaHP.Size = new System.Drawing.Size(73, 13);
+            this.labelMaHP.Size = new System.Drawing.Size(94, 17);
             this.labelMaHP.TabIndex = 29;
             this.labelMaHP.Text = "Mã học phần:";
             // 
             // textBoxLDT
             // 
-            this.textBoxLDT.Location = new System.Drawing.Point(110, 46);
-            this.textBoxLDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLDT.Location = new System.Drawing.Point(147, 57);
+            this.textBoxLDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLDT.Name = "textBoxLDT";
             this.textBoxLDT.ReadOnly = true;
-            this.textBoxLDT.Size = new System.Drawing.Size(192, 20);
+            this.textBoxLDT.Size = new System.Drawing.Size(255, 22);
             this.textBoxLDT.TabIndex = 28;
             // 
             // panelButton
@@ -87,18 +88,18 @@
             this.panelButton.Controls.Add(this.buttonBack);
             this.panelButton.Controls.Add(this.buttonOut);
             this.panelButton.Controls.Add(this.buttonInput);
-            this.panelButton.Location = new System.Drawing.Point(8, 368);
-            this.panelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButton.Location = new System.Drawing.Point(11, 453);
+            this.panelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(614, 46);
+            this.panelButton.Size = new System.Drawing.Size(819, 57);
             this.panelButton.TabIndex = 27;
             // 
             // buttonXem
             // 
-            this.buttonXem.Location = new System.Drawing.Point(349, 12);
-            this.buttonXem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonXem.Location = new System.Drawing.Point(465, 15);
+            this.buttonXem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXem.Name = "buttonXem";
-            this.buttonXem.Size = new System.Drawing.Size(116, 19);
+            this.buttonXem.Size = new System.Drawing.Size(155, 23);
             this.buttonXem.TabIndex = 0;
             this.buttonXem.Text = "Xem học viên";
             this.buttonXem.UseVisualStyleBackColor = true;
@@ -106,10 +107,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(470, 12);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.Location = new System.Drawing.Point(627, 15);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(116, 19);
+            this.buttonBack.Size = new System.Drawing.Size(155, 23);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "Trở lại";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -117,53 +118,57 @@
             // 
             // buttonOut
             // 
-            this.buttonOut.Location = new System.Drawing.Point(132, 12);
-            this.buttonOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOut.Location = new System.Drawing.Point(176, 15);
+            this.buttonOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOut.Name = "buttonOut";
-            this.buttonOut.Size = new System.Drawing.Size(116, 19);
+            this.buttonOut.Size = new System.Drawing.Size(155, 23);
             this.buttonOut.TabIndex = 0;
             this.buttonOut.Text = "Xuất ra Excel";
             this.buttonOut.UseVisualStyleBackColor = true;
             // 
             // buttonInput
             // 
-            this.buttonInput.Location = new System.Drawing.Point(11, 12);
-            this.buttonInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInput.Location = new System.Drawing.Point(15, 15);
+            this.buttonInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInput.Name = "buttonInput";
-            this.buttonInput.Size = new System.Drawing.Size(116, 19);
+            this.buttonInput.Size = new System.Drawing.Size(155, 23);
             this.buttonInput.TabIndex = 0;
             this.buttonInput.Text = "Nhập từ Excel";
             this.buttonInput.UseVisualStyleBackColor = true;
             // 
             // textBoxGVPT
             // 
-            this.textBoxGVPT.Location = new System.Drawing.Point(110, 22);
+            this.textBoxGVPT.Location = new System.Drawing.Point(147, 27);
+            this.textBoxGVPT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxGVPT.Name = "textBoxGVPT";
             this.textBoxGVPT.ReadOnly = true;
-            this.textBoxGVPT.Size = new System.Drawing.Size(192, 20);
+            this.textBoxGVPT.Size = new System.Drawing.Size(255, 22);
             this.textBoxGVPT.TabIndex = 26;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 22);
+            this.label1.Location = new System.Drawing.Point(21, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 24;
             this.label1.Text = "GV phụ trách : ";
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(362, 22);
+            this.textBoxSearch.Location = new System.Drawing.Point(483, 27);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(168, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(223, 22);
             this.textBoxSearch.TabIndex = 23;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(536, 20);
+            this.buttonSearch.Location = new System.Drawing.Point(715, 25);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(100, 28);
             this.buttonSearch.TabIndex = 22;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -176,25 +181,36 @@
             this.dataGridViewDSHV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSHV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSHV.Location = new System.Drawing.Point(7, 84);
+            this.dataGridViewDSHV.Location = new System.Drawing.Point(9, 103);
+            this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
             this.dataGridViewDSHV.ReadOnly = true;
             this.dataGridViewDSHV.RowHeadersVisible = false;
             this.dataGridViewDSHV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewDSHV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDSHV.Size = new System.Drawing.Size(614, 278);
+            this.dataGridViewDSHV.Size = new System.Drawing.Size(819, 342);
             this.dataGridViewDSHV.TabIndex = 19;
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
             // 
+            // buttonChange
+            // 
+            this.buttonChange.Location = new System.Drawing.Point(483, 57);
+            this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(114, 27);
+            this.buttonChange.TabIndex = 30;
+            this.buttonChange.Text = "Chỉnh sửa";
+            this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
+            // 
             // LopHPDT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(632, 422);
+            this.ClientSize = new System.Drawing.Size(843, 519);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LopHPDT";
             this.Text = "LopHPDT";
             this.Load += new System.EventHandler(this.LopHPDT_Load);
@@ -221,5 +237,6 @@
         private System.Windows.Forms.Label labelMaHP;
         private System.Windows.Forms.TextBox textBoxLDT;
         private System.Windows.Forms.Button buttonXem;
+        private System.Windows.Forms.Button buttonChange;
     }
 }
