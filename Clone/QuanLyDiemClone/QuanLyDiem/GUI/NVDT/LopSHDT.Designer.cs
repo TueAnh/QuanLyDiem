@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxKhoa = new System.Windows.Forms.TextBox();
             this.labelPath = new System.Windows.Forms.Label();
@@ -40,12 +39,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelML = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonXoaHV = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAdđ = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
+            this.buttonXoaHV = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             this.panel1.Controls.Add(this.labelML);
             this.panel1.Controls.Add(this.textBoxSearch);
             this.panel1.Controls.Add(this.buttonXoaHV);
-            this.panel1.Controls.Add(this.buttonAdd);
+            this.panel1.Controls.Add(this.buttonAdđ);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonBack);
             this.panel1.Controls.Add(this.buttonSearch);
@@ -74,19 +74,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(816, 551);
             this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightYellow;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Image = global::QuanLyDiem.Properties.Resources.refresh;
-            this.button1.Location = new System.Drawing.Point(738, 398);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 53);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -101,7 +88,7 @@
             // textBoxKhoa
             // 
             this.textBoxKhoa.Location = new System.Drawing.Point(504, 23);
-            this.textBoxKhoa.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxKhoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxKhoa.Multiline = true;
             this.textBoxKhoa.Name = "textBoxKhoa";
             this.textBoxKhoa.ReadOnly = true;
@@ -122,7 +109,7 @@
             // buttonThemHVExcel
             // 
             this.buttonThemHVExcel.Location = new System.Drawing.Point(20, 459);
-            this.buttonThemHVExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonThemHVExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonThemHVExcel.Name = "buttonThemHVExcel";
             this.buttonThemHVExcel.Size = new System.Drawing.Size(220, 28);
             this.buttonThemHVExcel.TabIndex = 18;
@@ -182,38 +169,27 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(443, 60);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSearch.Multiline = true;
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(225, 24);
             this.textBoxSearch.TabIndex = 12;
             // 
-            // buttonXoaHV
+            // buttonAdđ
             // 
-            this.buttonXoaHV.Location = new System.Drawing.Point(443, 460);
-            this.buttonXoaHV.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonXoaHV.Name = "buttonXoaHV";
-            this.buttonXoaHV.Size = new System.Drawing.Size(133, 28);
-            this.buttonXoaHV.TabIndex = 10;
-            this.buttonXoaHV.Text = "Xóa học viên";
-            this.buttonXoaHV.UseVisualStyleBackColor = true;
-            this.buttonXoaHV.Click += new System.EventHandler(this.buttonXoaHV_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(659, 495);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(133, 28);
-            this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Thêm học viên";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdđ_Click);
+            this.buttonAdđ.Location = new System.Drawing.Point(659, 495);
+            this.buttonAdđ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAdđ.Name = "buttonAdđ";
+            this.buttonAdđ.Size = new System.Drawing.Size(133, 28);
+            this.buttonAdđ.TabIndex = 10;
+            this.buttonAdđ.Text = "Thêm học viên";
+            this.buttonAdđ.UseVisualStyleBackColor = true;
+            this.buttonAdđ.Click += new System.EventHandler(this.buttonAdđ_Click);
             // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(584, 459);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 28);
             this.buttonSave.TabIndex = 10;
@@ -224,7 +200,7 @@
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(692, 459);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(100, 28);
             this.buttonBack.TabIndex = 10;
@@ -235,7 +211,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Location = new System.Drawing.Point(676, 58);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(100, 28);
             this.buttonSearch.TabIndex = 11;
@@ -249,7 +225,7 @@
             this.dataGridViewDSHV.AllowUserToDeleteRows = false;
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDSHV.Location = new System.Drawing.Point(20, 110);
-            this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
             this.dataGridViewDSHV.ReadOnly = true;
             this.dataGridViewDSHV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -257,6 +233,30 @@
             this.dataGridViewDSHV.TabIndex = 8;
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
+            // 
+            // buttonXoaHV
+            // 
+            this.buttonXoaHV.Location = new System.Drawing.Point(443, 460);
+            this.buttonXoaHV.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonXoaHV.Name = "buttonXoaHV";
+            this.buttonXoaHV.Size = new System.Drawing.Size(133, 28);
+            this.buttonXoaHV.TabIndex = 10;
+            this.buttonXoaHV.Text = "Xóa học viên";
+            this.buttonXoaHV.UseVisualStyleBackColor = true;
+            this.buttonXoaHV.Click += new System.EventHandler(this.buttonXoaHV_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightYellow;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Image = global::QuanLyDiem.Properties.Resources.refresh;
+            this.button1.Location = new System.Drawing.Point(738, 398);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 53);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LopSHDT
             // 
@@ -287,7 +287,7 @@
         private System.Windows.Forms.TextBox textBoxTenLop;
         private System.Windows.Forms.TextBox textBoxMaLop;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAdđ;
         private System.Windows.Forms.Button buttonThemHVExcel;
         private System.Windows.Forms.Label labelPath;
         private System.Windows.Forms.Label label1;

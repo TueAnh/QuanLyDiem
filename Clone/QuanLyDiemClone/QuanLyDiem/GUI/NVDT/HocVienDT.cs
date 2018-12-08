@@ -109,32 +109,25 @@ namespace QuanLyDiem.GUI.NVDT
         #region ButtonClick
         private void buttonXem_Click(object sender, EventArgs e)
         {
-            try
+            if (radioButtonQuaTrinh.Checked == true)
             {
-                if (radioButtonQuaTrinh.Checked == true)
-                {
-                    comboBoxDoanXem.Items.Clear();
-                    comboBoxDoanXem.SelectedText = "";
-                    //dataGridViewXemDiem.DataSource = null;
-                    dataGridViewXemDiem.DataSource = bLL.getDiemQTBLL(MaHV);
-                }
-                if (radioButtonNamHoc.Checked == true)
-                {
-                   // dataGridViewXemDiem.DataSource = null;
-                    dataGridViewXemDiem.DataSource = bLL.getDiemNHBLL(MaHV, strNH[comboBoxDoanXem.SelectedIndex]);
-                }
-                if (radioButtonHocKi.Checked == true)
-                {
-                   // dataGridViewXemDiem.DataSource = null;
-                    dataGridViewXemDiem.DataSource = bLL.getDiemHKBLL(MaHV, strHKNH[comboBoxDoanXem.SelectedIndex],
-                                                                    strHK[comboBoxDoanXem.SelectedIndex]);
-                }
-                dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                comboBoxDoanXem.Items.Clear();
+                comboBoxDoanXem.SelectedText = "";
+                dataGridViewXemDiem.DataSource = null;
+                dataGridViewXemDiem.DataSource = bLL.getDiemQTBLL(MaHV);
             }
-            catch
+            if (radioButtonNamHoc.Checked == true)
             {
-
+                dataGridViewXemDiem.DataSource = null;
+                dataGridViewXemDiem.DataSource = bLL.getDiemNHBLL(MaHV, strNH[comboBoxDoanXem.SelectedIndex]);
             }
+            if (radioButtonHocKi.Checked == true)
+            {
+                dataGridViewXemDiem.DataSource = null;
+                dataGridViewXemDiem.DataSource = bLL.getDiemHKBLL(MaHV, strHKNH[comboBoxDoanXem.SelectedIndex],
+                                                                strHK[comboBoxDoanXem.SelectedIndex]);
+            }
+            dataGridViewXemDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void buttonBack_Click(object sender, EventArgs e)
         {
@@ -177,12 +170,5 @@ namespace QuanLyDiem.GUI.NVDT
                 this.dataGridViewXemDiem.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
         #endregion
-
-        private void buttonMore_Click(object sender, EventArgs e)
-        {
-            UserInfo form = new UserInfo(textBoxMSHV.Text.Trim());
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();
-        }
     }
 }

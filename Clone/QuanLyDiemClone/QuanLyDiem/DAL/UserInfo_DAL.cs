@@ -27,7 +27,7 @@ namespace QuanLyDiem.DAL
                             hocVien.Password = user.PassWord;
                             hocVien.DiaChi = user.DiaChi;
                             hocVien.DienThoai = user.DienThoai;
-                            hocVien.Email = user.Email;
+                            hocVien.DienThoai = user.Email;
                             DB.SaveChanges();
                         }
                 return true;
