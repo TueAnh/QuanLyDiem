@@ -112,28 +112,36 @@ namespace QuanLyDiem.DAL
         public DataTable getDSHVDAL(string str)// lấy danh sách Học Viên
         {
             DataTable tb = new DataTable();
-            tb.Columns.Add("Mã Số");
-            tb.Columns.Add("Họ Tên");
+            tb.Columns.Add("Mã HV");
+            tb.Columns.Add("Họ");
+            tb.Columns.Add("Tên");
             tb.Columns.Add("Điểm BT");
             tb.Columns.Add("Điểm GK");
             tb.Columns.Add("Điểm Thi");
-
+            tb.Columns.Add("Điểm TB");
             //var v = from s in db.KetQuaHocPhans
             //		where s.ID == str
             //		select new { s.HocPhan.HocKy.NamHoc };
 
             var v = from s in db.KetQuaHocPhan
                     where s.MaHP == str
-                    select new { s.ID, s.HocVien.HoTen, s.DiemBT, s.DiemGK, s.DiemThi };
+                    select s;
             foreach (var x in v)
             {
                 DataRow r = tb.NewRow();
-                r["Mã Số"] = x.ID;
-                r["Họ Tên"] = x.HoTen;
+                r["Mã HV"] = x.ID;
+                var name = x.HocVien.HoTen.ToString().Trim().Split(' ');
+                for (int j = 0; j < name.Count() - 1; j++)
+                    r["Họ"] += name[j] + " ";
+                r["Tên"] = name[name.Count() - 1];
                 //singleordefault??
                 r["Điểm BT"] = x.DiemBT;
                 r["Điểm GK"] = x.DiemGK;
                 r["Điểm Thi"] = x.DiemThi;
+                if (x.DiemThi.ToString().Trim().Length > 0)
+                    r["Điểm TB"] = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
                 tb.Rows.Add(r);
             }
             return tb;
@@ -150,23 +158,32 @@ namespace QuanLyDiem.DAL
         public DataTable getDSSearchDAL(string str, string MaHP)
         {
             DataTable tb = new DataTable();
-            tb.Columns.Add("Mã Số");
-            tb.Columns.Add("Họ Tên");
+            tb.Columns.Add("Mã HV");
+            tb.Columns.Add("Họ");
+            tb.Columns.Add("Tên");
             tb.Columns.Add("Điểm BT");
             tb.Columns.Add("Điểm GK");
             tb.Columns.Add("Điểm Thi");
+            tb.Columns.Add("Điểm TB");
             var v = from s in db.KetQuaHocPhan
                     where (s.HocVien.ID.Contains(str) || s.HocVien.HoTen.Contains(str)) && (s.MaHP == MaHP)
-                    select new { s.ID, s.HocVien.HoTen, s.DiemBT, s.DiemGK, s.DiemThi };
+                    select s;
             foreach (var x in v)
             {
                 DataRow r = tb.NewRow();
-                r["Mã Số"] = x.ID;
-                r["Họ Tên"] = x.HoTen;
+                r["Mã HV"] = x.ID;
+                var name = x.HocVien.HoTen.ToString().Trim().Split(' ');
+                for (int j = 0; j < name.Count() - 1; j++)
+                    r["Họ"] += name[j] + " ";
+                r["Tên"] = name[name.Count() - 1];
                 //singleordefault??
                 r["Điểm BT"] = x.DiemBT;
                 r["Điểm GK"] = x.DiemGK;
                 r["Điểm Thi"] = x.DiemThi;
+                if (x.DiemThi.ToString().Trim().Length > 0)
+                    r["Điểm TB"] = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
                 tb.Rows.Add(r);
             }
             return tb;

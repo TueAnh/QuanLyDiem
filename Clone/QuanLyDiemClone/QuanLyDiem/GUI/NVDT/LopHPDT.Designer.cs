@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonChange = new System.Windows.Forms.Button();
             this.labelMaHP = new System.Windows.Forms.Label();
             this.textBoxLDT = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
@@ -41,7 +42,8 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
-            this.buttonChange = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.buttonSort = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
@@ -49,6 +51,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSort);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.buttonChange);
             this.panel1.Controls.Add(this.labelMaHP);
             this.panel1.Controls.Add(this.textBoxLDT);
@@ -63,6 +67,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(839, 513);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonChange
+            // 
+            this.buttonChange.Location = new System.Drawing.Point(408, 25);
+            this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(68, 58);
+            this.buttonChange.TabIndex = 30;
+            this.buttonChange.Text = "Chỉnh sửa";
+            this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // labelMaHP
             // 
@@ -125,6 +139,7 @@
             this.buttonOut.TabIndex = 0;
             this.buttonOut.Text = "Xuất ra Excel";
             this.buttonOut.UseVisualStyleBackColor = true;
+            this.buttonOut.Click += new System.EventHandler(this.buttonOut_Click);
             // 
             // buttonInput
             // 
@@ -139,7 +154,7 @@
             // textBoxGVPT
             // 
             this.textBoxGVPT.Location = new System.Drawing.Point(147, 27);
-            this.textBoxGVPT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxGVPT.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxGVPT.Name = "textBoxGVPT";
             this.textBoxGVPT.ReadOnly = true;
             this.textBoxGVPT.Size = new System.Drawing.Size(255, 22);
@@ -158,7 +173,7 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(483, 27);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(223, 22);
             this.textBoxSearch.TabIndex = 23;
@@ -166,7 +181,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Location = new System.Drawing.Point(715, 25);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(100, 28);
             this.buttonSearch.TabIndex = 22;
@@ -182,7 +197,7 @@
             this.dataGridViewDSHV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewDSHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDSHV.Location = new System.Drawing.Point(9, 103);
-            this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDSHV.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
             this.dataGridViewDSHV.ReadOnly = true;
             this.dataGridViewDSHV.RowHeadersVisible = false;
@@ -193,15 +208,27 @@
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
             // 
-            // buttonChange
+            // comboBox1
             // 
-            this.buttonChange.Location = new System.Drawing.Point(483, 57);
-            this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(114, 27);
-            this.buttonChange.TabIndex = 30;
-            this.buttonChange.Text = "Chỉnh sửa";
-            this.buttonChange.UseVisualStyleBackColor = true;
-            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Theo Mã",
+            "Theo Tên",
+            "Theo Điểm TB"});
+            this.comboBox1.Location = new System.Drawing.Point(483, 57);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 24);
+            this.comboBox1.TabIndex = 31;
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(715, 57);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(100, 26);
+            this.buttonSort.TabIndex = 32;
+            this.buttonSort.Text = "Lọc";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // LopHPDT
             // 
@@ -238,5 +265,7 @@
         private System.Windows.Forms.TextBox textBoxLDT;
         private System.Windows.Forms.Button buttonXem;
         private System.Windows.Forms.Button buttonChange;
+        private System.Windows.Forms.Button buttonSort;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

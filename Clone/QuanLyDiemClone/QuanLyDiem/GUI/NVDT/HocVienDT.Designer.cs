@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonMore = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonHocKi = new System.Windows.Forms.RadioButton();
             this.radioButtonQuaTrinh = new System.Windows.Forms.RadioButton();
@@ -43,7 +44,6 @@
             this.dataGridViewXemDiem = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonMore = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDTBvXL)).BeginInit();
@@ -69,6 +69,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(816, 574);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonMore
+            // 
+            this.buttonMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonMore.Location = new System.Drawing.Point(514, 50);
+            this.buttonMore.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMore.Name = "buttonMore";
+            this.buttonMore.Size = new System.Drawing.Size(200, 28);
+            this.buttonMore.TabIndex = 98;
+            this.buttonMore.Text = "Thông tin thêm >>>>";
+            this.buttonMore.UseVisualStyleBackColor = true;
+            this.buttonMore.Click += new System.EventHandler(this.buttonMore_Click);
             // 
             // panel2
             // 
@@ -225,18 +237,6 @@
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 84;
             this.label1.Text = "MSHV";
-            // 
-            // buttonMore
-            // 
-            this.buttonMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonMore.Location = new System.Drawing.Point(514, 50);
-            this.buttonMore.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonMore.Name = "buttonMore";
-            this.buttonMore.Size = new System.Drawing.Size(200, 28);
-            this.buttonMore.TabIndex = 98;
-            this.buttonMore.Text = "Thông tin thêm >>>>";
-            this.buttonMore.UseVisualStyleBackColor = true;
-            this.buttonMore.Click += new System.EventHandler(this.buttonMore_Click);
             // 
             // HocVienDT
             // 
