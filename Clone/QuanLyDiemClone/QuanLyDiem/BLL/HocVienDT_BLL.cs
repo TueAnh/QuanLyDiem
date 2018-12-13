@@ -10,11 +10,14 @@ namespace QuanLyDiem.BLL
     class HocVienDT_BLL
     {
         DAL.HocVienDT_DAL dAL = new HocVienDT_DAL();
-        public string getHVBLL(string str)
+        public HocVien getHVBLL(string str)
         {
             return dAL.getHVDAL(str);
         }
-
+        public string GetTenLop(string str)
+        {
+            return dAL.GetTenLop(str);
+        }
         public dynamic getDTBvXLBLL(string str)
         {
             return dAL.getDTBvXLDAL(str);

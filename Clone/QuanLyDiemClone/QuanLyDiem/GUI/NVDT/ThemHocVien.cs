@@ -45,8 +45,8 @@ namespace QuanLyDiem.GUI.NVDT
 			{
                 bLL.addHVBLL(new HocVien
 				{
-					ID = "HV" + textBoxMaHV.Text,
-					HoTen = textBoxHoTen.Text,
+                    ID = "HV" + textBoxMaHV.Text,
+                    HoTen = textBoxHoTen.Text,
 					NgaySinh = dateTimePickerNS.Value,
 					MaLop = bLL.getLopBLL(textBoxLopCH.Text),
 					DiaChi = textBoxDiaChi.Text,

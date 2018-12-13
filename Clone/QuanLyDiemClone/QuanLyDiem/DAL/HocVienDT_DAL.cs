@@ -10,11 +10,18 @@ namespace QuanLyDiem.DAL
     class HocVienDT_DAL
     {
         QuanLyDiemEntities db = new QuanLyDiemEntities();
-        public string getHVDAL(string str)
+        public HocVien getHVDAL(string str)
         {
             var v = from s in db.HocVien
                     where s.ID == str
-                    select s.HoTen;
+                    select s;
+            return v.SingleOrDefault();
+        }
+        public string GetTenLop(string str)
+        {
+            var v = from s in db.HocVien
+                    where s.ID == str
+                    select s.LopDaoTao.TenLop;
             return v.SingleOrDefault();
         }
 
