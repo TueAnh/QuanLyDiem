@@ -46,7 +46,7 @@ namespace QuanLyDiem
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDiem.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,77 +8,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyDiem.BLL;
 
-namespace QuanLyDiem.GUI.NVDT
+namespace QuanLyDiem.GUI
 {
-	public partial class ThemHocVien : Form
-	{
-		ThemHocVien_BLL bLL = new ThemHocVien_BLL();
-		public ThemHocVien(string MaLopCH, string LopCH)
-		{
-			InitializeComponent();
-			textBoxLopCH.Text = LopCH;
-			textBoxLopCH.ReadOnly = true;
-			//LoadMaLop();
-		}
+    public partial class ThemGiangVien : Form
+    {
+        ThemGiangVien_BLL bLL = new ThemGiangVien_BLL();
+        public ThemGiangVien()
+        {
+            InitializeComponent();
+        }
 
-		public ThemHocVien()
-		{
-			InitializeComponent();
-			//LoadMaLop();
-		}
-		void LoadMaLop()
-		{
-			string s = "HV";
-			if (bLL.getSoHocVienBLL() + 1 < 100)
-				s += "0";
-			if (bLL.getSoHocVienBLL() + 1 < 10)
-				s += "0";
-			s += (bLL.getSoHocVienBLL() + 1);
-			textBoxMaHV.Text = s;
-			textBoxMaHV.ReadOnly = true;
-		}
-
-		private void buttonAdd_Click(object sender, EventArgs e)
-		{
-            if (textBoxMaHV.Text == "")
+        //public bool checkMaGV()
+        //{
+        //    if (textBoxMaGV.Text.Length != 3) return false;
+        //    string s = textBoxMaGV.Text;
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (s[i] < '0' || s[i] > '9') return false;
+        //    }
+        //    return true;
+        //}
+        
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (textBoxMaGV.Text == "")
             {
                 MessageBox.Show("Không được để trống mã số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (bLL.getLopBLL(textBoxLopCH.Text) != null)
+                if (bLL.checkGVBLL("GV" + textBoxMaGV.Text) && bLL.checkKhoaBLL(textBoxKhoa.Text))
                 {
-                    bLL.addHVBLL(new HocVien
+                    bLL.addGiangVienBLL(new GiangVien
                     {
-                        ID = "HV" + textBoxMaHV.Text,
+                        ID = "GV" + textBoxMaGV.Text,
                         HoTen = textBoxHoTen.Text,
                         NgaySinh = dateTimePickerNS.Value,
-                        MaLop = bLL.getLopBLL(textBoxLopCH.Text),
                         DiaChi = textBoxDiaChi.Text,
                         Email = textBoxEmail.Text,
                         DienThoai = textBoxDienThoai.Text,
+                        MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text),
                         Password = "",
                     });
-                    MessageBox.Show("Thêm học viên thành công");
+                    MessageBox.Show("Thêm giảng viên thành công");
                     this.Dispose();
                 }
                 else
                 {
-                    MessageBox.Show("Lớp sai !!");
+                    MessageBox.Show("Thêm giảng viên không thành công thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-		}
 
-		private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			this.Dispose();
-		}
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
         private void textBoxEmail_Validated(object sender, EventArgs e)
         {
-            errorProviderHV.SetError(textBoxEmail, "");
+            errorProviderGV.SetError(textBoxEmail, "");
         }
 
         private void textBoxEmail_Validating(object sender, CancelEventArgs e)
@@ -96,14 +88,14 @@ namespace QuanLyDiem.GUI.NVDT
                     textBoxEmail.Select(0, textBoxEmail.Text.Length);
 
                     // Set the ErrorProvider error with the text to display.  
-                    this.errorProviderHV.SetError(textBoxEmail, errorMsg);
+                    this.errorProviderGV.SetError(textBoxEmail, errorMsg);
                 }
             }
         }
 
         private void textBoxDienThoai_Validated(object sender, EventArgs e)
         {
-            errorProviderHV.SetError(textBoxDienThoai, "");
+            errorProviderGV.SetError(textBoxDienThoai, "");
         }
 
         private void textBoxDienThoai_Validating(object sender, CancelEventArgs e)
@@ -122,27 +114,27 @@ namespace QuanLyDiem.GUI.NVDT
                     textBoxDienThoai.Select(0, textBoxDienThoai.Text.Length);
 
                     // Set the ErrorProvider error with the text to display.  
-                    this.errorProviderHV.SetError(textBoxDienThoai, errorMsg);
+                    this.errorProviderGV.SetError(textBoxDienThoai, errorMsg);
                 }
             }
         }
 
-        private void textBoxMaHV_Validated(object sender, EventArgs e)
+        private void textBoxMaGV_Validated(object sender, EventArgs e)
         {
-            errorProviderHV.SetError(textBoxMaHV, "");
+            errorProviderGV.SetError(textBoxMaGV, "");
         }
 
-        private void textBoxMaHV_Validating(object sender, CancelEventArgs e)
+        private void textBoxMaGV_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg;
-            if (!ValidError.ValidMaSo(textBoxMaHV.Text, out errorMsg))
+            if (!ValidError.ValidMaSo(textBoxMaGV.Text, out errorMsg))
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
-                textBoxMaHV.Select(0, textBoxMaHV.Text.Length);
+                textBoxMaGV.Select(0, textBoxMaGV.Text.Length);
 
                 // Set the ErrorProvider error with the text to display.  
-                this.errorProviderHV.SetError(textBoxMaHV, errorMsg);
+                this.errorProviderGV.SetError(textBoxMaGV, errorMsg);
             }
         }
     }

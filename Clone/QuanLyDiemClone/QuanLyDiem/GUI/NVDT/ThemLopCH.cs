@@ -46,33 +46,63 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (bLL.checkMaKhoaBLL(textBoxTenLop.Text) && checkMaLop() && textBoxTenLop.Text != "")
+            if (textBoxMaLop.Text.Trim() == "")
             {
-                try
-                {
-                    bLL.getAddLopBLL(new LopDaoTao
-                    {
-                        MaLop = "LCH" + textBoxMaLop.Text,
-                        TenLop = textBoxTenLop.Text,
-                        MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text),
-                    });
-                    MessageBox.Show("Thêm lớp thành công");
-                }
-                catch
-                {
-                    MessageBox.Show("Nhập sai !");
-                }
-                this.Dispose();
+                MessageBox.Show("Không được để trống mã lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textBoxTenLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Không được để trống tên lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Trùng tên lớp");
+                if (bLL.checkMaKhoaBLL(textBoxTenLop.Text) && checkMaLop() && textBoxTenLop.Text != "")
+                {
+                    try
+                    {
+                        bLL.getAddLopBLL(new LopDaoTao
+                        {
+                            MaLop = "LCH" + textBoxMaLop.Text,
+                            TenLop = textBoxTenLop.Text,
+                            MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text),
+                        });
+                        MessageBox.Show("Thêm lớp thành công");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thêm lớp không thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Trùng tên lớp");
+                }
             }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void textBoxMaLop_Validated(object sender, EventArgs e)
+        {
+            errorProviderLCH.SetError(textBoxMaLop, "");
+        }
+
+        private void textBoxMaLop_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidMaSo(textBoxMaLop.Text, out errorMsg))
+            {
+                // Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                textBoxMaLop.Select(0, textBoxMaLop.Text.Length);
+
+                // Set the ErrorProvider error with the text to display.  
+                this.errorProviderLCH.SetError(textBoxMaLop, errorMsg);
+            }
         }
     }
 }

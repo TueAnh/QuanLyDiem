@@ -223,10 +223,10 @@
     <Compile Include="GUI\NVDT\ViewLopHP.Designer.cs">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ThemGiangVien.cs">
+    <Compile Include="GUI\NVDT\ThemGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ThemGiangVien.Designer.cs">
+    <Compile Include="GUI\NVDT\ThemGiangVien.Designer.cs">
       <DependentUpon>ThemGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserInfo.cs">
@@ -235,6 +235,7 @@
     <Compile Include="GUI\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ValidError.cs" />
     <Compile Include="HocKy.cs">
       <DependentUpon>QuanLyDiem.tt</DependentUpon>
     </Compile>
@@ -331,7 +332,7 @@
     <EmbeddedResource Include="GUI\NVDT\ViewLopHP.resx">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ThemGiangVien.resx">
+    <EmbeddedResource Include="GUI\NVDT\ThemGiangVien.resx">
       <DependentUpon>ThemGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserInfo.resx">

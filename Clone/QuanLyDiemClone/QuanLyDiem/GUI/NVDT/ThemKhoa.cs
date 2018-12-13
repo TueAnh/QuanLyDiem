@@ -24,28 +24,39 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            if (themKhoa_Bll.ChecKExistKHoa_BLL(textBoxMaKhoa.Text.Trim()))
+            if (textBoxMaKhoa.Text.Trim() == "")
             {
-                textBoxMaKhoa.Text = "";
-                MessageBox.Show("Khoa đã tồn tại");
+                MessageBox.Show("Không được để trống mã Khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textBoxTenKhoa.Text.Trim() == "")
+            {
+                MessageBox.Show("Không được để trống tên Khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                try
+                if (themKhoa_Bll.ChecKExistKHoa_BLL(textBoxMaKhoa.Text.Trim()))
                 {
-                    themKhoa_Bll.themKhoa_BLL(new Khoa
-                    {
-                        MaKhoa = textBoxMaKhoa.Text.Trim(),
-                        TenKhoa = textBoxTenKhoa.Text.Trim()
-                    });
-
-                    MessageBox.Show("Đã thêm mới Khoa");
-                    themKhoaSuccess();
-                    this.Dispose();
+                    textBoxMaKhoa.Text = "";
+                    MessageBox.Show("Khoa đã tồn tại");
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Thêm mới không thành công");
+                    try
+                    {
+                        themKhoa_Bll.themKhoa_BLL(new Khoa
+                        {
+                            MaKhoa = textBoxMaKhoa.Text.Trim(),
+                            TenKhoa = textBoxTenKhoa.Text.Trim()
+                        });
+
+                        MessageBox.Show("Đã thêm mới Khoa");
+                        themKhoaSuccess();
+                        this.Dispose();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thêm mới không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

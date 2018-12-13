@@ -30,5 +30,6 @@ namespace QuanLyDiem.BLL
         {
             return GiangVien_DAL.DAL.GetListHV(MaHP);
         }
+        
     }
 }
