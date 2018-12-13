@@ -151,19 +151,24 @@ namespace QuanLyDiem.GUI.NVDT
         private void buttonSort_Click(object sender, EventArgs e)
         {
             string x = comboBox1.SelectedItem.ToString().Trim();
-            if (x.Length > 0)
+            if (x == null) { MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            else
             {
-                if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+
+                if (x.Length > 0)
                 {
-                    dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Tên"], ListSortDirection.Ascending);
-                }
-                if (comboBox1.SelectedItem.ToString() == "Theo Mã")
-                {
-                    dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Mã HV"], ListSortDirection.Ascending);
-                }
-                if (comboBox1.SelectedItem.ToString() == "Theo Điểm TB")
-                {
-                    dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Điểm TB"], ListSortDirection.Descending);
+                    if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Tên"], ListSortDirection.Ascending);
+                    }
+                    if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Mã HV"], ListSortDirection.Ascending);
+                    }
+                    if (comboBox1.SelectedItem.ToString() == "Theo Điểm TB")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Điểm TB"], ListSortDirection.Descending);
+                    }
                 }
             }
         }

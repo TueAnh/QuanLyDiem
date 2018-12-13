@@ -25,6 +25,8 @@ namespace QuanLyDiem.GUI.NVDT
             textBoxNamHoc.Enabled = false;
             LoadMaHK();
             loadCbbHocKi();
+            textBoxNamHoc.Text = dateTimePicker1.Value.Year + " - " + (dateTimePicker1.Value.Year + 1).ToString();
+            comboBoxHocKi.SelectedIndex = 0;
         }
         void LoadMaHK()
         {
@@ -57,6 +59,7 @@ namespace QuanLyDiem.GUI.NVDT
                 textBoxNamHoc.Text = "";
                 MessageBox.Show("Đã tồn tại " + comboBoxHocKi.Text + " trong năm " + nam.ToString());
             }
+            
             else
             {
                 try

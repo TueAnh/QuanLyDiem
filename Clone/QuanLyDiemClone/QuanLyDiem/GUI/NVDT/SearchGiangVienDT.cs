@@ -53,13 +53,20 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+            if (comboBox1.SelectedItem.ToString() == null)
             {
-                dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+            else
             {
-                dataGridView.Sort(dataGridView.Columns["Mã GV"], ListSortDirection.Ascending);
+                if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Mã GV"], ListSortDirection.Ascending);
+                }
             }
         }
         private void buttonBack_Click(object sender, EventArgs e)

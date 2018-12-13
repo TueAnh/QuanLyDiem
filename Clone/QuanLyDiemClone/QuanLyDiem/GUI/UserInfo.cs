@@ -36,12 +36,12 @@ namespace QuanLyDiem.GUI
                 textBoxType.Text = "Giảng viên";
             else
                 textBoxType.Text = "Nhân viên";
-            textBoxID.Text = user.ID;
-            textBoxAddress.Text = user.DiaChi;
-            textBoxDienThoai.Text = user.DienThoai;
-            textBoxEmail.Text = user.Email;
-            textBoxName.Text = user.displayName;
-            textBoxPassword.Text = user.PassWord;
+            textBoxID.Text = user.ID.Trim();
+            textBoxAddress.Text = user.DiaChi.Trim();
+            textBoxDienThoai.Text = user.DienThoai.Trim();
+            textBoxEmail.Text = user.Email.Trim();
+            textBoxName.Text = user.displayName.Trim();
+            textBoxPassword.Text = user.PassWord.Trim();
             dpkNgaySinh.Value = user.NgaySinh;
         }
 
