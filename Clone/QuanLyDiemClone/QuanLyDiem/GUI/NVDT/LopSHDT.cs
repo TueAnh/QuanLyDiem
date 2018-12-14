@@ -224,11 +224,13 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string str = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
-            f = new HocVienDT(str);
-            f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
-            f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
-            AddControlPanel(f);
+            if (dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString() != null)
+            {
+                f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString());
+                f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+                f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+                AddControlPanel(f);
+            }
         }
         #endregion
 

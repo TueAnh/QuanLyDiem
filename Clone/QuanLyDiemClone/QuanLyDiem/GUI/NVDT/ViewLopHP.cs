@@ -134,17 +134,24 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            var hp = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
-            if (hp != null)
+            if (dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString()==null)
             {
-                if (bLL.XoaHP(hp))
+                MessageBox.Show("Không có học phần để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var hp = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
+                if (hp != null)
                 {
-                    MessageBox.Show("Xóa thành công!");
-                    LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Lưu ý học phần đang có sinh viên theo học!");
+                    if (bLL.XoaHP(hp))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lưu ý học phần đang có sinh viên theo học!");
+                    }
                 }
             }
         }
