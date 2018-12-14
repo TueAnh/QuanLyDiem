@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,8 @@ namespace QuanLyDiem.GUI
 {
     public partial class UserInfo : Form
     {
+        public delegate void UpdateImageSuccess(byte[] a);
+        public UpdateImageSuccess updateImageSuccess;
         User user;
         public UserInfo(string ID)
         {
@@ -20,6 +24,7 @@ namespace QuanLyDiem.GUI
             InitializeComponent();
             if (FormLogin.User.typeAcc != 3)
                 buttonUpdate.Enabled = false;
+            buttonluuAnh.Enabled = false;
             LoadData(user);
         }
         public UserInfo(User user)
@@ -43,6 +48,7 @@ namespace QuanLyDiem.GUI
             textBoxName.Text = user.displayName.Trim();
             textBoxPassword.Text = user.PassWord.Trim();
             dpkNgaySinh.Value = user.NgaySinh;
+            loadImage(user.Image);
         }
 
         private void panelBG_Paint(object sender, PaintEventArgs e)
@@ -82,6 +88,67 @@ namespace QuanLyDiem.GUI
                 MessageBox.Show("Thay đổi không thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoadData(user);
             }
+        }
+        public void loadImage(byte[] data)
+        {
+
+            if (data == null)
+            {
+                pictureBox.Image = null;
+            }
+            else
+            {
+                MemoryStream memoryStream = new MemoryStream(data);
+                pictureBox.Image = Image.FromStream(memoryStream);
+            }
+        }
+
+        private void buttonDoiAnhDD_Click(object sender, EventArgs e)
+        {
+            Image tam = null;
+            if (pictureBox.Image != null) tam = pictureBox.Image;
+            try
+            {
+                openFile.ShowDialog();
+                string file = openFile.FileName;
+                if (string.IsNullOrEmpty(file)) return;
+                byte[] data = File.ReadAllBytes(file);
+                MemoryStream mem = new MemoryStream(data);
+                pictureBox.Image = Image.FromStream(mem);
+            }
+            catch
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("Đã chọn ảnh ", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                buttonluuAnh.Enabled = true;
+            }
+            if (result == DialogResult.Cancel)
+            {
+                pictureBox.Image = tam;
+            }
+        }
+
+        private void buttonluuAnh_Click(object sender, EventArgs e)
+        {
+            MemoryStream stream = new MemoryStream();
+            pictureBox.Image.Save(stream, ImageFormat.Jpeg);
+            pictureBox.Image.Save(stream, pictureBox.Image.RawFormat);
+            try
+            {
+                Login_BLL.BLL.luuAnh_BLL(user.typeAcc,user.ID, stream.ToArray());
+            }
+            catch
+            {
+                MessageBox.Show("Chưa thành công , chọn ảnh lại");
+                buttonluuAnh.Enabled = false;
+                return;
+            }
+            MessageBox.Show("Đã cập nhật ảnh đại diện");
+            updateImageSuccess(stream.ToArray());
+            buttonluuAnh.Enabled = false;
         }
     }
    }

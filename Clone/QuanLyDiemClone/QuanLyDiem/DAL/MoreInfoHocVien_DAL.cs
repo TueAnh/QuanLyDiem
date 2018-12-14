@@ -30,5 +30,27 @@ namespace QuanLyDiem.DAL
 
             }
         }
+        public void luuAnh_DAL(string ID,byte[] a)
+        {
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+            {
+                HocVien img = (from c in db.HocVien
+                                               where c.ID == ID
+                                               select c).SingleOrDefault();
+                img.Image = a;
+                db.SaveChanges();
+            }
+        }
+        public byte[] TaiAnh_DAL(string ID)
+        {
+            using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+            {
+                HocVien img = (from c in db.HocVien
+                                 where c.ID == ID
+                                 select c).SingleOrDefault();
+                if (img == null) return null;
+                else return (byte[])img.Image;
+            }
+        }
     }
 }

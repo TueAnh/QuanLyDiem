@@ -16,6 +16,7 @@
           <Property Name="DienThoai" Type="char" MaxLength="12" />
           <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="NgaySinh" Type="date" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="MaKhoa" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="HocKy">
@@ -52,18 +53,19 @@
           <Property Name="DienThoai" Type="char" MaxLength="12" />
           <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="NgaySinh" Type="date" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="MaLop" Type="char" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="KetQuaHocPhan">
           <Key>
             <PropertyRef Name="MaKQHP" />
           </Key>
+          <Property Name="MaKQHP" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="DiemBT" Type="float" />
           <Property Name="DiemGK" Type="float" />
           <Property Name="DiemThi" Type="float" />
           <Property Name="MaHP" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="ID" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaKQHP" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -219,6 +221,7 @@
           <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_76" FromRole="GiangVien" ToRole="Khoa" />
           <NavigationProperty Name="HocPhan" Relationship="Self.FK_89" FromRole="GiangVien" ToRole="HocPhan" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="HocKy">
           <Key>
@@ -261,6 +264,7 @@
           <Property Name="MaLop" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LopDaoTao" Relationship="Self.FK_60" FromRole="HocVien" ToRole="LopDaoTao" />
           <NavigationProperty Name="KetQuaHocPhan" Relationship="QuanLyDiemModel.FK_66" FromRole="HocVien" ToRole="KetQuaHocPhan" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -424,6 +428,7 @@
           <EntitySetMapping Name="GiangVien">
             <EntityTypeMapping TypeName="QuanLyDiemModel.GiangVien">
               <MappingFragment StoreEntitySet="GiangVien">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -463,6 +468,7 @@
           <EntitySetMapping Name="HocVien">
             <EntityTypeMapping TypeName="QuanLyDiemModel.HocVien">
               <MappingFragment StoreEntitySet="HocVien">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

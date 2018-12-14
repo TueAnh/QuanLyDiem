@@ -173,8 +173,8 @@ namespace QuanLyDiem.GUI
         }
         private void buttonMore_Click(object sender, EventArgs e)
         {
-            MoreInfoHocVien moreInfo = new MoreInfoHocVien(textBoxMSHV.Text);
-            moreInfo.Show();
+            //MoreInfoHocVien moreInfo = new MoreInfoHocVien(textBoxMSHV.Text);
+            //moreInfo.Show();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

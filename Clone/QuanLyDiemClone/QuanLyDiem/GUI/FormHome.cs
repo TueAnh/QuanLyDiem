@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace QuanLyDiem.GUI
             PhanQuyenUsers();
             LoadInfo();
             LoadPanel();
+            loadImage(user.Image);
         }
         public void LoadPanel()
         {
@@ -46,7 +48,9 @@ namespace QuanLyDiem.GUI
             ClearView();
             this.panelTools2.Hide();
             UserInfo formView = new UserInfo(userAcc);
+            formView.updateImageSuccess += new UserInfo.UpdateImageSuccess(loadImage);
             AddControlPanel(formView);
+            
             formView.Dock = DockStyle.Fill;
         }
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -207,6 +211,19 @@ namespace QuanLyDiem.GUI
         private void panelTools2_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, this.panelTools2.ClientRectangle, Color.Yellow, ButtonBorderStyle.Solid);
+        }
+        public void loadImage(byte[] data)
+        {
+
+            if (data == null)
+            {
+                pictureBox1.Image = null;
+            }
+            else
+            {
+                MemoryStream memoryStream = new MemoryStream(data);
+                pictureBox1.Image = Image.FromStream(memoryStream);
+            }
         }
     }
 }

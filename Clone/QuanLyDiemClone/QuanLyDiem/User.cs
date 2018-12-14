@@ -16,5 +16,6 @@ namespace QuanLyDiem
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }
         public DateTime NgaySinh { get; set; }
+        public byte[] Image { get; set; }
     }
 }

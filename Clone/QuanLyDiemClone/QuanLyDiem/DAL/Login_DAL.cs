@@ -63,7 +63,8 @@ namespace QuanLyDiem.DAL
                       DiaChi = res.DiaChi,
                       NgaySinh = Convert.ToDateTime(res.NgaySinh.ToString()),
                       Email = res.Email,
-                      DienThoai = res.DienThoai
+                      DienThoai = res.DienThoai,
+                      Image = res.Image
                     };                             
                 }
                 else
@@ -78,11 +79,36 @@ namespace QuanLyDiem.DAL
                         DiaChi = res.DiaChi,
                         NgaySinh = Convert.ToDateTime(res.NgaySinh.ToString()),
                         Email = res.Email,
-                        DienThoai = res.DienThoai
+                        DienThoai = res.DienThoai,
+                        Image = res.Image
                     };
                 }
             }
         }
-        
+        public void luuAnh_DAL(int flag, string ID, byte[] a)
+        {
+            if (flag == 1)
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    HocVien img = (from c in db.HocVien
+                                   where c.ID == ID
+                                   select c).SingleOrDefault();
+                    img.Image = a;
+                    db.SaveChanges();
+                }
+            }
+            else
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    GiangVien img = (from c in db.GiangVien
+                                   where c.ID == ID
+                                   select c).SingleOrDefault();
+                    img.Image = a;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

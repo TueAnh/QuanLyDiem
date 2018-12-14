@@ -13,5 +13,14 @@ namespace QuanLyDiem.BLL
         {
             return more.getMoreInfoHV_DAL(MaHV);
         }
+        
+        public void luuAnh_BLL(string ID, byte[] a)
+        {
+            more.luuAnh_DAL(ID, a);
+        }
+        public byte[] TaiAnh_BLL(string ID)
+        {
+            return more.TaiAnh_DAL(ID);
+        }
     }
 }

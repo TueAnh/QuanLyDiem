@@ -23,5 +23,9 @@ namespace QuanLyDiem.BLL
         {
             return Login_DAL.DAL.GetUser(flag, ID);
         }
+        public void luuAnh_BLL(int flag, string ID, byte[] a)
+        {
+            Login_DAL.DAL.luuAnh_DAL(flag, ID, a);
+        }
     }
 }

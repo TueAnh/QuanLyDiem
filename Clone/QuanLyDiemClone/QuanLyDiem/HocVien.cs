@@ -28,6 +28,7 @@ namespace QuanLyDiem
         public string Password { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string MaLop { get; set; }
+        public byte[] Image { get; set; }
     
         public virtual LopDaoTao LopDaoTao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
