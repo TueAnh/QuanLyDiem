@@ -31,6 +31,7 @@ namespace QuanLyDiem.GUI
         {
             this.user = user;
             InitializeComponent();
+            buttonluuAnh.Enabled = false;
             LoadData(user);
         }
         public void LoadData(User user)
@@ -147,7 +148,8 @@ namespace QuanLyDiem.GUI
                 return;
             }
             MessageBox.Show("Đã cập nhật ảnh đại diện");
-            updateImageSuccess(stream.ToArray());
+            if (FormLogin.User.ID.Trim() == user.ID.Trim())
+                updateImageSuccess(stream.ToArray());
             buttonluuAnh.Enabled = false;
         }
     }
