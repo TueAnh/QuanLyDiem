@@ -133,11 +133,14 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXem_Click(object sender, EventArgs e)
         {
-                string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString();
-                NVDT.HocVienDT f = new HocVienDT(MaHV);
+            if(dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString() != null)
+            {
+                NVDT.HocVienDT f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString());
                 f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
                 f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(f);
+            }
+                
         }
 
         private void buttonChange_Click(object sender, EventArgs e)
@@ -150,12 +153,11 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            string x = comboBox1.SelectedItem.ToString().Trim();
-            if (x == null) { MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (comboBox1.SelectedItem.ToString().Trim() == null) { MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             else
             {
 
-                if (x.Length > 0)
+                if (comboBox1.SelectedItem.ToString().Trim().Length > 0)
                 {
                     if (comboBox1.SelectedItem.ToString() == "Theo Tên")
                     {

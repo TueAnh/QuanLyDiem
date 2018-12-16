@@ -95,19 +95,19 @@ namespace QuanLyDiem.GUI
 
             if (data == null)
             {
-                pictureBox.Image = null;
+                pictureBox1.Image = null;
             }
             else
             {
                 MemoryStream memoryStream = new MemoryStream(data);
-                pictureBox.Image = Image.FromStream(memoryStream);
+                pictureBox1.Image = Image.FromStream(memoryStream);
             }
         }
 
         private void buttonDoiAnhDD_Click(object sender, EventArgs e)
         {
             Image tam = null;
-            if (pictureBox.Image != null) tam = pictureBox.Image;
+            if (pictureBox1.Image != null) tam = pictureBox1.Image;
             try
             {
                 openFile.ShowDialog();
@@ -115,7 +115,7 @@ namespace QuanLyDiem.GUI
                 if (string.IsNullOrEmpty(file)) return;
                 byte[] data = File.ReadAllBytes(file);
                 MemoryStream mem = new MemoryStream(data);
-                pictureBox.Image = Image.FromStream(mem);
+                pictureBox1.Image = Image.FromStream(mem);
             }
             catch
             {
@@ -128,15 +128,15 @@ namespace QuanLyDiem.GUI
             }
             if (result == DialogResult.Cancel)
             {
-                pictureBox.Image = tam;
+                pictureBox1.Image = tam;
             }
         }
 
         private void buttonluuAnh_Click(object sender, EventArgs e)
         {
             MemoryStream stream = new MemoryStream();
-            pictureBox.Image.Save(stream, ImageFormat.Jpeg);
-            pictureBox.Image.Save(stream, pictureBox.Image.RawFormat);
+            pictureBox1.Image.Save(stream, ImageFormat.Jpeg);
+            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
             try
             {
                 Login_BLL.BLL.luuAnh_BLL(user.typeAcc,user.ID, stream.ToArray());
@@ -148,6 +148,8 @@ namespace QuanLyDiem.GUI
                 return;
             }
             MessageBox.Show("Đã cập nhật ảnh đại diện");
+            user.Image = stream.ToArray();
+            loadImage(stream.ToArray());
             if (FormLogin.User.ID.Trim() == user.ID.Trim())
                 updateImageSuccess(stream.ToArray());
             buttonluuAnh.Enabled = false;
