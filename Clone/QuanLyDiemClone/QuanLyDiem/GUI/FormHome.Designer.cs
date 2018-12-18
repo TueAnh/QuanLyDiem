@@ -88,7 +88,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(3, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(177, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -291,7 +291,7 @@
             this.buttonViewLSH.Name = "buttonViewLSH";
             this.buttonViewLSH.Size = new System.Drawing.Size(187, 42);
             this.buttonViewLSH.TabIndex = 10;
-            this.buttonViewLSH.Text = "Xem Lớp Đào Tạo";
+            this.buttonViewLSH.Text = "Xem Lớp Cao Học";
             this.buttonViewLSH.UseVisualStyleBackColor = false;
             this.buttonViewLSH.Click += new System.EventHandler(this.buttonViewLSH_Click);
             // 
@@ -375,7 +375,7 @@
             this.MaximizeBox = false;
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home";
+            this.Text = "Trang chủ";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -227,7 +227,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "SuaDiemHocVienDT";
-            this.Text = "SuaDiemHocVienDT";
+            this.Text = "Xem điểm chi tiết";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
