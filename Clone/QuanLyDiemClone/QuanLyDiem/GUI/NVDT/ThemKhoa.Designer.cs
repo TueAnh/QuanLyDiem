@@ -117,7 +117,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonLuu);
             this.Name = "ThemKhoa";
-            this.Text = "ThemKhoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm Khoa";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
