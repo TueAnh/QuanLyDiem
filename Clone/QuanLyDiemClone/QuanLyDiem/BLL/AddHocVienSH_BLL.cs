@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiem.BLL
 {
-    class AddHocVienSH_BLL
-    {
-        AddHocVienSH_DAL dal = new AddHocVienSH_DAL();
-        public bool AddHVSH_BLL(HocVien hv)
-        {
-            return dal.AddHVSH_DAL(hv);
-        }
-    }
+	class AddHocVienSH_BLL
+	{
+		AddHocVienSH_DAL dal = new AddHocVienSH_DAL();
+		public bool AddHVSH_BLL(HocVien hv)
+		{
+			return dal.AddHVSH_DAL(hv);
+		}
+		public List<string> getDSLCHBLL()
+		{
+			return dal.getDSLCHDAL();
+		}
+
+	}
 }
