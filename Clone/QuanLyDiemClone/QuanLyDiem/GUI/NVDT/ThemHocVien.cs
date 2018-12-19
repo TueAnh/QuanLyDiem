@@ -91,11 +91,9 @@ namespace QuanLyDiem.GUI.NVDT
                 string errorMsg;
                 if (!ValidError.ValidEmailAddress(textBoxEmail.Text, out errorMsg))
                 {
-                    // Cancel the event and select the text to be corrected by the user.
                     e.Cancel = true;
                     textBoxEmail.Select(0, textBoxEmail.Text.Length);
 
-                    // Set the ErrorProvider error with the text to display.  
                     this.errorProviderHV.SetError(textBoxEmail, errorMsg);
                 }
             }
@@ -117,11 +115,9 @@ namespace QuanLyDiem.GUI.NVDT
                 string errorMsg;
                 if (!ValidError.ValidPhone(textBoxDienThoai.Text, out errorMsg))
                 {
-                    // Cancel the event and select the text to be corrected by the user.
                     e.Cancel = true;
                     textBoxDienThoai.Select(0, textBoxDienThoai.Text.Length);
 
-                    // Set the ErrorProvider error with the text to display.  
                     this.errorProviderHV.SetError(textBoxDienThoai, errorMsg);
                 }
             }
@@ -137,11 +133,9 @@ namespace QuanLyDiem.GUI.NVDT
             string errorMsg;
             if (!ValidError.ValidMaSo(textBoxMaHV.Text, out errorMsg))
             {
-                // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
                 textBoxMaHV.Select(0, textBoxMaHV.Text.Length);
 
-                // Set the ErrorProvider error with the text to display.  
                 this.errorProviderHV.SetError(textBoxMaHV, errorMsg);
             }
         }

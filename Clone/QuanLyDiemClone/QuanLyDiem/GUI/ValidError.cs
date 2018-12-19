@@ -54,5 +54,19 @@ namespace QuanLyDiem.GUI
                 return false;
             }
         }
+        public static bool ValidMatKhau(string matKhau, out string errorMessage)
+        {
+            if (matKhau.Trim().Length<=10)
+            {
+                errorMessage = "";
+                return true;
+            }
+
+            else
+            {
+                errorMessage = "Mật khẩu không quá 10 kí tự";
+                return false;
+            }
+        }
     }
 }

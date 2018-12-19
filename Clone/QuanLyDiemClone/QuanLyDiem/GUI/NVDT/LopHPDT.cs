@@ -133,13 +133,20 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonXem_Click(object sender, EventArgs e)
 		{
-			if (dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString() != null)
-			{
-				NVDT.HocVienDT f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString());
-				f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
-				f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
-				AddControlPanel(f);
-			}
+            if (dataGridViewDSHV.DataSource != null)
+            {
+                if (dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString() != null)
+                {
+                    NVDT.HocVienDT f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString());
+                    f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+                    f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+                    AddControlPanel(f);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Danh sách sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 		}
 

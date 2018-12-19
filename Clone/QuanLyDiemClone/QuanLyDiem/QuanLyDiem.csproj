@@ -217,10 +217,10 @@
     <Compile Include="GUI\NVDT\ViewLopDT.Designer.cs">
       <DependentUpon>ViewLopDT.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\NVDT\ViewLopHP.cs">
+    <Compile Include="GUI\ViewLopHP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\NVDT\ViewLopHP.Designer.cs">
+    <Compile Include="GUI\ViewLopHP.Designer.cs">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NVDT\ThemGiangVien.cs">
@@ -329,7 +329,7 @@
     <EmbeddedResource Include="GUI\NVDT\ViewLopDT.resx">
       <DependentUpon>ViewLopDT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\NVDT\ViewLopHP.resx">
+    <EmbeddedResource Include="GUI\ViewLopHP.resx">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ThemGiangVien.resx">
