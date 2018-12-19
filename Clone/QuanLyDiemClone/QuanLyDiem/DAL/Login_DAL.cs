@@ -47,6 +47,11 @@ namespace QuanLyDiem.DAL
             }
             return -1;
         }
+        string DataReturnIfNull(string s)
+        {
+            if (s == null) return "";
+            else return s;
+        }
         public User GetUser(int flag,string ID)
         {
             using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
@@ -58,12 +63,12 @@ namespace QuanLyDiem.DAL
                     {
                       ID = res.ID,
                       PassWord = res.Password,
-                      displayName =  res.HoTen,
+                      displayName =  DataReturnIfNull(res.HoTen),
                       typeAcc = flag,
-                      DiaChi = res.DiaChi,
+                      DiaChi = DataReturnIfNull(res.DiaChi),
                       NgaySinh = Convert.ToDateTime(res.NgaySinh.ToString()),
-                      Email = res.Email,
-                      DienThoai = res.DienThoai,
+                      Email = DataReturnIfNull(res.Email),
+                      DienThoai = DataReturnIfNull(res.DienThoai),
                       Image = res.Image
                     };                             
                 }
@@ -74,12 +79,12 @@ namespace QuanLyDiem.DAL
                     {
                         ID = res.ID,
                         PassWord = res.Password,
-                        displayName = res.HoTen,
+                        displayName = DataReturnIfNull(res.HoTen),
                         typeAcc = flag,
-                        DiaChi = res.DiaChi,
+                        DiaChi = DataReturnIfNull(res.DiaChi),
                         NgaySinh = Convert.ToDateTime(res.NgaySinh.ToString()),
-                        Email = res.Email,
-                        DienThoai = res.DienThoai,
+                        Email = DataReturnIfNull(res.Email),
+                        DienThoai = DataReturnIfNull(res.DienThoai),
                         Image = res.Image
                     };
                 }

@@ -71,12 +71,12 @@ namespace QuanLyDiem.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             User tmp = user;
-            tmp.DienThoai = textBoxDienThoai.Text;
-            tmp.Email = textBoxEmail.Text;
-            tmp.displayName = textBoxName.Text;
-            tmp.PassWord = textBoxPassword.Text;
+            tmp.DienThoai = textBoxDienThoai.Text.Trim();
+            tmp.Email = textBoxEmail.Text.Trim();
+            tmp.displayName = textBoxName.Text.Trim();
+            tmp.PassWord = textBoxPassword.Text.Trim();
             tmp.NgaySinh = dpkNgaySinh.Value;
-            tmp.DiaChi = textBoxAddress.Text;
+            tmp.DiaChi = textBoxAddress.Text.Trim();
             if (UserInfo_BLL.BLL.UpdateUser(user))
             {
                 MessageBox.Show("Thay đổi thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -154,6 +154,71 @@ namespace QuanLyDiem.GUI
                 updateImageSuccess(stream.ToArray());
             buttonluuAnh.Enabled = false;
         }
+
+        private void textBoxPassword_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidMatKhau(textBoxPassword.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxPassword.Select(0, textBoxPassword.Text.Length);
+
+                this.errorProviderUser.SetError(textBoxPassword, errorMsg);
+            }
+        }
+
+        private void textBoxPassword_Validated(object sender, EventArgs e)
+        {
+            errorProviderUser.SetError(textBoxPassword, "");
+        }
+
+        private void textBoxEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (textBoxEmail.Text == "")
+            {
+
+            }
+            else
+            {
+                string errorMsg;
+                if (!ValidError.ValidEmailAddress(textBoxEmail.Text, out errorMsg))
+                {
+                    e.Cancel = true;
+                    textBoxEmail.Select(0, textBoxEmail.Text.Length);
+
+                    this.errorProviderUser.SetError(textBoxEmail, errorMsg);
+                }
+            }
+        }
+
+        private void textBoxEmail_Validated(object sender, EventArgs e)
+        {
+            errorProviderUser.SetError(textBoxEmail, "");
+        }
+
+        private void textBoxDienThoai_Validating(object sender, CancelEventArgs e)
+        {
+            if (textBoxDienThoai.Text == "")
+            {
+
+            }
+            else
+            {
+                string errorMsg;
+                if (!ValidError.ValidPhone(textBoxDienThoai.Text, out errorMsg))
+                {
+                    e.Cancel = true;
+                    textBoxDienThoai.Select(0, textBoxDienThoai.Text.Length);
+
+                    this.errorProviderUser.SetError(textBoxDienThoai, errorMsg);
+                }
+            }
+        }
+
+        private void textBoxDienThoai_Validated(object sender, EventArgs e)
+        {
+            errorProviderUser.SetError(textBoxDienThoai, "");
+        }
     }
-   }
+ }
 
