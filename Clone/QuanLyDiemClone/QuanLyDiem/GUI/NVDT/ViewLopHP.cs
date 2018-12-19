@@ -31,6 +31,7 @@ namespace QuanLyDiem.GUI.NVDT
             if (FormLogin.User.typeAcc != 3)
             {
                 buttonThemLopHP.Enabled = false;
+                buttonXoa.Enabled = false;
             }
         }
         void loadNode()
@@ -134,7 +135,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString()==null)
+            if (dataGridView1.Rows.Count == 0 || dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString()==null)
             {
                 MessageBox.Show("Không có học phần để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
