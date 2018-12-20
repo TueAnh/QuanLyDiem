@@ -133,7 +133,7 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonXem_Click(object sender, EventArgs e)
 		{
-            if (dataGridViewDSHV.DataSource != null)
+            try
             {
                 if (dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString() != null)
                 {
@@ -143,9 +143,9 @@ namespace QuanLyDiem.GUI.NVDT
                     AddControlPanel(f);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Danh sách sinh viên rỗng ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
 		}
@@ -286,7 +286,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r = xlWorkSheet.get_Range("A9", "D9");
 				r.MergeCells = true;
 				r.Font.Size = 12;
-				r.Value2 = "Môn học: " + textBoxGVPT.Text;
+				r.Value2 = "Họ, tên CBGD: " + textBoxGVPT.Text;
 
 				r = xlWorkSheet.get_Range("H7", "I7");
 				r.MergeCells = true;
@@ -401,14 +401,24 @@ namespace QuanLyDiem.GUI.NVDT
 				r.WrapText = true;
 
 				int count = 13;
-				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
-				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,""};
+				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,""};
 				for (int i = 0; i < tb.Rows.Count; i++)
 				{
-					double x = Convert.ToDouble(tb.Rows[i][5]) * 10;
-					int y = Convert.ToInt32(x);
-					int a = y / 10; int b = y % 10;
-					dynamic[] arr = { i + 1, tb.Rows[i][1], tb.Rows[i][2], tb.Rows[i][3] , tb.Rows[i][4] ,
+                    int a, b ,y;
+                    double x;
+                    if (tb.Rows[i][5] != "")
+                    {
+                        x = Convert.ToDouble(tb.Rows[i][5]) * 10;
+                        y = Convert.ToInt32(x);
+                        a = y / 10; b = y % 10;
+                    }
+                    else
+                    {
+                        a = 10;b = 10;
+                    }
+					dynamic[] arr = { i + 1, tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
+                                    tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
 									tb.Rows[i][5] , nguyen[a] + " " + thapphan[b] , "" ,""};
 					r = xlWorkSheet.get_Range("A" + (count + i), "I" + (count + i));
 					r.Value2 = arr;

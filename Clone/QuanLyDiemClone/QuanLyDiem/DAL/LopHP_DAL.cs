@@ -173,11 +173,14 @@ namespace QuanLyDiem.DAL
 				r["Điểm BT"] = x.DiemBT;
 				r["Điểm GK"] = x.DiemGK;
 				r["Điểm Thi"] = x.DiemThi;
-				if (x.DiemThi.ToString().Trim().Length > 0)
-					r["Điểm TB"] = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-						+ Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
-						+ Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
-				tb.Rows.Add(r);
+                if (x.DiemThi.ToString().Trim().Length > 0)
+                    r["Điểm TB"] = Convert.ToDouble(x.DiemBT) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemGK) * Convert.ToDouble(x.HocPhan.PhanTramDGK)
+                        + Convert.ToDouble(x.DiemThi) * Convert.ToDouble(x.HocPhan.PhanTramDT);
+                else
+                    r["Điểm TB"] = "";
+
+                tb.Rows.Add(r);
 			}
 			return tb;
 		}

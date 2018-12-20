@@ -135,11 +135,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource==null|| dataGridView1.SelectedRows[0].Cells["Mã HP"].Value == null)
-            {
-                MessageBox.Show("Không có học phần để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+            try
             {
                 var hp = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
                 if (hp != null)
@@ -154,6 +150,10 @@ namespace QuanLyDiem.GUI.NVDT
                         MessageBox.Show("Lưu ý học phần đang có sinh viên theo học!");
                     }
                 }
+            }
+            catch
+            {
+
             }
         }
 
