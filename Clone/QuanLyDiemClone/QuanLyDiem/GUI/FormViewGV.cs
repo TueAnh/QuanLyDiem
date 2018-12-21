@@ -48,7 +48,7 @@ namespace QuanLyDiem.GUI
 
         private void FormViewGV_Load(object sender, EventArgs e)
         {
-            treeView1.Nodes.Add(GiangVien_BLL.BLL.GetNode()[0]);
+            treeView1.Nodes.Add(GiangVien_BLL.BLL.GetNodeByGV(MaGV)[0]);
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

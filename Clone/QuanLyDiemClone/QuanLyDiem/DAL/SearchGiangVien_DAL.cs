@@ -56,5 +56,31 @@ namespace QuanLyDiem.DAL
             return true;
             
         }
+        public DataTable LoadSearchedGiangVien(string str)
+        {
+            DataTable tb = new DataTable();
+            using (QuanLyDiemEntities db1 = new QuanLyDiemEntities())
+            {
+                var v = from c in db1.GiangVien
+                        where c.ID.Contains(str) || c.HoTen.Contains(str)
+                        select c;
+                tb.Columns.Add("Mã GV");
+                tb.Columns.Add("Họ");
+                tb.Columns.Add("Tên");
+                tb.Columns.Add("Khoa");
+                foreach (var i in v)
+                {
+                    DataRow r = tb.NewRow();
+                    r["Mã GV"] = i.ID.ToString().Trim();
+                    var name = i.HoTen.ToString().Trim().Split(' ');
+                    for (int j = 0; j < name.Count() - 1; j++)
+                        r["Họ"] += name[j] + " ";
+                    r["Tên"] = name[name.Count() - 1];
+                    r["Khoa"] = i.Khoa.TenKhoa.ToString().Trim();
+                    tb.Rows.Add(r);
+                }
+            }
+            return tb;
+        }
     }
 }

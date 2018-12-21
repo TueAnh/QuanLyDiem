@@ -22,8 +22,26 @@ namespace QuanLyDiem.DAL
             List<TreeNode> list = new List<TreeNode>();
             using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
             {
-                //var res = DB.Khoa.Select(p => p.TenKhoa);
+                
                 var res = DB.HocKy.Select(q => new { TenHK = q.TenHK, NamHoc = q.NamHoc }).ToList().Select
+                    (p => new HocKy { TenHK = p.TenHK, NamHoc = p.NamHoc }).OrderBy(p => p.NamHoc).ToList();
+                List<TreeNode> tmp = new List<TreeNode>();
+                foreach (HocKy s in res)
+                {
+                    tmp.Add(new TreeNode(s.TenHK + " năm học " + s.NamHoc.ToString() + " - " + (s.NamHoc + 1).ToString()));
+                }
+
+                //Console.ReadKey();
+                list.Add(new TreeNode("Học kì", tmp.ToArray()));
+                return list;
+            }
+        }
+        public List<TreeNode> GetNodeByGV(string ID)
+        {
+            List<TreeNode> list = new List<TreeNode>();
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            {
+                var res = DB.HocPhan.Where(p => p.ID == ID).Select(q => new { TenHK = q.HocKy.TenHK, NamHoc = q.HocKy.NamHoc }).ToList().Select
                     (p => new HocKy { TenHK = p.TenHK, NamHoc = p.NamHoc }).OrderBy(p => p.NamHoc).ToList();
                 List<TreeNode> tmp = new List<TreeNode>();
                 foreach (HocKy s in res)

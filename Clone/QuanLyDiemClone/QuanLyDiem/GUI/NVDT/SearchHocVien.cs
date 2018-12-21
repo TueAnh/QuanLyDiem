@@ -87,6 +87,7 @@ namespace QuanLyDiem.GUI.NVDT
                 this.dataGridView.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
 
+
         private void dataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             HocVienDT hocVienDT = new HocVienDT(dataGridView.SelectedRows[0].Cells["Mã HV"].Value.ToString());

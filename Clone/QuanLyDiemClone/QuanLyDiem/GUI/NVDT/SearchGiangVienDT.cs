@@ -43,7 +43,10 @@ namespace QuanLyDiem.GUI.NVDT
         }
         public void LoadDTG()
         {
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add("STT", "STT");
             dataGridView.DataSource = bLL.getDSGVBLL();
+            dataGridView.Columns["STT"].Width = 50;
         }
 
         private void buttonAddGV_Click(object sender, EventArgs e)
@@ -53,11 +56,7 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == null)
-            {
-                MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
+            try
             {
                 if (comboBox1.SelectedItem.ToString() == "Theo Tên")
                 {
@@ -67,6 +66,10 @@ namespace QuanLyDiem.GUI.NVDT
                 {
                     dataGridView.Sort(dataGridView.Columns["Mã GV"], ListSortDirection.Ascending);
                 }
+            }
+            catch
+            {
+
             }
         }
         private void buttonBack_Click(object sender, EventArgs e)
@@ -97,6 +100,25 @@ namespace QuanLyDiem.GUI.NVDT
                 form.removeControl += new FormViewGV.AddRemoveControl(RemoveControlPanel);
                 AddControlPanel(form);
             }
+        }
+
+        private void buttonReLoad_Click(object sender, EventArgs e)
+        {
+            LoadDTG();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add("STT", "STT");
+            dataGridView.DataSource = bLL.LoadSearchedHocVien(textBoxSearchMaGV_HoTen.Text);
+            dataGridView.Columns["STT"].Width = 50;
+        }
+
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < dataGridView.Rows.Count)
+                this.dataGridView.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
     }
 }

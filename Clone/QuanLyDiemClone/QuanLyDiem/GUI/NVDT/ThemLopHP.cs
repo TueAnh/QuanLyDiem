@@ -27,6 +27,10 @@ namespace QuanLyDiem.GUI.NVDT
             loadCbb();
             buttonLuuMoi.Visible = true;
         }
+        void PhanQuyen()
+        {
+            
+        }
         public ThemLopHP(string ID)
         {
             InitializeComponent();
@@ -41,7 +45,8 @@ namespace QuanLyDiem.GUI.NVDT
             HocPhan hp = themHP_BLL.GetHocPhan(ID, ref x, ref y);
             if (hp != null)
             {
-                textBoxMaHP.Text = hp.MaHP.Trim();
+                string[] data = hp.MaHP.Trim().Split('P');
+                textBoxMaHP.Text = data[1];
                 textBoxPTDiemGiuaKi.Text = hp.PhanTramDGK.ToString();
                 textBoxPTDiemThi.Text = hp.PhanTramDT.ToString();
                 textBoxSoTiet.Text = hp.SoTiet.ToString();
@@ -68,7 +73,7 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonLuuMoi_Click(object sender, EventArgs e)
         {
-            if (themHP_BLL.ChecKExistHP_BLL(textBoxMaHP.Text.Trim()))
+            if (themHP_BLL.ChecKExistHP_BLL("HP"+ textBoxMaHP.Text.Trim()))
             {
                 textBoxMaHP.Text= "";
                 MessageBox.Show("Học phần đã tồn tại");
@@ -78,7 +83,7 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 try
                 {
-                    themHP_BLL.ThemHP_BLL(textBoxMaHP.Text.Trim(),
+                    themHP_BLL.ThemHP_BLL("HP"+textBoxMaHP.Text.Trim(),
                                        textBoxTenHP.Text.Trim(),
                                        Convert.ToInt16(textBoxSoTinChi.Text.Trim()),
                                        Convert.ToInt16(textBoxSoTiet.Text.Trim()),
@@ -103,7 +108,7 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 HocPhan hp = new HocPhan
                 {
-                    MaHP = textBoxMaHP.Text.Trim(),
+                    MaHP = "HP"+ textBoxMaHP.Text.Trim(),
                     TenHP = textBoxTenHP.Text.Trim(),
                     SoTC = Convert.ToInt32(textBoxSoTinChi.Text),
                     SoTiet = Convert.ToInt32(textBoxSoTiet.Text),
@@ -124,6 +129,94 @@ namespace QuanLyDiem.GUI.NVDT
             
         }
 
-      
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void textBoxMaHP_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidMaSo(textBoxMaHP.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxMaHP.Select(0, textBoxMaHP.Text.Length);
+
+                this.errorProviderHP.SetError(textBoxMaHP, errorMsg);
+            }
+        }
+
+        private void textBoxMaHP_Validated(object sender, EventArgs e)
+        {
+            errorProviderHP.SetError(textBoxMaHP, "");
+        }
+
+        private void textBoxSoTinChi_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidPhone(textBoxSoTinChi.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxSoTinChi.Select(0, textBoxSoTinChi.Text.Length);
+
+                this.errorProviderHP.SetError(textBoxSoTinChi, errorMsg);
+            }
+        }
+
+        private void textBoxSoTinChi_Validated(object sender, EventArgs e)
+        {
+            errorProviderHP.SetError(textBoxSoTinChi, "");
+        }
+
+        private void textBoxSoTiet_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidPhone(textBoxSoTiet.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxSoTiet.Select(0, textBoxSoTiet.Text.Length);
+
+                this.errorProviderHP.SetError(textBoxSoTiet, errorMsg);
+            }
+        }
+
+        private void textBoxSoTiet_Validated(object sender, EventArgs e)
+        {
+            errorProviderHP.SetError(textBoxSoTiet, "");
+        }
+
+        private void textBoxPTDiemGiuaKi_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidPTDiem(textBoxPTDiemGiuaKi.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxPTDiemGiuaKi.Select(0, textBoxPTDiemGiuaKi.Text.Length);
+
+                this.errorProviderHP.SetError(textBoxPTDiemGiuaKi, errorMsg);
+            }
+        }
+
+        private void textBoxPTDiemGiuaKi_Validated(object sender, EventArgs e)
+        {
+            errorProviderHP.SetError(textBoxPTDiemGiuaKi, "");
+        }
+
+        private void textBoxPTDiemThi_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidPTDiem(textBoxPTDiemThi.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxPTDiemThi.Select(0, textBoxPTDiemThi.Text.Length);
+
+                this.errorProviderHP.SetError(textBoxPTDiemThi, errorMsg);
+            }
+        }
+
+        private void textBoxPTDiemThi_Validated(object sender, EventArgs e)
+        {
+            errorProviderHP.SetError(textBoxPTDiemThi, "");
+        }
     }
 }

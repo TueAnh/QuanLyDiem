@@ -22,6 +22,12 @@ namespace QuanLyDiem.BLL
         {
             return GiangVien_DAL.DAL.GetNode();
         }
+
+        public List<TreeNode> GetNodeByGV(string ID)
+        {
+            return GiangVien_DAL.DAL.GetNodeByGV(ID);
+        }
+
         public dynamic GetListHP(string ID, string HocKy, string NamHoc)
         {
             return GiangVien_DAL.DAL.GetListHP(ID, HocKy, Convert.ToInt32(NamHoc));

@@ -36,21 +36,20 @@ namespace QuanLyDiem.GUI
 
             else
             {
-                errorMessage = "Số điện thoại không hợp lệ ";
+                errorMessage = "Chỉ gồm kí tự số ";
                 return false;
             }
         }
         public static bool ValidMaSo(string maso, out string errorMessage)
         {
-            if (Regex.IsMatch(maso, "^[0-9]*$"))
+            if (Regex.IsMatch(maso, "^[0-9]*$")&&(maso.Length <= 3))
             {
                 errorMessage = "";
                 return true;
             }
-
             else
             {
-                errorMessage = "Vui lòng chỉ nhập số.";
+                errorMessage = "Mã tối đa 3 kí tự số.";
                 return false;
             }
         }
@@ -65,6 +64,28 @@ namespace QuanLyDiem.GUI
             else
             {
                 errorMessage = "Mật khẩu không quá 10 kí tự";
+                return false;
+            }
+        }
+        public static bool ValidPTDiem(string ptDiem, out string errorMessage)
+        {
+            try
+            {
+                double s = Convert.ToDouble(ptDiem);
+                if (s <= 1)
+                {
+                    errorMessage = "";
+                    return true;
+                }
+                else
+                {
+                    errorMessage = "PT điểm thi không quá 1";
+                    return false;
+                }
+            }
+            catch
+            {
+                errorMessage = "PT điểm thi không hợp lệ";
                 return false;
             }
         }

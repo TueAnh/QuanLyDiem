@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonLuuThayDoi = new System.Windows.Forms.Button();
             this.buttonLuuMoi = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,15 +48,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMaHP = new System.Windows.Forms.TextBox();
             this.labelMaHP = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.errorProviderHP = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHP)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLuuThayDoi
             // 
-            this.buttonLuuThayDoi.Location = new System.Drawing.Point(319, 428);
-            this.buttonLuuThayDoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLuuThayDoi.Location = new System.Drawing.Point(145, 348);
+            this.buttonLuuThayDoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLuuThayDoi.Name = "buttonLuuThayDoi";
-            this.buttonLuuThayDoi.Size = new System.Drawing.Size(131, 43);
+            this.buttonLuuThayDoi.Size = new System.Drawing.Size(83, 35);
             this.buttonLuuThayDoi.TabIndex = 6;
             this.buttonLuuThayDoi.Text = "Lưu thay đổi";
             this.buttonLuuThayDoi.UseVisualStyleBackColor = true;
@@ -64,18 +69,18 @@
             // 
             // buttonLuuMoi
             // 
-            this.buttonLuuMoi.Location = new System.Drawing.Point(456, 428);
-            this.buttonLuuMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLuuMoi.Location = new System.Drawing.Point(254, 348);
+            this.buttonLuuMoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLuuMoi.Name = "buttonLuuMoi";
-            this.buttonLuuMoi.Size = new System.Drawing.Size(131, 43);
+            this.buttonLuuMoi.Size = new System.Drawing.Size(81, 35);
             this.buttonLuuMoi.TabIndex = 5;
             this.buttonLuuMoi.Text = "Lưu mới";
             this.buttonLuuMoi.UseVisualStyleBackColor = true;
-            this.buttonLuuMoi.Visible = false;
             this.buttonLuuMoi.Click += new System.EventHandler(this.buttonLuuMoi_Click);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.comboBoxTenHK);
             this.panel2.Controls.Add(this.comboBoxTenGV);
             this.panel2.Controls.Add(this.label1);
@@ -92,166 +97,208 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBoxMaHP);
             this.panel2.Controls.Add(this.labelMaHP);
-            this.panel2.Location = new System.Drawing.Point(27, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(20, 11);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(560, 410);
+            this.panel2.Size = new System.Drawing.Size(420, 333);
             this.panel2.TabIndex = 4;
             // 
             // comboBoxTenHK
             // 
             this.comboBoxTenHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTenHK.FormattingEnabled = true;
-            this.comboBoxTenHK.Location = new System.Drawing.Point(167, 319);
-            this.comboBoxTenHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxTenHK.Location = new System.Drawing.Point(125, 259);
+            this.comboBoxTenHK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxTenHK.Name = "comboBoxTenHK";
-            this.comboBoxTenHK.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxTenHK.Size = new System.Drawing.Size(232, 21);
             this.comboBoxTenHK.TabIndex = 2;
             // 
             // comboBoxTenGV
             // 
             this.comboBoxTenGV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTenGV.FormattingEnabled = true;
-            this.comboBoxTenGV.Location = new System.Drawing.Point(167, 363);
-            this.comboBoxTenGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxTenGV.Location = new System.Drawing.Point(125, 295);
+            this.comboBoxTenGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxTenGV.Name = "comboBoxTenGV";
-            this.comboBoxTenGV.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxTenGV.Size = new System.Drawing.Size(232, 21);
             this.comboBoxTenGV.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 319);
+            this.label1.Location = new System.Drawing.Point(24, 259);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Học Kì";
             // 
             // textBoxPTDiemThi
             // 
-            this.textBoxPTDiemThi.Location = new System.Drawing.Point(167, 270);
-            this.textBoxPTDiemThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPTDiemThi.Location = new System.Drawing.Point(125, 219);
+            this.textBoxPTDiemThi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPTDiemThi.Name = "textBoxPTDiemThi";
-            this.textBoxPTDiemThi.Size = new System.Drawing.Size(308, 22);
+            this.textBoxPTDiemThi.Size = new System.Drawing.Size(232, 20);
             this.textBoxPTDiemThi.TabIndex = 1;
+            this.textBoxPTDiemThi.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPTDiemThi_Validating);
+            this.textBoxPTDiemThi.Validated += new System.EventHandler(this.textBoxPTDiemThi_Validated);
             // 
             // textBoxPTDiemGiuaKi
             // 
-            this.textBoxPTDiemGiuaKi.Location = new System.Drawing.Point(167, 222);
-            this.textBoxPTDiemGiuaKi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPTDiemGiuaKi.Location = new System.Drawing.Point(125, 180);
+            this.textBoxPTDiemGiuaKi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPTDiemGiuaKi.Name = "textBoxPTDiemGiuaKi";
-            this.textBoxPTDiemGiuaKi.Size = new System.Drawing.Size(308, 22);
+            this.textBoxPTDiemGiuaKi.Size = new System.Drawing.Size(232, 20);
             this.textBoxPTDiemGiuaKi.TabIndex = 1;
+            this.textBoxPTDiemGiuaKi.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPTDiemGiuaKi_Validating);
+            this.textBoxPTDiemGiuaKi.Validated += new System.EventHandler(this.textBoxPTDiemGiuaKi_Validated);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 270);
+            this.label7.Location = new System.Drawing.Point(24, 219);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 17);
+            this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "PT Điểm Thi";
             // 
             // textBoxSoTiet
             // 
-            this.textBoxSoTiet.Location = new System.Drawing.Point(167, 171);
-            this.textBoxSoTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSoTiet.Location = new System.Drawing.Point(125, 139);
+            this.textBoxSoTiet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSoTiet.Name = "textBoxSoTiet";
-            this.textBoxSoTiet.Size = new System.Drawing.Size(308, 22);
+            this.textBoxSoTiet.Size = new System.Drawing.Size(232, 20);
             this.textBoxSoTiet.TabIndex = 1;
+            this.textBoxSoTiet.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSoTiet_Validating);
+            this.textBoxSoTiet.Validated += new System.EventHandler(this.textBoxSoTiet_Validated);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 222);
+            this.label6.Location = new System.Drawing.Point(24, 180);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "PT Điểm Giữa Kì";
             // 
             // textBoxSoTinChi
             // 
-            this.textBoxSoTinChi.Location = new System.Drawing.Point(167, 119);
-            this.textBoxSoTinChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSoTinChi.Location = new System.Drawing.Point(125, 97);
+            this.textBoxSoTinChi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSoTinChi.Name = "textBoxSoTinChi";
-            this.textBoxSoTinChi.Size = new System.Drawing.Size(308, 22);
+            this.textBoxSoTinChi.Size = new System.Drawing.Size(232, 20);
             this.textBoxSoTinChi.TabIndex = 1;
+            this.textBoxSoTinChi.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSoTinChi_Validating);
+            this.textBoxSoTinChi.Validated += new System.EventHandler(this.textBoxSoTinChi_Validated);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 171);
+            this.label5.Location = new System.Drawing.Point(24, 139);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 17);
+            this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Số Tiết";
             // 
             // textBoxTenHP
             // 
-            this.textBoxTenHP.Location = new System.Drawing.Point(167, 69);
-            this.textBoxTenHP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTenHP.Location = new System.Drawing.Point(125, 56);
+            this.textBoxTenHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTenHP.Name = "textBoxTenHP";
-            this.textBoxTenHP.Size = new System.Drawing.Size(308, 22);
+            this.textBoxTenHP.Size = new System.Drawing.Size(232, 20);
             this.textBoxTenHP.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 119);
+            this.label4.Location = new System.Drawing.Point(24, 97);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 17);
+            this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Số Tín Chỉ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 363);
+            this.label3.Location = new System.Drawing.Point(24, 295);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Giảng Viên";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 69);
+            this.label2.Location = new System.Drawing.Point(24, 56);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Học Phần";
             // 
             // textBoxMaHP
             // 
-            this.textBoxMaHP.Location = new System.Drawing.Point(167, 21);
-            this.textBoxMaHP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxMaHP.Location = new System.Drawing.Point(155, 17);
+            this.textBoxMaHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxMaHP.Name = "textBoxMaHP";
-            this.textBoxMaHP.Size = new System.Drawing.Size(308, 22);
+            this.textBoxMaHP.Size = new System.Drawing.Size(202, 20);
             this.textBoxMaHP.TabIndex = 1;
+            this.textBoxMaHP.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxMaHP_Validating);
+            this.textBoxMaHP.Validated += new System.EventHandler(this.textBoxMaHP_Validated);
             // 
             // labelMaHP
             // 
             this.labelMaHP.AutoSize = true;
-            this.labelMaHP.Location = new System.Drawing.Point(32, 25);
+            this.labelMaHP.Location = new System.Drawing.Point(24, 20);
+            this.labelMaHP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMaHP.Name = "labelMaHP";
-            this.labelMaHP.Size = new System.Drawing.Size(93, 17);
+            this.labelMaHP.Size = new System.Drawing.Size(73, 13);
             this.labelMaHP.TabIndex = 0;
             this.labelMaHP.Text = "Mã Học Phần";
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(125, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(25, 20);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "HP";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(355, 349);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(81, 33);
+            this.buttonCancel.TabIndex = 7;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // errorProviderHP
+            // 
+            this.errorProviderHP.ContainerControl = this;
+            // 
             // ThemLopHP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 485);
+            this.ClientSize = new System.Drawing.Size(450, 394);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLuuThayDoi);
             this.Controls.Add(this.buttonLuuMoi);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ThemLopHP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lớp Học Phần";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +324,8 @@
         private System.Windows.Forms.TextBox textBoxSoTinChi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ErrorProvider errorProviderHP;
     }
 }

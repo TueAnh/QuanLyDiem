@@ -40,7 +40,7 @@
             this.buttonSort = new System.Windows.Forms.Button();
             this.buttonReLoad = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBoxSearchMaHV_HoTen = new System.Windows.Forms.TextBox();
+            this.textBoxSearchMaGV_HoTen = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1.SuspendLayout();
@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 497);
             this.panel1.TabIndex = 3;
@@ -66,7 +66,7 @@
             this.panel2.Controls.Add(this.treeView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 497);
             this.panel2.TabIndex = 0;
@@ -78,7 +78,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(158, 11);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(639, 475);
             this.panel3.TabIndex = 13;
@@ -93,11 +93,11 @@
             this.panel4.Controls.Add(this.buttonSort);
             this.panel4.Controls.Add(this.buttonReLoad);
             this.panel4.Controls.Add(this.buttonSearch);
-            this.panel4.Controls.Add(this.textBoxSearchMaHV_HoTen);
+            this.panel4.Controls.Add(this.textBoxSearchMaGV_HoTen);
             this.panel4.Controls.Add(this.dataGridView);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(637, 473);
             this.panel4.TabIndex = 0;
@@ -110,7 +110,7 @@
             "Theo Mã",
             "Theo Tên"});
             this.comboBox1.Location = new System.Drawing.Point(131, 113);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(141, 21);
             this.comboBox1.TabIndex = 24;
@@ -119,7 +119,7 @@
             // 
             this.buttonDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonDel.Location = new System.Drawing.Point(428, 427);
-            this.buttonDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonDel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(113, 31);
             this.buttonDel.TabIndex = 23;
@@ -142,7 +142,7 @@
             // 
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonBack.Location = new System.Drawing.Point(546, 427);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(75, 32);
             this.buttonBack.TabIndex = 21;
@@ -154,7 +154,7 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Location = new System.Drawing.Point(2, 2);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(633, 57);
             this.panel5.TabIndex = 20;
@@ -179,6 +179,7 @@
             this.buttonReLoad.TabIndex = 18;
             this.buttonReLoad.Text = "Reload";
             this.buttonReLoad.UseVisualStyleBackColor = true;
+            this.buttonReLoad.Click += new System.EventHandler(this.buttonReLoad_Click);
             // 
             // buttonSearch
             // 
@@ -189,13 +190,14 @@
             this.buttonSearch.TabIndex = 17;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // textBoxSearchMaHV_HoTen
+            // textBoxSearchMaGV_HoTen
             // 
-            this.textBoxSearchMaHV_HoTen.Location = new System.Drawing.Point(303, 82);
-            this.textBoxSearchMaHV_HoTen.Name = "textBoxSearchMaHV_HoTen";
-            this.textBoxSearchMaHV_HoTen.Size = new System.Drawing.Size(238, 20);
-            this.textBoxSearchMaHV_HoTen.TabIndex = 16;
+            this.textBoxSearchMaGV_HoTen.Location = new System.Drawing.Point(303, 82);
+            this.textBoxSearchMaGV_HoTen.Name = "textBoxSearchMaGV_HoTen";
+            this.textBoxSearchMaGV_HoTen.Size = new System.Drawing.Size(238, 20);
+            this.textBoxSearchMaGV_HoTen.TabIndex = 16;
             // 
             // dataGridView
             // 
@@ -212,11 +214,12 @@
             this.dataGridView.Size = new System.Drawing.Size(604, 266);
             this.dataGridView.TabIndex = 15;
             this.dataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseDoubleClick);
+            this.dataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(4, 11);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(144, 474);
             this.treeView1.TabIndex = 12;
@@ -228,7 +231,7 @@
             this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(800, 497);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SearchGiangVienDT";
             this.Text = "SearchGiangVien";
             this.panel1.ResumeLayout(false);
@@ -255,7 +258,7 @@
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.Button buttonReLoad;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.TextBox textBoxSearchMaHV_HoTen;
+        private System.Windows.Forms.TextBox textBoxSearchMaGV_HoTen;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TreeView treeView1;
     }
