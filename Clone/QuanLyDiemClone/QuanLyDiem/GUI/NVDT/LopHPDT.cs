@@ -401,8 +401,8 @@ namespace QuanLyDiem.GUI.NVDT
 				r.WrapText = true;
 
 				int count = 13;
-				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,""};
-				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,""};
+				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,"mười" , ""};
+				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,"",""};
 				for (int i = 0; i < tb.Rows.Count; i++)
 				{
                     int a, b ,y;
@@ -415,12 +415,12 @@ namespace QuanLyDiem.GUI.NVDT
                     }
                     else
                     {
-                        a = 10;b = 10;
+                        a = 11;b = 11;
                     }
 					dynamic[] arr = { i + 1, tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
                                     tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
 									tb.Rows[i][5] , nguyen[a] + " " + thapphan[b] , "" ,""};
-					r = xlWorkSheet.get_Range("A" + (count + i), "I" + (count + i));
+					r = xlWorkSheet.get_Range("A" + count, "I" + count);
 					r.Value2 = arr;
 					r.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 					r.Cells.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
