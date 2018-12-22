@@ -30,5 +30,9 @@ namespace QuanLyDiem.BLL
         {
             return dAL.checkKhoaDAL(tenKhoa);
         }
+		public dynamic getDSKhoaBLL()
+		{
+			return dAL.getDSKhoaDAL();
+		}
     }
 }
