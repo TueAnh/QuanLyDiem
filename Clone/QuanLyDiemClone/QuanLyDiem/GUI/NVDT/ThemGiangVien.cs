@@ -17,20 +17,29 @@ namespace QuanLyDiem.GUI
         public ThemGiangVien()
         {
             InitializeComponent();
-        }
+			loadCBB();
+		}
 
-        //public bool checkMaGV()
-        //{
-        //    if (textBoxMaGV.Text.Length != 3) return false;
-        //    string s = textBoxMaGV.Text;
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        if (s[i] < '0' || s[i] > '9') return false;
-        //    }
-        //    return true;
-        //}
-        
-        private void buttonAdd_Click(object sender, EventArgs e)
+		public void loadCBB()
+		{
+			List<string> listKhoa = bLL.getDSKhoaBLL();
+			foreach (string s in listKhoa)
+			{
+				comboBoxKhoa.Items.Add(s);
+			}
+		}
+		//public bool checkMaGV()
+		//{
+		//    if (textBoxMaGV.Text.Length != 3) return false;
+		//    string s = textBoxMaGV.Text;
+		//    for (int i = 0; i < 3; i++)
+		//    {
+		//        if (s[i] < '0' || s[i] > '9') return false;
+		//    }
+		//    return true;
+		//}
+
+		private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (textBoxMaGV.Text == "")
             {
@@ -38,7 +47,7 @@ namespace QuanLyDiem.GUI
             }
             else
             {
-                if (bLL.checkGVBLL("GV" + textBoxMaGV.Text) && bLL.checkKhoaBLL(textBoxKhoa.Text))
+                if (bLL.checkGVBLL("GV" + textBoxMaGV.Text) && comboBoxKhoa.SelectedIndex>-1)
                 {
                     bLL.addGiangVienBLL(new GiangVien
                     {
@@ -48,7 +57,7 @@ namespace QuanLyDiem.GUI
                         DiaChi = textBoxDiaChi.Text,
                         Email = textBoxEmail.Text,
                         DienThoai = textBoxDienThoai.Text,
-                        MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text),
+                        MaKhoa = bLL.getMaKhoaBLL(comboBoxKhoa.SelectedItem.ToString()),
                         Password = "",
                     });
                     MessageBox.Show("Thêm giảng viên thành công");

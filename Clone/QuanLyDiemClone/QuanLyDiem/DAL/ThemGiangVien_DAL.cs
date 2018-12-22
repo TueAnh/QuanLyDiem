@@ -45,6 +45,12 @@ namespace QuanLyDiem.DAL
             return true;
         }
 
-
+		public dynamic getDSKhoaDAL()
+		{
+			var v = from s in db.Khoa
+					orderby s.TenKhoa
+					select s.TenKhoa;
+			return v.ToList();
+		}
     }
 }

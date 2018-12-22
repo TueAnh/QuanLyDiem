@@ -47,7 +47,7 @@ namespace QuanLyDiem.GUI.NVDT
             }
             else
             {
-                if (bLL.getLopBLL(textBoxLopCH.Text) != null)
+                if (bLL.getLopBLL(textBoxLopCH.Text) != null && bLL.CheckID_BLL("HV" + textBoxMaHV.Text))
                 {
                     bLL.addHVBLL(new HocVien
                     {
