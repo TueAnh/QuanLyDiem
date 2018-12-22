@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxKhoa = new System.Windows.Forms.TextBox();
             this.labelPath = new System.Windows.Forms.Label();
-            this.buttonThemHVExcel = new System.Windows.Forms.Button();
             this.textBoxTenLop = new System.Windows.Forms.TextBox();
             this.textBoxMaLop = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelML = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonThemHVExcel = new System.Windows.Forms.Button();
             this.buttonXoaHV = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
             this.SuspendLayout();
@@ -68,24 +68,10 @@
             this.panel1.Controls.Add(this.buttonSearch);
             this.panel1.Controls.Add(this.dataGridViewDSHV);
             this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 448);
+            this.panel1.Size = new System.Drawing.Size(612, 447);
             this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightYellow;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Image = global::QuanLyDiem.Properties.Resources.refresh;
-            this.button1.Location = new System.Drawing.Point(554, 323);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 43);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -104,35 +90,25 @@
             this.textBoxKhoa.Multiline = true;
             this.textBoxKhoa.Name = "textBoxKhoa";
             this.textBoxKhoa.ReadOnly = true;
-            this.textBoxKhoa.Size = new System.Drawing.Size(204, 23);
+            this.textBoxKhoa.Size = new System.Drawing.Size(182, 23);
             this.textBoxKhoa.TabIndex = 21;
             // 
             // labelPath
             // 
             this.labelPath.AutoSize = true;
-            this.labelPath.Location = new System.Drawing.Point(13, 408);
+            this.labelPath.Location = new System.Drawing.Point(12, 356);
             this.labelPath.Name = "labelPath";
             this.labelPath.Size = new System.Drawing.Size(29, 13);
             this.labelPath.TabIndex = 19;
             this.labelPath.Text = "Path";
             this.labelPath.Visible = false;
             // 
-            // buttonThemHVExcel
-            // 
-            this.buttonThemHVExcel.Location = new System.Drawing.Point(15, 373);
-            this.buttonThemHVExcel.Name = "buttonThemHVExcel";
-            this.buttonThemHVExcel.Size = new System.Drawing.Size(165, 23);
-            this.buttonThemHVExcel.TabIndex = 18;
-            this.buttonThemHVExcel.Text = "Thêm Học Viên Excel.....";
-            this.buttonThemHVExcel.UseVisualStyleBackColor = true;
-            this.buttonThemHVExcel.Click += new System.EventHandler(this.buttonThemHVExcel_Click);
-            // 
             // textBoxTenLop
             // 
             this.textBoxTenLop.Enabled = false;
             this.textBoxTenLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxTenLop.Location = new System.Drawing.Point(87, 49);
-            this.textBoxTenLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTenLop.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTenLop.Name = "textBoxTenLop";
             this.textBoxTenLop.Size = new System.Drawing.Size(170, 23);
             this.textBoxTenLop.TabIndex = 16;
@@ -141,7 +117,7 @@
             // 
             this.textBoxMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxMaLop.Location = new System.Drawing.Point(87, 17);
-            this.textBoxMaLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMaLop.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaLop.Name = "textBoxMaLop";
             this.textBoxMaLop.ReadOnly = true;
             this.textBoxMaLop.Size = new System.Drawing.Size(158, 23);
@@ -171,61 +147,11 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(332, 49);
+            this.textBoxSearch.Location = new System.Drawing.Point(378, 48);
             this.textBoxSearch.Multiline = true;
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(170, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(141, 24);
             this.textBoxSearch.TabIndex = 12;
-            // 
-            // buttonXoaHV
-            // 
-            this.buttonXoaHV.Location = new System.Drawing.Point(332, 374);
-            this.buttonXoaHV.Name = "buttonXoaHV";
-            this.buttonXoaHV.Size = new System.Drawing.Size(100, 23);
-            this.buttonXoaHV.TabIndex = 10;
-            this.buttonXoaHV.Text = "Xóa học viên";
-            this.buttonXoaHV.UseVisualStyleBackColor = true;
-            this.buttonXoaHV.Click += new System.EventHandler(this.buttonXoaHV_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(494, 402);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(100, 23);
-            this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Thêm học viên";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdđ_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(438, 373);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 10;
-            this.buttonSave.Text = "Lưu";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonBack
-            // 
-            this.buttonBack.Location = new System.Drawing.Point(519, 373);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
-            this.buttonBack.TabIndex = 10;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Location = new System.Drawing.Point(507, 47);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 11;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // dataGridViewDSHV
             // 
@@ -236,19 +162,108 @@
             this.dataGridViewDSHV.Name = "dataGridViewDSHV";
             this.dataGridViewDSHV.ReadOnly = true;
             this.dataGridViewDSHV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDSHV.Size = new System.Drawing.Size(579, 278);
+            this.dataGridViewDSHV.Size = new System.Drawing.Size(579, 261);
             this.dataGridViewDSHV.TabIndex = 8;
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightYellow;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Image = global::QuanLyDiem.Properties.Resources.reload32;
+            this.button1.Location = new System.Drawing.Point(553, 307);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 43);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonThemHVExcel
+            // 
+            this.buttonThemHVExcel.Image = global::QuanLyDiem.Properties.Resources.csv_321;
+            this.buttonThemHVExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonThemHVExcel.Location = new System.Drawing.Point(15, 374);
+            this.buttonThemHVExcel.Name = "buttonThemHVExcel";
+            this.buttonThemHVExcel.Size = new System.Drawing.Size(90, 33);
+            this.buttonThemHVExcel.TabIndex = 18;
+            this.buttonThemHVExcel.Text = "Excel ...";
+            this.buttonThemHVExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonThemHVExcel.UseVisualStyleBackColor = true;
+            this.buttonThemHVExcel.Click += new System.EventHandler(this.buttonThemHVExcel_Click);
+            // 
+            // buttonXoaHV
+            // 
+            this.buttonXoaHV.Image = global::QuanLyDiem.Properties.Resources.important;
+            this.buttonXoaHV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonXoaHV.Location = new System.Drawing.Point(484, 356);
+            this.buttonXoaHV.Name = "buttonXoaHV";
+            this.buttonXoaHV.Size = new System.Drawing.Size(110, 50);
+            this.buttonXoaHV.TabIndex = 10;
+            this.buttonXoaHV.Text = "Xóa học viên";
+            this.buttonXoaHV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonXoaHV.UseVisualStyleBackColor = true;
+            this.buttonXoaHV.Click += new System.EventHandler(this.buttonXoaHV_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Image = global::QuanLyDiem.Properties.Resources.Ribbon_Add_32x32;
+            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdd.Location = new System.Drawing.Point(351, 356);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(116, 51);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Thêm học viên";
+            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdđ_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = global::QuanLyDiem.Properties.Resources.Save__1_;
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(111, 374);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(76, 35);
+            this.buttonSave.TabIndex = 10;
+            this.buttonSave.Text = "Lưu";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.BackColor = System.Drawing.Color.GhostWhite;
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.Back32;
+            this.buttonBack.Location = new System.Drawing.Point(554, 412);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(40, 32);
+            this.buttonBack.TabIndex = 10;
+            this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.BackColor = System.Drawing.Color.GhostWhite;
+            this.buttonSearch.Image = global::QuanLyDiem.Properties.Resources.Ribbon_Preview_16x16;
+            this.buttonSearch.Location = new System.Drawing.Point(519, 47);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(41, 25);
+            this.buttonSearch.TabIndex = 11;
+            this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // LopSHDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(614, 452);
+            this.ClientSize = new System.Drawing.Size(614, 468);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LopSHDT";
             this.Text = "LopSHDT";
             this.panel1.ResumeLayout(false);

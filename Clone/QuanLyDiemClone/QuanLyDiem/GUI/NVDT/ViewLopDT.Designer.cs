@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonXoaLop = new System.Windows.Forms.Button();
             this.buttonAddClass = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.buttonXoaLop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -49,34 +49,59 @@
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 633);
+            this.panel1.Size = new System.Drawing.Size(806, 514);
             this.panel1.TabIndex = 4;
+            // 
+            // buttonXoaLop
+            // 
+            this.buttonXoaLop.BackColor = System.Drawing.Color.GhostWhite;
+            this.buttonXoaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonXoaLop.Image = global::QuanLyDiem.Properties.Resources.important;
+            this.buttonXoaLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonXoaLop.Location = new System.Drawing.Point(600, 469);
+            this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonXoaLop.Name = "buttonXoaLop";
+            this.buttonXoaLop.Size = new System.Drawing.Size(101, 43);
+            this.buttonXoaLop.TabIndex = 3;
+            this.buttonXoaLop.Text = "Xóa lớp";
+            this.buttonXoaLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonXoaLop.UseVisualStyleBackColor = false;
+            this.buttonXoaLop.Visible = false;
+            this.buttonXoaLop.Click += new System.EventHandler(this.buttonXoaLop_Click);
             // 
             // buttonAddClass
             // 
+            this.buttonAddClass.BackColor = System.Drawing.Color.GhostWhite;
             this.buttonAddClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonAddClass.Location = new System.Drawing.Point(537, 576);
-            this.buttonAddClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAddClass.Image = global::QuanLyDiem.Properties.Resources.Ribbon_Add_32x32;
+            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddClass.Location = new System.Drawing.Point(472, 469);
+            this.buttonAddClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddClass.Name = "buttonAddClass";
-            this.buttonAddClass.Size = new System.Drawing.Size(153, 44);
+            this.buttonAddClass.Size = new System.Drawing.Size(115, 43);
             this.buttonAddClass.TabIndex = 3;
             this.buttonAddClass.Text = "Thêm lớp";
-            this.buttonAddClass.UseVisualStyleBackColor = true;
+            this.buttonAddClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddClass.UseVisualStyleBackColor = false;
             this.buttonAddClass.Visible = false;
             this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
             // 
             // buttonBack
             // 
+            this.buttonBack.BackColor = System.Drawing.Color.GhostWhite;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonBack.Location = new System.Drawing.Point(855, 575);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.thoat;
+            this.buttonBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBack.Location = new System.Drawing.Point(716, 468);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(216, 46);
+            this.buttonBack.Size = new System.Drawing.Size(88, 44);
             this.buttonBack.TabIndex = 2;
-            this.buttonBack.Text = "Thoát chức năng";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Text = "Thoát";
+            this.buttonBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // panel2
@@ -85,10 +110,10 @@
             this.panel2.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(213, 12);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(160, 10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(859, 557);
+            this.panel2.Size = new System.Drawing.Size(645, 453);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -98,46 +123,33 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(857, 555);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 451);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(3, 12);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.treeView1.Location = new System.Drawing.Point(2, 10);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(204, 558);
+            this.treeView1.Size = new System.Drawing.Size(154, 454);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
-            // buttonXoaLop
-            // 
-            this.buttonXoaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonXoaLop.Location = new System.Drawing.Point(696, 576);
-            this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonXoaLop.Name = "buttonXoaLop";
-            this.buttonXoaLop.Size = new System.Drawing.Size(153, 44);
-            this.buttonXoaLop.TabIndex = 3;
-            this.buttonXoaLop.Text = "Xóa lớp";
-            this.buttonXoaLop.UseVisualStyleBackColor = true;
-            this.buttonXoaLop.Visible = false;
-            this.buttonXoaLop.Click += new System.EventHandler(this.buttonXoaLop_Click);
-            // 
             // ViewLopDT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(1075, 633);
+            this.ClientSize = new System.Drawing.Size(806, 514);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewLopDT";
             this.Text = "ViewLopDT";
             this.panel1.ResumeLayout(false);

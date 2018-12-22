@@ -20,16 +20,17 @@ namespace QuanLyDiem.GUI.NVDT
         List<string> lNamHoc = new List<string>();
         List<int> strGV = new List<int>();
         ThemLopHP_BLL themHP_BLL;
+        public delegate void ThemHPSuccess();
+        public ThemHPSuccess themHPSuccess;
         public ThemLopHP()
         {
             InitializeComponent();
             themHP_BLL = new ThemLopHP_BLL();
             loadCbb();
-            buttonLuuMoi.Visible = true;
-        }
-        void PhanQuyen()
-        {
-            
+            if (FormLogin.User.typeAcc != 3)
+            {
+                buttonLuuMoi.Visible = false;
+            }
         }
         public ThemLopHP(string ID)
         {
@@ -38,6 +39,7 @@ namespace QuanLyDiem.GUI.NVDT
             loadCbb();
             LoadData(ID);
             buttonLuuThayDoi.Visible = true;
+            buttonLuuMoi.Visible = false;
         }
         public void LoadData(string ID)
         {
@@ -91,6 +93,8 @@ namespace QuanLyDiem.GUI.NVDT
                                        Convert.ToDouble(textBoxPTDiemThi.Text.Trim()),
                                        lMaHK[comboBoxTenHK.SelectedIndex].Trim(),
                                        lID[comboBoxTenGV.SelectedIndex].Trim());
+                    themHPSuccess();
+
 
                 MessageBox.Show("Đã thêm mới học phần");
                 this.Dispose();

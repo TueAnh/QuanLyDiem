@@ -37,7 +37,12 @@ namespace QuanLyDiem.GUI.NVDT
                 if (themKhoa_Bll.ChecKExistKHoa_BLL(textBoxMaKhoa.Text.Trim()))
                 {
                     textBoxMaKhoa.Text = "";
-                    MessageBox.Show("Khoa đã tồn tại");
+                    MessageBox.Show("Khoa đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (themKhoa_Bll.ChecKExistTenKHoa_BLL(textBoxTenKhoa.Text.Trim()))
+                {
+                    textBoxTenKhoa.Text = "";
+                    MessageBox.Show("Tên Khoa đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

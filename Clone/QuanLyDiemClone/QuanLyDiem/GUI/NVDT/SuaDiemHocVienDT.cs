@@ -62,10 +62,17 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            sua.suaDiemHocVien_BLL(textBoxMaHV.Text, textBoxMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
-            saveSuccess();
-            removeControl(this);
-            Dispose();
+            try
+            {
+                sua.suaDiemHocVien_BLL(textBoxMaHV.Text, textBoxMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
+                saveSuccess();
+                removeControl(this);
+                Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("Sửa điểm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

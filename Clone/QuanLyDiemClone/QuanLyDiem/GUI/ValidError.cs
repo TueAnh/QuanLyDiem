@@ -69,10 +69,15 @@ namespace QuanLyDiem.GUI
         }
         public static bool ValidPTDiem(string ptDiem, out string errorMessage)
         {
+            if (ptDiem.Length == 0)
+            {
+                errorMessage = "";
+                return true;
+            }
             try
             {
                 double s = Convert.ToDouble(ptDiem);
-                if (s <= 1)
+                if (s <= 1&&s>=0)
                 {
                     errorMessage = "";
                     return true;

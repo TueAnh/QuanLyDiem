@@ -24,5 +24,13 @@ namespace QuanLyDiem.DAL
                 return Convert.ToInt16(v) > 0;
             }
         }
+        public bool ChecKExistTenKHoa_DAL(string tenKhoa)
+        {
+            using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+            {
+                var v = DB.Khoa.Select(s => s).Where(s => s.TenKhoa.Trim() == tenKhoa).Count();
+                return Convert.ToInt16(v) > 0;
+            }
+        }
     }
 }

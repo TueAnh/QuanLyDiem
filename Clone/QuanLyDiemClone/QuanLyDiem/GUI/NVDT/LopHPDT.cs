@@ -33,7 +33,11 @@ namespace QuanLyDiem.GUI.NVDT
 			bLL = new LopHP_BLL();
 			this.MaHP = MaHP;
 			LoadData();
-		}
+            if (FormLogin.User.typeAcc != 3)
+            {
+                buttonChange.Enabled = false;
+            }
+        }
 
 		////public LopHPDT(string MaHP, string GiangVien)
 		////{
@@ -641,41 +645,50 @@ namespace QuanLyDiem.GUI.NVDT
 						DGK = Convert.ToDouble(r.Cells["Điểm GK"].Value.ToString());
 					if (r.Cells["Điểm Thi"].Value.ToString().Trim().Length > 0)
 						DT = Convert.ToDouble(r.Cells["Điểm Thi"].Value.ToString());
-				}
-				catch
+                    
+                }
+                catch
 				{
+                    MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                int key =
+                bLL.UpdateKQHP(new KetQuaHocPhan
+                {
+                    DiemBT = DBT,
+                    DiemGK = DGK,
+                    DiemThi = DT
+                }, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
+                if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
+                if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
+                //    r.DefaultCellStyle.BackColor = Color.Lime;
+                //else
+                //    r.DefaultCellStyle.BackColor = Color.Red;
 
-				}
-				int key =
-				bLL.UpdateKQHP(new KetQuaHocPhan
-				{
-					DiemBT = DBT,
-					DiemGK = DGK,
-					DiemThi = DT
-				}, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
-				if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
-				if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
-				//    r.DefaultCellStyle.BackColor = Color.Lime;
-				//else
-				//    r.DefaultCellStyle.BackColor = Color.Red;
-			}
-			dataGridViewDSHV.ClearSelection();
+            }
+            dataGridViewDSHV.ClearSelection();
 		}
 
 		private void buttonXoa_Click(object sender, EventArgs e)
 		{
-			foreach (DataGridViewRow r in dataGridViewDSHV.SelectedRows)
-			{
-				if (bLL.XoaHV(r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim()))
-				{
-					r.DefaultCellStyle.BackColor = Color.Lime;
-				}
-				else
-				{
-					r.DefaultCellStyle.BackColor = Color.Red;
-				}
-			}
-			dataGridViewDSHV.ClearSelection();
+            try
+            {
+                foreach (DataGridViewRow r in dataGridViewDSHV.SelectedRows)
+                {
+                    if (bLL.XoaHV(r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim()))
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Lime;
+                    }
+                    else
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                }
+                dataGridViewDSHV.ClearSelection();
+            }
+            catch
+            {
+                MessageBox.Show("Đối tượng xóa không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 		}
 
 		private void buttonReload_Click(object sender, EventArgs e)

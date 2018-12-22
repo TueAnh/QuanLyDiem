@@ -89,10 +89,12 @@ namespace QuanLyDiem.GUI.NVDT
 					releaseObject(app);
 					releaseObject(wb);
 					releaseObject(sheet);
+                    buttonSave.Visible = true;
 				}
 				catch (Exception ex)
 				{
 					MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
 				}
 			}
 			else
@@ -108,36 +110,45 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonSave_Click(object sender, EventArgs e)
 		{
-			int i = 0;
-			while (i < dataGridView1.Rows.Count)
-			{
-				DataGridViewRow r = dataGridView1.Rows[i];
-				if (
-					bll.AddHVSH_BLL(new HocVien
-					{
-						ID = r.Cells["Mã số"].Value.ToString().Trim(),
-						HoTen = r.Cells["Họ tên"].Value.ToString().Trim(),
-						Email = r.Cells["Email"].Value.ToString().Trim(),
-						DiaChi = r.Cells["Địa chỉ"].Value.ToString().Trim(),
-						DienThoai = r.Cells["Điện thoại"].Value.ToString().Trim(),
-						Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
-						MaLop = r.Cells["Mã lớp"].Value.ToString().Trim(),
-						NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
-						//MaLop = textBoxMaLop.Text.Trim()
-					}))
-					dataGridView1.Rows.RemoveAt(i);
-				else
-				{
-					r.DefaultCellStyle.BackColor = Color.Red;
-					i++;
-					//break;
-				}
-				dataGridView1.Refresh();
-			}
-			if (dataGridView1.Rows.Count == 0)
-			{
-				MessageBox.Show("Hoàn tất!");
-			}
+            try
+            {
+                int i = 0;
+                while (i < dataGridView1.Rows.Count)
+                {
+                    DataGridViewRow r = dataGridView1.Rows[i];
+                    if (
+                        bll.AddHVSH_BLL(new HocVien
+                        {
+                            ID = r.Cells["Mã số"].Value.ToString().Trim(),
+                            HoTen = r.Cells["Họ tên"].Value.ToString().Trim(),
+                            Email = r.Cells["Email"].Value.ToString().Trim(),
+                            DiaChi = r.Cells["Địa chỉ"].Value.ToString().Trim(),
+                            DienThoai = r.Cells["Điện thoại"].Value.ToString().Trim(),
+                            Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
+                            MaLop = r.Cells["Mã lớp"].Value.ToString().Trim(),
+                            NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
+                        //MaLop = textBoxMaLop.Text.Trim()
+                    }))
+                        dataGridView1.Rows.RemoveAt(i);
+                    else
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                        i++;
+                        //break;
+                    }
+                    dataGridView1.Refresh();
+                }
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Hoàn tất!");
+                }
+                buttonSave.Visible = false;
+            }
+            catch
+            {
+                MessageBox.Show("Đối tượng học viên thêm từ Excel không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buttonSave.Visible = false;
+            }
 
 		}
 		#endregion
@@ -197,6 +208,57 @@ namespace QuanLyDiem.GUI.NVDT
 			}
 		}
 
-		#endregion
-	}
+        #endregion
+
+        private void textBoxMaHV_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidMaSo(textBoxMaHV.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxMaHV.Select(0, textBoxMaHV.Text.Length);
+
+                this.errorProviderAddHV.SetError(textBoxMaHV, errorMsg);
+            }
+        }
+
+        private void textBoxMaHV_Validated(object sender, EventArgs e)
+        {
+            errorProviderAddHV.SetError(textBoxMaHV, "");
+        }
+
+        private void textBoxEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (textBoxEmail.Text == "")
+            {
+
+            }
+            else
+            {
+                string errorMsg;
+                if (!ValidError.ValidEmailAddress(textBoxEmail.Text, out errorMsg))
+                {
+                    e.Cancel = true;
+                    textBoxEmail.Select(0, textBoxEmail.Text.Length);
+
+                    this.errorProviderAddHV.SetError(textBoxEmail, errorMsg);
+                }
+            }
+        }
+
+        private void textBoxEmail_Validated(object sender, EventArgs e)
+        {
+            errorProviderAddHV.SetError(textBoxEmail, "");
+        }
+
+        private void textBoxDienThoai_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void textBoxDienThoai_Validated(object sender, EventArgs e)
+        {
+            errorProviderAddHV.SetError(textBoxDienThoai, "");
+        }
+    }
 }

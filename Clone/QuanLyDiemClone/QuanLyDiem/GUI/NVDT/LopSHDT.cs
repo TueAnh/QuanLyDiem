@@ -148,10 +148,12 @@ namespace QuanLyDiem.GUI.NVDT
                         tb.Rows.Add(row);
                     }
                     dataGridViewDSHV.DataSource = tb;
+                    buttonSave.Visible = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    labelPath.Visible = false;
                 }
             }
             else
@@ -162,39 +164,46 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (textBoxTenLop.Text != ttenLop)
+            //if (textBoxTenLop.Text != ttenLop)
+            //{
+            //    if (textBoxTenLop.Text != "" && bLL.checkLopBLL(textBoxTenLop.Text))
+            //    {
+            //        bLL.upDateLopCHBLL(textBoxMaLop.Text, textBoxTenLop.Text);
+            //        ttenLop = textBoxTenLop.Text;
+            //        MessageBox.Show("Lưu thành công");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
+            //    }
+            //}
+            try
             {
-                if (textBoxTenLop.Text != "" && bLL.checkLopBLL(textBoxTenLop.Text))
+                foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
                 {
-                    bLL.upDateLopCHBLL(textBoxMaLop.Text, textBoxTenLop.Text);
-                    ttenLop = textBoxTenLop.Text;
-                    MessageBox.Show("Lưu thành công");
-                }
-                else
-                {
-                    MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
+                    if (
+                    bll.AddHVSH_BLL(new HocVien
+                    {
+                        ID = r.Cells["Mã số"].Value.ToString().Trim(),
+                        HoTen = r.Cells["Họ tên"].Value.ToString().Trim(),
+                        Email = r.Cells["Email"].Value.ToString().Trim(),
+                        DiaChi = r.Cells["Địa chỉ"].Value.ToString().Trim(),
+                        DienThoai = r.Cells["Điện thoại"].Value.ToString().Trim(),
+                        Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
+                        NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
+                        MaLop = textBoxMaLop.Text.Trim()
+                    }))
+                        r.DefaultCellStyle.BackColor = Color.Lime;
+                    else
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                    buttonSave.Visible = false;
                 }
             }
-            foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
+            catch
             {
-                if (
-                bll.AddHVSH_BLL(new HocVien
-                {
-                    ID = r.Cells["Mã số"].Value.ToString().Trim(),
-                    HoTen = r.Cells["Họ tên"].Value.ToString().Trim(),
-                    Email = r.Cells["Email"].Value.ToString().Trim(),
-                    DiaChi = r.Cells["Địa chỉ"].Value.ToString().Trim(),
-                    DienThoai = r.Cells["Điện thoại"].Value.ToString().Trim(),
-                    Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
-                    NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
-                    MaLop = textBoxMaLop.Text.Trim()
-                }))
-                    r.DefaultCellStyle.BackColor = Color.Lime;
-                else
-                    r.DefaultCellStyle.BackColor = Color.Red;
+                MessageBox.Show("Excel không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buttonSave.Visible = false;
             }
-
-
         }
 
         private void buttonAdđ_Click(object sender, EventArgs e)
@@ -205,16 +214,23 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoaHV_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridViewDSHV.SelectedRows.Count; i++)
-                if (bLL.XoaHV_BLL(dataGridViewDSHV.SelectedRows[i].Cells["Mã số"].Value.ToString().Trim()))
-                {
-                    //MessageBox.Show("Xóa thành công!");
-                }
-                else
-                {
-                    MessageBox.Show("Xuất hiện lỗi. Hãy thử lại!");
-                }
-            LoadDataGrid();
+            try
+            {
+                for (int i = 0; i < dataGridViewDSHV.SelectedRows.Count; i++)
+                    if (bLL.XoaHV_BLL(dataGridViewDSHV.SelectedRows[i].Cells["Mã số"].Value.ToString().Trim()))
+                    {
+                        //MessageBox.Show("Xóa thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xuất hiện lỗi. Hãy thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                LoadDataGrid();
+            }
+            catch
+            {
+                MessageBox.Show("Đối tượng xóa không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -224,12 +240,19 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString() != null)
+            try
             {
-                f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString());
-                f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
-                f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
-                AddControlPanel(f);
+                if (dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString() != null)
+                {
+                    f = new HocVienDT(dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString());
+                    f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+                    f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+                    AddControlPanel(f);
+                }
+            }
+            catch
+            {
+
             }
         }
         #endregion

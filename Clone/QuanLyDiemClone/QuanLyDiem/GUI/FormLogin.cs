@@ -19,6 +19,7 @@ namespace QuanLyDiem
         public FormLogin()
         {
             InitializeComponent();
+            this.AcceptButton = buttonOK;
         }
         private void buttonOK_Click(object sender, EventArgs e)
         {

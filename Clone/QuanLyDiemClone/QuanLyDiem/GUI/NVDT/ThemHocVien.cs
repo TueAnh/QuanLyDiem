@@ -65,7 +65,7 @@ namespace QuanLyDiem.GUI.NVDT
                 }
                 else
                 {
-                    MessageBox.Show("Lớp sai !!");
+                    MessageBox.Show("Thêm học viên không thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 		}

@@ -380,6 +380,14 @@
       <DependentUpon>QuanLyDiem.edmx</DependentUpon>
       <LastGenOutput>QuanLyDiem.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Back32.png" />
+    <None Include="Resources\important.png" />
+    <None Include="Resources\Ribbon_Preview_16x16.png" />
+    <None Include="Resources\csv 321.png" />
+    <None Include="Resources\thoat.png" />
+    <None Include="Resources\Save %281%29.png" />
+    <None Include="Resources\Ribbon_Add_32x32.png" />
+    <None Include="Resources\reload32.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\47187885_581438345610674_3296136835582918656_n.png" />
     <None Include="Resources\maxresdefault.jpg" />

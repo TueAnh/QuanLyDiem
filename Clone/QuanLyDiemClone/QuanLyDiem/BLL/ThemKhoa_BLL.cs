@@ -18,5 +18,10 @@ namespace QuanLyDiem.BLL
         {
             return dal.ChecKExistKHoa_DAL(maKhoa);
         }
+
+        public bool ChecKExistTenKHoa_BLL(string tenKhoa)
+        {
+            return dal.ChecKExistTenKHoa_DAL(tenKhoa);
+        }
     }
 }
