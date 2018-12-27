@@ -14,6 +14,10 @@ namespace QuanLyDiem.BLL
         {
             dal.ThemHP_DAL(maHP,tenHP,soTC,soTiet,phanTramDGK,phanTramDT,maHK,iD);
         }
+        public ThemLopHP_BLL()
+        {
+
+        }
         public void loadGV_BLL(List<string> lID, List<string> lHoTen)
         {
             dal.loadGV_DAL(lID,lHoTen);
@@ -33,6 +37,10 @@ namespace QuanLyDiem.BLL
         public bool UpdateHP(HocPhan hp, string MaGV, string MaHK)
         {
             return dal.UpdateHP(hp, MaGV, MaHK);
+        }
+        public bool AddHP_BLL(HocPhan hp)
+        {
+            return dal.AddHP_DAL(hp);
         }
     }
 }

@@ -104,6 +104,22 @@ namespace QuanLyDiem.DAL
             }
 
         }
-        
+        public bool AddHP_DAL(HocPhan hp)
+        {
+            try
+            {
+                using (QuanLyDiemEntities DB = new QuanLyDiemEntities())
+                {
+                    DB.HocPhan.Add(hp);
+                    DB.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

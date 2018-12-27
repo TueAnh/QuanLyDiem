@@ -651,13 +651,19 @@ namespace QuanLyDiem.GUI.NVDT
 				{
                     MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                int key =
-                bLL.UpdateKQHP(new KetQuaHocPhan
+                int key;
+                if (r.Cells["Mã HV"].Value.ToString().Trim().Length!=0)
                 {
+                    key =bLL.UpdateKQHP(new KetQuaHocPhan{
                     DiemBT = DBT,
                     DiemGK = DGK,
                     DiemThi = DT
-                }, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
+                    }, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
+                }
+                else
+                {
+                    key = -1;
+                }
                 if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
                 if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
                 //    r.DefaultCellStyle.BackColor = Color.Lime;
