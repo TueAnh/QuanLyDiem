@@ -35,9 +35,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.labelPath = new System.Windows.Forms.Label();
-            this.buttonThemHPExcel = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -45,9 +42,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.labelPath);
-            this.panel1.Controls.Add(this.buttonThemHPExcel);
-            this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Controls.Add(this.buttonThemLopHP);
             this.panel1.Controls.Add(this.buttonBack);
@@ -55,7 +49,7 @@
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(806, 504);
             this.panel1.TabIndex = 2;
@@ -64,7 +58,7 @@
             // 
             this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonXoa.Location = new System.Drawing.Point(527, 457);
-            this.buttonXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(142, 37);
             this.buttonXoa.TabIndex = 3;
@@ -77,7 +71,7 @@
             // 
             this.buttonThemLopHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonThemLopHP.Location = new System.Drawing.Point(380, 457);
-            this.buttonThemLopHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonThemLopHP.Margin = new System.Windows.Forms.Padding(2);
             this.buttonThemLopHP.Name = "buttonThemLopHP";
             this.buttonThemLopHP.Size = new System.Drawing.Size(142, 37);
             this.buttonThemLopHP.TabIndex = 3;
@@ -90,7 +84,7 @@
             // 
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonBack.Location = new System.Drawing.Point(674, 457);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(123, 37);
             this.buttonBack.TabIndex = 3;
@@ -105,7 +99,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(153, 18);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(645, 411);
             this.panel2.TabIndex = 1;
@@ -118,7 +112,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -131,48 +125,11 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(9, 18);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(140, 411);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
-            // 
-            // labelPath
-            // 
-            this.labelPath.AutoSize = true;
-            this.labelPath.Location = new System.Drawing.Point(165, 443);
-            this.labelPath.Name = "labelPath";
-            this.labelPath.Size = new System.Drawing.Size(29, 13);
-            this.labelPath.TabIndex = 22;
-            this.labelPath.Text = "Path";
-            this.labelPath.Visible = false;
-            // 
-            // buttonThemHPExcel
-            // 
-            this.buttonThemHPExcel.Image = global::QuanLyDiem.Properties.Resources.csv_321;
-            this.buttonThemHPExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonThemHPExcel.Location = new System.Drawing.Point(154, 461);
-            this.buttonThemHPExcel.Name = "buttonThemHPExcel";
-            this.buttonThemHPExcel.Size = new System.Drawing.Size(90, 33);
-            this.buttonThemHPExcel.TabIndex = 21;
-            this.buttonThemHPExcel.Text = "Excel ...";
-            this.buttonThemHPExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonThemHPExcel.UseVisualStyleBackColor = true;
-            this.buttonThemHPExcel.Click += new System.EventHandler(this.buttonThemHPExcel_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Image = global::QuanLyDiem.Properties.Resources.Save__1_;
-            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(265, 461);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(76, 35);
-            this.buttonSave.TabIndex = 20;
-            this.buttonSave.Text = "Lưu";
-            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Visible = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // ViewLopHP
             // 
@@ -181,11 +138,10 @@
             this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(806, 504);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewLopHP";
             this.Text = "ViewLopHP";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -201,8 +157,5 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonThemLopHP;
         private System.Windows.Forms.Button buttonXoa;
-        private System.Windows.Forms.Label labelPath;
-        private System.Windows.Forms.Button buttonThemHPExcel;
-        private System.Windows.Forms.Button buttonSave;
     }
 }
