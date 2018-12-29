@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelPath = new System.Windows.Forms.Label();
+            this.buttonThemHPExcel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonThemLopHP = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
@@ -42,6 +45,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelPath);
+            this.panel1.Controls.Add(this.buttonThemHPExcel);
+            this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonXoa);
             this.panel1.Controls.Add(this.buttonThemLopHP);
             this.panel1.Controls.Add(this.buttonBack);
@@ -54,6 +60,43 @@
             this.panel1.Size = new System.Drawing.Size(806, 504);
             this.panel1.TabIndex = 2;
             // 
+            // labelPath
+            // 
+            this.labelPath.AutoSize = true;
+            this.labelPath.Location = new System.Drawing.Point(151, 439);
+            this.labelPath.Name = "labelPath";
+            this.labelPath.Size = new System.Drawing.Size(29, 13);
+            this.labelPath.TabIndex = 22;
+            this.labelPath.Text = "Path";
+            this.labelPath.Visible = false;
+            // 
+            // buttonThemHPExcel
+            // 
+            this.buttonThemHPExcel.Image = global::QuanLyDiem.Properties.Resources.csv_321;
+            this.buttonThemHPExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonThemHPExcel.Location = new System.Drawing.Point(154, 457);
+            this.buttonThemHPExcel.Name = "buttonThemHPExcel";
+            this.buttonThemHPExcel.Size = new System.Drawing.Size(90, 33);
+            this.buttonThemHPExcel.TabIndex = 21;
+            this.buttonThemHPExcel.Text = "Excel ...";
+            this.buttonThemHPExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonThemHPExcel.UseVisualStyleBackColor = true;
+            this.buttonThemHPExcel.Click += new System.EventHandler(this.buttonThemHPExcel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = global::QuanLyDiem.Properties.Resources.Save__1_;
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(250, 457);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(76, 35);
+            this.buttonSave.TabIndex = 20;
+            this.buttonSave.Text = "Lưu";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // buttonXoa
             // 
             this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -64,7 +107,6 @@
             this.buttonXoa.TabIndex = 3;
             this.buttonXoa.Text = "Xóa Học Phần";
             this.buttonXoa.UseVisualStyleBackColor = true;
-            this.buttonXoa.Visible = false;
             this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // buttonThemLopHP
@@ -77,7 +119,6 @@
             this.buttonThemLopHP.TabIndex = 3;
             this.buttonThemLopHP.Text = "Thêm Học Phần";
             this.buttonThemLopHP.UseVisualStyleBackColor = true;
-            this.buttonThemLopHP.Visible = false;
             this.buttonThemLopHP.Click += new System.EventHandler(this.buttonThemLopHP_Click);
             // 
             // buttonBack
@@ -142,6 +183,7 @@
             this.Name = "ViewLopHP";
             this.Text = "ViewLopHP";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -157,5 +199,8 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonThemLopHP;
         private System.Windows.Forms.Button buttonXoa;
+        private System.Windows.Forms.Label labelPath;
+        private System.Windows.Forms.Button buttonThemHPExcel;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

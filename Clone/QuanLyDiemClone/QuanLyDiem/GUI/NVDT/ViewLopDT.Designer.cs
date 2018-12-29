@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(806, 514);
             this.panel1.TabIndex = 4;
@@ -61,7 +61,7 @@
             this.buttonXoaLop.Image = global::QuanLyDiem.Properties.Resources.important;
             this.buttonXoaLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonXoaLop.Location = new System.Drawing.Point(600, 469);
-            this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonXoaLop.Margin = new System.Windows.Forms.Padding(2);
             this.buttonXoaLop.Name = "buttonXoaLop";
             this.buttonXoaLop.Size = new System.Drawing.Size(101, 43);
             this.buttonXoaLop.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.buttonAddClass.Image = global::QuanLyDiem.Properties.Resources.Ribbon_Add_32x32;
             this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddClass.Location = new System.Drawing.Point(472, 469);
-            this.buttonAddClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddClass.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddClass.Name = "buttonAddClass";
             this.buttonAddClass.Size = new System.Drawing.Size(115, 43);
             this.buttonAddClass.TabIndex = 3;
@@ -95,7 +95,7 @@
             this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.thoat;
             this.buttonBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBack.Location = new System.Drawing.Point(716, 468);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(88, 44);
             this.buttonBack.TabIndex = 2;
@@ -111,7 +111,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(160, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(645, 453);
             this.panel2.TabIndex = 1;
@@ -123,7 +123,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -136,7 +136,7 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(2, 10);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(154, 454);
             this.treeView1.TabIndex = 0;
@@ -149,7 +149,7 @@
             this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(806, 514);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewLopDT";
             this.Text = "ViewLopDT";
             this.panel1.ResumeLayout(false);

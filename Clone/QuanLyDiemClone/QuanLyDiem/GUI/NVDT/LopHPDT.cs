@@ -652,7 +652,7 @@ namespace QuanLyDiem.GUI.NVDT
                     MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 int key;
-                if (r.Cells["Mã HV"].Value.ToString().Trim().Length!=0)
+                if (r.Cells["Mã HV"].Value.ToString().Trim()!="")
                 {
                     key =bLL.UpdateKQHP(new KetQuaHocPhan{
                     DiemBT = DBT,
