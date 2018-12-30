@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMore = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,6 +45,7 @@
             this.dataGridViewXemDiem = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDTBvXL)).BeginInit();
@@ -65,21 +67,24 @@
             this.panel1.Controls.Add(this.dataGridViewXemDiem);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 466);
+            this.panel1.Size = new System.Drawing.Size(816, 574);
             this.panel1.TabIndex = 1;
             // 
             // buttonMore
             // 
+            this.buttonMore.BackColor = System.Drawing.Color.White;
             this.buttonMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonMore.Location = new System.Drawing.Point(386, 41);
+            this.buttonMore.Image = global::QuanLyDiem.Properties.Resources.student_id_icon;
+            this.buttonMore.Location = new System.Drawing.Point(722, 14);
+            this.buttonMore.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMore.Name = "buttonMore";
-            this.buttonMore.Size = new System.Drawing.Size(150, 23);
+            this.buttonMore.Size = new System.Drawing.Size(82, 56);
             this.buttonMore.TabIndex = 98;
-            this.buttonMore.Text = "Thông tin thêm >>>>";
-            this.buttonMore.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonMore, "Thông tin thêm");
+            this.buttonMore.UseVisualStyleBackColor = false;
             this.buttonMore.Click += new System.EventHandler(this.buttonMore_Click);
             // 
             // panel2
@@ -87,18 +92,19 @@
             this.panel2.Controls.Add(this.radioButtonHocKi);
             this.panel2.Controls.Add(this.radioButtonQuaTrinh);
             this.panel2.Controls.Add(this.radioButtonNamHoc);
-            this.panel2.Location = new System.Drawing.Point(14, 193);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(19, 238);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(270, 32);
+            this.panel2.Size = new System.Drawing.Size(360, 39);
             this.panel2.TabIndex = 97;
             // 
             // radioButtonHocKi
             // 
             this.radioButtonHocKi.AutoSize = true;
-            this.radioButtonHocKi.Location = new System.Drawing.Point(3, 11);
+            this.radioButtonHocKi.Location = new System.Drawing.Point(4, 14);
+            this.radioButtonHocKi.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonHocKi.Name = "radioButtonHocKi";
-            this.radioButtonHocKi.Size = new System.Drawing.Size(57, 17);
+            this.radioButtonHocKi.Size = new System.Drawing.Size(70, 21);
             this.radioButtonHocKi.TabIndex = 87;
             this.radioButtonHocKi.TabStop = true;
             this.radioButtonHocKi.Text = "Học Kì";
@@ -108,9 +114,10 @@
             // radioButtonQuaTrinh
             // 
             this.radioButtonQuaTrinh.AutoSize = true;
-            this.radioButtonQuaTrinh.Location = new System.Drawing.Point(172, 11);
+            this.radioButtonQuaTrinh.Location = new System.Drawing.Point(229, 14);
+            this.radioButtonQuaTrinh.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonQuaTrinh.Name = "radioButtonQuaTrinh";
-            this.radioButtonQuaTrinh.Size = new System.Drawing.Size(72, 17);
+            this.radioButtonQuaTrinh.Size = new System.Drawing.Size(93, 21);
             this.radioButtonQuaTrinh.TabIndex = 89;
             this.radioButtonQuaTrinh.TabStop = true;
             this.radioButtonQuaTrinh.Text = "Quá Trình";
@@ -120,9 +127,10 @@
             // radioButtonNamHoc
             // 
             this.radioButtonNamHoc.AutoSize = true;
-            this.radioButtonNamHoc.Location = new System.Drawing.Point(75, 11);
+            this.radioButtonNamHoc.Location = new System.Drawing.Point(100, 14);
+            this.radioButtonNamHoc.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNamHoc.Name = "radioButtonNamHoc";
-            this.radioButtonNamHoc.Size = new System.Drawing.Size(70, 17);
+            this.radioButtonNamHoc.Size = new System.Drawing.Size(87, 21);
             this.radioButtonNamHoc.TabIndex = 88;
             this.radioButtonNamHoc.TabStop = true;
             this.radioButtonNamHoc.Text = "Năm Học";
@@ -131,68 +139,81 @@
             // 
             // textBoxNAME
             // 
-            this.textBoxNAME.Location = new System.Drawing.Point(81, 41);
+            this.textBoxNAME.Location = new System.Drawing.Point(108, 50);
+            this.textBoxNAME.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNAME.Name = "textBoxNAME";
             this.textBoxNAME.ReadOnly = true;
-            this.textBoxNAME.Size = new System.Drawing.Size(285, 20);
+            this.textBoxNAME.Size = new System.Drawing.Size(379, 22);
             this.textBoxNAME.TabIndex = 95;
             // 
             // textBoxMSHV
             // 
-            this.textBoxMSHV.Location = new System.Drawing.Point(81, 11);
+            this.textBoxMSHV.Location = new System.Drawing.Point(108, 14);
+            this.textBoxMSHV.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMSHV.Name = "textBoxMSHV";
             this.textBoxMSHV.ReadOnly = true;
-            this.textBoxMSHV.Size = new System.Drawing.Size(285, 20);
+            this.textBoxMSHV.Size = new System.Drawing.Size(379, 22);
             this.textBoxMSHV.TabIndex = 96;
             // 
             // buttonXem
             // 
-            this.buttonXem.Location = new System.Drawing.Point(518, 202);
+            this.buttonXem.BackColor = System.Drawing.Color.White;
+            this.buttonXem.Image = global::QuanLyDiem.Properties.Resources.Programming_Show_Property_icon__1_;
+            this.buttonXem.Location = new System.Drawing.Point(704, 238);
+            this.buttonXem.Margin = new System.Windows.Forms.Padding(4);
             this.buttonXem.Name = "buttonXem";
-            this.buttonXem.Size = new System.Drawing.Size(75, 23);
+            this.buttonXem.Size = new System.Drawing.Size(100, 39);
             this.buttonXem.TabIndex = 92;
-            this.buttonXem.Text = "Xem";
-            this.buttonXem.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonXem, "Xem");
+            this.buttonXem.UseVisualStyleBackColor = false;
             this.buttonXem.Click += new System.EventHandler(this.buttonXem_Click);
             // 
             // buttonOut
             // 
-            this.buttonOut.Location = new System.Drawing.Point(393, 434);
+            this.buttonOut.BackColor = System.Drawing.Color.White;
+            this.buttonOut.Image = global::QuanLyDiem.Properties.Resources.export_excel_icon;
+            this.buttonOut.Location = new System.Drawing.Point(722, 529);
+            this.buttonOut.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOut.Name = "buttonOut";
-            this.buttonOut.Size = new System.Drawing.Size(87, 23);
+            this.buttonOut.Size = new System.Drawing.Size(41, 38);
             this.buttonOut.TabIndex = 93;
-            this.buttonOut.Text = "Xuât ra Excel";
-            this.buttonOut.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonOut, "Xuât ra Excel");
+            this.buttonOut.UseVisualStyleBackColor = false;
             this.buttonOut.Click += new System.EventHandler(this.buttonOut_Click);
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(518, 432);
+            this.buttonBack.BackColor = System.Drawing.Color.White;
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_right_up_icon__1_;
+            this.buttonBack.Location = new System.Drawing.Point(771, 529);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.Size = new System.Drawing.Size(41, 38);
             this.buttonBack.TabIndex = 94;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonBack, "Trở lại");
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // comboBoxDoanXem
             // 
             this.comboBoxDoanXem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDoanXem.FormattingEnabled = true;
-            this.comboBoxDoanXem.Location = new System.Drawing.Point(289, 204);
+            this.comboBoxDoanXem.Location = new System.Drawing.Point(430, 246);
+            this.comboBoxDoanXem.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDoanXem.Name = "comboBoxDoanXem";
-            this.comboBoxDoanXem.Size = new System.Drawing.Size(192, 21);
+            this.comboBoxDoanXem.Size = new System.Drawing.Size(255, 24);
             this.comboBoxDoanXem.TabIndex = 90;
             // 
             // dataGridViewDTBvXL
             // 
             this.dataGridViewDTBvXL.AllowUserToAddRows = false;
             this.dataGridViewDTBvXL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDTBvXL.Location = new System.Drawing.Point(3, 65);
+            this.dataGridViewDTBvXL.Location = new System.Drawing.Point(4, 80);
+            this.dataGridViewDTBvXL.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDTBvXL.Name = "dataGridViewDTBvXL";
             this.dataGridViewDTBvXL.ReadOnly = true;
             this.dataGridViewDTBvXL.RowHeadersVisible = false;
-            this.dataGridViewDTBvXL.Size = new System.Drawing.Size(606, 124);
+            this.dataGridViewDTBvXL.Size = new System.Drawing.Size(808, 153);
             this.dataGridViewDTBvXL.TabIndex = 85;
             this.dataGridViewDTBvXL.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDTBvXL_RowPostPaint);
             // 
@@ -200,12 +221,13 @@
             // 
             this.dataGridViewXemDiem.AllowUserToAddRows = false;
             this.dataGridViewXemDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewXemDiem.Location = new System.Drawing.Point(3, 231);
+            this.dataGridViewXemDiem.Location = new System.Drawing.Point(4, 284);
+            this.dataGridViewXemDiem.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewXemDiem.Name = "dataGridViewXemDiem";
             this.dataGridViewXemDiem.ReadOnly = true;
             this.dataGridViewXemDiem.RowHeadersVisible = false;
             this.dataGridViewXemDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewXemDiem.Size = new System.Drawing.Size(606, 195);
+            this.dataGridViewXemDiem.Size = new System.Drawing.Size(808, 240);
             this.dataGridViewXemDiem.TabIndex = 86;
             this.dataGridViewXemDiem.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewXemDiem_CellDoubleClick);
             this.dataGridViewXemDiem.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewXemDiem_RowPostPaint);
@@ -213,31 +235,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 41);
+            this.label2.Location = new System.Drawing.Point(29, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 83;
             this.label2.Text = "Họ và tên";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 14);
+            this.label1.Location = new System.Drawing.Point(29, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 84;
             this.label1.Text = "MSHV";
             // 
             // HocVienDT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(615, 469);
+            this.ClientSize = new System.Drawing.Size(820, 577);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HocVienDT";
             this.Text = "HocVienDT";
             this.Load += new System.EventHandler(this.HocVienDT_Load);
@@ -269,5 +293,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonMore;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

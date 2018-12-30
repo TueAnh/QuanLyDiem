@@ -56,15 +56,16 @@
             this.panel2.Controls.Add(this.labelID);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(786, 367);
+            this.panel2.Size = new System.Drawing.Size(786, 348);
             this.panel2.TabIndex = 4;
             // 
             // labelNoti
             // 
+            this.labelNoti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNoti.AutoSize = true;
             this.labelNoti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelNoti.ForeColor = System.Drawing.Color.Red;
-            this.labelNoti.Location = new System.Drawing.Point(348, 233);
+            this.labelNoti.Location = new System.Drawing.Point(351, 233);
             this.labelNoti.Name = "labelNoti";
             this.labelNoti.Size = new System.Drawing.Size(217, 18);
             this.labelNoti.TabIndex = 7;
@@ -168,8 +169,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
-            this.ClientSize = new System.Drawing.Size(793, 374);
+            this.ClientSize = new System.Drawing.Size(793, 356);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -135,8 +135,15 @@ namespace QuanLyDiem.GUI
         private void buttonluuAnh_Click(object sender, EventArgs e)
         {
             MemoryStream stream = new MemoryStream();
-            pictureBox1.Image.Save(stream, ImageFormat.Jpeg);
-            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+            try
+            {
+                pictureBox1.Image.Save(stream, ImageFormat.Jpeg);
+                pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+            }
+            catch
+            {
+                MessageBox.Show("Nên định dạng ảnh PNG hoặc JPG.");
+            }
             try
             {
                 Login_BLL.BLL.luuAnh_BLL(user.typeAcc,user.ID, stream.ToArray());

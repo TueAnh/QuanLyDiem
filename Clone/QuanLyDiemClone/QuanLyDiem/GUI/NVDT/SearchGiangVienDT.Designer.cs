@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -43,6 +44,7 @@
             this.textBoxSearchMaGV_HoTen = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -55,9 +57,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 497);
+            this.panel1.Size = new System.Drawing.Size(1067, 612);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -66,9 +68,9 @@
             this.panel2.Controls.Add(this.treeView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 497);
+            this.panel2.Size = new System.Drawing.Size(1067, 612);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -77,10 +79,10 @@
             this.panel3.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(158, 11);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(211, 14);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(639, 475);
+            this.panel3.Size = new System.Drawing.Size(851, 584);
             this.panel3.TabIndex = 13;
             // 
             // panel4
@@ -96,107 +98,134 @@
             this.panel4.Controls.Add(this.textBoxSearchMaGV_HoTen);
             this.panel4.Controls.Add(this.dataGridView);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.ForeColor = System.Drawing.Color.Black;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(637, 473);
+            this.panel4.Size = new System.Drawing.Size(849, 582);
             this.panel4.TabIndex = 0;
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Black;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Theo Mã",
             "Theo Tên"});
-            this.comboBox1.Location = new System.Drawing.Point(131, 113);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(21, 128);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 21);
+            this.comboBox1.Size = new System.Drawing.Size(187, 28);
             this.comboBox1.TabIndex = 24;
             // 
             // buttonDel
             // 
+            this.buttonDel.BackColor = System.Drawing.Color.White;
             this.buttonDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonDel.Location = new System.Drawing.Point(428, 427);
-            this.buttonDel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDel.Image = global::QuanLyDiem.Properties.Resources.user_remove_icon;
+            this.buttonDel.Location = new System.Drawing.Point(620, 507);
+            this.buttonDel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(113, 31);
+            this.buttonDel.Size = new System.Drawing.Size(100, 57);
             this.buttonDel.TabIndex = 23;
-            this.buttonDel.Text = "Xóa giảng viên";
-            this.buttonDel.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonDel, "Xóa giảng viên");
+            this.buttonDel.UseVisualStyleBackColor = false;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonAddGV
             // 
+            this.buttonAddGV.BackColor = System.Drawing.Color.White;
             this.buttonAddGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonAddGV.Location = new System.Drawing.Point(279, 427);
+            this.buttonAddGV.Image = global::QuanLyDiem.Properties.Resources.user_add_icon;
+            this.buttonAddGV.Location = new System.Drawing.Point(513, 507);
+            this.buttonAddGV.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddGV.Name = "buttonAddGV";
-            this.buttonAddGV.Size = new System.Drawing.Size(144, 32);
+            this.buttonAddGV.Size = new System.Drawing.Size(100, 57);
             this.buttonAddGV.TabIndex = 22;
-            this.buttonAddGV.Text = "Thêm giảng viên";
-            this.buttonAddGV.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonAddGV, "Thêm giảng viên");
+            this.buttonAddGV.UseVisualStyleBackColor = false;
             this.buttonAddGV.Click += new System.EventHandler(this.buttonAddGV_Click);
             // 
             // buttonBack
             // 
+            this.buttonBack.BackColor = System.Drawing.Color.White;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonBack.Location = new System.Drawing.Point(546, 427);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_down_left_icon;
+            this.buttonBack.Location = new System.Drawing.Point(726, 507);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 32);
+            this.buttonBack.Size = new System.Drawing.Size(100, 57);
             this.buttonBack.TabIndex = 21;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonBack, "Trở lại");
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Location = new System.Drawing.Point(2, 2);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Location = new System.Drawing.Point(3, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(633, 57);
+            this.panel5.Size = new System.Drawing.Size(843, 70);
             this.panel5.TabIndex = 20;
             // 
             // buttonSort
             // 
+            this.buttonSort.BackColor = System.Drawing.Color.White;
             this.buttonSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSort.Location = new System.Drawing.Point(16, 111);
+            this.buttonSort.Image = global::QuanLyDiem.Properties.Resources.data_sort_icon;
+            this.buttonSort.Location = new System.Drawing.Point(215, 116);
+            this.buttonSort.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSort.Name = "buttonSort";
-            this.buttonSort.Size = new System.Drawing.Size(110, 23);
+            this.buttonSort.Size = new System.Drawing.Size(55, 50);
             this.buttonSort.TabIndex = 19;
-            this.buttonSort.Text = "Sort";
-            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.buttonSort, "Bộ lọc");
+            this.buttonSort.UseVisualStyleBackColor = false;
             this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // buttonReLoad
             // 
+            this.buttonReLoad.BackColor = System.Drawing.Color.White;
             this.buttonReLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonReLoad.Location = new System.Drawing.Point(546, 111);
+            this.buttonReLoad.Image = global::QuanLyDiem.Properties.Resources.Actions_view_refresh_icon__1_;
+            this.buttonReLoad.Location = new System.Drawing.Point(21, 507);
+            this.buttonReLoad.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReLoad.Name = "buttonReLoad";
-            this.buttonReLoad.Size = new System.Drawing.Size(75, 23);
+            this.buttonReLoad.Size = new System.Drawing.Size(100, 57);
             this.buttonReLoad.TabIndex = 18;
-            this.buttonReLoad.Text = "Reload";
-            this.buttonReLoad.UseVisualStyleBackColor = true;
+            this.buttonReLoad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.buttonReLoad, "Làm mới");
+            this.buttonReLoad.UseVisualStyleBackColor = false;
             this.buttonReLoad.Click += new System.EventHandler(this.buttonReLoad_Click);
             // 
             // buttonSearch
             // 
+            this.buttonSearch.BackColor = System.Drawing.Color.White;
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSearch.Location = new System.Drawing.Point(546, 79);
+            this.buttonSearch.Image = global::QuanLyDiem.Properties.Resources.search_button_icon;
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(703, 92);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(139, 38);
             this.buttonSearch.TabIndex = 17;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Text = "Tìm kiếm";
+            this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.buttonSearch, "Tìm kiếm");
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // textBoxSearchMaGV_HoTen
             // 
-            this.textBoxSearchMaGV_HoTen.Location = new System.Drawing.Point(303, 82);
+            this.textBoxSearchMaGV_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxSearchMaGV_HoTen.Location = new System.Drawing.Point(404, 98);
+            this.textBoxSearchMaGV_HoTen.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearchMaGV_HoTen.Name = "textBoxSearchMaGV_HoTen";
-            this.textBoxSearchMaGV_HoTen.Size = new System.Drawing.Size(238, 20);
+            this.textBoxSearchMaGV_HoTen.Size = new System.Drawing.Size(291, 26);
             this.textBoxSearchMaGV_HoTen.TabIndex = 16;
             // 
             // dataGridView
@@ -206,32 +235,33 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(16, 141);
+            this.dataGridView.Location = new System.Drawing.Point(21, 174);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(604, 266);
+            this.dataGridView.Size = new System.Drawing.Size(805, 327);
             this.dataGridView.TabIndex = 15;
             this.dataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseDoubleClick);
             this.dataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(4, 11);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.treeView1.Location = new System.Drawing.Point(5, 14);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(144, 474);
+            this.treeView1.Size = new System.Drawing.Size(191, 582);
             this.treeView1.TabIndex = 12;
             // 
             // SearchGiangVienDT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(800, 497);
+            this.ClientSize = new System.Drawing.Size(1067, 612);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SearchGiangVienDT";
             this.Text = "SearchGiangVien";
             this.panel1.ResumeLayout(false);
@@ -261,5 +291,6 @@
         private System.Windows.Forms.TextBox textBoxSearchMaGV_HoTen;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

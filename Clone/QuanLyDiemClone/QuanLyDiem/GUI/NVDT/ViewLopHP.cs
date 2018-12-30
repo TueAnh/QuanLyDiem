@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace QuanLyDiem.GUI.NVDT
 {
     public partial class ViewLopHP : Form
@@ -30,6 +30,9 @@ namespace QuanLyDiem.GUI.NVDT
         {
             if (FormLogin.User.typeAcc != 3)
             {
+                buttonThemLopHP.Visible = false;
+                buttonXoa.Visible = false;
+                buttonThemHPExcel.Visible = false;
                 buttonThemLopHP.Enabled = false;
                 buttonXoa.Enabled = false;
             }
@@ -88,19 +91,33 @@ namespace QuanLyDiem.GUI.NVDT
         //
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            if (e.RowIndex < dataGridView1.Rows.Count)
-                this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+            try
+            {
+                if (e.RowIndex < dataGridView1.Rows.Count)
+                    this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
+            }
+            catch
+            {
+
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            try
             {
-                string MaHP = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
-                LopHPDT f = new LopHPDT(MaHP);// mở form HPDT
-                f.addControl += new LopHPDT.AddRemoveControl(AddControlPanel);
-                f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
-                AddControlPanel(f);
+                if (e.RowIndex != -1)
+                {
+                    string MaHP = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
+                    LopHPDT f = new LopHPDT(MaHP);// mở form HPDT
+                    f.addControl += new LopHPDT.AddRemoveControl(AddControlPanel);
+                    f.removeControl += new LopHPDT.AddRemoveControl(RemoveControlPanel);
+                    AddControlPanel(f);
+                }
+            }
+            catch
+            {
+
             }
 
         }
@@ -117,6 +134,7 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 buttonThemLopHP.Visible = false;
                 buttonXoa.Visible = false;
+                buttonThemHPExcel.Visible = false;
             }
             this.panel2.Controls[panel2.Controls.Count - 2].Hide();
             this.panel2.Controls[panel2.Controls.Count - 1].Show();
@@ -135,11 +153,7 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0 || dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString()==null)
-            {
-                MessageBox.Show("Không có học phần để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+            try
             {
                 var hp = dataGridView1.SelectedRows[0].Cells["Mã HP"].Value.ToString();
                 if (hp != null)
@@ -155,6 +169,101 @@ namespace QuanLyDiem.GUI.NVDT
                     }
                 }
             }
+            catch
+            {
+
+            }
+        }
+
+        private void buttonThemHPExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fopen = new OpenFileDialog();
+            //Duoi file
+            fopen.Filter = "(Tất cả các tệp)|*.*|(Các tệp excel)|*.xlsx";
+            fopen.ShowDialog();
+            //xu li
+            if (fopen.FileName != "")
+            {
+                labelPath.Text = fopen.FileName;
+                labelPath.Visible = true;
+                //tao doi tuong Excel
+                Excel.Application app = new Excel.Application();
+                //Mở tập excel
+                Excel.Workbook wb = app.Workbooks.Open(fopen.FileName);
+                try
+                {
+                    Excel._Worksheet sheet = wb.Sheets[1];
+                    Excel.Range range = sheet.UsedRange;
+                    //doc du lieu
+                    int rows = range.Rows.Count;
+                    int cols = range.Columns.Count;
+                    DataTable tb = new DataTable();
+                    //doc tieu de
+                    for (int c = 1; c <= cols; c++)
+                    {
+                        string columName = range.Cells[1, c].Value.ToString();
+                        tb.Columns.Add(columName);
+                    }
+
+                    for (int r = 2; r <= rows; r++)
+                    {
+                        DataRow row = tb.NewRow();
+                        for (int c = 1; c <= cols; c++)
+                        {
+                            var x = range.Cells[r, c].Value;
+                            row[c - 1] = x;
+                        }
+                        tb.Rows.Add(row);
+                    }
+                    dataGridView1.DataSource = tb;
+                    buttonSave.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    labelPath.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn không chọn tệp nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            ThemLopHP_BLL themHP = new ThemLopHP_BLL();
+            try
+            {
+                foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                if (
+                themHP.AddHP_BLL(new HocPhan
+                {
+                    MaHP = r.Cells["Mã Học Phần"].Value.ToString().Trim(),
+                    TenHP = r.Cells["Tên Học Phần"].Value.ToString().Trim(),
+                    SoTC = Convert.ToInt16(r.Cells["Số Tín Chỉ "].Value.ToString().Trim()),
+                    SoTiet = Convert.ToInt16(r.Cells["Số Tiết"].Value.ToString().Trim()),
+                    PhanTramDGK = Convert.ToDouble(r.Cells["PT Điểm Giữa Kì"].Value.ToString().Trim()),
+                    PhanTramDT = Convert.ToDouble(r.Cells["PT Điểm Thi"].Value.ToString().Trim()),
+                    MaHK = r.Cells["Mã Học Kì"].Value.ToString().Trim(),
+                    ID = r.Cells["ID"].Value.ToString().Trim()
+                }))
+                    r.DefaultCellStyle.BackColor = Color.Lime;
+                else
+                    r.DefaultCellStyle.BackColor = Color.Red;
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Excel không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            buttonSave.Visible = false;
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
 
         public void RemoveControlPanel(Form form)
@@ -166,6 +275,7 @@ namespace QuanLyDiem.GUI.NVDT
             {
                 buttonThemLopHP.Visible = true;
                 buttonXoa.Visible = true;
+                buttonThemHPExcel.Visible = true;
             }
             this.panel2.Controls[panel2.Controls.Count - 1].Show();
         }

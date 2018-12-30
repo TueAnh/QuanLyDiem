@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxMaHP = new System.Windows.Forms.TextBox();
             this.textBoxMaHV = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,7 +61,7 @@
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.MaHP);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 129);
+            this.panel1.Location = new System.Drawing.Point(2, 178);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(849, 249);
             this.panel1.TabIndex = 0;
@@ -155,25 +157,29 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(650, 201);
+            this.buttonBack.BackColor = System.Drawing.Color.White;
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_right_up_icon__1_;
+            this.buttonBack.Location = new System.Drawing.Point(656, 192);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(93, 28);
+            this.buttonBack.Size = new System.Drawing.Size(93, 42);
             this.buttonBack.TabIndex = 22;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonBack, "Trở lại");
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.White;
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(163, 201);
+            this.buttonSave.Image = global::QuanLyDiem.Properties.Resources.Save_icon;
+            this.buttonSave.Location = new System.Drawing.Point(162, 192);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(93, 28);
+            this.buttonSave.Size = new System.Drawing.Size(93, 42);
             this.buttonSave.TabIndex = 23;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonSave, "Lưu");
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // MaHP
@@ -203,7 +209,7 @@
             this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(2, 12);
+            this.panel3.Location = new System.Drawing.Point(2, 61);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(849, 89);
             this.panel3.TabIndex = 1;
@@ -223,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 387);
+            this.ClientSize = new System.Drawing.Size(853, 497);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "SuaDiemHocVienDT";
@@ -256,5 +262,6 @@
         private System.Windows.Forms.TextBox textBoxMaHV;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

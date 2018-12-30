@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonInBangDiem = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.dataGridViewXemDiem = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDTBvXL)).BeginInit();
@@ -71,41 +73,47 @@
             this.panel1.Controls.Add(this.dataGridViewXemDiem);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(9, 5);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(12, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 561);
+            this.panel1.Size = new System.Drawing.Size(1029, 690);
             this.panel1.TabIndex = 1;
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(694, 530);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.BackColor = System.Drawing.Color.White;
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_down_left_icon;
+            this.buttonBack.Location = new System.Drawing.Point(920, 649);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(70, 27);
+            this.buttonBack.Size = new System.Drawing.Size(100, 39);
             this.buttonBack.TabIndex = 86;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonBack, "Trở lại");
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonInBangDiem
             // 
+            this.buttonInBangDiem.BackColor = System.Drawing.Color.White;
             this.buttonInBangDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonInBangDiem.Location = new System.Drawing.Point(621, 314);
+            this.buttonInBangDiem.Image = global::QuanLyDiem.Properties.Resources.export_excel_icon;
+            this.buttonInBangDiem.Location = new System.Drawing.Point(828, 375);
+            this.buttonInBangDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonInBangDiem.Name = "buttonInBangDiem";
-            this.buttonInBangDiem.Size = new System.Drawing.Size(111, 23);
+            this.buttonInBangDiem.Size = new System.Drawing.Size(100, 39);
             this.buttonInBangDiem.TabIndex = 85;
-            this.buttonInBangDiem.Text = "In Bảng Điểm";
-            this.buttonInBangDiem.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonInBangDiem, "In Bảng Điểm");
+            this.buttonInBangDiem.UseVisualStyleBackColor = false;
             this.buttonInBangDiem.Click += new System.EventHandler(this.buttonInBangDiem_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::QuanLyDiem.Properties.Resources._47187885_581438345610674_3296136835582918656_n;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(113, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 121);
             this.pictureBox1.TabIndex = 84;
             this.pictureBox1.TabStop = false;
             // 
@@ -113,9 +121,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(223, 256);
+            this.label4.Location = new System.Drawing.Point(297, 315);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(322, 20);
+            this.label4.Size = new System.Drawing.Size(415, 25);
             this.label4.TabIndex = 83;
             this.label4.Text = "CHI TIẾT KẾT QUẢ HỌC TẬP CÁC HỌC KỲ";
             // 
@@ -123,68 +132,79 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(266, 82);
+            this.label3.Location = new System.Drawing.Point(355, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 20);
+            this.label3.Size = new System.Drawing.Size(307, 25);
             this.label3.TabIndex = 82;
             this.label3.Text = "TỔNG HỢP KẾT QUẢ HỌC TẬP";
             // 
             // textBoxNAME
             // 
             this.textBoxNAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxNAME.Location = new System.Drawing.Point(250, 34);
+            this.textBoxNAME.Location = new System.Drawing.Point(380, 51);
+            this.textBoxNAME.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNAME.Name = "textBoxNAME";
             this.textBoxNAME.ReadOnly = true;
-            this.textBoxNAME.Size = new System.Drawing.Size(285, 23);
+            this.textBoxNAME.Size = new System.Drawing.Size(379, 26);
             this.textBoxNAME.TabIndex = 80;
             // 
             // textBoxMSHV
             // 
             this.textBoxMSHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMSHV.Location = new System.Drawing.Point(250, 13);
+            this.textBoxMSHV.Location = new System.Drawing.Point(380, 25);
+            this.textBoxMSHV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxMSHV.Name = "textBoxMSHV";
             this.textBoxMSHV.ReadOnly = true;
-            this.textBoxMSHV.Size = new System.Drawing.Size(285, 23);
+            this.textBoxMSHV.Size = new System.Drawing.Size(379, 26);
             this.textBoxMSHV.TabIndex = 81;
             // 
             // buttonMore
             // 
+            this.buttonMore.BackColor = System.Drawing.Color.White;
             this.buttonMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonMore.Location = new System.Drawing.Point(540, 34);
+            this.buttonMore.Image = global::QuanLyDiem.Properties.Resources.student_id_icon;
+            this.buttonMore.Location = new System.Drawing.Point(894, 12);
+            this.buttonMore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonMore.Name = "buttonMore";
-            this.buttonMore.Size = new System.Drawing.Size(150, 23);
+            this.buttonMore.Size = new System.Drawing.Size(82, 56);
             this.buttonMore.TabIndex = 78;
-            this.buttonMore.Text = "Thông tin thêm >>>>";
-            this.buttonMore.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonMore, "Thông tin thêm");
+            this.buttonMore.UseVisualStyleBackColor = false;
             this.buttonMore.Visible = false;
             this.buttonMore.Click += new System.EventHandler(this.buttonMore_Click);
             // 
             // buttonXem
             // 
+            this.buttonXem.BackColor = System.Drawing.Color.White;
             this.buttonXem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonXem.Location = new System.Drawing.Point(540, 314);
+            this.buttonXem.Image = global::QuanLyDiem.Properties.Resources.Programming_Show_Property_icon__1_;
+            this.buttonXem.Location = new System.Drawing.Point(720, 375);
+            this.buttonXem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonXem.Name = "buttonXem";
-            this.buttonXem.Size = new System.Drawing.Size(75, 23);
+            this.buttonXem.Size = new System.Drawing.Size(100, 39);
             this.buttonXem.TabIndex = 79;
-            this.buttonXem.Text = "Xem";
-            this.buttonXem.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonXem, "Xem");
+            this.buttonXem.UseVisualStyleBackColor = false;
             this.buttonXem.Click += new System.EventHandler(this.buttonXem_Click);
             // 
             // comboBoxDoanXem
             // 
             this.comboBoxDoanXem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDoanXem.FormattingEnabled = true;
-            this.comboBoxDoanXem.Location = new System.Drawing.Point(143, 314);
+            this.comboBoxDoanXem.Location = new System.Drawing.Point(191, 386);
+            this.comboBoxDoanXem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDoanXem.Name = "comboBoxDoanXem";
-            this.comboBoxDoanXem.Size = new System.Drawing.Size(380, 21);
+            this.comboBoxDoanXem.Size = new System.Drawing.Size(505, 24);
             this.comboBoxDoanXem.TabIndex = 77;
             // 
             // radioButtonHocKi
             // 
             this.radioButtonHocKi.AutoSize = true;
-            this.radioButtonHocKi.Location = new System.Drawing.Point(449, 291);
+            this.radioButtonHocKi.Location = new System.Drawing.Point(599, 358);
+            this.radioButtonHocKi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonHocKi.Name = "radioButtonHocKi";
-            this.radioButtonHocKi.Size = new System.Drawing.Size(57, 17);
+            this.radioButtonHocKi.Size = new System.Drawing.Size(70, 21);
             this.radioButtonHocKi.TabIndex = 74;
             this.radioButtonHocKi.TabStop = true;
             this.radioButtonHocKi.Text = "Học Kì";
@@ -194,9 +214,10 @@
             // radioButtonNamHoc
             // 
             this.radioButtonNamHoc.AutoSize = true;
-            this.radioButtonNamHoc.Location = new System.Drawing.Point(303, 291);
+            this.radioButtonNamHoc.Location = new System.Drawing.Point(404, 358);
+            this.radioButtonNamHoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonNamHoc.Name = "radioButtonNamHoc";
-            this.radioButtonNamHoc.Size = new System.Drawing.Size(70, 17);
+            this.radioButtonNamHoc.Size = new System.Drawing.Size(87, 21);
             this.radioButtonNamHoc.TabIndex = 75;
             this.radioButtonNamHoc.TabStop = true;
             this.radioButtonNamHoc.Text = "Năm Học";
@@ -206,9 +227,10 @@
             // radioButtonQuaTrinh
             // 
             this.radioButtonQuaTrinh.AutoSize = true;
-            this.radioButtonQuaTrinh.Location = new System.Drawing.Point(158, 291);
+            this.radioButtonQuaTrinh.Location = new System.Drawing.Point(211, 358);
+            this.radioButtonQuaTrinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonQuaTrinh.Name = "radioButtonQuaTrinh";
-            this.radioButtonQuaTrinh.Size = new System.Drawing.Size(72, 17);
+            this.radioButtonQuaTrinh.Size = new System.Drawing.Size(93, 21);
             this.radioButtonQuaTrinh.TabIndex = 76;
             this.radioButtonQuaTrinh.TabStop = true;
             this.radioButtonQuaTrinh.Text = "Quá Trình";
@@ -220,12 +242,13 @@
             this.dataGridViewDTBvXL.AllowUserToAddRows = false;
             this.dataGridViewDTBvXL.AllowUserToDeleteRows = false;
             this.dataGridViewDTBvXL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDTBvXL.Location = new System.Drawing.Point(8, 117);
+            this.dataGridViewDTBvXL.Location = new System.Drawing.Point(11, 144);
+            this.dataGridViewDTBvXL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDTBvXL.Name = "dataGridViewDTBvXL";
             this.dataGridViewDTBvXL.ReadOnly = true;
             this.dataGridViewDTBvXL.RowHeadersVisible = false;
             this.dataGridViewDTBvXL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDTBvXL.Size = new System.Drawing.Size(757, 126);
+            this.dataGridViewDTBvXL.Size = new System.Drawing.Size(1009, 155);
             this.dataGridViewDTBvXL.TabIndex = 72;
             this.dataGridViewDTBvXL.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDTBvXL_RowPostPaint);
             // 
@@ -234,12 +257,13 @@
             this.dataGridViewXemDiem.AllowUserToAddRows = false;
             this.dataGridViewXemDiem.AllowUserToDeleteRows = false;
             this.dataGridViewXemDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewXemDiem.Location = new System.Drawing.Point(8, 343);
+            this.dataGridViewXemDiem.Location = new System.Drawing.Point(11, 422);
+            this.dataGridViewXemDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewXemDiem.Name = "dataGridViewXemDiem";
             this.dataGridViewXemDiem.ReadOnly = true;
             this.dataGridViewXemDiem.RowHeadersVisible = false;
             this.dataGridViewXemDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewXemDiem.Size = new System.Drawing.Size(757, 181);
+            this.dataGridViewXemDiem.Size = new System.Drawing.Size(1009, 223);
             this.dataGridViewXemDiem.TabIndex = 73;
             this.dataGridViewXemDiem.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewXemDiem_RowPostPaint);
             // 
@@ -247,9 +271,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(183, 37);
+            this.label2.Location = new System.Drawing.Point(291, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 70;
             this.label2.Text = "Họ và tên";
             // 
@@ -257,22 +282,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(200, 15);
+            this.label1.Location = new System.Drawing.Point(314, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 71;
             this.label1.Text = "MSHV";
             // 
             // FormViewHV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(786, 568);
+            this.ClientSize = new System.Drawing.Size(1048, 699);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormViewHV";
             this.Text = "FormViewHV";
             this.panel1.ResumeLayout(false);
@@ -304,5 +330,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

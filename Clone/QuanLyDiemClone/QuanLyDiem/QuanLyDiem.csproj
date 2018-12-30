@@ -217,10 +217,10 @@
     <Compile Include="GUI\NVDT\ViewLopDT.Designer.cs">
       <DependentUpon>ViewLopDT.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ViewLopHP.cs">
+    <Compile Include="GUI\NVDT\ViewLopHP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ViewLopHP.Designer.cs">
+    <Compile Include="GUI\NVDT\ViewLopHP.Designer.cs">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NVDT\ThemGiangVien.cs">
@@ -256,6 +256,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyDiem.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,7 +334,7 @@
     <EmbeddedResource Include="GUI\NVDT\ViewLopDT.resx">
       <DependentUpon>ViewLopDT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ViewLopHP.resx">
+    <EmbeddedResource Include="GUI\NVDT\ViewLopHP.resx">
       <DependentUpon>ViewLopHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\ThemGiangVien.resx">
@@ -340,14 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -380,6 +380,44 @@
       <DependentUpon>QuanLyDiem.edmx</DependentUpon>
       <LastGenOutput>QuanLyDiem.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\user-add-icon.png" />
+    <None Include="Resources\user-remove-icon.png" />
+    <None Include="Resources\Programming-Show-Property-icon %281%29.png" />
+    <None Include="Resources\Programming-Show-Property-icon.png" />
+    <None Include="Resources\student-id-icon.png" />
+    <None Include="Resources\excel-icon1.png" />
+    <None Include="Resources\database-accept-icon.png" />
+    <None Include="Resources\arrow-return-right-up-icon %281%29.png" />
+    <None Include="Resources\arrow-return-right-up-icon.png" />
+    <None Include="Resources\student-boy-icon %281%29.png" />
+    <None Include="Resources\student-boy-icon.png" />
+    <None Include="Resources\database-remove-icon.png" />
+    <None Include="Resources\Actions-view-refresh-icon %281%29.png" />
+    <None Include="Resources\refresh-icon.png" />
+    <None Include="Resources\database-add-icon %281%29.png" />
+    <None Include="Resources\database-add-icon.png" />
+    <None Include="Resources\Save-icon.png" />
+    <None Include="Resources\excel-icon.png" />
+    <None Include="Resources\export-excel-icon.png" />
+    <None Include="Resources\data-sort-icon %281%29.png" />
+    <None Include="Resources\data-sort-icon.png" />
+    <None Include="Resources\icons8-slider-480.png" />
+    <None Include="Resources\Actions-view-sort-ascending-icon.png" />
+    <None Include="Resources\search-button-green-icon.png" />
+    <None Include="Resources\search-button-icon.png" />
+    <None Include="Resources\Inipagi-Business-Economic-Search.ico" />
+    <None Include="Resources\Edit-icon1.png" />
+    <None Include="Resources\Edit-icon.png" />
+    <None Include="Resources\Delete-icon.png" />
+    <None Include="Resources\Add-icon1.png" />
+    <None Include="Resources\arrow-return-down-left-icon.png" />
+    <None Include="Resources\Go-back-icon %281%29.png" />
+    <None Include="Resources\Go-back-icon.png" />
+    <None Include="Resources\Add-icon.png" />
+    <None Include="Resources\Custom-Icon-Design-Flatastic-2-Data-add.ico" />
+    <None Include="Resources\Everaldo-Kids-Icons-3floppy-mount.ico" />
+    <None Include="Resources\Flameia-Xrabbit-Floppy-yellow.ico" />
+    <None Include="Resources\Custom-Icon-Design-Pretty-Office-7-Save-as.ico" />
     <None Include="Resources\Back32.png" />
     <None Include="Resources\important.png" />
     <None Include="Resources\Ribbon_Preview_16x16.png" />
@@ -389,8 +427,6 @@
     <None Include="Resources\Ribbon_Add_32x32.png" />
     <None Include="Resources\reload32.png" />
     <None Include="Resources\refresh.png" />
-    <None Include="Resources\47187885_581438345610674_3296136835582918656_n.png" />
-    <None Include="Resources\maxresdefault.jpg" />
     <None Include="Resources\15-1479876403_660x0.jpg" />
     <None Include="Resources\Wiki-background.jpg" />
   </ItemGroup>

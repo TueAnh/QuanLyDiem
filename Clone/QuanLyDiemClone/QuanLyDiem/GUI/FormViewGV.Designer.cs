@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -35,6 +36,7 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.panelTree = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,12 +92,14 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(868, 16);
+            this.buttonBack.BackColor = System.Drawing.Color.White;
+            this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_down_left_icon;
+            this.buttonBack.Location = new System.Drawing.Point(991, 3);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(155, 23);
+            this.buttonBack.Size = new System.Drawing.Size(51, 47);
             this.buttonBack.TabIndex = 0;
-            this.buttonBack.Text = "Trở lại";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.buttonBack, "Thoát chức năng");
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // panelTree
@@ -143,5 +147,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
