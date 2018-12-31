@@ -164,26 +164,28 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonSort_Click(object sender, EventArgs e)
 		{
-			if (comboBox1.SelectedItem.ToString().Trim() == null) { MessageBox.Show("Chọn loại sắp xếp ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-			else
-			{
+            try
+            {
+                if (comboBox1.SelectedItem.ToString().Trim().Length > 0)
+                {
+                    if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Tên"], ListSortDirection.Ascending);
+                    }
+                    if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Mã HV"], ListSortDirection.Ascending);
+                    }
+                    if (comboBox1.SelectedItem.ToString() == "Theo Điểm TB")
+                    {
+                        dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Điểm TB"], ListSortDirection.Descending);
+                    }
+                }
+            }
+            catch
+            {
 
-				if (comboBox1.SelectedItem.ToString().Trim().Length > 0)
-				{
-					if (comboBox1.SelectedItem.ToString() == "Theo Tên")
-					{
-						dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Tên"], ListSortDirection.Ascending);
-					}
-					if (comboBox1.SelectedItem.ToString() == "Theo Mã")
-					{
-						dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Mã HV"], ListSortDirection.Ascending);
-					}
-					if (comboBox1.SelectedItem.ToString() == "Theo Điểm TB")
-					{
-						dataGridViewDSHV.Sort(dataGridViewDSHV.Columns["Điểm TB"], ListSortDirection.Descending);
-					}
-				}
-			}
+            }
 		}
 		private void releaseObject(object obj)
 		{
@@ -632,6 +634,7 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
+            bool valid =false;
 			foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
 			{
 				dynamic DBT = null;
@@ -646,11 +649,7 @@ namespace QuanLyDiem.GUI.NVDT
 					if (r.Cells["Điểm Thi"].Value.ToString().Trim().Length > 0)
 						DT = Convert.ToDouble(r.Cells["Điểm Thi"].Value.ToString());
                     
-                }
-                catch
-				{
-                    MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
                 int key;
                 if (r.Cells["Mã HV"].Value.ToString().Trim()!="")
                 {
@@ -666,10 +665,17 @@ namespace QuanLyDiem.GUI.NVDT
                 }
                 if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
                 if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
-                //    r.DefaultCellStyle.BackColor = Color.Lime;
-                //else
-                //    r.DefaultCellStyle.BackColor = Color.Red;
-
+                    valid = true;
+                }
+                
+                catch
+                {
+                    continue;
+                } 
+            }
+            if (valid == false)
+            {
+                MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             dataGridViewDSHV.ClearSelection();
 		}

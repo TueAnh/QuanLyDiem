@@ -246,7 +246,6 @@ namespace QuanLyDiem.DAL
             }
             return tb;
         }
-
     }
 }
 

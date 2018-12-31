@@ -95,8 +95,12 @@ namespace QuanLyDiem.GUI
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            removeControl(this);
-            this.Dispose();
+            try
+            {
+                removeControl(this);
+                this.Dispose();
+            }
+            catch { }
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

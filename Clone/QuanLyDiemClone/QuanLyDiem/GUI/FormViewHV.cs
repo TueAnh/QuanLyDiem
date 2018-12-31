@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel; // nho Add them:  Reference\ interop.excel
 using app = Microsoft.Office.Interop.Excel.Application;
+using System.IO;
 
 namespace QuanLyDiem.GUI
 {
@@ -35,8 +36,24 @@ namespace QuanLyDiem.GUI
         public FormViewHV(string str)
         {
             MaHV = FormHome.UserAcc.ID;
+            MemoryStream stream = new MemoryStream();
             InitializeComponent();
             LoadData();
+            User HV = Login_BLL.BLL.GetUser(1, MaHV);
+            loadImage(HV.Image);
+        }
+        public void loadImage(byte[] data)
+        {
+
+            if (data == null)
+            {
+                pictureBox1.Image = null;
+            }
+            else
+            {
+                MemoryStream memoryStream = new MemoryStream(data);
+                pictureBox1.Image = Image.FromStream(memoryStream);
+            }
         }
         public void LoadData()
         {
