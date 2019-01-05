@@ -23,8 +23,9 @@ namespace QuanLyDiem.GUI
             InitializeComponent();
             List<string> ls = more.getMoreInfoHV_BLL(MaHV);
             textBoxMSHV.Text = MaHV;
-            textBoxNAME.Text = bLL.getHVBLL(MaHV);
-            textBoxPassword.Text = ls[0].Trim();
+			HocVien hv = bLL.getHVBLL(MaHV);
+			textBoxNAME.Text = hv.HoTen;
+			textBoxPassword.Text = ls[0].Trim();
             dpkNgaySinh.Value = Convert.ToDateTime(ls[1]);
             textBoxEmail.Text = ls[2].Trim();
             textBoxDienThoai.Text = ls[3].Trim();
