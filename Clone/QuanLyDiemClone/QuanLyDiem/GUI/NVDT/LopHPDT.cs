@@ -116,22 +116,29 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void dataGridViewDSHV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			//if (e.RowIndex != -1)
-			//{
-			//    string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
-			//    NVDT.HocVienDT f = new HocVienDT(MaHV);
-			//    f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
-			//    f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
-			//    AddControlPanel(f);
-			//} 
-			if (e.RowIndex != -1)
-			{
-				string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString();
-				GUI.NVDT.SuaDiemHocVienDT suaDiemHocVienDT_form = new SuaDiemHocVienDT(MaHV, MaHP);
-				suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
-				suaDiemHocVienDT_form.saveSuccess += new SuaDiemHocVienDT.SaveSuccess(LoadData);
-				AddControlPanel(suaDiemHocVienDT_form);
-			}
+            //if (e.RowIndex != -1)
+            //{
+            //    string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã số"].Value.ToString();
+            //    NVDT.HocVienDT f = new HocVienDT(MaHV);
+            //    f.addControl += new HocVienDT.AddRemoveControl(AddControlPanel);
+            //    f.removeControl += new HocVienDT.AddRemoveControl(RemoveControlPanel);
+            //    AddControlPanel(f);
+            //} 
+            try
+            {
+                if (e.RowIndex != -1)
+                {
+                    string MaHV = dataGridViewDSHV.SelectedRows[0].Cells["Mã HV"].Value.ToString();
+                    GUI.NVDT.SuaDiemHocVienDT suaDiemHocVienDT_form = new SuaDiemHocVienDT(MaHV, MaHP);
+                    suaDiemHocVienDT_form.removeControl += new SuaDiemHocVienDT.AddRemoveControl(RemoveControlPanel);
+                    suaDiemHocVienDT_form.saveSuccess += new SuaDiemHocVienDT.SaveSuccess(LoadData);
+                    AddControlPanel(suaDiemHocVienDT_form);
+                }
+            }
+            catch
+            {
+
+            }
 		}
 		#endregion
 

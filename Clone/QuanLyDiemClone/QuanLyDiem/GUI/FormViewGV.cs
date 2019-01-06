@@ -109,5 +109,5 @@ namespace QuanLyDiem.GUI
                 this.dataGridView1.Rows[e.RowIndex].Cells["STT"].Value = (e.RowIndex + 1).ToString();
         }
 
-    }
+    }   
 }
