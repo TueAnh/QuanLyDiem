@@ -225,5 +225,16 @@ namespace QuanLyDiem.GUI
                 pictureBox1.Image = Image.FromStream(memoryStream);
             }
         }
+
+        private void buttonDonate_Click(object sender, EventArgs e)
+        {
+            DonateUs du = new DonateUs();
+            du.Show();
+        }
+
+        private void buttonFeedBack_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Mọi vấn đề xin vui lòng gửi mail về địa chỉ AHATeam@gmail.com hoặc gọi 0909-678-789", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
