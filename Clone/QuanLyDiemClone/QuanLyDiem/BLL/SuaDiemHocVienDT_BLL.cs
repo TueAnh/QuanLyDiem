@@ -10,7 +10,7 @@ namespace QuanLyDiem.BLL
     {
         DAL.SuaDiemHocVienDT_DAL dAL = new DAL.SuaDiemHocVienDT_DAL();
 
-        public void suaDiemHocVien_BLL(string MaHV, string MaHP, double bt, double gk, double thi)
+        public void suaDiemHocVien_BLL(string MaHV, string MaHP, string bt, string gk, string thi)
         {
             dAL.suaDiemHocVien_DAL(MaHV, MaHP, bt, gk, thi);
         }

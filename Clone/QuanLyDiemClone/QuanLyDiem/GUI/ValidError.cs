@@ -94,5 +94,32 @@ namespace QuanLyDiem.GUI
                 return false;
             }
         }
+        public static bool ValidDiemBT_GK_Thi(string diem, out string errorMessage)
+        {
+            if (diem.Length == 0)
+            {
+                errorMessage = "";
+                return true;
+            }
+            try
+            {
+                double s = Convert.ToDouble(diem);
+                if (s <= 10 && s >= 0)
+                {
+                    errorMessage = "";
+                    return true;
+                }
+                else
+                {
+                    errorMessage = "Điểm thang 10";
+                    return false;
+                }
+            }
+            catch
+            {
+                errorMessage = "Điểm không hợp lệ";
+                return false;
+            }
+        }
     }
 }

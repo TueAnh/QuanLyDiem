@@ -46,9 +46,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProviderSuaDiem = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSuaDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,27 +63,30 @@
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.MaHP);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 178);
+            this.panel1.Location = new System.Drawing.Point(2, 145);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(849, 249);
+            this.panel1.Size = new System.Drawing.Size(637, 203);
             this.panel1.TabIndex = 0;
             // 
             // textBoxMaHP
             // 
             this.textBoxMaHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMaHP.Location = new System.Drawing.Point(199, 55);
+            this.textBoxMaHP.Location = new System.Drawing.Point(149, 45);
+            this.textBoxMaHP.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaHP.Name = "textBoxMaHP";
             this.textBoxMaHP.ReadOnly = true;
-            this.textBoxMaHP.Size = new System.Drawing.Size(337, 26);
+            this.textBoxMaHP.Size = new System.Drawing.Size(254, 23);
             this.textBoxMaHP.TabIndex = 26;
             // 
             // textBoxMaHV
             // 
             this.textBoxMaHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxMaHV.Location = new System.Drawing.Point(199, 18);
+            this.textBoxMaHV.Location = new System.Drawing.Point(149, 15);
+            this.textBoxMaHV.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaHV.Name = "textBoxMaHV";
             this.textBoxMaHV.ReadOnly = true;
-            this.textBoxMaHV.Size = new System.Drawing.Size(337, 26);
+            this.textBoxMaHV.Size = new System.Drawing.Size(254, 23);
             this.textBoxMaHV.TabIndex = 26;
             // 
             // panel2
@@ -93,65 +98,66 @@
             this.panel2.Controls.Add(this.textboxSuaDiemThi);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(26, 103);
+            this.panel2.Location = new System.Drawing.Point(20, 84);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(811, 73);
+            this.panel2.Size = new System.Drawing.Size(609, 60);
             this.panel2.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(639, 26);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(479, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Điểm Thi";
             // 
             // textboxSuaDiemBT
             // 
-            this.textboxSuaDiemBT.Location = new System.Drawing.Point(91, 23);
-            this.textboxSuaDiemBT.Margin = new System.Windows.Forms.Padding(4);
+            this.textboxSuaDiemBT.Location = new System.Drawing.Point(68, 19);
             this.textboxSuaDiemBT.Name = "textboxSuaDiemBT";
             this.textboxSuaDiemBT.ReadOnly = true;
-            this.textboxSuaDiemBT.Size = new System.Drawing.Size(79, 22);
+            this.textboxSuaDiemBT.Size = new System.Drawing.Size(60, 20);
             this.textboxSuaDiemBT.TabIndex = 13;
+            this.textboxSuaDiemBT.Validating += new System.ComponentModel.CancelEventHandler(this.textboxSuaDiemBT_Validating);
+            this.textboxSuaDiemBT.Validated += new System.EventHandler(this.textboxSuaDiemBT_Validated);
             // 
             // textboxSuaDiemGK
             // 
-            this.textboxSuaDiemGK.Location = new System.Drawing.Point(381, 23);
-            this.textboxSuaDiemGK.Margin = new System.Windows.Forms.Padding(4);
+            this.textboxSuaDiemGK.Location = new System.Drawing.Point(286, 19);
             this.textboxSuaDiemGK.Name = "textboxSuaDiemGK";
             this.textboxSuaDiemGK.ReadOnly = true;
-            this.textboxSuaDiemGK.Size = new System.Drawing.Size(99, 22);
+            this.textboxSuaDiemGK.Size = new System.Drawing.Size(75, 20);
             this.textboxSuaDiemGK.TabIndex = 15;
+            this.textboxSuaDiemGK.Validating += new System.ComponentModel.CancelEventHandler(this.textboxSuaDiemGK_Validating);
+            this.textboxSuaDiemGK.Validated += new System.EventHandler(this.textboxSuaDiemGK_Validated);
             // 
             // textboxSuaDiemThi
             // 
-            this.textboxSuaDiemThi.Location = new System.Drawing.Point(711, 23);
-            this.textboxSuaDiemThi.Margin = new System.Windows.Forms.Padding(4);
+            this.textboxSuaDiemThi.Location = new System.Drawing.Point(533, 19);
             this.textboxSuaDiemThi.Name = "textboxSuaDiemThi";
             this.textboxSuaDiemThi.ReadOnly = true;
-            this.textboxSuaDiemThi.Size = new System.Drawing.Size(93, 22);
+            this.textboxSuaDiemThi.Size = new System.Drawing.Size(71, 20);
             this.textboxSuaDiemThi.TabIndex = 14;
+            this.textboxSuaDiemThi.Validating += new System.ComponentModel.CancelEventHandler(this.textboxSuaDiemThi_Validating);
+            this.textboxSuaDiemThi.Validated += new System.EventHandler(this.textboxSuaDiemThi_Validated);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
+            this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Điểm BT";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(309, 26);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(232, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Điểm GK";
             // 
@@ -159,10 +165,9 @@
             // 
             this.buttonBack.BackColor = System.Drawing.Color.White;
             this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_right_up_icon__1_;
-            this.buttonBack.Location = new System.Drawing.Point(656, 192);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.Location = new System.Drawing.Point(492, 156);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(93, 42);
+            this.buttonBack.Size = new System.Drawing.Size(70, 34);
             this.buttonBack.TabIndex = 22;
             this.toolTip1.SetToolTip(this.buttonBack, "Trở lại");
             this.buttonBack.UseVisualStyleBackColor = false;
@@ -173,10 +178,9 @@
             this.buttonSave.BackColor = System.Drawing.Color.White;
             this.buttonSave.Enabled = false;
             this.buttonSave.Image = global::QuanLyDiem.Properties.Resources.Save_icon;
-            this.buttonSave.Location = new System.Drawing.Point(162, 192);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Location = new System.Drawing.Point(122, 156);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(93, 42);
+            this.buttonSave.Size = new System.Drawing.Size(70, 34);
             this.buttonSave.TabIndex = 23;
             this.toolTip1.SetToolTip(this.buttonSave, "Lưu");
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -186,10 +190,9 @@
             // 
             this.MaHP.AutoSize = true;
             this.MaHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.MaHP.Location = new System.Drawing.Point(55, 56);
-            this.MaHP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MaHP.Location = new System.Drawing.Point(41, 46);
             this.MaHP.Name = "MaHP";
-            this.MaHP.Size = new System.Drawing.Size(131, 25);
+            this.MaHP.Size = new System.Drawing.Size(105, 20);
             this.MaHP.TabIndex = 20;
             this.MaHP.Text = "Mã Học Phần";
             // 
@@ -197,10 +200,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(61, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(46, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 25);
+            this.label4.Size = new System.Drawing.Size(100, 20);
             this.label4.TabIndex = 19;
             this.label4.Text = "Mã Học Viên";
             // 
@@ -209,9 +211,10 @@
             this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(2, 61);
+            this.panel3.Location = new System.Drawing.Point(2, 50);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(849, 89);
+            this.panel3.Size = new System.Drawing.Size(637, 73);
             this.panel3.TabIndex = 1;
             // 
             // label5
@@ -219,19 +222,25 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(286, 22);
+            this.label5.Location = new System.Drawing.Point(214, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(266, 39);
+            this.label5.Size = new System.Drawing.Size(213, 31);
             this.label5.TabIndex = 0;
             this.label5.Text = "Thông tin chi tiết";
             // 
+            // errorProviderSuaDiem
+            // 
+            this.errorProviderSuaDiem.ContainerControl = this;
+            // 
             // SuaDiemHocVienDT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 497);
+            this.ClientSize = new System.Drawing.Size(640, 404);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SuaDiemHocVienDT";
             this.Text = "Xem điểm chi tiết";
             this.panel1.ResumeLayout(false);
@@ -240,6 +249,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSuaDiem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +273,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider errorProviderSuaDiem;
     }
 }

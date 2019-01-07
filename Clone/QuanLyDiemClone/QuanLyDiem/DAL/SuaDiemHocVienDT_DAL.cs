@@ -7,15 +7,15 @@ namespace QuanLyDiem.DAL
 {
     internal class SuaDiemHocVienDT_DAL
     {
-        public void suaDiemHocVien_DAL(string MaHV, string MaHP, double bt, double gk, double thi)
+        public void suaDiemHocVien_DAL(string MaHV, string MaHP, string bt, string gk, string thi)
         {
             using (QuanLyDiemEntities db = new QuanLyDiemEntities())
             {
                 KetQuaHocPhan ketQuaHocPhan = (from c in db.KetQuaHocPhan where c.HocVien.ID == MaHV && c.HocPhan.MaHP == MaHP
                                                select c).SingleOrDefault();
-                ketQuaHocPhan.DiemBT = bt;
-                ketQuaHocPhan.DiemGK = gk;
-                ketQuaHocPhan.DiemThi = thi;
+                if(bt!="") ketQuaHocPhan.DiemBT = Convert.ToDouble(bt);
+                if(gk!="") ketQuaHocPhan.DiemGK = Convert.ToDouble(bt);
+                if(thi!="")ketQuaHocPhan.DiemThi = Convert.ToDouble(thi);
                 db.SaveChanges();
             }
         }

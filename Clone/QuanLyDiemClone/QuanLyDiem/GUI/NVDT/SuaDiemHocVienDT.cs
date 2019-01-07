@@ -59,26 +59,78 @@ namespace QuanLyDiem.GUI.NVDT
             textBoxMaHV.Text = kq.ID.Trim();
             textBoxMaHP.Text = kq.MaHP.Trim();
             LoadData();
-        }
+            }
         private void buttonSave_Click(object sender, EventArgs e)
         {
             try
             {
-                sua.suaDiemHocVien_BLL(textBoxMaHV.Text, textBoxMaHP.Text, Convert.ToDouble(textboxSuaDiemBT.Text), Convert.ToDouble(textboxSuaDiemGK.Text), Convert.ToDouble(textboxSuaDiemThi.Text));
+            sua.suaDiemHocVien_BLL(textBoxMaHV.Text.Trim(), textBoxMaHP.Text.Trim(), textboxSuaDiemBT.Text.Trim(), textboxSuaDiemGK.Text.Trim(), textboxSuaDiemThi.Text.Trim());
                 saveSuccess();
                 removeControl(this);
                 Dispose();
-            }
+        }
             catch
             {
                 MessageBox.Show("Sửa điểm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+}
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             removeControl(this);
             this.Dispose();
         }
+
+        private void textboxSuaDiemBT_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidDiemBT_GK_Thi(textboxSuaDiemBT.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textboxSuaDiemBT.Select(0, textboxSuaDiemBT.Text.Length);
+
+                this.errorProviderSuaDiem.SetError(textboxSuaDiemBT, errorMsg);
+            }
+        }
+        private void textboxSuaDiemBT_Validated(object sender, EventArgs e)
+        {
+            errorProviderSuaDiem.SetError(textboxSuaDiemBT, "");
+        }
+
+        private void textboxSuaDiemGK_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidDiemBT_GK_Thi(textboxSuaDiemGK.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textboxSuaDiemGK.Select(0, textboxSuaDiemGK.Text.Length);
+
+                this.errorProviderSuaDiem.SetError(textboxSuaDiemGK, errorMsg);
+            }
+        }
+
+        private void textboxSuaDiemGK_Validated(object sender, EventArgs e)
+        {
+            errorProviderSuaDiem.SetError(textboxSuaDiemGK, "");
+        }
+
+        private void textboxSuaDiemThi_Validated(object sender, EventArgs e)
+        {
+            errorProviderSuaDiem.SetError(textboxSuaDiemThi, "");
+        }
+
+        private void textboxSuaDiemThi_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidError.ValidDiemBT_GK_Thi(textboxSuaDiemThi.Text, out errorMsg))
+            {
+                e.Cancel = true;
+                textboxSuaDiemThi.Select(0, textboxSuaDiemThi.Text.Length);
+
+                this.errorProviderSuaDiem.SetError(textboxSuaDiemThi, errorMsg);
+            }
+        }
+
+        
     }
 }
