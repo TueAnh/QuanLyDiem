@@ -149,6 +149,14 @@ namespace QuanLyDiem.GUI.NVDT
         {
             ThemLopHP themLopHP = new ThemLopHP();
             themLopHP.Show();
+            if (dataGridView1.DataSource != null)
+            {
+                themLopHP.themHPSuccess += new ThemLopHP.ThemHPSuccess(LoadData);
+            }
+            else
+            {
+                themLopHP.themHPSuccess +=  new ThemLopHP.ThemHPSuccess(loadNode);
+            }
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
