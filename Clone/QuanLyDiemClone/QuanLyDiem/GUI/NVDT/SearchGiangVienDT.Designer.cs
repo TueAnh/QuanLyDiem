@@ -114,7 +114,8 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Theo Mã",
-            "Theo Tên"});
+            "Theo Tên",
+            "Theo Khoa"});
             this.comboBox1.Location = new System.Drawing.Point(21, 128);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";

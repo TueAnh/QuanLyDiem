@@ -38,6 +38,7 @@
             this.labelMaHP = new System.Windows.Forms.Label();
             this.textBoxLDT = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonXem = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
@@ -177,6 +177,20 @@
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(819, 44);
             this.panelButton.TabIndex = 27;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.White;
+            this.buttonAdd.Image = global::QuanLyDiem.Properties.Resources.database_add_icon__1_;
+            this.buttonAdd.Location = new System.Drawing.Point(144, 2);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(41, 38);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.buttonAdd, "Thêm học viên");
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonXoa
             // 
@@ -316,20 +330,6 @@
             this.dataGridViewDSHV.TabIndex = 19;
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.BackColor = System.Drawing.Color.White;
-            this.buttonAdd.Image = global::QuanLyDiem.Properties.Resources.database_add_icon__1_;
-            this.buttonAdd.Location = new System.Drawing.Point(144, 2);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(41, 38);
-            this.buttonAdd.TabIndex = 11;
-            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.buttonAdd, "Thêm một học viên");
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // LopHPDT
             // 

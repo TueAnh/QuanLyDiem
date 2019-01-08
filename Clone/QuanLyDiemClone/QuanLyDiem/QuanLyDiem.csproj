@@ -103,6 +103,12 @@
     <Compile Include="GiangVien.cs">
       <DependentUpon>QuanLyDiem.tt</DependentUpon>
     </Compile>
+    <Compile Include="GUI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DonateUs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
       <DependentUpon>QuanLyDiem.edmx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="GUI\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DonateUs.resx">
       <DependentUpon>DonateUs.cs</DependentUpon>
     </EmbeddedResource>

@@ -53,6 +53,7 @@ namespace QuanLyDiem.GUI.NVDT
         {
             ThemGiangVien f = new ThemGiangVien();
             f.Show();
+            LoadDTG();
         }
         private void buttonSort_Click(object sender, EventArgs e)
         {
@@ -65,6 +66,10 @@ namespace QuanLyDiem.GUI.NVDT
                 if (comboBox1.SelectedItem.ToString() == "Theo Mã")
                 {
                     dataGridView.Sort(dataGridView.Columns["Mã GV"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Khoa")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Khoa"], ListSortDirection.Ascending);
                 }
             }
             catch

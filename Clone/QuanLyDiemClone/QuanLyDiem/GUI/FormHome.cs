@@ -236,5 +236,11 @@ namespace QuanLyDiem.GUI
         {
             MessageBox.Show("Mọi vấn đề xin vui lòng gửi mail về địa chỉ AHATeam@gmail.com hoặc gọi 0909-678-789", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            About form = new About();
+            form.ShowDialog();
+        }
     }
 }

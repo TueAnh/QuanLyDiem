@@ -211,8 +211,10 @@ namespace QuanLyDiem.GUI.NVDT
 			}
 			finally
 			{
-				GC.Collect();
-			}
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+            }
 		}
 		private void copyAlltoClipboard()
 		{
@@ -231,368 +233,378 @@ namespace QuanLyDiem.GUI.NVDT
 			SaveFileDialog sfd = new SaveFileDialog();
 			sfd.Filter = "Excel Documents (*.xls)|*.xls";
 			sfd.FileName = "Bảng điểm HP.xls";
-			if (sfd.ShowDialog() == DialogResult.OK)
-			{
+            try
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
 
-				// Copy DataGridView results to clipboard
+                    // Copy DataGridView results to clipboard
 
-				object misValue = System.Reflection.Missing.Value;
-				Microsoft.Office.Interop.Excel.Application xlexcel = new Microsoft.Office.Interop.Excel.Application();
+                    object misValue = System.Reflection.Missing.Value;
+                    Microsoft.Office.Interop.Excel.Application xlexcel = new Microsoft.Office.Interop.Excel.Application();
 
-				xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
-				Microsoft.Office.Interop.Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
-				Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-
-				//dinh dang column width
-				xlWorkSheet.Columns["A"].ColumnWidth = 4.70;
-				xlWorkSheet.Columns["B"].ColumnWidth = 8.00;
-				xlWorkSheet.Columns["C"].ColumnWidth = 21.85;
-				xlWorkSheet.Columns["D"].ColumnWidth = 8.43;
-				xlWorkSheet.Columns["E"].ColumnWidth = 8.43; ;
-				xlWorkSheet.Columns["F"].ColumnWidth = 8.14;
-				xlWorkSheet.Columns["G"].ColumnWidth = 12.71;
-				xlWorkSheet.Columns["H"].ColumnWidth = 12.71;
-				xlWorkSheet.Columns["I"].ColumnWidth = 11.57;
-				xlWorkSheet.Columns["J"].ColumnWidth = 10.14;
-				//Dinh dang 
-
-				Microsoft.Office.Interop.Excel.Range r = xlWorkSheet.get_Range("A1", "D1");
-
-				r.MergeCells = true;
-				r.Value2 = "ĐẠI HỌC ĐÀ NẴNG";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.Font.FontStyle = Microsoft.Office.Interop.Excel.XlThemeFont.xlThemeFontMajor;
-
-				r = xlWorkSheet.get_Range("E1", "J1");
-				r.MergeCells = true;
-				r.Font.Bold = true;
-				r.Value2 = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-				r = xlWorkSheet.get_Range("A2", "D2");
-				r.MergeCells = true;
-				r.Font.Bold = true;
-				r.Value2 = "TRƯỜNG ĐẠI HỌC BÁCH KHOA";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-				r = xlWorkSheet.get_Range("E2", "J2");
-				r.MergeCells = true;
-				r.Font.Bold = true;
-				r.Value2 = "Độc lập - Tự do - Hạnh phúc";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-				r = xlWorkSheet.get_Range("A5", "I5");
-				r.MergeCells = true;
-				r.Value2 = "BẢNG ĐIỂM MÔN HỌC CAO HỌC";
-				r.Font.Size = 17;
-				r.Font.Bold = true;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-				r = xlWorkSheet.get_Range("A7", "D7");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Chuyên ngành: " + bLL.getTenKhoaBLL(MaHP);
-
-				r = xlWorkSheet.get_Range("A8", "D8");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Môn học: " + bLL.getTenHPBLL(MaHP);
-
-				r = xlWorkSheet.get_Range("A9", "D9");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Họ, tên CBGD: " + textBoxGVPT.Text;
-
-				r = xlWorkSheet.get_Range("I7", "J7");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Khóa: " + MaHP;
-
-				int soTC = Convert.ToInt32(bLL.getSoTCBLL(MaHP));
-				r = xlWorkSheet.get_Range("I8", "J8");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Số tín chỉ: " + soTC + "TC";
-
-				r = xlWorkSheet.get_Range("I9", "J9");
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Ngày thi: ...................";
-
-				//Table
-				xlWorkSheet.Rows[12].RowHeight = 27.75;
-				xlWorkSheet.Rows[11].RowHeight = 19.5;
-
-				r = xlWorkSheet.get_Range("A11", "A12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "STT";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("B11", "B12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Mã số học viên";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("C11", "C12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Họ và tên học viên";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("D11", "E11");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Đánh giá định kì";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("D12", "D12");
-				r.Font.Italic = true;
-				r.MergeCells = true;
-				r.Value2 = "Bài KT (...)";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-				r.WrapText = true;
-
-				r = xlWorkSheet.get_Range("E12", "E12");
-				r.Font.Italic = true;
-				r.MergeCells = true;
-				r.Value2 = "Tiểu luận (...)";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-				r.WrapText = true;
-
-				r = xlWorkSheet.get_Range("F11", "F12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Thi";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("G11", "H11");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Điểm môn học";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("G12", "G12");
-				r.Font.Italic = true;
-				r.MergeCells = true;
-				r.Value2 = "Bằng số";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("H12", "H12");
-				r.Font.Italic = true;
-				r.MergeCells = true;
-				r.Value2 = "Bằng chữ";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-
-				r = xlWorkSheet.get_Range("I11", "I12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Chữ ký học viên";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-				r.WrapText = true;
-
-				r = xlWorkSheet.get_Range("J11", "J12");
-				r.Font.Bold = true;
-				r.MergeCells = true;
-				r.Value2 = "Ghi chú";
-				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-				r.WrapText = true;
-
-				int count = 13;
-				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười", "" };
-				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "", "" };
-				for (int i = 0; i < tb.Rows.Count; i++)
-				{
-					int a, b, y;
-					double x;
-					if (tb.Rows[i][5] != "")
-					{
-						x = Convert.ToDouble(tb.Rows[i][5]) * 10;
-						y = Convert.ToInt32(x);
-						a = y / 10; b = y % 10;
-					}
-					else
-					{
-						a = 11; b = 11;
-					}
-					dynamic[] arr = { i + 1,tb.Rows[i][0].ToString().Trim() , tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
-									tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
-									tb.Rows[i][5] , nguyen[a] + " " + thapphan[b] , "" ,""};
-					r = xlWorkSheet.get_Range("A" + count, "J" + count);
-					r.Value2 = arr;
-					r.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-					r.Cells.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-					count++;
-				}
-
-				//hau table
-				r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Tổng số bài : ............";
+                    xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                    Microsoft.Office.Interop.Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                    Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
 
-				r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Tổng số tờ : ............";
+                    //dinh dang column width
+                    xlWorkSheet.Columns["A"].ColumnWidth = 4.70;
+                    xlWorkSheet.Columns["B"].ColumnWidth = 8.00;
+                    xlWorkSheet.Columns["C"].ColumnWidth = 21.85;
+                    xlWorkSheet.Columns["D"].ColumnWidth = 8.43;
+                    xlWorkSheet.Columns["E"].ColumnWidth = 8.43; ;
+                    xlWorkSheet.Columns["F"].ColumnWidth = 8.14;
+                    xlWorkSheet.Columns["G"].ColumnWidth = 12.71;
+                    xlWorkSheet.Columns["H"].ColumnWidth = 12.71;
+                    xlWorkSheet.Columns["I"].ColumnWidth = 11.57;
+                    xlWorkSheet.Columns["J"].ColumnWidth = 10.14;
+                    //Dinh dang 
 
-				r = xlWorkSheet.get_Range("G" + count, "J" + (count++));
-				r.MergeCells = true;
-				r.Font.Italic = true;
-				r.Font.Size = 12;
-				r.Value2 = String.Format("Đà Nẵng, ngày  {0}  tháng  {1}  năm {2}   ",
-					DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    Microsoft.Office.Interop.Excel.Range r = xlWorkSheet.get_Range("A1", "D1");
 
-				r = xlWorkSheet.get_Range("B" + (count += 1), "C" + (count));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Font.Bold = true;
-				r.Value2 = "Cán bộ coi thi thứ nhất";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r.MergeCells = true;
+                    r.Value2 = "ĐẠI HỌC ĐÀ NẴNG";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.Font.FontStyle = Microsoft.Office.Interop.Excel.XlThemeFont.xlThemeFontMajor;
 
-				r = xlWorkSheet.get_Range("B" + (count + 1), "C" + (count + 1));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "(Ký và ghi rõ họ tên )";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("E1", "J1");
+                    r.MergeCells = true;
+                    r.Font.Bold = true;
+                    r.Value2 = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-				r = xlWorkSheet.get_Range("D" + count, "F" + count);
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Font.Bold = true;
-				r.Value2 = "Cán bộ coi thi thứ hai";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("A2", "D2");
+                    r.MergeCells = true;
+                    r.Font.Bold = true;
+                    r.Value2 = "TRƯỜNG ĐẠI HỌC BÁCH KHOA";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-				r = xlWorkSheet.get_Range("D" + (count + 1), "F" + (count + 1));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "(Ký và ghi rõ họ tên )";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("E2", "J2");
+                    r.MergeCells = true;
+                    r.Font.Bold = true;
+                    r.Value2 = "Độc lập - Tự do - Hạnh phúc";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-				r = xlWorkSheet.get_Range("G" + count, "H" + count);
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Font.Bold = true;
-				r.Value2 = "Cán bộ chấm thi thứ nhất";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("A5", "I5");
+                    r.MergeCells = true;
+                    r.Value2 = "BẢNG ĐIỂM MÔN HỌC CAO HỌC";
+                    r.Font.Size = 17;
+                    r.Font.Bold = true;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-				r = xlWorkSheet.get_Range("G" + (count + 1), "H" + (count + 1));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "(Ký và ghi rõ họ tên )";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("A7", "D7");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Chuyên ngành: " + bLL.getTenKhoaBLL(MaHP);
 
-				r = xlWorkSheet.get_Range("I" + count, "J" + count);
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Font.Bold = true;
-				r.Value2 = "Cán bộ chấm thi thứ hai";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("A8", "D8");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Môn học: " + bLL.getTenHPBLL(MaHP);
 
-				r = xlWorkSheet.get_Range("I" + (count + 1), "J" + (count + 1));
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "(Ký và ghi rõ họ tên )";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("A9", "D9");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Họ, tên CBGD: " + textBoxGVPT.Text;
 
-				r = xlWorkSheet.get_Range("D" + (count += 7), "H" + count);
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Xác nhận của Trường Đại học Bách Khoa";
-				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r = xlWorkSheet.get_Range("I7", "J7");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Khóa: " + MaHP;
 
-				r = xlWorkSheet.get_Range("B" + (count += 2), "C" + count);
-				r.MergeCells = true;
-				r.Font.Size = 12;
-				r.Value2 = "Phòng đào tạo";
+                    int soTC = Convert.ToInt32(bLL.getSoTCBLL(MaHP));
+                    r = xlWorkSheet.get_Range("I8", "J8");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Số tín chỉ: " + soTC + "TC";
 
-				/*
-				// Format column D as text before pasting results, this was required for my data
-				Microsoft.Office.Interop.Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
-				rng.NumberFormat = "@";
+                    r = xlWorkSheet.get_Range("I9", "J9");
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Ngày thi: ...................";
 
-				// Paste clipboard results to worksheet range
-				Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
-				CR.Select();
-				xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+                    //Table
+                    xlWorkSheet.Rows[12].RowHeight = 27.75;
+                    xlWorkSheet.Rows[11].RowHeight = 19.5;
 
-				// For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
-				// Delete blank column A and select cell A1
-				Microsoft.Office.Interop.Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
-				delRng.Delete(Type.Missing);
-				xlWorkSheet.get_Range("A1").Select();
+                    r = xlWorkSheet.get_Range("A11", "A12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "STT";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				// Save the excel file under the captured location from the SaveFileDialog
-				xlWorkBook.SaveAs(sfd.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-				xlexcel.DisplayAlerts = true;
-				xlWorkBook.Close(true, misValue, misValue);
-				xlexcel.Quit();
+                    r = xlWorkSheet.get_Range("B11", "B12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Mã số học viên";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				releaseObject(xlWorkSheet);
-				releaseObject(xlWorkBook);
-				releaseObject(xlexcel);
+                    r = xlWorkSheet.get_Range("C11", "C12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Họ và tên học viên";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				// Clear Clipboard and DataGridView selection
-				Clipboard.Clear();
-				dataGridViewDSHV.ClearSelection();
+                    r = xlWorkSheet.get_Range("D11", "E11");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Đánh giá định kì";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				// Open the newly saved excel file
-				//if (File.Exists(sfd.FileName))
-				//    System.Diagnostics.Process.Start(sfd.FileName);
-				///
-				*/
-				xlWorkBook.SaveAs(sfd.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-				xlexcel.DisplayAlerts = true;
-				xlWorkBook.Close(true, misValue, misValue);
-				xlexcel.Quit();
+                    r = xlWorkSheet.get_Range("D12", "D12");
+                    r.Font.Italic = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Bài KT (...)";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r.WrapText = true;
 
-				releaseObject(xlWorkSheet);
-				releaseObject(xlWorkBook);
-				releaseObject(xlexcel);
+                    r = xlWorkSheet.get_Range("E12", "E12");
+                    r.Font.Italic = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Tiểu luận (...)";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r.WrapText = true;
 
-				// Clear Clipboard and DataGridView selection
-				Clipboard.Clear();
-			}
+                    r = xlWorkSheet.get_Range("F11", "F12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Thi";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-		}
+                    r = xlWorkSheet.get_Range("G11", "H11");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Điểm môn học";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("G12", "G12");
+                    r.Font.Italic = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Bằng số";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("H12", "H12");
+                    r.Font.Italic = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Bằng chữ";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("I11", "I12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Chữ ký học viên";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r.WrapText = true;
+
+                    r = xlWorkSheet.get_Range("J11", "J12");
+                    r.Font.Bold = true;
+                    r.MergeCells = true;
+                    r.Value2 = "Ghi chú";
+                    r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    r.WrapText = true;
+
+                    int count = 13;
+                    string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười", "" };
+                    string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "", "" };
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        int a, b, y;
+                        double x;
+                        if (tb.Rows[i][5] != "")
+                        {
+                            x = Convert.ToDouble(tb.Rows[i][5]) * 10;
+                            y = Convert.ToInt32(x);
+                            a = y / 10; b = y % 10;
+                        }
+                        else
+                        {
+                            a = 11; b = 11;
+                        }
+                        dynamic[] arr = { i + 1,tb.Rows[i][0].ToString().Trim() , tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
+                                    tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
+                                    tb.Rows[i][5] , nguyen[a] + " " + thapphan[b] , "" ,""};
+                        r = xlWorkSheet.get_Range("A" + count, "J" + count);
+                        r.Value2 = arr;
+                        r.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        r.Cells.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+                        count++;
+                    }
+
+                    //hau table
+                    r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Tổng số bài : ............";
+
+
+                    r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Tổng số tờ : ............";
+
+                    r = xlWorkSheet.get_Range("G" + count, "J" + (count++));
+                    r.MergeCells = true;
+                    r.Font.Italic = true;
+                    r.Font.Size = 12;
+                    r.Value2 = String.Format("Đà Nẵng, ngày  {0}  tháng  {1}  năm {2}   ",
+                        DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("B" + (count += 1), "C" + (count));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Font.Bold = true;
+                    r.Value2 = "Cán bộ coi thi thứ nhất";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("B" + (count + 1), "C" + (count + 1));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "(Ký và ghi rõ họ tên )";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("D" + count, "F" + count);
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Font.Bold = true;
+                    r.Value2 = "Cán bộ coi thi thứ hai";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("D" + (count + 1), "F" + (count + 1));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "(Ký và ghi rõ họ tên )";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("G" + count, "H" + count);
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Font.Bold = true;
+                    r.Value2 = "Cán bộ chấm thi thứ nhất";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("G" + (count + 1), "H" + (count + 1));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "(Ký và ghi rõ họ tên )";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("I" + count, "J" + count);
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Font.Bold = true;
+                    r.Value2 = "Cán bộ chấm thi thứ hai";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("I" + (count + 1), "J" + (count + 1));
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "(Ký và ghi rõ họ tên )";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("D" + (count += 7), "H" + count);
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Xác nhận của Trường Đại học Bách Khoa";
+                    r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+                    r = xlWorkSheet.get_Range("B" + (count += 2), "C" + count);
+                    r.MergeCells = true;
+                    r.Font.Size = 12;
+                    r.Value2 = "Phòng đào tạo";
+
+                    /*
+                    // Format column D as text before pasting results, this was required for my data
+                    Microsoft.Office.Interop.Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                    rng.NumberFormat = "@";
+
+                    // Paste clipboard results to worksheet range
+                    Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+                    CR.Select();
+                    xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                    // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                    // Delete blank column A and select cell A1
+                    Microsoft.Office.Interop.Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                    delRng.Delete(Type.Missing);
+                    xlWorkSheet.get_Range("A1").Select();
+
+                    // Save the excel file under the captured location from the SaveFileDialog
+                    xlWorkBook.SaveAs(sfd.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                    xlexcel.DisplayAlerts = true;
+                    xlWorkBook.Close(true, misValue, misValue);
+                    xlexcel.Quit();
+
+                    releaseObject(xlWorkSheet);
+                    releaseObject(xlWorkBook);
+                    releaseObject(xlexcel);
+
+                    // Clear Clipboard and DataGridView selection
+                    Clipboard.Clear();
+                    dataGridViewDSHV.ClearSelection();
+
+                    // Open the newly saved excel file
+                    //if (File.Exists(sfd.FileName))
+                    //    System.Diagnostics.Process.Start(sfd.FileName);
+                    ///
+                    */
+                    xlWorkBook.SaveAs(sfd.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                    xlexcel.DisplayAlerts = true;
+                    xlWorkBook.Close(true, misValue, misValue);
+                    xlexcel.Quit();
+
+                    releaseObject(xlWorkSheet);
+                    releaseObject(xlWorkBook);
+                    releaseObject(xlexcel);
+
+                    // Clear Clipboard and DataGridView selection
+                    dataGridViewDSHV.ClearSelection();
+                    Clipboard.Clear();
+                    MessageBox.Show("Hoàn thành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Xuất hiện lỗi trong quá trình ghi tệp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
 		private void buttonInput_Click(object sender, EventArgs e)
 		{
@@ -609,8 +621,8 @@ namespace QuanLyDiem.GUI.NVDT
 				Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
 				//Mở tập excel
 				Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Open(fopen.FileName);
-				//try
-				//{
+				try
+				{
 				Microsoft.Office.Interop.Excel._Worksheet sheet = wb.Sheets[1];
 				Microsoft.Office.Interop.Excel.Range range = sheet.UsedRange;
 				//doc du lieu
@@ -651,12 +663,13 @@ namespace QuanLyDiem.GUI.NVDT
 				releaseObject(app);
 				releaseObject(wb);
 				releaseObject(sheet);
-				//}
-				//catch (Exception ex)
-				//{
-				//	MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				//}
-			}
+                MessageBox.Show("Tải dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				catch
+				{
+                    MessageBox.Show("Xuất hiện lỗi trong quá trình đọc tệp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 			else
 			{
 				MessageBox.Show("Bạn không chọn tệp nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -666,52 +679,62 @@ namespace QuanLyDiem.GUI.NVDT
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
             bool valid =false;
-			foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
-			{
-				dynamic DBT = null;
-				dynamic DGK = null;
-				dynamic DT = null;
-				try
-				{
-					if (r.Cells["Điểm BT"].Value.ToString().Trim().Length > 0)
-						DBT = Convert.ToDouble(r.Cells["Điểm BT"].Value.ToString());
-					if (r.Cells["Điểm GK"].Value.ToString().Trim().Length > 0)
-						DGK = Convert.ToDouble(r.Cells["Điểm GK"].Value.ToString());
-					if (r.Cells["Điểm Thi"].Value.ToString().Trim().Length > 0)
-						DT = Convert.ToDouble(r.Cells["Điểm Thi"].Value.ToString());
-                    
-                
-                int key;
-                if (r.Cells["Mã HV"].Value.ToString().Trim()!="")
-                {
-                    key =bLL.UpdateKQHP(new KetQuaHocPhan{
-                    DiemBT = DBT,
-                    DiemGK = DGK,
-                    DiemThi = DT
-                    }, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
-                }
-                else
-                {
-                    key = -1;
-                }
-                if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
-                if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
-                    valid = true;
-                }
-                
-                catch
-                {
-                    continue;
-                } 
-            }
-            if (valid == false)
+            try
             {
-                MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            dataGridViewDSHV.ClearSelection();
-		}
+                foreach (DataGridViewRow r in dataGridViewDSHV.Rows)
+                {
+                    dynamic DBT = null;
+                    dynamic DGK = null;
+                    dynamic DT = null;
+                    try
+                    {
+                        if (r.Cells["Điểm BT"].Value.ToString().Trim().Length > 0)
+                            DBT = Convert.ToDouble(r.Cells["Điểm BT"].Value.ToString());
+                        if (r.Cells["Điểm GK"].Value.ToString().Trim().Length > 0)
+                            DGK = Convert.ToDouble(r.Cells["Điểm GK"].Value.ToString());
+                        if (r.Cells["Điểm Thi"].Value.ToString().Trim().Length > 0)
+                            DT = Convert.ToDouble(r.Cells["Điểm Thi"].Value.ToString());
 
-		private void buttonXoa_Click(object sender, EventArgs e)
+
+                        int key;
+                        if (r.Cells["Mã HV"].Value.ToString().Trim() != "")
+                        {
+                            key = bLL.UpdateKQHP(new KetQuaHocPhan
+                            {
+                                DiemBT = DBT,
+                                DiemGK = DGK,
+                                DiemThi = DT
+                            }, r.Cells["Mã HV"].Value.ToString().Trim(), textBoxLDT.Text.Trim());
+                        }
+                        else
+                        {
+                            key = -1;
+                        }
+                        if (key == -1) r.DefaultCellStyle.BackColor = Color.Red;
+                        if (key == 1) r.DefaultCellStyle.BackColor = Color.Lime;
+                        valid = true;
+                    }
+
+                    catch
+                    {
+                        continue;
+                    }
+                }
+                if (valid == false)
+                {
+                    MessageBox.Show("Đối tượng cập nhật không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                dataGridViewDSHV.ClearSelection();
+                MessageBox.Show("Xong!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Xuất hiện lỗi trong quá trình cập nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            LoadData();
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
 		{
             try
             {
@@ -743,6 +766,7 @@ namespace QuanLyDiem.GUI.NVDT
         {
             AddSVtoLHP form = new AddSVtoLHP(MaHP);
             form.ShowDialog();
+            LoadData();
         }
     }
 }

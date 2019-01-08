@@ -122,15 +122,18 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void buttonXoaLop_Click(object sender, EventArgs e)
         {
-            string MaLop = dataGridView1.SelectedRows[0].Cells["Malop"].Value.ToString().Trim();
-            if (BLL.ViewLopDT_BLL.BLL.DelObject_BLL(MaLop))
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
-                MessageBox.Show("Xóa thành công!");
-            }
-            else
-            {
-                MessageBox.Show("Không thành công! Chú ý rằng bạn không có quyền xóa lớp có học viên.");
-            }
+                string MaLop = dataGridView1.SelectedRows[i].Cells["Malop"].Value.ToString().Trim();
+                if (BLL.ViewLopDT_BLL.BLL.DelObject_BLL(MaLop))
+                {
+                    MessageBox.Show("Xóa thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công! Chú ý rằng bạn không có quyền xóa lớp có học viên.");
+                }
+            }          
             LoadDataGrid(treeView1.SelectedNode.Text);
         }
 

@@ -152,7 +152,7 @@ namespace QuanLyDiem.GUI.NVDT
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Xuất hiện lỗi trong quá trình đọc tệp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     labelPath.Visible = false;
                 }
             }
