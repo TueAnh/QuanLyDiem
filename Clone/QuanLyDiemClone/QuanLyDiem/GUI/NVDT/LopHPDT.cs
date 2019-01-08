@@ -246,15 +246,15 @@ namespace QuanLyDiem.GUI.NVDT
 
 				//dinh dang column width
 				xlWorkSheet.Columns["A"].ColumnWidth = 4.70;
-				xlWorkSheet.Columns["B"].ColumnWidth = 21.85;
-				xlWorkSheet.Columns["C"].ColumnWidth = 8.43;
+				xlWorkSheet.Columns["B"].ColumnWidth = 8.00;
+				xlWorkSheet.Columns["C"].ColumnWidth = 21.85;
 				xlWorkSheet.Columns["D"].ColumnWidth = 8.43;
-				xlWorkSheet.Columns["E"].ColumnWidth = 8.14;
-				xlWorkSheet.Columns["F"].ColumnWidth = 12.71;
+				xlWorkSheet.Columns["E"].ColumnWidth = 8.43; ;
+				xlWorkSheet.Columns["F"].ColumnWidth = 8.14;
 				xlWorkSheet.Columns["G"].ColumnWidth = 12.71;
-				xlWorkSheet.Columns["H"].ColumnWidth = 11.57;
-				xlWorkSheet.Columns["I"].ColumnWidth = 10.14;
-
+				xlWorkSheet.Columns["H"].ColumnWidth = 12.71;
+				xlWorkSheet.Columns["I"].ColumnWidth = 11.57;
+				xlWorkSheet.Columns["J"].ColumnWidth = 10.14;
 				//Dinh dang 
 
 				Microsoft.Office.Interop.Excel.Range r = xlWorkSheet.get_Range("A1", "D1");
@@ -264,7 +264,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.Font.FontStyle = Microsoft.Office.Interop.Excel.XlThemeFont.xlThemeFontMajor;
 
-				r = xlWorkSheet.get_Range("E1", "I1");
+				r = xlWorkSheet.get_Range("E1", "J1");
 				r.MergeCells = true;
 				r.Font.Bold = true;
 				r.Value2 = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
@@ -276,7 +276,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.Value2 = "TRƯỜNG ĐẠI HỌC BÁCH KHOA";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-				r = xlWorkSheet.get_Range("E2", "I2");
+				r = xlWorkSheet.get_Range("E2", "J2");
 				r.MergeCells = true;
 				r.Font.Bold = true;
 				r.Value2 = "Độc lập - Tự do - Hạnh phúc";
@@ -304,18 +304,18 @@ namespace QuanLyDiem.GUI.NVDT
 				r.Font.Size = 12;
 				r.Value2 = "Họ, tên CBGD: " + textBoxGVPT.Text;
 
-				r = xlWorkSheet.get_Range("H7", "I7");
+				r = xlWorkSheet.get_Range("I7", "J7");
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Khóa: " + MaHP;
 
 				int soTC = Convert.ToInt32(bLL.getSoTCBLL(MaHP));
-				r = xlWorkSheet.get_Range("H8", "I8");
+				r = xlWorkSheet.get_Range("I8", "J8");
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Số tín chỉ: " + soTC + "TC";
 
-				r = xlWorkSheet.get_Range("H9", "I9");
+				r = xlWorkSheet.get_Range("I9", "J9");
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Ngày thi: ...................";
@@ -335,12 +335,20 @@ namespace QuanLyDiem.GUI.NVDT
 				r = xlWorkSheet.get_Range("B11", "B12");
 				r.Font.Bold = true;
 				r.MergeCells = true;
+				r.Value2 = "Mã số học viên";
+				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+				r = xlWorkSheet.get_Range("C11", "C12");
+				r.Font.Bold = true;
+				r.MergeCells = true;
 				r.Value2 = "Họ và tên học viên";
 				r.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("C11", "D11");
+				r = xlWorkSheet.get_Range("D11", "E11");
 				r.Font.Bold = true;
 				r.MergeCells = true;
 				r.Value2 = "Đánh giá định kì";
@@ -348,7 +356,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("C12", "C12");
+				r = xlWorkSheet.get_Range("D12", "D12");
 				r.Font.Italic = true;
 				r.MergeCells = true;
 				r.Value2 = "Bài KT (...)";
@@ -357,7 +365,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 				r.WrapText = true;
 
-				r = xlWorkSheet.get_Range("D12", "D12");
+				r = xlWorkSheet.get_Range("E12", "E12");
 				r.Font.Italic = true;
 				r.MergeCells = true;
 				r.Value2 = "Tiểu luận (...)";
@@ -366,7 +374,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 				r.WrapText = true;
 
-				r = xlWorkSheet.get_Range("E11", "E12");
+				r = xlWorkSheet.get_Range("F11", "F12");
 				r.Font.Bold = true;
 				r.MergeCells = true;
 				r.Value2 = "Thi";
@@ -374,7 +382,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("F11", "G11");
+				r = xlWorkSheet.get_Range("G11", "H11");
 				r.Font.Bold = true;
 				r.MergeCells = true;
 				r.Value2 = "Điểm môn học";
@@ -382,7 +390,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("F12", "F12");
+				r = xlWorkSheet.get_Range("G12", "G12");
 				r.Font.Italic = true;
 				r.MergeCells = true;
 				r.Value2 = "Bằng số";
@@ -390,7 +398,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("G12", "G12");
+				r = xlWorkSheet.get_Range("H12", "H12");
 				r.Font.Italic = true;
 				r.MergeCells = true;
 				r.Value2 = "Bằng chữ";
@@ -398,7 +406,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("H11", "H12");
+				r = xlWorkSheet.get_Range("I11", "I12");
 				r.Font.Bold = true;
 				r.MergeCells = true;
 				r.Value2 = "Chữ ký học viên";
@@ -407,7 +415,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 				r.WrapText = true;
 
-				r = xlWorkSheet.get_Range("I11", "I12");
+				r = xlWorkSheet.get_Range("J11", "J12");
 				r.Font.Bold = true;
 				r.MergeCells = true;
 				r.Value2 = "Ghi chú";
@@ -417,26 +425,26 @@ namespace QuanLyDiem.GUI.NVDT
 				r.WrapText = true;
 
 				int count = 13;
-				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,"mười" , ""};
-				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" ,"",""};
+				string[] nguyen = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười", "" };
+				string[] thapphan = { "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "", "" };
 				for (int i = 0; i < tb.Rows.Count; i++)
 				{
-                    int a, b ,y;
-                    double x;
-                    if (tb.Rows[i][5] != "")
-                    {
-                        x = Convert.ToDouble(tb.Rows[i][5]) * 10;
-                        y = Convert.ToInt32(x);
-                        a = y / 10; b = y % 10;
-                    }
-                    else
-                    {
-                        a = 11;b = 11;
-                    }
-					dynamic[] arr = { i + 1, tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
-                                    tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
+					int a, b, y;
+					double x;
+					if (tb.Rows[i][5] != "")
+					{
+						x = Convert.ToDouble(tb.Rows[i][5]) * 10;
+						y = Convert.ToInt32(x);
+						a = y / 10; b = y % 10;
+					}
+					else
+					{
+						a = 11; b = 11;
+					}
+					dynamic[] arr = { i + 1,tb.Rows[i][0].ToString().Trim() , tb.Rows[i][1], tb.Rows[i][2]==null?"":tb.Rows[i][2],
+									tb.Rows[i][3]==null?"":tb.Rows[i][3] , tb.Rows[i][4]==null?"":tb.Rows[i][4] ,
 									tb.Rows[i][5] , nguyen[a] + " " + thapphan[b] , "" ,""};
-					r = xlWorkSheet.get_Range("A" + count, "I" + count);
+					r = xlWorkSheet.get_Range("A" + count, "J" + count);
 					r.Value2 = arr;
 					r.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 					r.Cells.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
@@ -444,18 +452,18 @@ namespace QuanLyDiem.GUI.NVDT
 				}
 
 				//hau table
-				r = xlWorkSheet.get_Range("A" + count, "B" + (count++));
+				r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Tổng số bài : ............";
 
 
-				r = xlWorkSheet.get_Range("A" + count, "B" + (count++));
+				r = xlWorkSheet.get_Range("A" + count, "C" + (count++));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Tổng số tờ : ............";
 
-				r = xlWorkSheet.get_Range("F" + count, "I" + (count++));
+				r = xlWorkSheet.get_Range("G" + count, "J" + (count++));
 				r.MergeCells = true;
 				r.Font.Italic = true;
 				r.Font.Size = 12;
@@ -464,7 +472,7 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("A" + (count += 1), "B" + (count));
+				r = xlWorkSheet.get_Range("B" + (count += 1), "C" + (count));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Font.Bold = true;
@@ -472,14 +480,14 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("A" + (count + 1), "B" + (count + 1));
+				r = xlWorkSheet.get_Range("B" + (count + 1), "C" + (count + 1));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "(Ký và ghi rõ họ tên )";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("C" + count, "E" + count);
+				r = xlWorkSheet.get_Range("D" + count, "F" + count);
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Font.Bold = true;
@@ -487,14 +495,14 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("C" + (count + 1), "E" + (count + 1));
+				r = xlWorkSheet.get_Range("D" + (count + 1), "F" + (count + 1));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "(Ký và ghi rõ họ tên )";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("F" + count, "G" + count);
+				r = xlWorkSheet.get_Range("G" + count, "H" + count);
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Font.Bold = true;
@@ -502,14 +510,14 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("F" + (count + 1), "G" + (count + 1));
+				r = xlWorkSheet.get_Range("G" + (count + 1), "H" + (count + 1));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "(Ký và ghi rõ họ tên )";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("H" + count, "I" + count);
+				r = xlWorkSheet.get_Range("I" + count, "J" + count);
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Font.Bold = true;
@@ -517,21 +525,21 @@ namespace QuanLyDiem.GUI.NVDT
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("H" + (count + 1), "I" + (count + 1));
+				r = xlWorkSheet.get_Range("I" + (count + 1), "J" + (count + 1));
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "(Ký và ghi rõ họ tên )";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("D" + (count += 7), "G" + count);
+				r = xlWorkSheet.get_Range("D" + (count += 7), "H" + count);
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Xác nhận của Trường Đại học Bách Khoa";
 				r.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 				r.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
-				r = xlWorkSheet.get_Range("B" + (count += 2), "B" + count);
+				r = xlWorkSheet.get_Range("B" + (count += 2), "C" + count);
 				r.MergeCells = true;
 				r.Font.Size = 12;
 				r.Value2 = "Phòng đào tạo";
