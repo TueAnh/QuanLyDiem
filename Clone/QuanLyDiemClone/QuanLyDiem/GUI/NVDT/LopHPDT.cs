@@ -19,23 +19,26 @@ namespace QuanLyDiem.GUI.NVDT
 		public delegate void AddRemoveControl(Form form);
 		public AddRemoveControl addControl;
 		public AddRemoveControl removeControl;
-
+        GiangVien gv;
 		string MaHP = "";
 		public LopHP_BLL bLL { get; set; }
-		public LopHPDT()
-		{
-			InitializeComponent();
-
-		}
 		public LopHPDT(string MaHP)// ham dựng lấy mã học phần
 		{
 			InitializeComponent();
 			bLL = new LopHP_BLL();
 			this.MaHP = MaHP;
 			LoadData();
+            gv = bLL.getGVBLL(MaHP);
             if (FormLogin.User.typeAcc != 3)
             {
                 buttonChange.Enabled = false;
+            }
+            if (FormLogin.User.typeAcc != 3 && FormLogin.User.ID != gv.ID)
+            {
+                buttonAdd.Enabled = false;
+                buttonInput.Enabled = false;
+                buttonXoa.Enabled = false;
+                buttonUpdate.Enabled = false;
             }
         }
 
@@ -55,7 +58,7 @@ namespace QuanLyDiem.GUI.NVDT
 			//dataGridViewDSHV.Columns[3].HeaderText = "Điểm BT";
 			//dataGridViewDSHV.Columns[4].HeaderText = "Điểm GK";
 			//dataGridViewDSHV.Columns[5].HeaderText = "Điểm Thi";
-			textBoxGVPT.Text = bLL.getGVBLL(MaHP);
+			textBoxGVPT.Text = bLL.getGVBLL(MaHP).HoTen;
 			textBoxLDT.Text = MaHP;
 			dataGridViewDSHV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dataGridViewDSHV.Columns["STT"].Width = 50;
@@ -727,5 +730,11 @@ namespace QuanLyDiem.GUI.NVDT
 		{
 			LoadData();
 		}
-	}
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            AddSVtoLHP form = new AddSVtoLHP(MaHP);
+            form.ShowDialog();
+        }
+    }
 }

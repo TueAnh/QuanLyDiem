@@ -129,8 +129,8 @@ namespace QuanLyDiem.GUI.NVDT
                             Password = r.Cells["Mật khẩu"].Value.ToString().Trim(),
                             MaLop = r.Cells["Mã lớp"].Value.ToString().Trim(),
                             NgaySinh = Convert.ToDateTime(r.Cells["Ngày sinh"].Value),
-                        //MaLop = textBoxMaLop.Text.Trim()
-                    }))
+                            //MaLop = textBoxMaLop.Text.Trim()
+                        }))
                         dataGridView1.Rows.RemoveAt(i);
                     else
                     {

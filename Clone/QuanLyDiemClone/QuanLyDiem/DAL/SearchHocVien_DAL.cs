@@ -82,5 +82,42 @@ namespace QuanLyDiem.DAL
             return true;
                 
         }
+        public bool AddHV_DAL(string MaHV, string MaHP)
+        {
+            try
+            {
+                using (QuanLyDiemEntities db = new QuanLyDiemEntities())
+                {
+                    KetQuaHocPhan ketQuaHocPhan = db.KetQuaHocPhan.Where(p => p.ID == MaHV && p.MaHP == MaHP).Select(p => p).SingleOrDefault();
+                    if (ketQuaHocPhan == null)
+                    {
+                        int i = 0;
+                        string x;
+                        do
+                        {
+                            i++;
+                            x = i.ToString();
+                            while (x.Length < 4)
+                                x = '0' + x;
+                            x = "KQHP" + x;
+                        }
+                        while (db.KetQuaHocPhan.Find(x) != null);
+                        ketQuaHocPhan = new KetQuaHocPhan();
+                        ketQuaHocPhan.MaKQHP = x;
+                        ketQuaHocPhan.ID = db.HocVien.Find(MaHV).ID;
+                        ketQuaHocPhan.MaHP = db.HocPhan.Find(MaHP).MaHP;
+                        db.KetQuaHocPhan.Add(ketQuaHocPhan);
+                        db.SaveChanges();
+                    }
+                    else
+                        return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

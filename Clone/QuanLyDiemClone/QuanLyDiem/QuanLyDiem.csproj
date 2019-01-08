@@ -145,6 +145,12 @@
     <Compile Include="GUI\MoreInfoHocVien.Designer.cs">
       <DependentUpon>MoreInfoHocVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NVDT\AddSVtoLHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NVDT\AddSVtoLHP.Designer.cs">
+      <DependentUpon>AddSVtoLHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NVDT\FormAddHV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MoreInfoHocVien.resx">
       <DependentUpon>MoreInfoHocVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NVDT\AddSVtoLHP.resx">
+      <DependentUpon>AddSVtoLHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NVDT\FormAddHV.resx">
       <DependentUpon>FormAddHV.cs</DependentUpon>

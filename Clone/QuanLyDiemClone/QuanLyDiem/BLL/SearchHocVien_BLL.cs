@@ -22,5 +22,9 @@ namespace QuanLyDiem.BLL
         {
             return Search_dal.XoaHV_DAL(ID);
         }
+        public bool AddHV_BLL(string MaHV, string MaHP)
+        {
+            return Search_dal.AddHV_DAL(MaHV, MaHP);
+        }
     }
 }

@@ -177,6 +177,7 @@ namespace QuanLyDiem.GUI.NVDT
             //        MessageBox.Show("Chưa nhập tên lớp hoặc tên lớp trùng ");
             //    }
             //}
+            dataGridViewDSHV.ClearSelection();
             try
             {
                 foreach (DataGridViewRow r in dataGridViewDSHV.Rows)

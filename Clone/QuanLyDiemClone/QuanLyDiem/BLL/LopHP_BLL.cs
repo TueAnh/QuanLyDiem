@@ -26,7 +26,7 @@ namespace QuanLyDiem.BLL
 			return dAL.getDSHVDAL2(str);
 		}
 
-		public string getGVBLL(string str)
+		public GiangVien getGVBLL(string str)
 		{
 			return dAL.getGVDAL(str);
 		}

@@ -50,6 +50,7 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewDSHV = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSHV)).BeginInit();
@@ -164,6 +165,7 @@
             // 
             this.panelButton.BackColor = System.Drawing.Color.GhostWhite;
             this.panelButton.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelButton.Controls.Add(this.buttonAdd);
             this.panelButton.Controls.Add(this.buttonXoa);
             this.panelButton.Controls.Add(this.buttonUpdate);
             this.panelButton.Controls.Add(this.buttonXem);
@@ -180,7 +182,7 @@
             // 
             this.buttonXoa.BackColor = System.Drawing.Color.White;
             this.buttonXoa.Image = global::QuanLyDiem.Properties.Resources.database_remove_icon;
-            this.buttonXoa.Location = new System.Drawing.Point(143, 2);
+            this.buttonXoa.Location = new System.Drawing.Point(192, 2);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(41, 38);
@@ -206,7 +208,7 @@
             // 
             this.buttonXem.BackColor = System.Drawing.Color.White;
             this.buttonXem.Image = global::QuanLyDiem.Properties.Resources.student_boy_icon__1_;
-            this.buttonXem.Location = new System.Drawing.Point(190, 2);
+            this.buttonXem.Location = new System.Drawing.Point(239, 2);
             this.buttonXem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXem.Name = "buttonXem";
             this.buttonXem.Size = new System.Drawing.Size(41, 38);
@@ -315,6 +317,20 @@
             this.dataGridViewDSHV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSHV_CellDoubleClick);
             this.dataGridViewDSHV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewDSHV_RowPostPaint);
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.White;
+            this.buttonAdd.Image = global::QuanLyDiem.Properties.Resources.database_add_icon__1_;
+            this.buttonAdd.Location = new System.Drawing.Point(144, 2);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(41, 38);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.buttonAdd, "Thêm một học viên");
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // LopHPDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,5 +373,6 @@
         private System.Windows.Forms.Button buttonXoa;
         private System.Windows.Forms.Button buttonReload;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

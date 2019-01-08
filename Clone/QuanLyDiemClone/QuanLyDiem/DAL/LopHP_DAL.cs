@@ -185,11 +185,11 @@ namespace QuanLyDiem.DAL
 			return tb;
 		}
 
-		public string getGVDAL(string str)// Lấy tên giảng viên phụ trách
+		public GiangVien getGVDAL(string str)// Lấy tên giảng viên phụ trách
 		{
 			var v = from s in db.HocPhan
 					where s.MaHP == str
-					select s.GiangVien.HoTen;
+					select s.GiangVien;
 			return v.SingleOrDefault();
 		}
 		public string getTenKhoaDAL(string maHP)
