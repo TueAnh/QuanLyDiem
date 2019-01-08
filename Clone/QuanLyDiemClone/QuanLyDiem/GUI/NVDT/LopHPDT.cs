@@ -598,40 +598,53 @@ namespace QuanLyDiem.GUI.NVDT
 				Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
 				//Mở tập excel
 				Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Open(fopen.FileName);
-				try
+				//try
+				//{
+				Microsoft.Office.Interop.Excel._Worksheet sheet = wb.Sheets[1];
+				Microsoft.Office.Interop.Excel.Range range = sheet.UsedRange;
+				//doc du lieu
+				int rows = range.Rows.Count;
+				int cols = range.Columns.Count;
+				string[] v = range.Cells[7, 9].Value.ToString().Trim().Split(' ');
+				string mahp = v[v.Length - 1];
+				if (mahp != MaHP)
 				{
-					Microsoft.Office.Interop.Excel._Worksheet sheet = wb.Sheets[1];
-					Microsoft.Office.Interop.Excel.Range range = sheet.UsedRange;
-					//doc du lieu
-					int rows = range.Rows.Count;
-					int cols = range.Columns.Count;
-					System.Data.DataTable tb = new System.Data.DataTable();
-					//doc tieu de
-					for (int c = 1; c <= cols; c++)
-					{
-						string columName = range.Cells[1, c].Value.ToString();
-						tb.Columns.Add(columName);
-					}
+					MessageBox.Show("Khác lớp học phần");
+					return;
+				}
+				System.Data.DataTable tb = new System.Data.DataTable();
+				//doc tieu de
+				tb.Columns.Add("Mã HV");
+				tb.Columns.Add("Họ");
+				tb.Columns.Add("Tên");
+				tb.Columns.Add("Điểm BT");
+				tb.Columns.Add("Điểm GK");
+				tb.Columns.Add("Điểm Thi");
+				tb.Columns.Add("Điểm TB");
 
-					for (int r = 2; r <= rows; r++)
-					{
-						DataRow row = tb.NewRow();
-						for (int c = 1; c <= cols; c++)
-						{
-							var x = range.Cells[r, c].Value;
-							row[c - 1] = x;
-						}
-						tb.Rows.Add(row);
-					}
-					dataGridViewDSHV.DataSource = tb;
-					releaseObject(app);
-					releaseObject(wb);
-					releaseObject(sheet);
-				}
-				catch (Exception ex)
+				for (int r = 13; r <= rows - 14; r++)
 				{
-					MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					DataRow row = tb.NewRow();
+					row["Mã HV"] = range.Cells[r, 2].Value;
+					string[] name = range.Cells[r, 3].Value.Split(' ');
+					for (int j = 0; j < name.Length - 1; j++)
+						row["Họ"] += name[j] + " ";
+					row["Tên"] = name[name.Length - 1];
+					row["Điểm BT"] = range.Cells[r, 4].Value;
+					row["Điểm GK"] = range.Cells[r, 5].Value;
+					row["Điểm Thi"] = range.Cells[r, 6].Value;
+					row["Điểm TB"] = range.Cells[r, 7].Value;
+					tb.Rows.Add(row);
 				}
+				dataGridViewDSHV.DataSource = tb;
+				releaseObject(app);
+				releaseObject(wb);
+				releaseObject(sheet);
+				//}
+				//catch (Exception ex)
+				//{
+				//	MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				//}
 			}
 			else
 			{
