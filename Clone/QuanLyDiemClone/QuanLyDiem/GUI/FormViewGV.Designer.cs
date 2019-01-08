@@ -51,8 +51,9 @@
             this.panel1.Controls.Add(this.panelTree);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 622);
+            this.panel1.Size = new System.Drawing.Size(798, 505);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -61,9 +62,10 @@
             this.panel2.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(195, 25);
+            this.panel2.Location = new System.Drawing.Point(146, 20);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(857, 527);
+            this.panel2.Size = new System.Drawing.Size(643, 429);
             this.panel2.TabIndex = 4;
             // 
             // dataGridView1
@@ -73,11 +75,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 525);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 427);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
@@ -85,18 +88,20 @@
             // panelButton
             // 
             this.panelButton.Controls.Add(this.buttonBack);
-            this.panelButton.Location = new System.Drawing.Point(6, 558);
+            this.panelButton.Location = new System.Drawing.Point(4, 453);
+            this.panelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(1045, 57);
+            this.panelButton.Size = new System.Drawing.Size(784, 46);
             this.panelButton.TabIndex = 2;
             // 
             // buttonBack
             // 
             this.buttonBack.BackColor = System.Drawing.Color.White;
             this.buttonBack.Image = global::QuanLyDiem.Properties.Resources.arrow_return_down_left_icon;
-            this.buttonBack.Location = new System.Drawing.Point(991, 3);
+            this.buttonBack.Location = new System.Drawing.Point(743, 2);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(51, 47);
+            this.buttonBack.Size = new System.Drawing.Size(38, 38);
             this.buttonBack.TabIndex = 0;
             this.toolTip1.SetToolTip(this.buttonBack, "Thoát chức năng");
             this.buttonBack.UseVisualStyleBackColor = false;
@@ -105,27 +110,30 @@
             // panelTree
             // 
             this.panelTree.Controls.Add(this.treeView1);
-            this.panelTree.Location = new System.Drawing.Point(3, 25);
+            this.panelTree.Location = new System.Drawing.Point(2, 20);
+            this.panelTree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTree.Name = "panelTree";
-            this.panelTree.Size = new System.Drawing.Size(186, 527);
+            this.panelTree.Size = new System.Drawing.Size(140, 428);
             this.panelTree.TabIndex = 0;
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(186, 527);
+            this.treeView1.Size = new System.Drawing.Size(140, 428);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // FormViewGV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
-            this.ClientSize = new System.Drawing.Size(1064, 622);
+            this.ClientSize = new System.Drawing.Size(798, 505);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormViewGV";
             this.Text = "FormViewGV";
             this.Load += new System.EventHandler(this.FormViewGV_Load);

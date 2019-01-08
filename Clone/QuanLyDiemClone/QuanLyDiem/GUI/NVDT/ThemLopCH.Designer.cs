@@ -53,7 +53,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(452, 216);
             this.panel1.TabIndex = 1;
@@ -61,7 +61,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Location = new System.Drawing.Point(184, 145);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(98, 35);
             this.buttonAdd.TabIndex = 3;
@@ -72,7 +72,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Location = new System.Drawing.Point(286, 145);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(98, 35);
             this.buttonCancel.TabIndex = 3;
@@ -90,7 +90,7 @@
             this.panel2.Controls.Add(this.textBoxMaLop);
             this.panel2.Controls.Add(this.labelMaLop);
             this.panel2.Location = new System.Drawing.Point(48, 39);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(336, 102);
             this.panel2.TabIndex = 2;
@@ -99,16 +99,16 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(86, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(26, 20);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "LSH";
+            this.textBox1.Text = "LCH";
             // 
             // textBoxKhoa
             // 
             this.textBoxKhoa.Location = new System.Drawing.Point(81, 61);
-            this.textBoxKhoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKhoa.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKhoa.Name = "textBoxKhoa";
             this.textBoxKhoa.ReadOnly = true;
             this.textBoxKhoa.Size = new System.Drawing.Size(232, 20);
@@ -117,7 +117,7 @@
             // textBoxTenLop
             // 
             this.textBoxTenLop.Location = new System.Drawing.Point(81, 37);
-            this.textBoxTenLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTenLop.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTenLop.Name = "textBoxTenLop";
             this.textBoxTenLop.Size = new System.Drawing.Size(232, 20);
             this.textBoxTenLop.TabIndex = 1;
@@ -145,7 +145,7 @@
             // textBoxMaLop
             // 
             this.textBoxMaLop.Location = new System.Drawing.Point(116, 13);
-            this.textBoxMaLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMaLop.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMaLop.Name = "textBoxMaLop";
             this.textBoxMaLop.Size = new System.Drawing.Size(197, 20);
             this.textBoxMaLop.TabIndex = 1;
@@ -172,7 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 216);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ThemLopCH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Lớp Cao học";

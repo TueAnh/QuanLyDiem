@@ -103,13 +103,13 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(6, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(629, 122);
+            this.panel2.Size = new System.Drawing.Size(639, 122);
             this.panel2.TabIndex = 2;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(95, 9);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(24, 20);

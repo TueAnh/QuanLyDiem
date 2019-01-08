@@ -56,8 +56,9 @@ namespace QuanLyDiem.GUI.NVDT
 			if (fopen.FileName != "")
 			{
 				labelPath.Text = fopen.FileName;
-				//tao doi tuong Excel
-				Excel.Application app = new Excel.Application();
+                labelPath.Visible = true;
+                //tao doi tuong Excel
+                Excel.Application app = new Excel.Application();
 				//Mở tập excel
 				Excel.Workbook wb = app.Workbooks.Open(fopen.FileName);
 				try
@@ -94,7 +95,8 @@ namespace QuanLyDiem.GUI.NVDT
 				catch (Exception ex)
 				{
 					MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+                    labelPath.Visible = false;
+                    dataGridView1.DataSource = null;
 				}
 			}
 			else
@@ -142,70 +144,61 @@ namespace QuanLyDiem.GUI.NVDT
                 {
                     MessageBox.Show("Hoàn tất!");
                 }
-                buttonSave.Visible = false;
             }
             catch
             {
                 MessageBox.Show("Đối tượng học viên thêm từ Excel không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                buttonSave.Visible = false;
+                
             }
+            buttonSave.Visible = false;
+            labelPath.Visible = false;
 
-		}
+        }
 		#endregion
 		#region tab2
 		ThemHocVien_BLL bLL = new ThemHocVien_BLL();
-		public bool checkMaHV()
-		{
-			if (textBoxMaHV.Text.Length != 3) return false;
-			string s = textBoxMaHV.Text;
-			for (int i = 0; i < 3; i++)
-			{
-				if (s[0] <= '0' && s[0] >= '9') return false;
-			}
-			return true;
-		}
-		//void LoadMaLop()
-		//{
-		//	string s = "HV";
-		//	if (bLL.getSoHocVienBLL()+1 < 100)
-		//		s += "0";
-		//	if (bLL.getSoHocVienBLL()+1 < 10)
-		//		s += "0";
-		//	s += (bLL.getSoHocVienBLL() + 1);
-		//	textBoxMaHV.Text = s;
-		//	textBoxMaHV.ReadOnly = true;
-		//}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (comboBoxLCH.SelectedIndex > -1 && bLL.checkHocVienBLL(textBoxMaHV.Text)
-				&& checkMaHV() && textBoxHoTen.Text != "")
-			{
-				try
-				{
-					bLL.addHVBLL(new HocVien
-					{
-						ID = "HV" + textBoxMaHV.Text,
-						HoTen = textBoxHoTen.Text,
-						NgaySinh = dateTimePickerNS.Value,
-						MaLop = bLL.getLopBLL(comboBoxLCH.SelectedItem.ToString()),
-						DiaChi = textBoxDiaChi.Text,
-						Email = textBoxEmail.Text,
-						DienThoai = textBoxDienThoai.Text,
-						Password = "",
-					});
-					MessageBox.Show("Thêm học viên thành công");
-					this.Dispose();
-				}
-				catch
-				{
-					MessageBox.Show("Nhập sai !! ");
-				}
-			}
-			else
-			{
-				MessageBox.Show("Nhập sai !!!!");
-			}
+            if (textBoxMaHV.Text.Trim() == "")
+            {
+                MessageBox.Show("Hãy điền mã học viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!bLL.checkHocVienBLL("HV"+textBoxMaHV.Text.Trim()))
+            {
+                MessageBox.Show("Học viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(comboBoxLCH.SelectedIndex <= -1)
+            {
+                MessageBox.Show("Hãy chọn lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(textBoxHoTen.Text.Trim() == "")
+            {
+                MessageBox.Show("Hãy điền tên học viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    bLL.addHVBLL(new HocVien
+                    {
+                        ID = "HV" + textBoxMaHV.Text.Trim(),
+                        HoTen = textBoxHoTen.Text.Trim(),
+                        NgaySinh = dateTimePickerNS.Value,
+                        MaLop = bLL.getLopBLL(comboBoxLCH.SelectedItem.ToString()),
+                        DiaChi = textBoxDiaChi.Text.Trim(),
+                        Email = textBoxEmail.Text.Trim(),
+                        DienThoai = textBoxDienThoai.Text.Trim(),
+                        Password = "",
+                    });
+                    MessageBox.Show("Thêm học viên thành công");
+                    this.Dispose();
+                }
+                catch
+                {
+                    MessageBox.Show("Thêm học viên không thành công");
+                }
+            }
 		}
 
         #endregion
@@ -253,12 +246,31 @@ namespace QuanLyDiem.GUI.NVDT
 
         private void textBoxDienThoai_Validating(object sender, CancelEventArgs e)
         {
+            if (textBoxDienThoai.Text == "")
+            {
 
+            }
+            else
+            {
+                string errorMsg;
+                if (!ValidError.ValidPhone(textBoxDienThoai.Text, out errorMsg))
+                {
+                    e.Cancel = true;
+                    textBoxDienThoai.Select(0, textBoxDienThoai.Text.Length);
+
+                    this.errorProviderAddHV.SetError(textBoxDienThoai, errorMsg);
+                }
+            }
         }
 
         private void textBoxDienThoai_Validated(object sender, EventArgs e)
         {
             errorProviderAddHV.SetError(textBoxDienThoai, "");
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace QuanLyDiem.DAL
 			return v.SingleOrDefault();
 		}
 
-		public dynamic checkLopDAL(string tenLop)
+		public dynamic checkTenLopDAL(string tenLop)
 		{
 			var v = from s in db.LopDaoTao
 					where s.TenLop == tenLop
@@ -40,5 +40,14 @@ namespace QuanLyDiem.DAL
 			db.LopDaoTao.Add(lop);
 			db.SaveChanges();
 		}
-	}
+        public bool checkMaLopDAL(string malop)
+        {
+            var v = from s in db.LopDaoTao
+                    where s.MaLop == malop
+                    select s;
+            if (v.Count() == 0)
+                return true;
+            return false;
+        }
+    }
 }

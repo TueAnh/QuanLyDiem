@@ -28,47 +28,48 @@ namespace QuanLyDiem.GUI
 				comboBoxKhoa.Items.Add(s);
 			}
 		}
-		//public bool checkMaGV()
-		//{
-		//    if (textBoxMaGV.Text.Length != 3) return false;
-		//    string s = textBoxMaGV.Text;
-		//    for (int i = 0; i < 3; i++)
-		//    {
-		//        if (s[i] < '0' || s[i] > '9') return false;
-		//    }
-		//    return true;
-		//}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (textBoxMaGV.Text == "")
+            if (textBoxMaGV.Text.Trim() == "")
             {
-                MessageBox.Show("Không được để trống mã số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điền mã giảng viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!bLL.checkGVBLL("GV" + textBoxMaGV.Text.Trim()))
+            {
+                MessageBox.Show("Giảng viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (comboBoxKhoa.SelectedIndex <= -1)
+            {
+                MessageBox.Show("Hãy chọn khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textBoxHoTen.Text.Trim() == "")
+            {
+                MessageBox.Show("Hãy điền tên giảng viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (bLL.checkGVBLL("GV" + textBoxMaGV.Text) && comboBoxKhoa.SelectedIndex>-1)
+                try
                 {
                     bLL.addGiangVienBLL(new GiangVien
                     {
-                        ID = "GV" + textBoxMaGV.Text,
-                        HoTen = textBoxHoTen.Text,
+                        ID = "GV" + textBoxMaGV.Text.Trim(),
+                        HoTen = textBoxHoTen.Text.Trim(),
                         NgaySinh = dateTimePickerNS.Value,
-                        DiaChi = textBoxDiaChi.Text,
-                        Email = textBoxEmail.Text,
-                        DienThoai = textBoxDienThoai.Text,
+                        DiaChi = textBoxDiaChi.Text.Trim(),
+                        Email = textBoxEmail.Text.Trim(),
+                        DienThoai = textBoxDienThoai.Text.Trim(),
                         MaKhoa = bLL.getMaKhoaBLL(comboBoxKhoa.SelectedItem.ToString()),
                         Password = "",
                     });
                     MessageBox.Show("Thêm giảng viên thành công");
                     this.Dispose();
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Thêm giảng viên không thành công thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thêm giảng viên không thành công");
                 }
             }
-
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
