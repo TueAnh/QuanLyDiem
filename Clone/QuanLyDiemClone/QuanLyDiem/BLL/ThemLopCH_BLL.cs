@@ -21,14 +21,19 @@ namespace QuanLyDiem.BLL
 			return dAL.getMaKhoaDAL(tenKhoa);
 		}
 
-		public dynamic checkMaKhoaBLL(string tenLop)
+		public dynamic checkTenLopBLL(string tenLop)
 		{
-			return dAL.checkLopDAL(tenLop);
+			return dAL.checkTenLopDAL(tenLop);
 		}
 
 		public void getAddLopBLL(LopDaoTao lop)
 		{
 			dAL.addLopDAL(lop);
 		}
-	}
+        public bool checkMaLopBLL(string malop)
+        {
+            return dAL.checkMaLopDAL(malop);
+        }
+
+    }
 }

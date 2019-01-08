@@ -75,11 +75,27 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonLuuMoi_Click(object sender, EventArgs e)
         {
-            if (themHP_BLL.ChecKExistHP_BLL("HP"+ textBoxMaHP.Text.Trim()))
+            if (textBoxMaHP.Text.Trim() == "")
+            {
+                MessageBox.Show("Không được để trống mã học phần", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textBoxTenHP.Text.Trim() == "")
+            {
+                MessageBox.Show("Không được để trống tên học phần", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (themHP_BLL.ChecKExistHP_BLL("HP"+ textBoxMaHP.Text.Trim()))
             {
                 textBoxMaHP.Text= "";
                 MessageBox.Show("Học phần đã tồn tại");
                 
+            }
+            else if (comboBoxTenHK.SelectedIndex <= -1)
+            {
+                MessageBox.Show("Hãy chọn học kì", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (comboBoxTenGV.SelectedIndex <= -1)
+            {
+                MessageBox.Show("Hãy chọn giáo viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

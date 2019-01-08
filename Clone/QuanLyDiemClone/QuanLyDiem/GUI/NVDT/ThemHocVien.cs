@@ -41,13 +41,25 @@ namespace QuanLyDiem.GUI.NVDT
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-            if (textBoxMaHV.Text == "")
+            if (textBoxMaHV.Text.Trim() == "")
             {
-                MessageBox.Show("Không được để trống mã số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điền mã học viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!bLL.checkHocVienBLL("HV" + textBoxMaHV.Text.Trim()))
+            {
+                MessageBox.Show("Học viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (bLL.getLopBLL(textBoxLopCH.Text) == null)
+            {
+                MessageBox.Show("Không thể thêm học viên vào lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textBoxHoTen.Text.Trim() == "")
+            {
+                MessageBox.Show("Hãy điền tên học viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (bLL.getLopBLL(textBoxLopCH.Text) != null && bLL.CheckID_BLL("HV" + textBoxMaHV.Text))
+                try
                 {
                     bLL.addHVBLL(new HocVien
                     {
@@ -63,9 +75,9 @@ namespace QuanLyDiem.GUI.NVDT
                     MessageBox.Show("Thêm học viên thành công");
                     this.Dispose();
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Thêm học viên không thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thêm học viên không thành công");
                 }
             }
 		}

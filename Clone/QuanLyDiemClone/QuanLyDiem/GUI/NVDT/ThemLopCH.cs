@@ -19,7 +19,7 @@ namespace QuanLyDiem.GUI.NVDT
         {
             InitializeComponent();
             textBoxKhoa.Text = tenKhoa;
-            //	LoadMaLop();
+            LoadMaLop();
         }
 
         public bool checkMaLop()
@@ -33,16 +33,16 @@ namespace QuanLyDiem.GUI.NVDT
             return true;
         }
 
-        //void LoadMaLop()
-        //{
-        //	string s = "LCH";
-        //	if (bLL.getSoLopBLL()+1 < 100)
-        //		s += "0";
-        //	if (bLL.getSoLopBLL()+1 < 10)
-        //		s += "0";
-        //	s += (bLL.getSoLopBLL()+1);
-        //	textBoxMaLop.Text = s;
-        //}
+        void LoadMaLop()
+        {
+            string s = "";
+            if (bLL.getSoLopBLL() + 1 < 100)
+                s += "0";
+            if (bLL.getSoLopBLL() + 1 < 10)
+                s += "0";
+            s += (bLL.getSoLopBLL() + 1);
+            textBoxMaLop.Text = s;
+        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -56,15 +56,25 @@ namespace QuanLyDiem.GUI.NVDT
             }
             else
             {
-                if (bLL.checkMaKhoaBLL(textBoxTenLop.Text) && checkMaLop() && textBoxTenLop.Text != "")
+                if (!bLL.checkMaLopBLL("LCH" + textBoxMaLop.Text.Trim()))
+                {
+                    textBoxMaLop.Text = "";
+                    MessageBox.Show("Lớp đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!bLL.checkTenLopBLL(textBoxTenLop.Text.Trim()))
+                {
+                    textBoxTenLop.Text = "";
+                    MessageBox.Show("Tên Lớp đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                 {
                     try
                     {
                         bLL.getAddLopBLL(new LopDaoTao
                         {
-                            MaLop = "LCH" + textBoxMaLop.Text,
-                            TenLop = textBoxTenLop.Text,
-                            MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text),
+                            MaLop = "LCH" + textBoxMaLop.Text.Trim(),
+                            TenLop = textBoxTenLop.Text.Trim(),
+                            MaKhoa = bLL.getMaKhoaBLL(textBoxKhoa.Text.Trim()),
                         });
                         MessageBox.Show("Thêm lớp thành công");
                     }
@@ -74,10 +84,7 @@ namespace QuanLyDiem.GUI.NVDT
                     }
                     this.Dispose();
                 }
-                else
-                {
-                    MessageBox.Show("Trùng tên lớp");
-                }
+                
             }
         }
 
