@@ -242,5 +242,10 @@ namespace QuanLyDiem.GUI
             About form = new About();
             form.ShowDialog();
         }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"Help.pdf");
+        }
     }
 }

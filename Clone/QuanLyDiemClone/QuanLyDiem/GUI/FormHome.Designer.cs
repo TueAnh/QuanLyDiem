@@ -89,7 +89,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(3, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(177, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,6 +198,7 @@
             this.buttonHelp.TabIndex = 3;
             this.buttonHelp.Text = "Trợ giúp";
             this.buttonHelp.UseVisualStyleBackColor = false;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
             // buttonAbout
             // 
