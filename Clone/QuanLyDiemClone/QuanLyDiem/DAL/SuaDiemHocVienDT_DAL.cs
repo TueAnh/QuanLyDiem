@@ -14,7 +14,7 @@ namespace QuanLyDiem.DAL
                 KetQuaHocPhan ketQuaHocPhan = (from c in db.KetQuaHocPhan where c.HocVien.ID == MaHV && c.HocPhan.MaHP == MaHP
                                                select c).SingleOrDefault();
                 if(bt!="") ketQuaHocPhan.DiemBT = Convert.ToDouble(bt);
-                if(gk!="") ketQuaHocPhan.DiemGK = Convert.ToDouble(bt);
+                if(gk!="") ketQuaHocPhan.DiemGK = Convert.ToDouble(gk);
                 if(thi!="")ketQuaHocPhan.DiemThi = Convert.ToDouble(thi);
                 db.SaveChanges();
             }

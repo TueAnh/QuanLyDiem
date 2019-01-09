@@ -47,21 +47,28 @@ namespace QuanLyDiem.GUI.NVDT
         }
         private void buttonSort_Click_1(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+            try
             {
-                dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                if (comboBox1.SelectedItem.ToString() == "Theo Tên")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Tên"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
+                }
+                if (comboBox1.SelectedItem.ToString() == "Theo Khoa")
+                {
+                    dataGridView.Sort(dataGridView.Columns["Khoa"], ListSortDirection.Ascending);
+                }
             }
-            if (comboBox1.SelectedItem.ToString() == "Theo Mã")
+            catch
             {
-                dataGridView.Sort(dataGridView.Columns["Mã HV"], ListSortDirection.Ascending);
-            }
-            if (comboBox1.SelectedItem.ToString() == "Theo Lớp")
-            {
-                dataGridView.Sort(dataGridView.Columns["Lớp Cao học"], ListSortDirection.Ascending);
-            }
-            if (comboBox1.SelectedItem.ToString() == "Theo Khoa")
-            {
-                dataGridView.Sort(dataGridView.Columns["Khoa"], ListSortDirection.Ascending);
+
             }
         }
         private void buttonBack_Click(object sender, EventArgs e)
