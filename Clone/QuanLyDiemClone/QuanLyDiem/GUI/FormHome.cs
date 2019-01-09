@@ -245,7 +245,12 @@ namespace QuanLyDiem.GUI
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"Help.pdf");
+            try
+            {
+                System.Diagnostics.Process.Start(@"..\..\Resources\Help.pdf");
+            }
+            catch
+            { }
         }
     }
 }
